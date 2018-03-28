@@ -1,0 +1,30 @@
+ .header-main-bar{
+ 	position: relative;
+ 	top:52px;
+ }
+ .main-bar-content{
+ 	width: 100%;
+ 	height: 79px;
+ 	/*margin: 0 auto*/
+ }
+ .icon-olive{
+ 	clear: both;
+ 	display: block;
+ 	margin: 0 auto;
+ }
+ .main-olive{
+ 	position: relative;
+ 	top:75px;
+ }
+
+.carousel-inner img{
+	margin：0 auto；
+	width: 1398.28px;
+	height:542.672px;
+	overflow: hidden;
+    /*vertical-align: top;*/
+}
+.carousel-control{
+	font-size:50px;
+	color: #fff;
+}
