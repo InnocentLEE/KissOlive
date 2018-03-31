@@ -1,15 +1,12 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
-<%
-String path = request.getContextPath();
-String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
-%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
   <head>
-    <base href="<%=basePath%>">
+    <title>My JSP 'test.jsp' starting page</title>
     
-    <title>My JSP 'index.jsp' starting page</title>
 	<meta http-equiv="pragma" content="no-cache">
 	<meta http-equiv="cache-control" content="no-cache">
 	<meta http-equiv="expires" content="0">    
@@ -18,9 +15,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<!--
 	<link rel="stylesheet" type="text/css" href="styles.css">
 	-->
+	<script type="text/javascript" src="<c:url value='/js/jquery.js'/>"></script>
+	<script type="text/javascript" src="<c:url value='/js/test.js'/>"></script>
   </head>
   
   <body>
-    <jsp:forward page="/TestServlet?method=test"></jsp:forward>
+    ${MSG } <br>
+	昵称：<input class="inputClass" type="text" name="username" id="username"/><label class="errorClass" id="usernameError"></label><br>
+	密码：<input text="password"/>
+
   </body>
 </html>
