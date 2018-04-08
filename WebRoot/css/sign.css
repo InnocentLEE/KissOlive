@@ -1,0 +1,62 @@
+.logo_header{
+	width:100%;
+	height:auto;
+	text-align:center;
+}
+.ko{
+	top:15px;
+	height: 90px;
+    overflow: hidden;
+}
+.sign-panel{
+    height: 580px;  
+}
+.zhuce{
+	font-weight:600;
+	font-family: montserrat light;
+	color:#080808;
+	font-size:26px;
+	margin-bottom:2px
+}
+.panel-default{
+	border-top-color: #080808;
+    border-radius: 0;
+    border-top-width: 5;
+    border-width: 8;
+}
+.panel{
+	top: auto;
+    left: 31.5%;
+   
+}
+.btn-default {
+    font-weight: bold;
+    color: #f5f5f5;
+    background-color: #080808;
+    border-color: #333;
+}
+.col-sm-offset-2 {
+   
+    top: 15px;
+    left: 25px;
+}
+.select{
+	border-radius: 6px;
+}
+.agreement{
+	color: #999;
+    font-weight: bold;
+    font-size: 12px;
+}
+.form-group{
+	    margin-top: 10px;
+}
+.col-sm-3{
+	font-family: montserrat light;
+	color:#080808;
+	font-size:14px;
+	left: 25px;
+}
+.col-md-12 {
+    height: auto;
+}
