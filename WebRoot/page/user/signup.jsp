@@ -18,6 +18,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	
 	 <link rel="stylesheet" href="css/bootstrap.min.css">
 	 <link rel="stylesheet" href="css/sign.css">
+	 <link rel="stylesheet" href="css/validform/style.css">
+	 <link rel="stylesheet" href="css/validform/demo.css">
 
 
   </head>
@@ -39,19 +41,20 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				              <div class="form-group">
 				                <label for="tel" class="col-sm-3 control-label">手机号</label>
 				    			   <div class="col-sm-7">
-				                 <input type="text" class="form-control" id="" placeholder="请输入手机号">
+				                    <input type="text" class="form-control" ajaxurl="#" id="" placeholder="请输入手机号"/>
 				                 </div>
 				              </div>
 				                <div class="form-group">
 				                <label for="password" class="col-sm-3 control-label">密码</label>
 				    			  <div class="col-sm-7">
-				                 <input type="text" class="form-control" id="" placeholder="请输入数字/字母/_"/>
-				                 </div>
+				                 <input type="text" class="form-control inputxt" id="" placeholder="请输入数字/字母/_" value="" name="password" plugin="passwordStrength" datatype="*6-18" errormsg="密码至少6个字符,最多18个字符！"/>
+				                 <div class="passwordStrength">密码强度： <span>弱</span><span>中</span><span class="last">强</span></div>
+				                </div>
 				              </div>
 				                <div class="form-group">
-				                <label for="repassword" class="col-sm-3 control-label">确认密码</label>
+				                <label for="repassword" class="col-sm-3 control-label" v>确认密码</label>
 				    			  <div class="col-sm-7">
-				                 <input type="text" class="form-control" id="" placeholder="请重复输入密码">
+				                 <input type="text" class="form-control  inputxt" id="" placeholder="请重复输入密码" alue="" name="repassword" recheck="password"  datatype="*6-18" errormsg="两次输入的密码不一致！">
 				                 </div>
 				              </div>
 				                <div class="form-group">
@@ -106,9 +109,27 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     	</div>
     </div>
     
-    <script src="./js/jquery.cookie.js"></script>
     <script src="./js/jquery.js"></script>
+    <script src="./js/validform/Validform_v5.3.2.js"></script>
     <script type="text/javascript" src="./js/jquery.cityselect.js"></script>
+    <script type="text/javascript" src="./js/validform/passwordStrength.js"></script>
+
+	<script type="text/javascript">
+	$(function(){
+		//$(".registerform").Validform();  //就这一行代码！;
+			
+		$(".registerform").Validform({
+			tiptype:2,
+			usePlugin:{
+				passwordstrength:{
+					minLen:6,
+					maxLen:18
+				}
+			}
+		});
+	})
+	</script>
+    
     <script type="text/javascript">
     $(function(){
 			
