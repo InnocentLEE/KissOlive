@@ -27,14 +27,17 @@ input{padding: 8px 20px; vertical-align:middle;}
 	height:75px;
 }
 .registerform label{
-	margin:0 15px 0 4px;
+	margin:0 0 0 4px;
 }
 .registerform .tip{
 	line-height:20px;
 	color:#5f6a72;
+	left: -25px;
 }
 .registerform select{
 	width:202px;
+	margin: 5px 0 10px 0;
+	border-radius: 6px;
 }
 .registerformalter select{
 	width:124px;

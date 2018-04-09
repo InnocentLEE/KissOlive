@@ -36,58 +36,81 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     	    <div class="center-block">
     			<div class="panel panel-default sign-panel ">
     				<span class="zhuce">&nbsp;&nbsp;&nbsp;注  册</span>
-    		 			<form class="form-horizontal" action="#">
+    		 			<form class="registerform form-horizontal " action="#">
 				              <div class="sum-group">
 				              <div class="form-group">
 				                <label for="tel" class="col-sm-3 control-label">手机号</label>
-				    			   <div class="col-sm-7">
-				                    <input type="text" class="form-control" ajaxurl="#" id="" placeholder="请输入手机号"/>
+				    			   <div class="col-sm-6">
+				                    <input type="text" class="form-control inputxt" id="usertel" placeholder="请输入手机号" value="" name="tel" datatype="m" errormsg="请输入11位正确手机号码！" nullmsg="手机号不得为空！"/>
 				                 </div>
+				                  <div class="col-sm-3 tip">
+				                   <div class="Validform_checktip"></div>
+				                   </div>
 				              </div>
 				                <div class="form-group">
-				                <label for="password" class="col-sm-3 control-label">密码</label>
-				    			  <div class="col-sm-7">
-				                 <input type="text" class="form-control inputxt" id="" placeholder="请输入数字/字母/_" value="" name="password" plugin="passwordStrength" datatype="*6-18" errormsg="密码至少6个字符,最多18个字符！"/>
-				                 <div class="passwordStrength">密码强度： <span>弱</span><span>中</span><span class="last">强</span></div>
-				                </div>
-				              </div>
-				                <div class="form-group">
-				                <label for="repassword" class="col-sm-3 control-label" v>确认密码</label>
-				    			  <div class="col-sm-7">
-				                 <input type="text" class="form-control  inputxt" id="" placeholder="请重复输入密码" alue="" name="repassword" recheck="password"  datatype="*6-18" errormsg="两次输入的密码不一致！">
+				                <label for="userpassword" class="col-sm-3 control-label">密码</label>
+				    			  <div class="col-sm-6">
+				                  <input type="password" value="" name="password" class="form-control inputxt"  datatype="pw"   placeholder="6-18位以字母开头，含数字/字母/'_'"errormsg="密码以字母开头，长度6-18位，只包含数字、字母或下划线！" nullmsg="密码不得为空！"/>
+                        		</div>
+				                  <div class="col-sm-3 tip">
+				                    <div class="Validform_checktip"></div>
+				                  </div>
 				                 </div>
+				                <div class="form-group">
+				                <label for="repassword" class="col-sm-3 control-label" >确认密码</label>
+				    			  <div class="col-sm-6">
+				                   <input type="password" class="form-control inputxt"  placeholder="请重复输入密码" value="" name="userpassword2" recheck="password"  datatype="*" errormsg="两次输入的密码不一致！"/>
+				                 </div>
+				                  <div class="col-sm-3 tip">
+				                   <div class="Validform_checktip"></div>
+				                   </div>
 				              </div>
 				                <div class="form-group">
 				                <label for="address_1" class="col-sm-3 control-label">收货地址</label>
-				    			  <div class="col-sm-7" id="city">
+				    			  <div class="col-sm-6" id="city">
 							        <select class="prov"></select> 		
 									<select class="city" disabled="disabled"></select>
 									<select class="dist" disabled="disabled"></select>			
 				                 </div>
+				                  <div class="col-sm-3 tip">
+				                   <div class="Validform_checktip"></div>
+				                   </div>
 				              </div>
 				               <div class="form-group">
 				                <label for="address_2" class="col-sm-3 control-label">详细地址</label>
-				    			  <div class="col-sm-7">
-				                 <input type="text" class="form-control" id="" placeholder="请输入详细地址">
+				    			  <div class="col-sm-6">
+				                 <input type="text" class="form-control inputxt" datatype="*" id="detail" placeholder="请输入详细地址" nullmsg="详细地址不得为空！">
 				                 </div>
+				                  <div class="col-sm-3 tip">
+				                   <div class="Validform_checktip"></div>
+				                   </div>
 				              </div>
 				               <div class="form-group">
 				                <label for="adapter" class="col-sm-3 control-label">收件人</label>
-				    			  <div class="col-sm-7">
-				                 <input type="text" class="form-control" id="" placeholder="请输入收件人姓名">
+				    			  <div class="col-sm-6">
+				                 <input type="text" class="form-control inputxt" datatype="*"  id="username" placeholder="请输入收件人姓名" nullmsg="收件人姓名不得为空！">
 				                 </div>
+				                  <div class="col-sm-3 tip">
+				                   <div class="Validform_checktip"></div>
+				                   </div>
 				              </div>
 				               <div class="form-group">
 				                <label for="atel" class="col-sm-3 control-label">联系方式</label>
-				    			  <div class="col-sm-7">
-				                 <input type="text" class="form-control" id="" placeholder="请输入收件人联系方式">
+				    			  <div class="col-sm-6">
+				                 <input type="text" class="form-control inputxt" id="tel" datatype="*"  placeholder="请输入收件人联系方式" nullmsg="收件人联系方式不得为空！">
 				                 </div>
+				                  <div class="col-sm-3 tip">
+				                   <div class="Validform_checktip"></div>
+				                   </div>
 				              </div>
 				               <div class="form-group">
 				                <label for="vali" class="col-sm-3 control-label">短信验证码</label>
-				    			  <div class="col-sm-7">
-				                 <input type="text" class="form-control" id=""/>
+				    			  <div class="col-sm-6">
+				                 <input type="text" class="form-control"/>
 				                 </div>
+				                  <div class="col-sm-3 tip">
+				                   <div class="Validform_checktip"></div>
+				                   </div>
 				              </div>
 				              <div class="form-group">
 				             	 <div class="col-sm-12 col-md-12" style="left:25px">
@@ -112,29 +135,52 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <script src="./js/jquery.js"></script>
     <script src="./js/validform/Validform_v5.3.2.js"></script>
     <script type="text/javascript" src="./js/jquery.cityselect.js"></script>
-    <script type="text/javascript" src="./js/validform/passwordStrength.js"></script>
+    <!-- <script type="text/javascript" src="./js/validform/passwordStrength.js"></script> -->
 
 	<script type="text/javascript">
 	$(function(){
 		//$(".registerform").Validform();  //就这一行代码！;
-			
+		$.Datatype.m=/^13[0-9]{9}$|14[0-9]{9}$|15[0-9]{9}$|15[0-9]{9}$|17[0-9]{9}$|18[0-9]{9}$/;
+	   
+		//$.Datatype.pw=/^[a-zA-Z]\w{5,17}$/,
+		$.extend($.Datatype, {
+    
+		    //stock你定义的验证名称
+		    'pw':function ( gets, obj, curform, regxp)
+		    {  
+		        //你需要处理的业务  返回 true 和false
+		        var reg = /^[a-zA-Z]\w{5,17}$/;
+		        if ( reg.test(gets) )
+		        {
+		        	return true;
+		
+		        }else
+		        {
+		            if( obj.attr('name') == 'pw' )
+		            {
+		                obj.attr('errormsg', '密码以字母开头，长度6-18位，只包含数字、字母或下划线!');
+		                return false;
+		            }else
+		            {
+		                return false;
+		            }
+		        }
+		      }  
+		  })
+		
+		
 		$(".registerform").Validform({
 			tiptype:2,
-			usePlugin:{
-				passwordstrength:{
-					minLen:6,
-					maxLen:18
-				}
-			}
+		   
 		});
 	})
 	</script>
-    
+	
     <script type="text/javascript">
     $(function(){
 			
 				$("#city").citySelect({
-					prov:"-请选择省-",
+					prov:"北京",
 					nodata:"none"
 				});
 		       });		

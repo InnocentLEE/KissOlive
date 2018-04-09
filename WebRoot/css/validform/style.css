@@ -60,12 +60,12 @@ b{font-weight:normal; display:inline-block; margin:0 8px; color:#f27f02;}
 }
 .clear{clear:both; height:0; overflow:hidden;}
 .lireset li {
-    background: url("../images/arrow1.gif") no-repeat left 8px;
+    background: url("http://localhost:8080/KissOlive/img/validform/images/arrow1.gif") no-repeat left 8px;
     margin-bottom: 4px;
     padding-left: 15px;
 }
 .lireset2 li {
-    background: url("../images/arrow2.gif") no-repeat left 8px;
+    background: url("http://localhost:8080/KissOlive/img/validform/images/arrow2.gif") no-repeat left 8px;
     margin-bottom: 4px;
     padding-left: 15px;
 }
@@ -75,7 +75,7 @@ b{font-weight:normal; display:inline-block; margin:0 8px; color:#f27f02;}
 	height:64px;
 	font-size:16px;
 	font-family:"microsoft yahei";
-	background:url(../images/download.png) no-repeat;
+	background:url(http://localhost:8080/KissOlive/img/validform/images/download.png) no-repeat;
 }
 .donate{
 	padding:15px 5px 6px 72px;
@@ -84,7 +84,7 @@ b{font-weight:normal; display:inline-block; margin:0 8px; color:#f27f02;}
 	display:block;
 	color:#8b6300;
 	border:5px solid #F27F02;
-	background:url(../images/donate.png) 3px center no-repeat #fae4ae;
+	background:url(http://localhost:8080/KissOlive/img/validform/images/donate.png) 3px center no-repeat #fae4ae;
 }
 .donate:hover{
 	text-decoration:none;
@@ -100,7 +100,7 @@ b{font-weight:normal; display:inline-block; margin:0 8px; color:#f27f02;}
 	margin-left:auto;
 	margin-right:auto;
 }
-.header{background:url(../images/header-bg.gif) repeat-x left bottom;}
+.header{background:url(http://localhost:8080/KissOlive/img/validform/images/header-bg.gif) repeat-x left bottom;}
 .header h1 {
 	font-size:34px;
 	line-height:52px;
@@ -130,7 +130,7 @@ b{font-weight:normal; display:inline-block; margin:0 8px; color:#f27f02;}
 	text-align:center;
 	float:left;
 	margin-right:1px;
-	background:url(../images/navbg.gif) repeat-x;
+	background:url(http://localhost:8080/KissOlive/img/validform/images/navbg.gif) repeat-x;
 }
 .header .nav li a.current, .header .nav li a:hover {
 	border-bottom:5px solid #f27f02;
@@ -138,7 +138,7 @@ b{font-weight:normal; display:inline-block; margin:0 8px; color:#f27f02;}
 .gallery{
 	height:496px;
 	overflow:hidden;
-	background:url(../images/gallerry-bg.gif) 0 0 repeat-x #ccc;
+	background:url(http://localhost:8080/KissOlive/img/validform/images/gallerry-bg.gif) 0 0 repeat-x #ccc;
 	border-bottom:5px solid #EAEAEA; 
 }
 .gallery li{background-color:#fff; overflow:hidden;}
@@ -299,17 +299,18 @@ b{font-weight:normal; display:inline-block; margin:0 8px; color:#f27f02;}
 .Validform_right{
 	color:#71b83d;
 	padding-left:20px;
-	background:url(../images/right.png) no-repeat left center;
+	width:180px;
+	background:url(http://localhost:8080/KissOlive/img/validform/images/right.png) no-repeat left center;
 }
 .Validform_wrong{
 	color:red;
 	padding-left:20px;
 	white-space:nowrap;
-	background:url(../images/error.png) no-repeat left center;
+	background:url(http://localhost:8080/KissOlive/img/validform/images/error.png) no-repeat left center;
 }
 .Validform_loading{
 	padding-left:20px;
-	background:url(../images/onLoad.gif) no-repeat left center;
+	background:url(http://localhost:8080/KissOlive/img/validform/images/onLoad.gif) no-repeat left center;
 }
 .Validform_error{
 	background-color:#ffe7e7;
