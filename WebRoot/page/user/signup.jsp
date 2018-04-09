@@ -41,11 +41,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				              <div class="form-group">
 				                <label for="tel" class="col-sm-3 control-label">手机号</label>
 				    			   <div class="col-sm-6">
-				                    <!--<input type="text" class="form-control inputClass" id="usertel" placeholder="请输入手机号"/>
-				                  -->
-				                    <input type="text" class="form-control inputxt" id="usertel" 
-				                      placeholder="请输入手机号" value="" name="usertel" datatype="tel" errormsg="请输入11位正确手机号码！" nullmsg="手机号不得为空！"/>
-				                    
+				                    <input type="text" class="form-control inputxt" id="usertel" placeholder="请输入手机号" value="" name="tel" datatype="m" errormsg="请输入11位正确手机号码！" nullmsg="手机号不得为空！"/>
 				                 </div>
 				                  <div class="col-sm-3 tip">
 				                   <div class="Validform_checktip"></div>
@@ -92,7 +88,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				               <div class="form-group">
 				                <label for="adapter" class="col-sm-3 control-label">收件人</label>
 				    			  <div class="col-sm-6">
-				                 <input type="text" class="form-control inputxt" datatype="s|zh"  id="username" placeholder="请输入收件人姓名" nullmsg="收件人姓名不得为空！">
+				                 <input type="text" class="form-control inputxt" datatype="*"  id="username" placeholder="请输入收件人姓名" nullmsg="收件人姓名不得为空！">
 				                 </div>
 				                  <div class="col-sm-3 tip">
 				                   <div class="Validform_checktip"></div>
@@ -101,7 +97,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				               <div class="form-group">
 				                <label for="atel" class="col-sm-3 control-label">联系方式</label>
 				    			  <div class="col-sm-6">
-				                 <input type="text" class="form-control inputxt" id="tel" datatype="m"  placeholder="请输入收件人联系方式" nullmsg="收件人联系方式不得为空！">
+				                 <input type="text" class="form-control inputxt" id="tel" datatype="*"  placeholder="请输入收件人联系方式" nullmsg="收件人联系方式不得为空！">
 				                 </div>
 				                  <div class="col-sm-3 tip">
 				                   <div class="Validform_checktip"></div>
@@ -110,16 +106,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				               <div class="form-group">
 				                <label for="vali" class="col-sm-3 control-label">短信验证码</label>
 				    			  <div class="col-sm-6">
-				                 <input type="number" class="form-control code"/>
-				                 
+				                 <input type="text" class="form-control"/>
 				                 </div>
-				                  <div class="col-sm-3 valid">
-				                   <input type="button"  class="btn btn-default obtain generate_code" id="mobilebtn" 
-				                          value="获取验证码"  style="display:none;" onclick="settime(this);"/>
-				                  </div>
-				                  <div class="col-sm-12">
-				                   <div class="focus"><span>请查收手机短信，并填写短信中的验证码（此验证码1分钟内有效）</span></div> 
-				                  </div>
+				                  <div class="col-sm-3 tip">
+				                   <div class="Validform_checktip"></div>
+				                   </div>
 				              </div>
 				              <div class="form-group">
 				             	 <div class="col-sm-12 col-md-12" style="left:25px">
@@ -144,28 +135,47 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <script src="./js/jquery.js"></script>
     <script src="./js/validform/Validform_v5.3.2.js"></script>
     <script type="text/javascript" src="./js/jquery.cityselect.js"></script>
-    <script type="text/javascript" src="./js/validate.js"></script>
-    <script type="text/javascript">  
- 
-	//倒计时  
-	var countdown=60;  
-	function settime(val) {  
-	    if (countdown == 0) {  
-	        val.removeAttribute("disabled");  
-	        val.value="获取验证码";  
-	        countdown = 60;  
-	        return false;  
-	    } else {  
-	        val.setAttribute("disabled", true);  
-	        val.value="重新发送(" + countdown + ")";  
-	        countdown--;  
-	    }  
-	    setTimeout(function() {  
-	        settime(val);  
-	    },1000);  
-	}  
-	</script> 
+    <!-- <script type="text/javascript" src="./js/validform/passwordStrength.js"></script> -->
 
+	<script type="text/javascript">
+	$(function(){
+		//$(".registerform").Validform();  //就这一行代码！;
+		$.Datatype.m=/^13[0-9]{9}$|14[0-9]{9}$|15[0-9]{9}$|15[0-9]{9}$|17[0-9]{9}$|18[0-9]{9}$/;
+	   
+		//$.Datatype.pw=/^[a-zA-Z]\w{5,17}$/,
+		$.extend($.Datatype, {
+    
+		    //stock你定义的验证名称
+		    'pw':function ( gets, obj, curform, regxp)
+		    {  
+		        //你需要处理的业务  返回 true 和false
+		        var reg = /^[a-zA-Z]\w{5,17}$/;
+		        if ( reg.test(gets) )
+		        {
+		        	return true;
+		
+		        }else
+		        {
+		            if( obj.attr('name') == 'pw' )
+		            {
+		                obj.attr('errormsg', '密码以字母开头，长度6-18位，只包含数字、字母或下划线!');
+		                return false;
+		            }else
+		            {
+		                return false;
+		            }
+		        }
+		      }  
+		  })
+		
+		
+		$(".registerform").Validform({
+			tiptype:2,
+		   
+		});
+	})
+	</script>
+	
     <script type="text/javascript">
     $(function(){
 			

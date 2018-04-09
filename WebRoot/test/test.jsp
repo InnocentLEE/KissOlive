@@ -21,8 +21,7 @@
   
   <body>
     ${MSG } <br>
-	昵称：<input class="inputClass" type="text" name="username" id="username"/>
-	<label class="errorClass" id="usernameError"></label><br>
+	昵称：<input class="inputClass" type="text" name="username" id="username"/><label class="errorClass" id="usernameError"></label><br>
 	密码：<input text="password"/>
 
   </body>

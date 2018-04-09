@@ -13,15 +13,6 @@ input{padding: 8px 20px; vertical-align:middle;}
 	width:10px;
 	color:#b20202;
 }
-.registerform .focus{
-	color: #3f3c3c;
-    height: 34px;
-    width: auto;
-    padding: 10 0 0 27;
-    font-weight: normal;
-    font-size: 12px;
-    
-}
 .registerform td{
 	padding:5px 0;
 	vertical-align:top;
@@ -43,17 +34,10 @@ input{padding: 8px 20px; vertical-align:middle;}
 	color:#5f6a72;
 	left: -25px;
 }
-.registerform .valid{
-	left:-90px;
-
-	}
 .registerform select{
-	width: 202px;
-    margin: 5px 0 10px 0;
-    border-radius: 6px;
-    height: auto;
-    padding: 4px 1px;
-    font-size: 12px;
+	width:202px;
+	margin: 5px 0 10px 0;
+	border-radius: 6px;
 }
 .registerformalter select{
 	width:124px;
