@@ -82,3 +82,60 @@ function showError(ele) {
 		ele.css("display", "");//显示元素
 	}
 }
+function validateUsertel() {
+	var id = "usertel";
+	var value = $("#" + id).val();//获取输入框内容
+	/*
+	 * 非空校验
+	 */
+	if(!value) {
+		/*
+		 * 获取对应的label
+		 * 添加错误信息
+		 * 显示label
+		 */
+		$("#" + id + "Error").text("昵称不能为空！");
+		showError($("#" + id + "Error"));
+		return false;
+	}
+	/*
+	 * 长度校验
+	 */
+	if(/^(13[0-9]|14[5|7]|15[0|1|2|3|5|6|7|8|9]|18[0|1|2|3|5|6|7|8|9])\d{8}$/.test(value)) {
+		/*
+		 * 获取对应的label
+		 * 添加错误信息
+		 * 显示label
+		 */
+		$("#" + id + "Error").text("请输入11位正确的手机号码！");
+		showError($("#" + id + "Error"));
+		false;
+	}
+	/*
+	 * 是否已存在校验
+	 */
+	$.ajax({
+		url:"/KissOlive/servlet/UserServlet",//要请求的servlet
+		data:{method:"ajaxValidateUsertel", usertel:value},//给服务器的参数
+		type:"POST",
+		dataType:"json",
+		async:false,//是否异步请求，如果是异步，那么不会等服务器返回，这个函数就向下运行了。
+		cache:false,
+		success:function(result) {
+			if(!result) {//如果校验失败
+				$("#" + id + "Error").text("手机号码已存在！");
+				showError($("#" + id + "Error"));
+				return false;
+			}
+		}
+	});
+	return true;
+}
+function showError(ele) {
+	var text = ele.text();//获取元素的内容
+	if(!text) {//如果没有内容
+		ele.css("display", "none");//隐藏元素
+	} else {//如果有内容
+		ele.css("display", "");//显示元素
+	}
+}

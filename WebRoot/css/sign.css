@@ -1,4 +1,11 @@
-
+.correctClass{
+	color: #7bcc29;
+    font-weight: 540;
+}
+.errorClass{
+	color:#e02323;
+	font-weight:540;
+}
 .logo_header{
 	width:100%;
 	height:auto;

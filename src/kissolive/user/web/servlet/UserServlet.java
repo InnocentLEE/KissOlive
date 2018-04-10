@@ -49,10 +49,12 @@ public class UserServlet extends BaseServlet {
 
 		String usertel = req.getParameter("usertel");
 		/**测试boolean b = userService.ajaxValidateUsertel(usertel);**/
-		System.out.print(usertel);
-		String exitedUsertel = "17876253448";
-		boolean b = !usertel.equals(exitedUsertel);
 		
+		System.out.print(usertel+"\n");
+		String exitedUsertel = "17876253448";
+		
+		boolean b = !usertel.equals(exitedUsertel);
+		System.out.print(b+"\n");
 		resp.getWriter().print(b);
 		return null;
 	}

@@ -8,7 +8,7 @@ input{padding: 8px 20px; vertical-align:middle;}
 .main h2{background-color:#eee; line-height:2!important;}
 .main h3{font-size:20px; margin-bottom:10px;}
 .lireset2{padding-left:10px;}
-.registerform{margin-bottom:40px;}
+.registerform{margin-bottom:40px; }
 .registerform .need{
 	width:10px;
 	color:#b20202;
@@ -41,7 +41,8 @@ input{padding: 8px 20px; vertical-align:middle;}
 .registerform .tip{
 	line-height:20px;
 	color:#5f6a72;
-	left: -25px;
+	left: 100px;
+	font-size:10px;
 }
 .registerform .valid{
 	left:-90px;
