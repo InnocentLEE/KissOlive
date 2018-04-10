@@ -23,7 +23,17 @@ public class UserServlet extends BaseServlet {
 	 */
 	public String regist(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
-		return "f:/...";
+		String usertel = req.getParameter("usertel");
+		String password = req.getParameter("password");
+		String province = req.getParameter("province");
+		String city = req.getParameter("city");
+		String district = req.getParameter("district");
+		String detail = req.getParameter("detail");
+		String name = req.getParameter("name");
+		String tel = req.getParameter("tel");
+		System.out.println(usertel+password+province+city+district+detail+name+tel);
+		return null;
+		//return "f:/...";
 	}
 	/**
 	 * 验证手机是否已经被注册

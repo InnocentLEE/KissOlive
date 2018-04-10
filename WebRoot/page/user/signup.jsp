@@ -36,7 +36,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     	    <div class="center-block">
     			<div class="panel panel-default sign-panel ">
     				<span class="zhuce">&nbsp;&nbsp;&nbsp;注  册</span>
-    		 			<form class="registerform form-horizontal " action="#">
+    		 			<form class="registerform form-horizontal " action="<c:url value='servlet/UserServlet'/>" method="post">
+    		 			 <input type="hidden" name="method" value="regist" />
 				              <div class="sum-group">
 				              <div class="form-group">
 				                <label for="tel" class="col-sm-3 control-label">手机号</label>
@@ -54,7 +55,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				                <div class="form-group">
 				                <label for="userpassword" class="col-sm-3 control-label">密码</label>
 				    			  <div class="col-sm-6">
-				                  <input type="password" value="" name="password" class="form-control inputxt"  datatype="pw"   placeholder="6-18位以字母开头，含数字/字母/'_'"errormsg="密码以字母开头，长度6-18位，只包含数字、字母或下划线！" nullmsg="密码不得为空！"/>
+				                  <input type="password" value="" id="password" name="password" class="form-control inputxt"  datatype="pw"   placeholder="6-18位以字母开头，含数字/字母/'_'"errormsg="密码以字母开头，长度6-18位，只包含数字、字母或下划线！" nullmsg="密码不得为空！"/>
                         		</div>
 				                  <div class="col-sm-3 tip">
 				                    <div class="Validform_checktip"></div>
@@ -72,9 +73,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				                <div class="form-group">
 				                <label for="address_1" class="col-sm-3 control-label">收货地址</label>
 				    			  <div class="col-sm-6" id="city">
-							        <select class="prov"></select> 		
-									<select class="city" disabled="disabled"></select>
-									<select class="dist" disabled="disabled"></select>			
+							        <select class="prov" id="province"></select> 		
+									<select class="city" id="city" disabled="disabled"></select>
+									<select class="dist" id="district" disabled="disabled"></select>			
 				                 </div>
 				                  <div class="col-sm-3 tip">
 				                   <div class="Validform_checktip"></div>
@@ -92,7 +93,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				               <div class="form-group">
 				                <label for="adapter" class="col-sm-3 control-label">收件人</label>
 				    			  <div class="col-sm-6">
-				                 <input type="text" class="form-control inputxt" datatype="s|zh"  id="username" placeholder="请输入收件人姓名" nullmsg="收件人姓名不得为空！">
+				                 <input type="text" class="form-control inputxt" datatype="s|zh"  id="name" placeholder="请输入收件人姓名" nullmsg="收件人姓名不得为空！">
 				                 </div>
 				                  <div class="col-sm-3 tip">
 				                   <div class="Validform_checktip"></div>

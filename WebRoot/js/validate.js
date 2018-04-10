@@ -64,7 +64,7 @@ $(function(){
 		                dataType:'json',  
 		                type:'post',  
 		                async:false,  
-		                success:function(data){  
+		                success:function(){  
 		                    if(data.status == 0){
 		                        console.log(data.info)  
 		                        result = data.info;  
