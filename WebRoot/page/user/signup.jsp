@@ -110,7 +110,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				               <div class="form-group">
 				                <label for="vali" class="col-sm-3 control-label">短信验证码</label>
 				    			  <div class="col-sm-6">
-				                 <input type="number" class="form-control code"/>
+				                 <input type="text" class="form-control code"/>
 				                 
 				                 </div>
 				                  <div class="col-sm-3 valid">

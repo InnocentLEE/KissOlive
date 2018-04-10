@@ -5,7 +5,7 @@ import java.io.UnsupportedEncodingException;
 import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
 import java.security.SecureRandom;
-import java.util.Base64;
+import java.util.Base64;  
 import java.util.Scanner;
 
 import javax.crypto.BadPaddingException;

@@ -6,7 +6,7 @@ $(function(){
 		/** 自定义密码验证 **/
 		$.extend($.Datatype, {
     
-		    //stock你定义的验证名称
+		    //pw你定义的验证名称
 		    'pw':function ( gets, obj, curform, regxp)
 		    {  
 		        //你需要处理的业务  返回 true 和false
@@ -55,10 +55,11 @@ $(function(){
     		                return false;
     		            } 
 		            }  
-		            /*验证手机号是否存在  
-		            var result;  
+		            //验证手机号是否存在  
+		            var result; 
+		            var value = $(usertel).val();//获取输入框内容
 		            $.ajax({  
-		                url:"/KissOlive/TestServlet",  
+		                url:"/KissOlive/servlet/UserServlet",  
 		                data:{method:"ajaxValidateUsertel", usertel:value},  
 		                dataType:'json',  
 		                type:'post',  
@@ -78,7 +79,7 @@ $(function(){
 		                    }  
 		            });  
 		          
-		            return result;  */
+		            return result;  
 		            var obj1 = document.getElementById('mobilebtn');
                     obj1.style.display = 'block';
                     obj1.disabled = false;

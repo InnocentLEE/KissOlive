@@ -38,10 +38,10 @@ public class UserServlet extends BaseServlet {
 			throws ServletException, IOException, SQLException {
 
 		String usertel = req.getParameter("usertel");
-		boolean b = userService.ajaxValidateUsertel(usertel);
-		/**测试
+		/**测试boolean b = userService.ajaxValidateUsertel(usertel);**/
+		System.out.print(usertel);
 		String exitedUsertel = "17876253448";
-		boolean b = !usertel.equals(exitedUsertel);**/
+		boolean b = !usertel.equals(exitedUsertel);
 		
 		resp.getWriter().print(b);
 		return null;
