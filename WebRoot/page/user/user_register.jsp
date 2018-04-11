@@ -116,11 +116,11 @@
 				               <div class="form-group">
 				                <label for="vali" class="col-sm-3 control-label">短信验证码</label>
 				    			  <div class="col-sm-6">
-				                 <input type="text" class="inputClass form-control code"/>
+				                 <input type="text" class="inputClass form-control code" id="mobilebtn" />
 				                 
 				                 </div>
 				                  <div class="col-sm-3 valid">
-				                   <input type="button"  class="btn btn-default obtain generate_code" id="mobilebtn" 
+				                   <input type="button"  class="btn btn-default obtain generate_code" 
 				                          value="获取验证码"  onclick="settime(this);"/>
 				                 
 				                  </div>
@@ -140,7 +140,7 @@
 							
 							  <div class="form-group">
 							  <div class="summit_btn col-md-12" style="text-align: right">
-				              <button class="btn btn-default" type="submit">同意协议并注册</button>
+				              <button class="btn btn-default" type="submit" id="submit" >同意协议并注册</button>
 				              </div>
 				              </div>
 					       </div>
