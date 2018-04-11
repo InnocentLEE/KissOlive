@@ -40,6 +40,32 @@ $(function() {
 	});
 	
 });
+function checkform(){
+	 //var registerbtn = document.getElementById("submit");
+	 //$("#submit").addClass("readySubmit");
+	var obj1 = document.getElementById('submit');
+	if($(usertelError).text==""&&$(passwordError).text==""&&$(password2Error).text==""&&$(detailError).text==""&&$(nameError).text==""&&$(telError).text==""&&$(mobilebtnError).text=="")
+    {
+		//registerbtn.setAttribute("disabled", "");
+        // $("#submit").removeClass("readySubmit");
+        window.location.href="/KissOlive/servlet/UserServlet";
+		  //obj1.style.display = 'block';
+          //obj1.disabled = false;
+       
+    }
+	else{
+		
+        //registerbtn.removeAttribute("disabled");
+        // registerbtn.className+=" "+"readySubmit";
+        //$("#submit").addClass("readySubmit");
+        $.messager.alert('警告','存在信息验证有误，请重新输入！！！');
+		//obj1.style.display = 'none';
+	      // obj1.disabled = true;
+	        
+	
+	}
+		
+}
 function validateUsertel() {
 	var id = "usertel";
 	var value = $("#" + id).val();//获取输入框内容

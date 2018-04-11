@@ -1,3 +1,25 @@
+.cover{
+	margin-top:-20;
+}
+.carousel .slide{
+	/*width: 100%;
+	margin-bottom: 2.9%;*/
+}
+.main-olive{
+	/*width:100%;
+	padding-bottom:60px;
+	display:block;*/
+	
+}
+.grid{
+	/*max-width: 1440px; 
+	height:411
+	margin:0px 30px;
+	display: block;
+	border-spacing: 0;
+	border-collapse: separate;"*/
+			}
+
 .header-logo {
     height: 90px;
     position: absolute;
@@ -25,6 +47,8 @@
  	clear: both;
  	display: block;
  	margin: 0 auto;
+ 	height: 95px;
+    padding-top: 15;
  }
  .main-olive{
  	position: relative;
