@@ -16,13 +16,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<meta http-equiv="expires" content="0">    
 	<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
 	<meta http-equiv="description" content="This is my page">
-	<!--
-	<link rel="stylesheet" type="text/css" href="styles.css">
-	-->
+	
+	<link rel="stylesheet" type="text/css" href="css/admin/main.css">
 
   </head>
   
   <body>
-    This is my JSP page. <br>
+  <div class="img-wap">
+    <img class="img-bottom" src="img/admin/home.jpg">
+   </div>
   </body>
 </html>

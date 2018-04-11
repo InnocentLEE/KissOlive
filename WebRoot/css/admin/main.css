@@ -1,0 +1,28 @@
+.sidebar ul.nav.nav-sidebar li i.active,
+.sidebar ul.nav.nav-sidebar li i:hover {
+  color: #fff;
+}
+.navbar{
+    margin-bottom: 0px;
+}
+.mm-page .container-fluid img{
+	width: 80%;
+	text-align: right;
+}
+.sidebar {
+	z-index:1031;
+}
+.ppap{
+    position: relative;
+    left: 225px;
+    top: 80px;
+    /* background-color: #8080ff; */
+    width: 100%;
+    min-height: 675px; 
+}
+.img-wap img{
+	position:absolute;
+	z-index:-1;
+	width:100%;
+	height:100%;
+}
