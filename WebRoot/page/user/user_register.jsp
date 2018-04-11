@@ -41,7 +41,7 @@
     	    <div class="center-block">
     			<div class="panel panel-default sign-panel ">
     				<span class="zhuce">&nbsp;&nbsp;&nbsp;注  册</span>
-    		 			<form class="registerform form-horizontal " action="<c:url value='servlet/UserServlet'/>" method="post">
+    		 			<form class="registerform form-horizontal " action="/KissOlive/servlet/UserServlet" method="post">
     		 			 <input type="hidden" name="method" value="regist" />
 				              <div class="sum-group">
 				              <div class="form-group">
@@ -78,15 +78,15 @@
 				                <div class="form-group">
 				                <label for="address_1" class="col-sm-3 control-label">收货地址</label>
 				    			  <div class="col-sm-6" id="city">
-							        <select class="prov" id="province"></select> 		
-									<select class="city" id="city" disabled="disabled"></select>
-									<select class="dist" id="district" disabled="disabled"></select>			
+							        <select class="prov" id="province" name="province"></select> 		
+									<select class="city" id="city" name="city" disabled="disabled"></select>
+									<select class="dist" id="district" name="district" disabled="disabled"></select>			
 				                 </div>
 				              </div>
 				               <div class="form-group">
 				                <label for="address_2" class="col-sm-3 control-label">详细地址</label>
 				    			  <div class="col-sm-6">
-				                 <input type="text" class="inputClass form-control inputxt"  id="detail" placeholder="请输入详细地址">
+				                 <input type="text" class="inputClass form-control inputxt"  id="detail" name="detail" placeholder="请输入详细地址">
 				                 </div>
 				                  <div class="col-sm-12 tip">
 				                      <label class="errorClass" id="detailError" ></label>
@@ -96,7 +96,7 @@
 				               <div class="form-group">
 				                <label for="adapter" class="col-sm-3 control-label">收件人</label>
 				    			  <div class="col-sm-6">
-				                 <input type="text" class="inputClass form-control inputxt"  id="name" placeholder="请输入收件人姓名" >
+				                 <input type="text" class="inputClass form-control inputxt"  id="name" name="name" placeholder="请输入收件人姓名" >
 				                 </div>
 				                  <div class="col-sm-12 tip">
 				                    <label class="errorClass" id="nameError" ></label>
@@ -106,7 +106,7 @@
 				               <div class="form-group">
 				                <label for="atel" class="col-sm-3 control-label">联系方式</label>
 				    			  <div class="col-sm-6">
-				                 <input type="text" class="inputClass form-control inputxt" id="tel"  placeholder="请输入收件人联系方式">
+				                 <input type="text" class="inputClass form-control inputxt" id="tel" name="tel" placeholder="请输入收件人联系方式">
 				                 </div>
 				                  <div class="col-sm-12 tip">
 				                      <label class="errorClass" id="telError" ></label>

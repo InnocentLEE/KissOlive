@@ -7,8 +7,8 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import cn.itcast.servlet.BaseServlet;
 import kissolive.user.service.UserService;
-import util.BaseServlet;
 
 public class UserServlet extends BaseServlet {
 
@@ -31,7 +31,14 @@ public class UserServlet extends BaseServlet {
 		String detail = req.getParameter("detail");
 		String name = req.getParameter("name");
 		String tel = req.getParameter("tel");
-		System.out.println(usertel+password+province+city+district+detail+name+tel);
+		System.out.println("usertel:"+usertel);
+		System.out.println("password:"+password);
+		System.out.println("province:"+province);
+		System.out.println("city:"+city);
+		System.out.println("district:"+district);
+		System.out.println("detail:"+detail);
+		System.out.println("name:"+name);
+		System.out.println("tel:"+tel);
 		return null;
 		//return "f:/...";
 	}
@@ -48,13 +55,14 @@ public class UserServlet extends BaseServlet {
 			throws ServletException, IOException, SQLException {
 
 		String usertel = req.getParameter("usertel");
-		/**测试boolean b = userService.ajaxValidateUsertel(usertel);**/
-		
+		boolean b = userService.ajaxValidateUsertel(usertel);
+		System.out.println(b);
+		/*
 		System.out.print(usertel+"\n");
 		String exitedUsertel = "17876253448";
-		
 		boolean b = !usertel.equals(exitedUsertel);
 		System.out.print(b+"\n");
+		*/
 		resp.getWriter().print(b);
 		return null;
 	}

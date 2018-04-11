@@ -10,9 +10,9 @@
 		<property name="user">root</property>
 		<property name="password">root</property>
 		
-		<property name="acquireIncrement">300</property>
-		<property name="initialPoolSize">1000</property>
-		<property name="minPoolSize">200</property>
-		<property name="maxPoolSize">1000</property>
+		<property name="acquireIncrement">3</property>
+		<property name="initialPoolSize">10</property>
+		<property name="minPoolSize">2</property>
+		<property name="maxPoolSize">10</property>
 	</default-config>
 </c3p0-config>
