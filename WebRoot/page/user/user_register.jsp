@@ -47,31 +47,31 @@
 				              <div class="form-group">
 				                <label for="tel" class="col-sm-3 control-label">手机号</label>
 				    			   <div class="col-sm-6">
-				                     <input type="text" class="inputClass form-control inputxt" id="usertel" name="usertel" placeholder="请输入手机号" />
+				                     <input type="text" class="inputClass form-control inputxt" id="usertel" name="usertel" placeholder="请输入手机号" value="${usertel }" />
 				                    
 				                   </div>
 				                  <div class="col-sm-12 tip">
-				                     <label class="errorClass" id="usertelError" ></label>
+				                     <label class="errorClass" id="usertelError" >${errors.usertel }</label>
 				                     <label class="correctClass" id="usertelCorrect"></label>
 				                   </div>
 				              </div>
 				                <div class="form-group">
 				                <label for="userpassword" class="col-sm-3 control-label">密码</label>
 				    			  <div class="col-sm-6">
-				                  <input type="password" value="" id="password" name="password" class="inputClass form-control inputxt" placeholder="6-18位以字母开头，含数字/字母/'_'"/>
+				                  <input type="password" value="" id="password" name="password" class="inputClass form-control inputxt" placeholder="6-18位以字母开头，含数字/字母/'_'" value="${password }" />
                         		</div>
 				                  <div class="col-sm-12 tip">
-				                      <label class="errorClass" id="passwordError" ></label>
+				                      <label class="errorClass" id="passwordError" >${errors.password }</label>
 				                     <label class="correctClass" id="passwordCorrect"></label>
 				                  </div>
 				                 </div>
 				                <div class="form-group">
 				                <label for="repassword" class="col-sm-3 control-label" >确认密码</label>
 				    			  <div class="col-sm-6">
-				                   <input type="password" class="inputClass form-control inputxt"  placeholder="请重复输入密码" value="" id="password2" name="password2" />
+				                   <input type="password" class="inputClass form-control inputxt"  placeholder="请重复输入密码" value="" id="password2" name="password2" value="${password2 }"/>
 				                 </div>
 				                  <div class="col-sm-12 tip">
-				                     <label class="errorClass" id="password2Error" ></label>
+				                     <label class="errorClass" id="password2Error" >${errors.password2 }</label>
 				                     <label class="correctClass" id="password2Correct"></label>
 				                   </div>
 				              </div>
@@ -86,37 +86,37 @@
 				               <div class="form-group">
 				                <label for="address_2" class="col-sm-3 control-label">详细地址</label>
 				    			  <div class="col-sm-6">
-				                 <input type="text" class="inputClass form-control inputxt"  id="detail" name="detail" placeholder="请输入详细地址">
+				                 <input type="text" class="inputClass form-control inputxt"  id="detail" name="detail" placeholder="请输入详细地址" value="${detail }" />
 				                 </div>
 				                  <div class="col-sm-12 tip">
-				                      <label class="errorClass" id="detailError" ></label>
+				                      <label class="errorClass" id="detailError" >${errors.detail }</label>
 				                     <label class="correctClass" id="detailCorrect"></label>
 				                   </div>
 				              </div>
 				               <div class="form-group">
 				                <label for="adapter" class="col-sm-3 control-label">收件人</label>
 				    			  <div class="col-sm-6">
-				                 <input type="text" class="inputClass form-control inputxt"  id="name" name="name" placeholder="请输入收件人姓名" >
+				                 <input type="text" class="inputClass form-control inputxt"  id="name" name="name" placeholder="请输入收件人姓名" value="${name }" />
 				                 </div>
 				                  <div class="col-sm-12 tip">
-				                    <label class="errorClass" id="nameError" ></label>
+				                    <label class="errorClass" id="nameError" >${errors.name }</label>
 				                     <label class="correctClass" id="nameCorrect"></label>
 				                   </div>
 				              </div>
 				               <div class="form-group">
 				                <label for="atel" class="col-sm-3 control-label">联系方式</label>
 				    			  <div class="col-sm-6">
-				                 <input type="text" class="inputClass form-control inputxt" id="tel" name="tel" placeholder="请输入收件人联系方式">
+				                 <input type="text" class="inputClass form-control inputxt" id="tel" name="tel" placeholder="请输入收件人联系方式" value="${tel }"/>
 				                 </div>
 				                  <div class="col-sm-12 tip">
-				                      <label class="errorClass" id="telError" ></label>
+				                      <label class="errorClass" id="telError" >${errors.tel }</label>
 				                     <label class="correctClass" id="telCorrect"></label>
 				                   </div>
 				              </div>
 				               <div class="form-group">
 				                <label for="vali" class="col-sm-3 control-label">短信验证码</label>
 				    			  <div class="col-sm-6">
-				                 <input type="text" class="inputClass form-control code" id="mobilebtn" />
+				                 <input type="text" class="inputClass form-control code" id="mobilebtn" name="verifyCode" value="${verifyCode }"/>
 				                 
 				                 </div>
 				                  <div class="col-sm-3 valid">
@@ -125,9 +125,9 @@
 				                 
 				                  </div>
 				                  <div class="col-sm-12">
-				                    <label class="errorClass" id="mobilebtnError" ></label>
+				                    <label class="errorClass" id="mobilebtnError" >${errors.verifyCode }</label>
 				                     <label class="correctClass" id="mobilebtnCorrect"></label>
-				                   <div class="focus"><span>请查收手机短信，并填写短信中的验证码（此验证码1分钟内有效）</span></div> 
+				                   <div class="focus"><span>请查收手机短信，并填写短信中的验证码（此验证码5分钟内有效）</span></div> 
 				                  </div>
 				              </div>
 				              <div class="form-group">

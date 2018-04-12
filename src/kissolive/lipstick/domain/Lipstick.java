@@ -4,6 +4,9 @@ import kissolive.hotspot.domain.Hotspot;
 import kissolive.series.domain.Series;
 
 public class Lipstick {
+	public Lipstick() {
+		super();
+	}
 	private String lid;
 	private Series series;
 	private Hotspot hotspot;

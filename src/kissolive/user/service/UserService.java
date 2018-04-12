@@ -15,7 +15,7 @@ public class UserService {
 	 * 
 	 * @param user
 	 */
-	public void addUser(User user) {
+	public void regist(User user) {
 		// 生成用户ID
 		user.setUserid(CommonUtils.uuid());
 

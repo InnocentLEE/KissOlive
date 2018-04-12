@@ -3,6 +3,9 @@ package kissolive.series.domain;
 import kissolive.brand.domain.Brand;
 
 public class Series {
+	public Series() {
+		super();
+	}
 	private String sid;
 	private Brand brand;
 	private String sname;

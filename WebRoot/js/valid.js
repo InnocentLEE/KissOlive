@@ -126,7 +126,7 @@ function validateUsertel() {
 			if(!result) {
 				//如果校验失败
 				staus = 1;
-				$("#" + id + "Error").text("● 手机号已存在！");
+				$("#" + id + "Error").text("● 手机号已被注册！");
 				showError($("#" + id + "Error"));
 				return false;
 			}
@@ -284,12 +284,8 @@ function validateMobilebtn() {
         showError($("#" + id + "Error"));
         false;
     }
-    /*
-     * 
-                  是否正确
-        
-       $.ajax({
-        url:"/goods/UserServlet",//要请求的servlet
+    $.ajax({
+        url:"/KissOlive/servlet/UserServlet",//要请求的servlet
         data:{method:"ajaxValidateVerifyCode", verifyCode:value},//给服务器的参数
         type:"POST",
         dataType:"json",
@@ -297,13 +293,12 @@ function validateMobilebtn() {
         cache:false,
         success:function(result) {
             if(!result) {//如果校验失败
-                $("#" + id + "Error").text("验证码错误！");
+                $("#" + id + "Error").text("● 验证码错误！");
                 showError($("#" + id + "Error"));
                 return false;
             }
         }
     });       
-     */
 	if(!staus)
 	{
 		$("#" + id + "Error").text("");

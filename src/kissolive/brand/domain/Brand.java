@@ -1,6 +1,10 @@
 package kissolive.brand.domain;
 
 public class Brand {
+	public Brand() {
+		super();
+	}
+
 	private String bid;
 	private String bname;
 	private String bsrc;

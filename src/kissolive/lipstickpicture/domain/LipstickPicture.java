@@ -3,6 +3,9 @@ package kissolive.lipstickpicture.domain;
 import kissolive.lipstick.domain.Lipstick;
 
 public class LipstickPicture {
+	public LipstickPicture() {
+		super();
+	}
 	private String lpid;
 	private Lipstick lipstick;
 	private String lpsrc;
