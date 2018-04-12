@@ -78,7 +78,7 @@
 	<div class="main-olive" style="width: 100%;padding-bottom: 60px;display: block;">
 		<div class="grid" >
 		     <section class="row cover">
-    			 <div class="col-md-12">
+    			 <div class="col col-md-12">
 					<div id="myCarousel" class="carousel slide" >
 						<ol class="carousel-indicators">
 							<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
@@ -101,6 +101,42 @@
 					</div>
 			</div>
 			</section>
+		    <section class="row brand" >
+		       <div class="col-md-4">
+		       		<div class="panel js-equal-height">
+		       		   <div class="push push-brand"></div>
+		       		   <div class="push push-good">
+		       		   		<a href="#" ><img alt="" src="http://localhost:8080/KissOlive/img/user_home/6.jpg"></a>
+		       		   		<div class="push-text"></div>
+		       		   </div>
+		       		</div><!-- end of panel -->
+		       </div><!-- end of col -->
+		        <div class="col-md-4">
+		           <div class="panel js-equal-height">
+		             <div class="intro">
+		             	<div class="goods">
+		             	  <a href="#" ><img alt="" src="http://localhost:8080/KissOlive/img/user_home/4.jpg"></a>
+		             	</div>
+		             	<div class="goods_text">
+		             	  <span><a href="#">全新DIOR迪奥烈艳蓝金液唇膏</a></span>
+		             	</div>
+		             </div>
+		           </div><!-- end of panel -->
+		       </div><!-- end of col -->
+		        <div class="col-md-4">
+		       		<div class="panel js-equal-height">
+		             <div class="intro">
+		             	<div class="goods">
+		             	  <a href="#" ><img alt="" src="http://localhost:8080/KissOlive/img/user_home/5.jpg"></a>
+		             	</div>
+		             	<div class="goods_text">
+		             	  <span><a href="#">全新DIOR迪奥烈艳蓝金液唇膏</a></span>
+		             	</div>
+		             </div>
+		           </div><!-- end of panel -->
+		       </div><!-- end of col -->
+		    </section>
+		     
 		</div>
 	</div>
 </div>

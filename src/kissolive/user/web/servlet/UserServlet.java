@@ -209,9 +209,13 @@ public class UserServlet extends BaseServlet {
 			SQLException {
 
 		String verifyCode = req.getParameter("verifyCode");
-		String rightVerifyCode = (String) req.getSession().getAttribute(
-				"verifyCode");
+		/*
+		 * 测试ajax是否访问
+		 * System.out.print("VerifyCode_print : "verifyCode+"\n");
+		 */
+		String rightVerifyCode = (String) req.getSession().getAttribute("verifyCode");
 		resp.getWriter().print(rightVerifyCode.equals(verifyCode));
+		
 		return null;
 	}
 }

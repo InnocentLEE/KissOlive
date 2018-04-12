@@ -116,7 +116,7 @@
 				               <div class="form-group">
 				                <label for="vali" class="col-sm-3 control-label">短信验证码</label>
 				    			  <div class="col-sm-6">
-				                 <input type="text" class="inputClass form-control code" id="mobilebtn" name="verifyCode" value="${verifyCode }"/>
+				                 <input type="text" class="inputClass form-control code" id="varifyCode" name="verifyCode" value="${verifyCode }"/>
 				                 
 				                 </div>
 				                  <div class="col-sm-3 valid">
@@ -124,9 +124,12 @@
 				                          value="获取验证码"  onclick="settime(this);"/>
 				                 
 				                  </div>
-				                  <div class="col-sm-12">
-				                    <label class="errorClass" id="mobilebtnError" >${errors.verifyCode }</label>
-				                     <label class="correctClass" id="mobilebtnCorrect"></label>
+				                   <div class="col-sm-3"></div>
+				                  <div class="col-sm-12  tip">
+				                    <label class="errorClass" id="varifyCodeError" >${errors.verifyCode }</label>
+				                     <label class="correctClass" id="varifyCodeCorrect"></label>
+				                   </div>
+				                   <div class="col-sm-12">
 				                   <div class="focus"><span>请查收手机短信，并填写短信中的验证码（此验证码5分钟内有效）</span></div> 
 				                  </div>
 				              </div>

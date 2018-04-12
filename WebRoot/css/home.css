@@ -1,5 +1,27 @@
+.js-equal-height{
+	position:relative;
+	top:0;
+	left:0;
+}
+.push_good{
+	margin:9.2% 0 0;
+}
+.col-md-4{
+	padding:0 1.45%;
+}
+.row{
+	margin-bottom: 2.9%;
+}
+.main-olive .grid .cols{
+padding: 0 1.45%;
+}
+.brand{
+	margin:0;
+}
 .cover{
 	margin-top:-20;
+	margin-left:0;
+	margin-right:0;
 }
 .carousel .slide{
 	/*width: 100%;

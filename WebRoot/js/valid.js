@@ -260,8 +260,8 @@ function validateTel() {
 	}
 	return true;
 }
-function validateMobilebtn() {
-	var id = "mobilebtn";
+function validateVarifyCode() {
+	var id = "varifyCode";
 	var value = $("#" + id).val();//获取输入框内容
 	var staus = 0; //判断验证情况
 	if(!value) {
@@ -287,7 +287,7 @@ function validateMobilebtn() {
     $.ajax({
         url:"/KissOlive/servlet/UserServlet",//要请求的servlet
         data:{method:"ajaxValidateVerifyCode", verifyCode:value},//给服务器的参数
-        type:"POST",
+        type:"GET",
         dataType:"json",
         async:false,//是否异步请求，如果是异步，那么不会等服务器返回，我们这个函数就向下运行了。
         cache:false,
