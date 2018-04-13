@@ -14,9 +14,12 @@ import kissolive.address.domain.Address;
 import kissolive.address.service.AddressService;
 import kissolive.user.domain.User;
 import kissolive.user.service.UserService;
+import util.MNS;
 import util.Validate;
 import cn.itcast.commons.CommonUtils;
 import cn.itcast.servlet.BaseServlet;
+
+import com.aliyun.mns.common.ClientException;
 
 public class UserServlet extends BaseServlet {
 
@@ -133,14 +136,14 @@ public class UserServlet extends BaseServlet {
 			errors.put("tel", "● 请输入11位正确的手机号码！");
 		}
 		//校验短信验证码
-//		String rightVerifyCode = (String) session.getAttribute("verifyCode");
-//		if(rightVerifyCode==null)
-//			rightVerifyCode="";
-//		if(verifyCode==null||verifyCode.trim().equals("")){
-//			errors.put("verifyCode", "● 验证码不能为空！");
-//		}else if(!rightVerifyCode.equals(verifyCode)){
-//			errors.put("verifyCode", "● 验证码错误！");
-//		}
+		String rightVerifyCode = (String) session.getAttribute("VerifyCode");
+		if(rightVerifyCode==null)
+			rightVerifyCode="";
+		if(verifyCode==null||verifyCode.trim().equals("")){
+			errors.put("verifyCode", "● 验证码不能为空！");
+		}else if(!rightVerifyCode.equals(verifyCode)){
+			errors.put("verifyCode", "● 验证码错误！");
+		}
 		return errors;
 	}
 	/**
@@ -177,29 +180,43 @@ public class UserServlet extends BaseServlet {
 	 * @throws ServletException
 	 * @throws IOException
 	 * @throws SQLException
+	 * @throws com.aliyuncs.exceptions.ClientException 
 	 */
 	public String sentVerifyCode(HttpServletRequest req,
 			HttpServletResponse resp) throws ServletException, IOException,
-			SQLException {
+			SQLException, com.aliyuncs.exceptions.ClientException {
 
 		String usertel = req.getParameter("usertel");
 		
 		/* 测试ajax发送验证码是否访问正常 */
-		System.out.print("Usertel_print: "+usertel+"\n");
+		//System.out.print("Usertel_print: "+usertel+"\n");
 		
-		/* 判断手机号码的代码还没写 */
-		String VerifyCode = "9527";
-		// try {
-		// MNS.sendSms(telphone, VerifyCode);
-		// } catch (ClientException e) {
-		// throw new RuntimeException();
-		// }
-		req.getSession().setAttribute("VerifyCode", VerifyCode);
+		//判断手机号码
+		Map<String,String> errors = new HashMap<String,String>();
+		if(usertel==null||usertel.trim().equals("")){
+			errors.put("verifyCode", "● 手机号码不能为空！");
+		}else if(usertel.length()!=11){
+			errors.put("verifyCode", "● 请输入11位正确的手机号码！");
+		}else if(!Validate.validateTelphone(usertel)){
+			errors.put("verifyCode", "● 请输入11位正确的手机号码！");
+		}else if(!userService.ajaxValidateUsertel(usertel)){
+			errors.put("verifyCode", "● 手机号已被注册！");
+		}
+		if(errors.size()==0){
+			//String VerifyCode = "3498";
+			String VerifyCode = MNS.getVerifyCode();
+			 try {
+			 MNS.sendSms(usertel, VerifyCode);
+			 } catch (ClientException e) {
+			 throw new RuntimeException();
+			 }
+			req.getSession().setAttribute("VerifyCode", VerifyCode);
+		}
 		return null;
 	}
 
 	/**
-	 * ajax异步请求验证码
+	 * ajax异步校验验证码
 	 * 
 	 * @param req
 	 * @param resp
@@ -217,8 +234,10 @@ public class UserServlet extends BaseServlet {
 		 * 测试ajax是否访问
 		 * System.out.print("VerifyCode_print : "verifyCode+"\n");
 		 */
-		String rightVerifyCode = (String) req.getSession().getAttribute("verifyCode");
-		resp.getWriter().print(rightVerifyCode.equals(verifyCode));
+		String rightVerifyCode = null;
+		rightVerifyCode = (String) req.getSession().getAttribute("VerifyCode");
+		boolean b = rightVerifyCode.equals(verifyCode);
+		resp.getWriter().print(b);
 		
 		return null;
 	}

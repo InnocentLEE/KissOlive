@@ -36,7 +36,7 @@
     	<div class="row">
     	    <div class="center-block">
     			<div class="panel panel-default sign-panel ">
-    				<span class="zhuce">&nbsp;&nbsp;&nbsp;登  陆</span>
+    				<span class="zhuce">&nbsp;&nbsp;&nbsp;登  录</span>
     		 			<form class="registerform form-horizontal " action="/KissOlive/servlet/UserServlet" method="post">
     		 			 <input type="hidden" name="method" value="login" />
 				              <div class="sum-group">
@@ -63,7 +63,7 @@
 				               </div><!-- end of form-group -->
 							   <div class="form-group">
 								  <div class="summit_btn col-md-12" style="text-align: right">
-					              <button class="btn btn-default" type="submit" id="submit" disabled="true">登  陆</button>
+					              <button class="btn btn-default" type="submit" id="submit" disabled="true">登  录</button>
 					              </div>
 				               </div><!-- end of form-group -->
 					       </div><!-- end of sum-group -->

@@ -51,7 +51,7 @@ public class UserService {
 	 * @param password
 	 * @return
 	 */
-	public boolean login(String usertel, String password) {
+	public User login(String usertel, String password) {
 		String encodeRules = usertel;
 		String content = password;
 		password = SymmetricEncoder.AESEncode(encodeRules, content);

@@ -5,6 +5,7 @@ import java.sql.SQLException;
 import kissolive.user.domain.User;
 
 import org.apache.commons.dbutils.QueryRunner;
+import org.apache.commons.dbutils.handlers.BeanHandler;
 import org.apache.commons.dbutils.handlers.ScalarHandler;
 
 import util.TxQueryRunner;
@@ -39,9 +40,10 @@ public class UserDao {
 	 * @return
 	 * @throws SQLException
 	 */
-	public boolean findByUsertelAndPassword(String usertel,String password) throws SQLException{
+	public User findByUsertelAndPassword(String usertel,String password) throws SQLException{
 		String sql = "select count(*) from tb_user where usertel=? and password=?";
-		Number number = (Number)qr.query(sql, new ScalarHandler(), usertel, password);
-		return number.intValue() > 0;
+		User user = null;
+		user = qr.query(sql, new BeanHandler<User>(User.class), usertel, password);
+		return user;
 	}
 }
