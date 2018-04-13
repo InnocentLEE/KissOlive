@@ -26,6 +26,7 @@ public class AddressDao {
 		Object[] params = {address.getAid(),address.getUser().getUserid(),address.getIsdefault(),address.getProvince(),address.getCity(),address.getDistrict(),address.getDetail(),address.getName(),address.getTel()};
 		qr.update(sql, params);
 	}
+	
 	/*
 	 * 把一个Map映射成一个Address
 	 */
