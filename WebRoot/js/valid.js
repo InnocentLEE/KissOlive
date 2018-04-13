@@ -330,25 +330,6 @@ function sentVerifyCode(){
         }
     });   
 }
-/*function settime(val) {  
-	//发送验证码倒计时函数
-	var countdown=60;  
-    if (countdown == 0) {  
-    	
-        val.removeAttribute("disabled");  
-        val.value="获取验证码";  
-        countdown = 60;  
-        
-        return false;  
-    } else {  
-        val.setAttribute("disabled", true);  
-        val.value="重新发送(" + countdown + ")";  
-        countdown--;  
-    }  
-    setTimeout(function() {  
-        settime(val);  
-    },1000);  
-}  */
 function showError(ele) {
 	var text = ele.text();//获取元素的内容
 	if(!text) {//如果没有内容

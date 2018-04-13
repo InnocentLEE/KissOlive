@@ -30,8 +30,8 @@
 		<div class ="container">
 			<div class ="navbar-header">
 			<ul class="nav navbar-nav navbar-left ">
-			    <li><a href="#" class="navbar-brand">登陆</a></li>
-			    <li><a href="#" class="navbar-brand">注册</a></li>
+			    <li><a href="<c:url value='/page/user/user_login.jsp'/>" class="navbar-brand">登陆</a></li>
+			    <li><a href="<c:url value='/page/user/user_register.jsp'/>" class="navbar-brand">注册</a></li>
 				
 				
 				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse">
@@ -104,7 +104,9 @@
 		    <section class="row brand" >
 		       <div class="col-md-4">
 		       		<div class="panel js-equal-height">
-		       		   <div class="push push-brand"></div>
+		       		   <div class="push push-brand">
+		       		        <a href="#" ><img alt="" src="http://localhost:8080/KissOlive/img/user_home/dior.jpg"></a>
+		       		   </div>
 		       		   <div class="push push-good">
 		       		   		<a href="#" ><img alt="" src="http://localhost:8080/KissOlive/img/user_home/6.jpg"></a>
 		       		   		<div class="push-text"></div>

@@ -18,7 +18,7 @@
 	<meta http-equiv="keywords" content="ajax，jQuery，省市联动">
 	
 	 <link rel="stylesheet" href="<c:url value='/css/bootstrap.min.css'/>">
-	 <link rel="stylesheet" href="<c:url value='/css/sign.css'/>">
+	 <link rel="stylesheet" href="<c:url value='/css/sign_login.css'/>">
 	 
 	 <link rel="stylesheet" href="<c:url value='/css/validform/style.css'/>">
 	 <link rel="stylesheet" href="<c:url value='/css/validform/demo.css'/>">
