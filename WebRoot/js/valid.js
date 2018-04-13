@@ -260,8 +260,8 @@ function validateTel() {
 	}
 	return true;
 }
-function validateVarifyCode() {
-	var id = "varifyCode";
+function validateVerifyCode() {
+	var id = "verifyCode";
 	var value = $("#" + id).val();//获取输入框内容
 	var staus = 0; //判断验证情况
 	if(!value) {
@@ -308,6 +308,46 @@ function validateVarifyCode() {
 	return true;
 	
 }
+function sentVerifyCode(){
+	//发送验证码调用后台函数
+	var id = "usertel";
+	var value = $("#" + id).val();//获取输入框内容
+	
+	$.ajax({
+        url:"/KissOlive/servlet/UserServlet",//要请求的servlet
+        data:{method:"sentVerifyCode", usertel:value},//给服务器的参数
+        type:"POST",
+        dataType:"json",
+        async:false,//是否异步请求，如果是异步，那么不会等服务器返回，我们这个函数就向下运行了。
+        cache:false,
+        success:function(result) {
+            if(!result) {//如果校验失败
+                $("#" + id + "Error").text("● 发送验证码失败");
+                showError($("#" + id + "Error"));
+                return false;
+            }
+        }
+    });   
+}
+/*function settime(val) {  
+	//发送验证码倒计时函数
+	var countdown=60;  
+    if (countdown == 0) {  
+    	
+        val.removeAttribute("disabled");  
+        val.value="获取验证码";  
+        countdown = 60;  
+        
+        return false;  
+    } else {  
+        val.setAttribute("disabled", true);  
+        val.value="重新发送(" + countdown + ")";  
+        countdown--;  
+    }  
+    setTimeout(function() {  
+        settime(val);  
+    },1000);  
+}  */
 function showError(ele) {
 	var text = ele.text();//获取元素的内容
 	if(!text) {//如果没有内容

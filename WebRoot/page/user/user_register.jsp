@@ -116,18 +116,18 @@
 				               <div class="form-group">
 				                <label for="vali" class="col-sm-3 control-label">短信验证码</label>
 				    			  <div class="col-sm-6">
-				                 <input type="text" class="inputClass form-control code" id="varifyCode" name="verifyCode" value="${verifyCode }"/>
+				                 <input type="text" class="inputClass form-control code" id="verifyCode" name="verifyCode" value="${verifyCode }"/>
 				                 
 				                 </div>
 				                  <div class="col-sm-3 valid">
 				                   <input type="button"  class="btn btn-default obtain generate_code" 
-				                          value="获取验证码"  onclick="settime(this);"/>
+				                          value="获取验证码"  onclick="sentVerifyCode();settime(this);"/>
 				                 
 				                  </div>
 				                   <div class="col-sm-3"></div>
 				                  <div class="col-sm-12  tip">
-				                    <label class="errorClass" id="varifyCodeError" >${errors.verifyCode }</label>
-				                     <label class="correctClass" id="varifyCodeCorrect"></label>
+				                    <label class="errorClass" id="verifyCodeError" >${errors.verifyCode }</label>
+				                     <label class="correctClass" id="verifyCodeCorrect"></label>
 				                   </div>
 				                   <div class="col-sm-12">
 				                   <div class="focus"><span>请查收手机短信，并填写短信中的验证码（此验证码5分钟内有效）</span></div> 
@@ -160,27 +160,29 @@
     <script type="text/javascript" src="<c:url value='/js/jquery.js'/>"></script>
     <script type="text/javascript" src="<c:url value='/js/jquery.cityselect.js'/>"></script>
     <script type="text/javascript" src="<c:url value='/js/valid.js'/>"></script>
-    <script type="text/javascript">  
- 
-	//倒计时  
-	var countdown=60;  
-	function settime(val) {  
-	    if (countdown == 0) {  
-	        val.removeAttribute("disabled");  
-	        val.value="获取验证码";  
-	        countdown = 60;  
-	        return false;  
-	    } else {  
-	        val.setAttribute("disabled", true);  
-	        val.value="重新发送(" + countdown + ")";  
-	        countdown--;  
-	    }  
-	    setTimeout(function() {  
-	        settime(val);  
-	    },1000);  
-	}  
-	</script> 
 
+    <script type="text/javascript">
+      //倒计时
+      var countdown=60;  
+      function settime(val) {  
+    	  if (countdown == 0) {  
+    	    	
+    	        val.removeAttribute("disabled");  
+    	        val.value="获取验证码";  
+    	        countdown = 60;  
+    	        
+    	        return false;  
+    	    } else {  
+    	        val.setAttribute("disabled", true);  
+    	        val.value="重新发送(" + countdown + ")";  
+    	        countdown--;  
+    	    }  
+    	    setTimeout(function() {  
+    	        settime(val);  
+    	    },1000);  
+    	}  
+    
+    </script>
     <script type="text/javascript">
     $(function(){
 			

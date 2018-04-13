@@ -182,7 +182,11 @@ public class UserServlet extends BaseServlet {
 			HttpServletResponse resp) throws ServletException, IOException,
 			SQLException {
 
-		String telphone = req.getParameter("telphone");
+		String usertel = req.getParameter("usertel");
+		
+		/* 测试ajax发送验证码是否访问正常 */
+		System.out.print("Usertel_print: "+usertel+"\n");
+		
 		/* 判断手机号码的代码还没写 */
 		String VerifyCode = "9527";
 		// try {
