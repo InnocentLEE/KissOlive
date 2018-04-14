@@ -67,7 +67,9 @@
         		code_input : this.$element.find('.varify-input-code'),
         	};
         	
-        	this.htmlDoms.code.css({'width':this.options.width, 'height':this.options.height,'line-height':this.options.height, 'font-size':this.options.fontSize});
+        	//this.htmlDoms.code.css({'width':this.options.width, 'height':this.options.height,'line-height':this.options.height, 'font-size':this.options.fontSize});
+        	this.htmlDoms.code.css({'width':'214px', 'height':'40px','line-height':this.options.height, 'font-size':this.options.fontSize});
+        	
         	this.htmlDoms.code_area.css({'width':this.options.width});
     	},
     	
@@ -139,6 +141,7 @@
     		
     		if(own_input == this.code_chose) {
     			this.isEnd = true;
+    			//$("#check-btn").attr("disabled", false);
     			this.options.success(this);
     		}else {
     			this.options.error(this);
@@ -448,25 +451,25 @@
         	
        		if(obj.options.imgSize.width.indexOf('%')!= -1){
         		img_width = parseInt(obj.options.imgSize.width)/100 * parentWidth + 'px';
-		　　}else {
+		    }else {
 				img_width = obj.options.imgSize.width;
 			}
 		
 			if(obj.options.imgSize.height.indexOf('%')!= -1){
-        		img_height = parseInt(obj.options.imgSize.height)/100 * parentHeight + 'px';
-		　　}else {
+        		img_height = parseInt(obj.options.imgSize.height)/100 * parentHeight + 'px';}
+			else {
 				img_height = obj.options.imgSize.height;
 			}
 		
 			if(obj.options.barSize.width.indexOf('%')!= -1){
         		bar_width = parseInt(obj.options.barSize.width)/100 * parentWidth + 'px';
-		　　}else {
+		    }else {
 				bar_width = obj.options.barSize.width;
 			}
 		
 			if(obj.options.barSize.height.indexOf('%')!= -1){
         		bar_height = parseInt(obj.options.barSize.height)/100 * parentHeight + 'px';
-		　　}else {
+		}else {
 				bar_height = obj.options.barSize.height;
 			}
 		

@@ -50,8 +50,7 @@
 									style="text-align:right">登陆账号</label>
 								<div class="col-sm-6">
 									<input type="text" class="form-control inputxt" id="usertel"
-										name="usertel" placeholder="请输入手机号" value="${usertel }"
-										required="required" />
+										name="usertel" placeholder="请输入手机号" />
 								</div>
 							</div>
 							<!-- end of form-group -->
@@ -63,7 +62,7 @@
 										data-target="#myModal">忘记密码？</button>
 								</div>
 
-								<!-- Modal -->
+								<!-- Start of Modal -->
 								<div class="modal fade" id="myModal" tabindex="-1" role="dialog"
 									aria-labelledby="myModalLabel">
 									<div class="modal-dialog" role="document">
@@ -74,86 +73,91 @@
 													<span aria-hidden="true">&times;</span>
 												</button>
 												<h4 class="modal-title" id="myModalLabel">忘记密码</h4>
-											</div>
+											</div><!-- end of modal-header -->
 											<div class="modal-body" style="text-align:left">
-											    <div>
-												<h5>请输入你需要找回登录密码的帐户名（即手机号）:</h5>
-												<label class="Findpw_login">登陆账号</label> <input type="text"
-													class="text" id="tel" name="tel" />
+												<div>
+													<h5>请输入你需要找回登录密码的帐户名（即手机号）:</h5>
+													<label class="Findpw_login">登陆账号</label> <input type="text"
+														class="text" id="tel" name="tel" required="required"/>
 												</div>
 												<div float=left;>
-												<label class="Findpw_login">验证码</label> 
-												<div id="mpanel2"></div>
-												<button type="button" id="check-btn" class="verify-btn">确定</button>
+													<label class="Findpw_login">验证码</label>
 												</div>
-											</div>
-											<div class="modal-footer">
-												<button type="button" class="btn btn-default"
-													data-dismiss="modal" id="cancel">取消</button>
-												<button type="button" class="btn btn-default"
-													disabled="true" id="send" name="send">发送</button>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-							<!-- end of form-group -->
+												<div id="mpanel2" float=right;></div>
+											</div><!-- end of modal-body -->
+										<div class="modal-footer">
+											<button type="button" class="btn btn-default"
+												data-dismiss="modal" id="cancel">取消</button>
+											<button type="button" class="btn btn-default"
+												id="check-btn" name="check-btn">发送</button>
+										</div><!-- end of modal-footer -->
+									</div><!-- end of modal-content -->
+								</div><!-- end of modal-dialog -->
+							</div><!-- end of modal fade -->
+							<!-- End of Modal -->
+							
+							
+						</div>
+						<!-- end of form-group -->
 
-							<div class="form-group">
-								<label for="userpassword" class="col-sm-5 control-label"
-									style="text-align:right">登录密码</label>
-								<div class="col-sm-6">
-									<input type="password" value="" id="password" name="password"
-										class="inputClass form-control inputxt"
-										placeholder="6-18位以字母开头，含数字/字母/'_'" value="${password }"
-										required="required" />
-								</div>
+						<div class="form-group">
+							<label for="userpassword" class="col-sm-5 control-label"
+								style="text-align:right">登录密码</label>
+							<div class="col-sm-6">
+								<input type="password" value="" id="password" name="password"
+									class="inputClass form-control inputxt"
+									placeholder="6-18位以字母开头，含数字/字母/'_'" value="${password }"
+									required="required" />
 							</div>
-							<!-- end of form-group -->
-							<div class="form-group">
-								<div class="col-md-12 col-lg-12 slider-lock">
-									<div id="slider">
-										<div id="slider_bg"></div>
-										<span id="label">>></span> <span id="labelTip">向右拖动滑块验证</span>
-									</div>
-								</div>
-							</div>
-							<!-- end of form-group -->
-							<div class="form-group">
-								<div class="login_btn col-md-12 col-lg-12">
-									<button class="btn btn-default lbtn" type="submit" id="submit"
-										disabled="true">登 录</button>
-								</div>
-							</div>
-							<!-- end of form-group -->
-							<div class="form-group">
-								<div style="padding-left:60px;padding-top: 25px;">
-									<button class="btn btn-default lbtn" style="width：79%"
-										onclick="regis()">没有登陆账号？快速进行注册</button>
-									<%-- <a href="<c:url value='/page/user/user_register.jsp'/>" class="btn btn-default  col-md-12 col-lg-12 lbtn">没有登陆账号？快速进行注册</a>
-							    --%>
+						</div>
+						<!-- end of form-group -->
+						<div class="form-group">
+							<div class="col-md-12 col-lg-12 slider-lock">
+								<div id="slider">
+									<div id="slider_bg"></div>
+									<span id="label">>></span> <span id="labelTip">向右拖动滑块验证</span>
 								</div>
 							</div>
 						</div>
 						<!-- end of form-group -->
+						<div class="form-group">
+							<div class="login_btn col-md-12 col-lg-12">
+								<button class="btn btn-default lbtn" type="submit" id="submit"
+									disabled="true">登 录</button>
+							</div>
+						</div>
+						<!-- end of form-group -->
+						<div class="form-group">
+							<div style="padding-left:60px;padding-top: 25px;">
+								<button class="btn btn-default lbtn" style="width：79%"
+									onclick="regis()">没有登陆账号？快速进行注册</button>
+								<%-- <a href="<c:url value='/page/user/user_register.jsp'/>" class="btn btn-default  col-md-12 col-lg-12 lbtn">没有登陆账号？快速进行注册</a>
+							    --%>
+							</div>
+						</div>
 				</div>
-				<!-- end of sum-group -->
-				</form>
-				<!-- end of loginform -->
+				<!-- end of form-group -->
 			</div>
-			<!-- end of panel -->
+			<!-- end of sum-group -->
+			</form>
+			<!-- end of loginform -->
 		</div>
-		<!-- end of center-block -->
+		<!-- end of panel -->
+	</div>
+	<!-- end of center-block -->
 	</div>
 	<!-- end of row -->
 	</div>
 	<!-- container_fluid -->
 
 	<script type="text/javascript" src="<c:url value='/js/jquery.js'/>"></script>
-	<script type="text/javascript" src="<c:url value='/js/bootstrap.min.js'/>"></script>
-	<script type="text/javascript" src="<c:url value='/js/slideunlock.js'/>"></script>
-	<script type="text/javascript" src="<c:url value='/js/login_verify.js'/>"></script>
-	
+	<script type="text/javascript"
+		src="<c:url value='/js/bootstrap.min.js'/>"></script>
+	<script type="text/javascript"
+		src="<c:url value='/js/slideunlock.js'/>"></script>
+	<script type="text/javascript"
+		src="<c:url value='/js/login_verify.js'/>"></script>
+
 	<script type="text/javascript">
 		function regis() {
 			window.location.href = "http://localhost:8080/KissOlive/page/user/user_register.jsp";
@@ -170,7 +174,10 @@
 			ready : function() {
 			},
 			success : function() {
-				alert('验证匹配！');
+				
+			    	
+			    	$('#myModal').modal('hide');
+			    
 			},
 			error : function() {
 				alert('验证码不匹配！');

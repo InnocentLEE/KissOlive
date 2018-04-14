@@ -1,6 +1,8 @@
 /*常规验证码*/
 #mpanel2{
-	height:80px;
+	margin-top: -60px;
+    margin-left: 120px;
+    height: 100px;
 }
 .verify-code {
 	width:214px;
@@ -45,12 +47,14 @@
 }
 
 .verify-btn {
-	width: 200px;
-	height: 30px;
-	background-color: #337AB7;
-	color:#FFFFFF;
-	border:none;
-	margin-top: 10px;
+	width: 218px;
+    height: 30px;
+    background-color: #337AB7;
+    color: #FFFFFF;
+    border: none;
+    margin-top: 10px;
+    margin-left: 120;
+
 }
 
 

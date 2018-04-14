@@ -68,7 +68,8 @@ function checkform(){
 }
 function validateUsertel() {
 	var id = "usertel";
-	var value = $("#" + id).val();//获取输入框内容
+	var value = $("#" + id).val();
+	//获取输入框内容
 	var staus = 0; //判断验证情况
 	/*
 	 * 非空校验
