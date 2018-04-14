@@ -95,7 +95,7 @@
 												<div>
 													<h5>请输入你需要找回登录密码的帐户名（即手机号）:</h5>
 													<label class="Findpw_login">登陆账号</label> 
-													<input type="text" class="text" id="tel" name="tel" required="required" />
+													<input type="text" class="text" id="tel" name="tel"/>
 												</div>
 												<div class="col-sm-12 tip1">
 								                     <label class="errorClass" id="telError" >${errors.tel }</label>
@@ -144,9 +144,10 @@
 									<button class="btn btn-default lbtn" style="width：79%"
 										onclick="regis()">没有登录账号？快速进行注册</button>
 								</div>
-							</div>
+					   </div>
 						</div>
 					</form>
+						
 			</div>
 			<!-- end of panel -->
 		</div>

@@ -105,10 +105,10 @@
 		       <div class="col-md-4">
 		       		<div class="panel js-equal-height">
 		       		   <div class="push push-brand">
-		       		        <a href="#" ><img alt="" src="http://localhost:8080/KissOlive/img/user_home/dior.jpg"></a>
+		       		        <a href="#" ><img alt="" class="home_logo" src="http://localhost:8080/KissOlive/img/user_home/dior.jpg"></a>
 		       		   </div>
 		       		   <div class="push push-good">
-		       		   		<a href="#" ><img alt="" src="http://localhost:8080/KissOlive/img/user_home/6.jpg"></a>
+		       		   		<a href="#" ><img alt="" class="home_good"src="http://localhost:8080/KissOlive/img/user_home/6.jpg"></a>
 		       		   		<div class="push-text"></div>
 		       		   </div>
 		       		</div><!-- end of panel -->
@@ -117,7 +117,7 @@
 		           <div class="panel js-equal-height">
 		             <div class="intro">
 		             	<div class="goods">
-		             	  <a href="#" ><img alt="" src="http://localhost:8080/KissOlive/img/user_home/4.jpg"></a>
+		             	  <a href="#" ><img alt="" class="home_series" src="http://localhost:8080/KissOlive/img/user_home/4.jpg"></a>
 		             	</div>
 		             	<div class="goods_text">
 		             	  <span><a href="#">全新DIOR迪奥烈艳蓝金液唇膏</a></span>
@@ -129,7 +129,7 @@
 		       		<div class="panel js-equal-height">
 		             <div class="intro">
 		             	<div class="goods">
-		             	  <a href="#" ><img alt="" src="http://localhost:8080/KissOlive/img/user_home/5.jpg"></a>
+		             	  <a href="#" ><img alt="" class="home_series" src="http://localhost:8080/KissOlive/img/user_home/5.jpg"></a>
 		             	</div>
 		             	<div class="goods_text">
 		             	  <span><a href="#">全新DIOR迪奥烈艳蓝金液唇膏</a></span>
