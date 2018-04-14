@@ -48,17 +48,98 @@
 					<tbody>
 						<tr>
 							<td>迪奥烈焰蓝金系列</td>
-							<td><a class="opera">编辑</a>
+							<td><button type="button" class="btn btn-link"
+									data-toggle="modal" data-target="#myModal">编辑</button>
+									 <!-- 模态框（Modal） -->
+								<div class="modal fade" id="myModal" tabindex="-1" role="dialog"
+									aria-labelledby="myModalLabel" aria-hidden="true">
+									<div class="modal-dialog">
+										<div class="modal-content">
+											<div class="modal-header">
+												<button type="button" class="close" data-dismiss="modal"
+													aria-hidden="true">&times;</button>
+												<h4 class="modal-title" id="myModalLabel">请输入新的系列名称</h4>
+											</div>
+											<div class="modal-body">
+												<div class="col-sm-10">
+													<input type="text" class="form-control inputxt" />
+												</div>
+											</div>
+											<div class="modal-footer">
+												<button type="button" class="btn btn-default"
+													data-dismiss="modal">关闭</button>
+												<button type="button" class="btn btn-primary">提交更改
+												</button>
+											</div>
+										</div>
+										<!-- /.modal-content -->
+									</div>
+									<!-- /.modal -->
+								</div>
 								<a class="opera">删除</a></td>
 						</tr>
 						<tr>
 							<td>玩色狂想系列</td>
-							<td><a class="opera">编辑</a>
+							<td><button type="button" class="btn btn-link"
+									data-toggle="modal" data-target="#myModal">编辑</button>
+									 <!-- 模态框（Modal） -->
+								<div class="modal fade" id="myModal" tabindex="-1" role="dialog"
+									aria-labelledby="myModalLabel" aria-hidden="true">
+									<div class="modal-dialog">
+										<div class="modal-content">
+											<div class="modal-header">
+												<button type="button" class="close" data-dismiss="modal"
+													aria-hidden="true">&times;</button>
+												<h4 class="modal-title" id="myModalLabel">请输入新的系列名称</h4>
+											</div>
+											<div class="modal-body">
+												<div class="col-sm-10">
+													<input type="text" class="form-control inputxt" />
+												</div>
+											</div>
+											<div class="modal-footer">
+												<button type="button" class="btn btn-default"
+													data-dismiss="modal">关闭</button>
+												<button type="button" class="btn btn-primary">提交更改
+												</button>
+											</div>
+										</div>
+										<!-- /.modal-content -->
+									</div>
+									<!-- /.modal -->
+								</div>
 								<a class="opera">删除</a></td>
 						</tr>
 						<tr>
 							<td>魅惑系列</td>
-							<td><a class="opera">编辑</a>
+							<td><button type="button" class="btn btn-link"
+									data-toggle="modal" data-target="#myModal">编辑</button>
+									 <!-- 模态框（Modal） -->
+								<div class="modal fade" id="myModal" tabindex="-1" role="dialog"
+									aria-labelledby="myModalLabel" aria-hidden="true">
+									<div class="modal-dialog">
+										<div class="modal-content">
+											<div class="modal-header">
+												<button type="button" class="close" data-dismiss="modal"
+													aria-hidden="true">&times;</button>
+												<h4 class="modal-title" id="myModalLabel">请输入新的系列名称</h4>
+											</div>
+											<div class="modal-body">
+												<div class="col-sm-10">
+													<input type="text" class="form-control inputxt" />
+												</div>
+											</div>
+											<div class="modal-footer">
+												<button type="button" class="btn btn-default"
+													data-dismiss="modal">关闭</button>
+												<button type="button" class="btn btn-primary">提交更改
+												</button>
+											</div>
+										</div>
+										<!-- /.modal-content -->
+									</div>
+									<!-- /.modal -->
+								</div>
 								<a class="opera">删除</a></td>
 						</tr>
 					</tbody>
@@ -68,8 +149,8 @@
 		<!-- end:系列列表 -->
 	</div>
 
-	<sript src="js/jquery.js"></sript>
-	<sript src="js/bootstrap.min.js"></sript>
+	<script src="js/jquery.js"></script>
+	<script src="js/bootstrap.min.js"></script>
 	<script type="text/javascript"></script>
 </body>
 </html>

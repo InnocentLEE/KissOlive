@@ -43,9 +43,9 @@
 			<span class="input-group-addon">品牌名称</span> <input type="text"
 				class="form-control" placeholder="请输入品牌名称">
 		</div>
+		<!-- 上传图片 -->
 		<div class="file-input">
 			<input type="file" id="file" class="custom-file-input">
-
 		</div>
 		<!-- end:添加 -->
 

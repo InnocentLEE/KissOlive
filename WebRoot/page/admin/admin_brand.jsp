@@ -19,8 +19,7 @@
 <meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
 <meta http-equiv="description" content="This is my page">
 
-<link rel="stylesheet" type="text/css"
-	href="css/admin/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="css/admin/bootstrap.min.css">
 <link rel="stylesheet" type="text/css" href="css/admin/main.css">
 
 </head>
@@ -66,7 +65,7 @@
 									src="img//kissolive.png" class="img-thumbnail"
 									alt="Cinque Terre" width="65" height="45"></a></td>
 							<td><a class="opera" href="page/admin/admin_series.jsp">查看系列</a>
-								<a class="opera">编辑</a> <a class="opera">删除</a></td>
+								<a class="opera" href="page/admin/admin_addbrand.jsp">编辑</a> <a class="opera">删除</a></td>
 						</tr>
 						<tr>
 							<td>阿玛尼</td>

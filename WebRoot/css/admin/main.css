@@ -58,7 +58,7 @@
 	touch-action:manipulation;
 	cursor:pointer;
 	back-ground:none;
-	border:1px solid transparent;
+	
 	border-radius:0px;
 }
 a {
@@ -103,4 +103,12 @@ a {
 }
 .input-group{
 	margin-right:600px;
+}
+.inputxt{
+	margin-left:40px;
+}
+.btn-link{
+	font-size:18px;
+	padding:0px;
+	padding-right:8px;
 }

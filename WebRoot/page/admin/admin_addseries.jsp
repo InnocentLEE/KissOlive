@@ -21,11 +21,11 @@
 
 <link rel="stylesheet" type="text/css"
 	href="css/admin/bootstrap.min.css">
-<link rel="stylesheet" type="text/css" href="css/admin/main.css">
+<link
+	href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.4/css/bootstrap-select.css"
+	rel="stylesheet">
 <link href="css/admin/bootstrap.file-input.css" rel="stylesheet">
-<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.4/css/bootstrap-select.css" rel="stylesheet">
-
-
+<link rel="stylesheet" type="text/css" href="css/admin/main.css">
 
 </head>
 
@@ -41,9 +41,9 @@
 
 		<!-- start:添加 -->
 		<div class="form-group">
-		<span class="form-group-addon">所属品牌</span>
-			<select class="selectpicker show-tick" title="请选择一项"
-				data-live-search="true" data-size="40">
+			<span class="form-group-addon">所属品牌</span> <select
+				class="selectpicker show-tick" title="请选择一项" data-live-search="true"
+				data-size="40">
 				<option>迪奥</option>
 				<option>阿玛尼</option>
 				<option>YSL</option>
@@ -71,8 +71,6 @@
 	<script src="js/jquery.js"></script>
 	<script src="js/bootstrap.min.js"></script>
 	<script src="js/bootstrap-select.js"></script>
-	<script src="https://cdn.bootcss.com/bootstrap-select/1.12.4/js/i18n/defaults-zh_CN.min.js"></script>
-
 
 </body>
 </html>
