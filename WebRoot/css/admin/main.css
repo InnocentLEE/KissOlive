@@ -112,3 +112,16 @@ a {
 	padding:0px;
 	padding-right:8px;
 }
+.username {
+    text-align: center;
+    margin-top:30px;
+}
+.bootstrap-select > .dropdown-toggle.bs-placeholder, .bootstrap-select > .dropdown-toggle.bs-placeholder:hover, .bootstrap-select > .dropdown-toggle.bs-placeholder:focus, .bootstrap-select > .dropdown-toggle.bs-placeholder:active {
+    color: #999;
+    margin-top: 0px;
+}
+form>input{
+	background-color: #000;
+    border-color: transparent;
+    color:#fff;
+}

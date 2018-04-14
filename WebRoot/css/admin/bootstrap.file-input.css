@@ -37,3 +37,6 @@
 button.btn.dropdown-toggle.btn-default {
  border-color: #999;
 }
+button, html input[type="button"], input[type="reset"], input[type="submit"] {
+    margin-top:20px;
+}

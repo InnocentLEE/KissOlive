@@ -60,6 +60,7 @@
 													aria-hidden="true">&times;</button>
 												<h4 class="modal-title" id="myModalLabel">请输入新的系列名称</h4>
 											</div>
+											<form action="page/admin/admin_series.jsp">
 											<div class="modal-body">
 												<div class="col-sm-10">
 													<input type="text" class="form-control inputxt" />
@@ -68,9 +69,9 @@
 											<div class="modal-footer">
 												<button type="button" class="btn btn-default"
 													data-dismiss="modal">关闭</button>
-												<button type="button" class="btn btn-primary">提交更改
-												</button>
+												<input type="submit" value="提交" class="submit">
 											</div>
+											</form>
 										</div>
 										<!-- /.modal-content -->
 									</div>
@@ -92,6 +93,7 @@
 													aria-hidden="true">&times;</button>
 												<h4 class="modal-title" id="myModalLabel">请输入新的系列名称</h4>
 											</div>
+											<form action="page/admin/admin_series.jsp">
 											<div class="modal-body">
 												<div class="col-sm-10">
 													<input type="text" class="form-control inputxt" />
@@ -100,9 +102,9 @@
 											<div class="modal-footer">
 												<button type="button" class="btn btn-default"
 													data-dismiss="modal">关闭</button>
-												<button type="button" class="btn btn-primary">提交更改
-												</button>
+												<input type="submit" value="提交" class="submit">
 											</div>
+											</form>
 										</div>
 										<!-- /.modal-content -->
 									</div>
@@ -124,6 +126,7 @@
 													aria-hidden="true">&times;</button>
 												<h4 class="modal-title" id="myModalLabel">请输入新的系列名称</h4>
 											</div>
+											<form action="page/admin/admin_series.jsp">
 											<div class="modal-body">
 												<div class="col-sm-10">
 													<input type="text" class="form-control inputxt" />
@@ -132,9 +135,9 @@
 											<div class="modal-footer">
 												<button type="button" class="btn btn-default"
 													data-dismiss="modal">关闭</button>
-												<button type="button" class="btn btn-primary">提交更改
-												</button>
+												<input type="submit" value="提交" class="submit">
 											</div>
+											</form>
 										</div>
 										<!-- /.modal-content -->
 									</div>

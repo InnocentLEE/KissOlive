@@ -7,7 +7,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
   <head>
-    <base href="<%=basePath%>">
+    <base href="<%=basePath%>" target="rightFrame">
     
     <title>My JSP 'admin_index.jsp' starting page</title>
     
@@ -24,40 +24,22 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   </head>
   
   <body>
-  <!-- start: Header -->
-  <div class="mm-page">
-	<div class="navbar navbar-fixed-top" role="navigation">
-		<div class="container-fluid">
-		  <form class="navbar-form navbar-left">
-				<button type="submit" class="fa fa-search"></button>
-				<input type="text" class="form-control" placeholder="搜索...">
-		</form>
-		<ul class="nav navbar-nav navbar-right">
-		  <li class="username"><span>欢迎，admin</span>
-		  <li><a href="#"><i class="fa fa-power-off"></i></a></li>
-		  </ul>
-		  </ul>
-		</div>
-	</div>
-
   
-
-  </div>
-<!-- end: Header -->
 <!-- start: sidebar -->
 			<div class="sidebar ">						
 				<div class="sidebar-collapse">
 					<div class="sidebar-header t-center">
                         <span><img class="text-logo" src="img/admin/logo1.png"></span>
-                    </div>										
+                    </div>		
+                    <div class="username"><span>欢迎，admin</span></div>								
 					<div class="sidebar-menu">						
 						<ul class="nav nav-sidebar">
-							<li><a href="page/admin/admin_home.jsp" target="test"><i class="fa fa-home"></i><span class="text"> &nbsp;商城首页</span></a></li>
+							<li><a href="page/admin/admin_home.jsp" target="right"><i class="fa fa-home"></i><span class="text"> &nbsp;商城首页</span></a></li>
 							<li><a href="#"><i class="fa fa-picture-o"></i><span class="text"> &nbsp;轮播图管理</span></a></li>
-							<li><a href="page/admin/admin_brand.jsp" target="test"><i class="fa fa-tag"></i><span class="text"> &nbsp;品牌管理</span></a></li>
-							<li><a href="#"><i class="fa fa-shopping-cart"></i><span class="text"> &nbsp;商品管理</span></a></li>
+							<li><a href="page/admin/admin_brand.jsp" target="right"><i class="fa fa-tag"></i><span class="text"> &nbsp;品牌管理</span></a></li>
+							<li><a href="page/admin/admin_goods.jsp" target="right"><i class="fa fa-shopping-cart"></i><span class="text"> &nbsp;商品管理</span></a></li>
 							<li><a href="#"><i class="fa fa-circle"></i><span class="text"> &nbsp;色号管理</span></a></li>
-							<li><a href="page/admin/admin_hot.jsp" target="test"><i class="fa fa-heart"></i><span class="text"> &nbsp;选购热点管理</span></a></li>
+							<li><a href="page/admin/admin_hot.jsp" target="right"><i class="fa fa-heart"></i><span class="text"> &nbsp;选购热点管理</span></a></li>
 							<li><a href="#"><i class="fa fa-list-alt"></i><span class="text"> &nbsp;订单管理</span></a></li>
 							
 						</ul>
@@ -65,7 +47,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				</div>
 			</div>
 	<!-- end: sidebar -->
-	<!-- start: body -->
+	<!-- start: body --
 	<div class="container-fluid content">
       <div class="mbody" >
          <iframe src="http://localhost:8080/KissOlive/page/admin/admin_home.jsp" frameborder="0" 
@@ -74,6 +56,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
      </div>
    </div>
   
+ 
 	<!-- end: body -->
 
   </body>

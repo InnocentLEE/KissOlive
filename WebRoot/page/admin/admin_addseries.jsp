@@ -40,33 +40,30 @@
 		<!-- end:添加系列 -->
 
 		<!-- start:添加 -->
-		<div class="form-group">
-			<span class="form-group-addon">所属品牌</span> <select
-				class="selectpicker show-tick" title="请选择一项" data-live-search="true"
-				data-size="40">
-				<option>迪奥</option>
-				<option>阿玛尼</option>
-				<option>YSL</option>
-				<option>植村秀</option>
-				<option>美宝莲</option>
-				<option>MAC</option>
-				<option>妙巴黎</option>
-			</select>
-		</div>
-		<div class="input-group">
-			<span class="input-group-addon">系列名称</span> <input type="text"
-				class="form-control" placeholder="请输入系列名称">
-		</div>
+		<form action="page/admin/admin_series.jsp">
+			<div class="form-group">
+				<span class="form-group-addon">所属品牌</span> <select
+					class="selectpicker show-tick" title="请选择一项"
+					data-live-search="true" data-size="40">
+					<option>迪奥</option>
+					<option>阿玛尼</option>
+					<option>YSL</option>
+					<option>植村秀</option>
+					<option>美宝莲</option>
+					<option>MAC</option>
+					<option>妙巴黎</option>
+				</select>
+			</div>
+			<div class="input-group">
+				<span class="input-group-addon">系列名称</span> <input type="text"
+					class="form-control" placeholder="请输入系列名称">
+			</div>
 
 
-		<!-- end:添加 -->
+			<!-- end:添加 -->
 
-		<!-- start:提交&取消 -->
-		<div class="btn-group">
-			<button type="button" class="btn btn-primary">提交</button>
-			<button type="button" class="btn btn-primary">取消</button>
-		</div>
-		<!-- end:提交&取消 -->
+			<input type="submit" value="提交" class="submit">
+		</form>
 	</div>
 	<script src="js/jquery.js"></script>
 	<script src="js/bootstrap.min.js"></script>

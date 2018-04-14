@@ -39,6 +39,7 @@
 		<!-- end:添加品牌 -->
 
 		<!-- start:添加 -->
+		<form action="page/admin/admin_brand.jsp">
 		<div class="input-group">
 			<span class="input-group-addon">品牌名称</span> <input type="text"
 				class="form-control" placeholder="请输入品牌名称">
@@ -49,12 +50,9 @@
 		</div>
 		<!-- end:添加 -->
 
-		<!-- start:提交&取消 -->
-		<div class="btn-group">
-			<button type="button" class="btn btn-primary">提交</button>
-			<button type="button" class="btn btn-primary">取消</button>
-		</div>
+		<input type="submit" value="提交" class="submit">
 		<!-- end:提交&取消 -->
+		</form>
 	</div>
 	<script src="js/jquery.js"></script>
 	<script src="js/bootstrap.min.js"></script>

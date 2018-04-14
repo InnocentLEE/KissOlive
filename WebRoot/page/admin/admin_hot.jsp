@@ -56,7 +56,8 @@
 						<tr>
 							<td>保湿</td>
 							<td><button type="button" class="btn btn-link"
-									data-toggle="modal" data-target="#myModal">编辑</button> <!-- 模态框（Modal） -->
+									data-toggle="modal" data-target="#myModal">编辑</button>
+
 								<div class="modal fade" id="myModal" tabindex="-1" role="dialog"
 									aria-labelledby="myModalLabel" aria-hidden="true">
 									<div class="modal-dialog">
@@ -66,17 +67,18 @@
 													aria-hidden="true">&times;</button>
 												<h4 class="modal-title" id="myModalLabel">请输入新的热点名称</h4>
 											</div>
-											<div class="modal-body">
-												<div class="col-sm-10">
-													<input type="text" class="form-control inputxt" />
+											<form action="page/admin/admin_hot.jsp">
+												<div class="modal-body">
+													<div class="col-sm-10">
+														<input type="text" class="form-control inputxt" />
+													</div>
 												</div>
-											</div>
-											<div class="modal-footer">
-												<button type="button" class="btn btn-default"
-													data-dismiss="modal">关闭</button>
-												<button type="button" class="btn btn-primary">提交更改
-												</button>
-											</div>
+												<div class="modal-footer">
+													<button type="button" class="btn btn-default"
+														data-dismiss="modal">关闭</button>
+													<input type="submit" value="提交" class="submit">
+												</div>
+												</form>
 										</div>
 										<!-- /.modal-content -->
 									</div>
@@ -96,6 +98,7 @@
 													aria-hidden="true">&times;</button>
 												<h4 class="modal-title" id="myModalLabel">请输入新的热点名称</h4>
 											</div>
+											<form action="page/admin/admin_hot.jsp">
 											<div class="modal-body">
 												<div class="col-sm-10">
 													<input type="text" class="form-control inputxt" />
@@ -104,9 +107,9 @@
 											<div class="modal-footer">
 												<button type="button" class="btn btn-default"
 													data-dismiss="modal">关闭</button>
-												<button type="button" class="btn btn-primary">提交更改
-												</button>
+												<input type="submit" value="提交" class="submit">
 											</div>
+											</form>
 										</div>
 										<!-- /.modal-content -->
 									</div>
@@ -126,6 +129,7 @@
 													aria-hidden="true">&times;</button>
 												<h4 class="modal-title" id="myModalLabel">请输入新的热点名称</h4>
 											</div>
+											<form action="page/admin/admin_hot.jsp">
 											<div class="modal-body">
 												<div class="col-sm-10">
 													<input type="text" class="form-control inputxt" />
@@ -134,9 +138,9 @@
 											<div class="modal-footer">
 												<button type="button" class="btn btn-default"
 													data-dismiss="modal">关闭</button>
-												<button type="button" class="btn btn-primary">提交更改
-												</button>
+												<input type="submit" value="提交" class="submit">
 											</div>
+											</form>
 										</div>
 										<!-- /.modal-content -->
 									</div>
