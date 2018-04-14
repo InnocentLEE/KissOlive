@@ -59,7 +59,7 @@ public class AddressDao {
 		String sql = "select * from tb_address a, tb_user u where a.userid=u.userid and a.userid=? order by a.orderBy";
 		List<Map<String,Object>> mapList = qr.query(sql, new MapListHandler(), userid);
 		List<Address> addressList = toAddressList(mapList);
-		System.out.println(addressList);
+		//System.out.println(addressList);
 		return addressList;
 	}
 }

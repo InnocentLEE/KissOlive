@@ -49,12 +49,8 @@
 									style="text-align:right">登陆账号</label>
 								<div class="col-sm-6">
 									<input type="text" class="form-control inputxt" id="usertel"
-										name="usertel" placeholder="请输入手机号" />
+										name="usertel" placeholder="请输入手机号" value="${usertel }"/>
 								</div>
-								<div class="col-sm-12 tip1">
-				                     <label class="errorClass" id="usertelError" >${errors.usertel }</label>
-				                     <label class="correctClass" id="usertelCorrect"></label>
-				                </div>
 							</div>
 							<div class="form-group">
 								<label for="userpassword" class="col-sm-5 control-label"
@@ -66,7 +62,7 @@
 										required="required" />
 								</div>
 								<div class="col-sm-12 tip1">
-				                      <label class="errorClass" id="passwordError" >${errors.password }</label>
+				                      <label class="errorClass" id="passwordError" >${errors }</label>
 				                     <label class="correctClass" id="passwordCorrect"></label>
 				               </div>
 							</div><!-- end of form-group -->
@@ -98,7 +94,7 @@
 													<input type="text" class="text" id="tel" name="tel"/>
 												</div>
 												<div class="col-sm-12 tip1">
-								                     <label class="errorClass" id="telError" >${errors.tel }</label>
+								                     <label class="errorClass" id="telError" ></label>
 								                     <label class="correctClass" id="telCorrect"></label>
 								                 </div>
 												<div float=left;>

@@ -192,11 +192,11 @@ public class UserServlet extends BaseServlet {
 			HttpServletResponse resp) throws ServletException, IOException,
 			SQLException, com.aliyuncs.exceptions.ClientException {
 
-		String usertel = req.getParameter("usertel");//登陆和注册账号手机id为usertel
-		//String tel = req.getParameter("tel");  //忘记密码的手机id为tel
+		String usertel = req.getParameter("usertel");// 登陆和注册账号手机id为usertel
+		// String tel = req.getParameter("tel"); //忘记密码的手机id为tel
 		/* 测试ajax发送验证码是否访问正常 */
-		//System.out.print("Usertel_print: "+usertel+"\n");
-		//System.out.print("Tel_print: "+tel+"\n");
+		// System.out.print("Usertel_print: "+usertel+"\n");
+		// System.out.print("Tel_print: "+tel+"\n");
 
 		// 判断手机号码
 		Map<String, String> errors = new HashMap<String, String>();
@@ -247,8 +247,10 @@ public class UserServlet extends BaseServlet {
 
 		return null;
 	}
+
 	/**
 	 * 登录功能
+	 * 
 	 * @param req
 	 * @param resp
 	 * @return
@@ -260,17 +262,43 @@ public class UserServlet extends BaseServlet {
 			throws ServletException, IOException, SQLException {
 		String usertel = req.getParameter("usertel");
 		String password = req.getParameter("password");
-		System.out.println(usertel+password);
-//		User user = userService.login(usertel, password);
-//		if (user != null) {
-//			req.getSession().setAttribute("sessionUser", user);
-//			// 重定向到主页
-//			return "r:/page/user/user_home.jsp";
-//		} else {
-//			req.setAttribute("usertel", usertel);
-//			req.setAttribute("password", password);
-//			req.setAttribute("errors", "手机号或密码错误");
-//		}
+		// System.out.println(usertel+password);
+		User user = userService.login(usertel, password);
+		if (user != null) {
+			req.getSession().setAttribute("sessionUser", user);
+			// 重定向到主页
+			return "r:/index.jsp";
+		} else {
+			req.setAttribute("usertel", usertel);
+			req.setAttribute("password", password);
+			req.setAttribute("errors", "手机号或密码错误");
+			return "f:/page/user/user_login.jsp";
+		}
+	}
+
+	public String findpassword(HttpServletRequest req, HttpServletResponse resp)
+			throws ServletException, IOException, SQLException,
+			com.aliyuncs.exceptions.ClientException {
+		String telphone = req.getParameter("tel");
+		Map<String, String> errors = new HashMap<String, String>();
+		if (telphone == null || telphone.trim().equals("")) {
+			errors.put("findpassworderror", "● 手机号码不能为空！");
+		} else if (telphone.length() != 11) {
+			errors.put("findpassworderror", "● 请输入11位正确的手机号码！");
+		} else if (!Validate.validateTelphone(telphone)) {
+			errors.put("findpassworderror", "● 请输入11位正确的手机号码！");
+		}
+		if (errors.size() == 0) {
+
+			String password = userService.findPasswordByUsertel(telphone);
+			// try {
+			// MNS.sendSms(telphone, VerifyCode);
+			// } catch (ClientException e) {
+			// throw new RuntimeException();
+			// }
+			// System.out.println(password);
+			resp.getWriter().print(true);
+		}
 		return null;
 	}
 }

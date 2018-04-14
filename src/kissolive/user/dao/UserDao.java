@@ -41,9 +41,21 @@ public class UserDao {
 	 * @throws SQLException
 	 */
 	public User findByUsertelAndPassword(String usertel,String password) throws SQLException{
-		String sql = "select count(*) from tb_user where usertel=? and password=?";
+		String sql = "select * from tb_user where usertel=? and password=?";
 		User user = null;
 		user = qr.query(sql, new BeanHandler<User>(User.class), usertel, password);
+		return user;
+	}
+	/**
+	 * 找回密码
+	 * @param usertel
+	 * @return
+	 * @throws SQLException
+	 */
+	public User findPasswordByUsertel(String usertel) throws SQLException{
+		String sql = "select * from tb_user where usertel=?";
+		User user = null;
+		user = qr.query(sql, new BeanHandler<User>(User.class), usertel);
 		return user;
 	}
 }

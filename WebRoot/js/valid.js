@@ -319,7 +319,7 @@ function sentUserpassword(){
 	   */
 	  $.ajax({
 		url:"/KissOlive/servlet/UserServlet",  
-       data:{method:"sentVerifyCode", tel:value},  
+       data:{method:"findpassword", tel:value},  
 		type:"POST",
 		dataType:"json",
 		async:false,//是否异步请求，如果是异步，那么不会等服务器返回，这个函数就向下运行了。

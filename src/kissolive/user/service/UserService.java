@@ -2,6 +2,8 @@ package kissolive.user.service;
 
 import java.sql.SQLException;
 
+import org.apache.commons.dbutils.handlers.BeanHandler;
+
 import kissolive.user.dao.UserDao;
 import kissolive.user.domain.User;
 import util.CommonUtils;
@@ -55,8 +57,17 @@ public class UserService {
 		String encodeRules = usertel;
 		String content = password;
 		password = SymmetricEncoder.AESEncode(encodeRules, content);
+		
 		try {
 			return userDao.findByUsertelAndPassword(usertel, password);
+		} catch (SQLException e) {
+			throw new RuntimeException(e);
+		}
+	}
+	public String findPasswordByUsertel(String usertel) {
+		try {
+			User user = userDao.findPasswordByUsertel(usertel);
+			return SymmetricEncoder.AESDncode(user.getUsertel(), user.getPassword());
 		} catch (SQLException e) {
 			throw new RuntimeException(e);
 		}
