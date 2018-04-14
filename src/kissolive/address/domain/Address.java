@@ -1,10 +1,9 @@
 package kissolive.address.domain;
 
-import kissolive.user.domain.User;
 
 public class Address {
 	private String aid;
-	private User user;
+	private String userid;
 	private String province;
 	private int isdefault;
 	private String city;
@@ -17,11 +16,11 @@ public class Address {
 		super();
 	}
 
-	public Address(String aid, User user, String province, int isdefault,
+	public Address(String aid, String userid, String province, int isdefault,
 			String city, String district, String detail, String name, String tel) {
 		super();
 		this.aid = aid;
-		this.user = user;
+		this.userid = userid;
 		this.province = province;
 		this.isdefault = isdefault;
 		this.city = city;
@@ -39,12 +38,12 @@ public class Address {
 		this.aid = aid;
 	}
 
-	public User getUser() {
-		return user;
+	public String getUserid() {
+		return userid;
 	}
 
-	public void setUser(User user) {
-		this.user = user;
+	public void setUserid(String userid) {
+		this.userid = userid;
 	}
 
 	public String getProvince() {
@@ -105,10 +104,11 @@ public class Address {
 
 	@Override
 	public String toString() {
-		return "Address [aid=" + aid + ", user=" + user + ", province="
+		return "Address [aid=" + aid + ", userid=" + userid + ", province="
 				+ province + ", isdefault=" + isdefault + ", city=" + city
 				+ ", district=" + district + ", detail=" + detail + ", name="
 				+ name + ", tel=" + tel + "]";
 	}
 
+	
 }

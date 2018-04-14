@@ -1,23 +1,21 @@
 package kissolive.orderitem.domain;
 
-import kissolive.goods.domain.Goods;
-import kissolive.order.domain.Order;
 
 public class OrderItem {
 	public OrderItem() {
 		super();
 	}
 	private String oiid;
-	private Order order;
-	private Goods goods;
+	private String oid;
+	private String gid;
 	private int number;
 	private double unitprice;
-	public OrderItem(String oiid, Order order, Goods goods, int number,
+	public OrderItem(String oiid, String oid, String gid, int number,
 			double unitprice) {
 		super();
 		this.oiid = oiid;
-		this.order = order;
-		this.goods = goods;
+		this.oid = oid;
+		this.gid = gid;
 		this.number = number;
 		this.unitprice = unitprice;
 	}
@@ -27,17 +25,17 @@ public class OrderItem {
 	public void setOiid(String oiid) {
 		this.oiid = oiid;
 	}
-	public Order getOrder() {
-		return order;
+	public String getOid() {
+		return oid;
 	}
-	public void setOrder(Order order) {
-		this.order = order;
+	public void setOid(String oid) {
+		this.oid = oid;
 	}
-	public Goods getGoods() {
-		return goods;
+	public String getGid() {
+		return gid;
 	}
-	public void setGoods(Goods goods) {
-		this.goods = goods;
+	public void setGid(String sid) {
+		this.gid = sid;
 	}
 	public int getNumber() {
 		return number;
@@ -53,8 +51,8 @@ public class OrderItem {
 	}
 	@Override
 	public String toString() {
-		return "OrderItem [oiid=" + oiid + ", order=" + order + ", goods="
-				+ goods + ", number=" + number + ", unitprice=" + unitprice
-				+ "]";
+		return "OrderItem [oiid=" + oiid + ", oid=" + oid + ", gid=" + gid
+				+ ", number=" + number + ", unitprice=" + unitprice + "]";
 	}
+	
 }

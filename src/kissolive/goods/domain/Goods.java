@@ -1,24 +1,22 @@
 package kissolive.goods.domain;
 
-import kissolive.colorno.domain.Colorno;
-import kissolive.lipstick.domain.Lipstick;
 
 public class Goods {
 	public Goods() {
 		super();
 	}
 	private String gid;
-	private Lipstick lipstick;
-	private Colorno colorno;
+	private String lid;
+	private String cnid;
 	private double gprice;
 	private int gnumber;
 	private int status;
-	public Goods(String gid, Lipstick lipstick, Colorno colorno, double gprice,
+	public Goods(String gid, String lid, String cnid, double gprice,
 			int gnumber, int status) {
 		super();
 		this.gid = gid;
-		this.lipstick = lipstick;
-		this.colorno = colorno;
+		this.lid = lid;
+		this.cnid = cnid;
 		this.gprice = gprice;
 		this.gnumber = gnumber;
 		this.status = status;
@@ -29,17 +27,17 @@ public class Goods {
 	public void setGid(String gid) {
 		this.gid = gid;
 	}
-	public Lipstick getLipstick() {
-		return lipstick;
+	public String getLid() {
+		return lid;
 	}
-	public void setLipstick(Lipstick lipstick) {
-		this.lipstick = lipstick;
+	public void setLid(String lid) {
+		this.lid = lid;
 	}
-	public Colorno getColorno() {
-		return colorno;
+	public String getCnid() {
+		return cnid;
 	}
-	public void setColorno(Colorno colorno) {
-		this.colorno = colorno;
+	public void setCnid(String cnid) {
+		this.cnid = cnid;
 	}
 	public double getGprice() {
 		return gprice;
@@ -61,9 +59,9 @@ public class Goods {
 	}
 	@Override
 	public String toString() {
-		return "Goods [gid=" + gid + ", lipstick=" + lipstick + ", colorno="
-				+ colorno + ", gprice=" + gprice + ", gnumber=" + gnumber
-				+ ", status=" + status + "]";
+		return "Goods [gid=" + gid + ", lid=" + lid + ", cnid=" + cnid
+				+ ", gprice=" + gprice + ", gnumber=" + gnumber + ", status="
+				+ status + "]";
 	}
 	
 }

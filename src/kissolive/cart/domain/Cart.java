@@ -1,21 +1,19 @@
 package kissolive.cart.domain;
 
-import kissolive.goods.domain.Goods;
-import kissolive.user.domain.User;
 
 public class Cart {
 	public Cart() {
 		super();
 	}
 	private String cid;
-	private User user;
-	private Goods goods;
+	private String userid;
+	private String gid;
 	private int number;
-	public Cart(String cid, User user, Goods goods, int number) {
+	public Cart(String cid, String userid, String gid, int number) {
 		super();
 		this.cid = cid;
-		this.user = user;
-		this.goods = goods;
+		this.userid = userid;
+		this.gid = gid;
 		this.number = number;
 	}
 	public String getCid() {
@@ -24,17 +22,17 @@ public class Cart {
 	public void setCid(String cid) {
 		this.cid = cid;
 	}
-	public User getUser() {
-		return user;
+	public String getUserid() {
+		return userid;
 	}
-	public void setUser(User user) {
-		this.user = user;
+	public void setUserid(String userid) {
+		this.userid = userid;
 	}
-	public Goods getGoods() {
-		return goods;
+	public String getGid() {
+		return gid;
 	}
-	public void setGoods(Goods goods) {
-		this.goods = goods;
+	public void setGid(String gid) {
+		this.gid = gid;
 	}
 	public int getNumber() {
 		return number;
@@ -44,8 +42,9 @@ public class Cart {
 	}
 	@Override
 	public String toString() {
-		return "Cart [cid=" + cid + ", user=" + user + ", goods=" + goods
+		return "Cart [cid=" + cid + ", userid=" + userid + ", gid=" + gid
 				+ ", number=" + number + "]";
 	}
+	
 	
 }

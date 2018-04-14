@@ -71,7 +71,7 @@ public class UserServlet extends BaseServlet {
 
 		// 添加收货地址并设置为默认收货地址
 		AddressService addressService = new AddressService();
-		Address address = new Address(CommonUtils.uuid(), user, province, 1,
+		Address address = new Address(CommonUtils.uuid(), user.getUserid(), province, 1,
 				city, district, detail, name, tel);
 		addressService.addAddress(address);
 

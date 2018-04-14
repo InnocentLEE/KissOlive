@@ -1,53 +1,48 @@
 package kissolive.recommend.domain;
 
-import kissolive.brand.domain.Brand;
-import kissolive.goods.domain.Goods;
-import kissolive.series.domain.Series;
-
 public class Recommend {
+	private String bid;
+	private String sid1;
+	private String sid2;
+	private String gid;
 	public Recommend() {
 		super();
 	}
-	private Goods goods;
-	private Brand brand;
-	private Series series1;
-	private Series series2;
-	public Recommend(Goods goods, Brand brand, Series series1, Series series2) {
+	public Recommend(String bid, String sid1, String sid2, String gid) {
 		super();
-		this.goods = goods;
-		this.brand = brand;
-		this.series1 = series1;
-		this.series2 = series2;
+		this.bid = bid;
+		this.sid1 = sid1;
+		this.sid2 = sid2;
+		this.gid = gid;
 	}
-	public Goods getGoods() {
-		return goods;
+	public String getBid() {
+		return bid;
 	}
-	public void setGoods(Goods goods) {
-		this.goods = goods;
+	public void setBid(String bid) {
+		this.bid = bid;
 	}
-	public Brand getBrand() {
-		return brand;
+	public String getSid1() {
+		return sid1;
 	}
-	public void setBrand(Brand brand) {
-		this.brand = brand;
+	public void setSid1(String sid1) {
+		this.sid1 = sid1;
 	}
-	public Series getSeries1() {
-		return series1;
+	public String getSid2() {
+		return sid2;
 	}
-	public void setSeries1(Series series1) {
-		this.series1 = series1;
+	public void setSid2(String sid2) {
+		this.sid2 = sid2;
 	}
-	public Series getSeries2() {
-		return series2;
+	public String getGid() {
+		return gid;
 	}
-	public void setSeries2(Series series2) {
-		this.series2 = series2;
+	public void setGid(String gid) {
+		this.gid = gid;
 	}
 	@Override
 	public String toString() {
-		return "Recommend [goods=" + goods + ", brand=" + brand + ", series1="
-				+ series1 + ", series2=" + series2 + "]";
+		return "DBRecommend [bid=" + bid + ", sid1=" + sid1 + ", sid2=" + sid2
+				+ ", gid=" + gid + "]";
 	}
-	
 	
 }

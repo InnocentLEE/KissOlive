@@ -1,25 +1,23 @@
 package kissolive.lipstick.domain;
 
-import kissolive.hotspot.domain.Hotspot;
-import kissolive.series.domain.Series;
 
 public class Lipstick {
 	public Lipstick() {
 		super();
 	}
 	private String lid;
-	private Series series;
-	private Hotspot hotspot;
+	private String sid;
+	private String hid;
 	private String lname;
 	private String lorigin;
-	private String shelflife;
+	private int shelflife;
 	private String skin;
-	public Lipstick(String lid, Series series, Hotspot hotspot, String lname,
-			String lorigin, String shelflife, String skin) {
+	public Lipstick(String lid, String sid, String hid, String lname,
+			String lorigin, int shelflife, String skin) {
 		super();
 		this.lid = lid;
-		this.series = series;
-		this.hotspot = hotspot;
+		this.sid = sid;
+		this.hid = hid;
 		this.lname = lname;
 		this.lorigin = lorigin;
 		this.shelflife = shelflife;
@@ -31,17 +29,17 @@ public class Lipstick {
 	public void setLid(String lid) {
 		this.lid = lid;
 	}
-	public Series getSeries() {
-		return series;
+	public String getSid() {
+		return sid;
 	}
-	public void setSeries(Series series) {
-		this.series = series;
+	public void setSid(String sid) {
+		this.sid = sid;
 	}
-	public Hotspot getHotspot() {
-		return hotspot;
+	public String getHid() {
+		return hid;
 	}
-	public void setHotspot(Hotspot hotspot) {
-		this.hotspot = hotspot;
+	public void setHid(String hid) {
+		this.hid = hid;
 	}
 	public String getLname() {
 		return lname;
@@ -55,10 +53,10 @@ public class Lipstick {
 	public void setLorigin(String lorigin) {
 		this.lorigin = lorigin;
 	}
-	public String getShelflife() {
+	public int getShelflife() {
 		return shelflife;
 	}
-	public void setShelflife(String shelflife) {
+	public void setShelflife(int shelflife) {
 		this.shelflife = shelflife;
 	}
 	public String getSkin() {
@@ -69,9 +67,9 @@ public class Lipstick {
 	}
 	@Override
 	public String toString() {
-		return "Lipstick [lid=" + lid + ", series=" + series + ", hotspot="
-				+ hotspot + ", lname=" + lname + ", lorigin=" + lorigin
-				+ ", shelflife=" + shelflife + ", skin=" + skin + "]";
+		return "Lipstick [lid=" + lid + ", sid=" + sid + ", hid=" + hid
+				+ ", lname=" + lname + ", lorigin=" + lorigin + ", shelflife="
+				+ shelflife + ", skin=" + skin + "]";
 	}
 	
 	

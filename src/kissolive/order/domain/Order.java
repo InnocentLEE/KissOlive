@@ -1,13 +1,12 @@
 package kissolive.order.domain;
 
-import kissolive.user.domain.User;
 
 public class Order {
 	public Order() {
 		super();
 	}
 	private String oid;
-	private User user;
+	private String userid;
 	private int status;
 	private String province;
 	private String city;
@@ -17,12 +16,12 @@ public class Order {
 	private String tel;
 	private String createtime;
 	private String newtime;
-	public Order(String oid, User user, int status, String province,
+	public Order(String oid, String userid, int status, String province,
 			String city, String district, String detail, String name,
 			String tel, String createtime, String newtime) {
 		super();
 		this.oid = oid;
-		this.user = user;
+		this.userid = userid;
 		this.status = status;
 		this.province = province;
 		this.city = city;
@@ -39,11 +38,11 @@ public class Order {
 	public void setOid(String oid) {
 		this.oid = oid;
 	}
-	public User getUser() {
-		return user;
+	public String getUserid() {
+		return userid;
 	}
-	public void setUser(User user) {
-		this.user = user;
+	public void setUserid(String userid) {
+		this.userid = userid;
 	}
 	public int getStatus() {
 		return status;
@@ -101,11 +100,12 @@ public class Order {
 	}
 	@Override
 	public String toString() {
-		return "Order [oid=" + oid + ", user=" + user + ", status=" + status
-				+ ", province=" + province + ", city=" + city + ", district="
-				+ district + ", detail=" + detail + ", name=" + name + ", tel="
-				+ tel + ", createtime=" + createtime + ", newtime=" + newtime
-				+ "]";
+		return "Order [oid=" + oid + ", userid=" + userid + ", status="
+				+ status + ", province=" + province + ", city=" + city
+				+ ", district=" + district + ", detail=" + detail + ", name="
+				+ name + ", tel=" + tel + ", createtime=" + createtime
+				+ ", newtime=" + newtime + "]";
 	}
+	
 	
 }

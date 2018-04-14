@@ -1,20 +1,18 @@
 package kissolive.lipstickpicture.domain;
 
-import kissolive.lipstick.domain.Lipstick;
 
 public class LipstickPicture {
 	public LipstickPicture() {
 		super();
 	}
 	private String lpid;
-	private Lipstick lipstick;
+	private String lid;
 	private String lpsrc;
-	private String ismain;
-	public LipstickPicture(String lpid, Lipstick lipstic, String lpsrc,
-			String ismain) {
+	private int ismain;
+	public LipstickPicture(String lpid, String lid, String lpsrc, int ismain) {
 		super();
 		this.lpid = lpid;
-		this.lipstick = lipstic;
+		this.lid = lid;
 		this.lpsrc = lpsrc;
 		this.ismain = ismain;
 	}
@@ -24,11 +22,11 @@ public class LipstickPicture {
 	public void setLpid(String lpid) {
 		this.lpid = lpid;
 	}
-	public Lipstick getLipstic() {
-		return lipstick;
+	public String getLid() {
+		return lid;
 	}
-	public void setLipstic(Lipstick lipstic) {
-		this.lipstick = lipstic;
+	public void setLid(String lid) {
+		this.lid = lid;
 	}
 	public String getLpsrc() {
 		return lpsrc;
@@ -36,16 +34,17 @@ public class LipstickPicture {
 	public void setLpsrc(String lpsrc) {
 		this.lpsrc = lpsrc;
 	}
-	public String getIsmain() {
+	public int getIsmain() {
 		return ismain;
 	}
-	public void setIsmain(String ismain) {
+	public void setIsmain(int ismain) {
 		this.ismain = ismain;
 	}
 	@Override
 	public String toString() {
-		return "LipstickPicture [lpid=" + lpid + ", lipstic=" + lipstick
-				+ ", lpsrc=" + lpsrc + ", ismain=" + ismain + "]";
+		return "LipstickPicture [lpid=" + lpid + ", lid=" + lid + ", lpsrc="
+				+ lpsrc + ", ismain=" + ismain + "]";
 	}
+	
 	
 }

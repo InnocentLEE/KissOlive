@@ -1,19 +1,17 @@
 package kissolive.series.domain;
 
-import kissolive.brand.domain.Brand;
-
 public class Series {
+	private String sid;
+	private String bid;
+	private String sname;
+	private String ssrc;
 	public Series() {
 		super();
 	}
-	private String sid;
-	private Brand brand;
-	private String sname;
-	private String ssrc;
-	public Series(String sid, Brand brand, String sname, String ssrc) {
+	public Series(String sid, String bid, String sname, String ssrc) {
 		super();
 		this.sid = sid;
-		this.brand = brand;
+		this.bid = bid;
 		this.sname = sname;
 		this.ssrc = ssrc;
 	}
@@ -23,11 +21,11 @@ public class Series {
 	public void setSid(String sid) {
 		this.sid = sid;
 	}
-	public Brand getBrand() {
-		return brand;
+	public String getBid() {
+		return bid;
 	}
-	public void setBrand(Brand brand) {
-		this.brand = brand;
+	public void setBid(String bid) {
+		this.bid = bid;
 	}
 	public String getSname() {
 		return sname;
@@ -43,7 +41,7 @@ public class Series {
 	}
 	@Override
 	public String toString() {
-		return "Series [sid=" + sid + ", brand=" + brand + ", sname=" + sname
+		return "DBSeries [sid=" + sid + ", bid=" + bid + ", sname=" + sname
 				+ ", ssrc=" + ssrc + "]";
 	}
 	
