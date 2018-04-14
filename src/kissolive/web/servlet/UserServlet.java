@@ -1,4 +1,4 @@
-package kissolive.user.web.servlet;
+package kissolive.web.servlet;
 
 import java.io.IOException;
 import java.sql.SQLException;
