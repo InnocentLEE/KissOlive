@@ -18,12 +18,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<meta http-equiv="description" content="This is my page">
 	
 	<link rel="stylesheet" type="text/css" href="css/admin/main.css">
+	<link rel="stylesheet" type="text/css" href="css/admin/bootstrap.min.css">
 
   </head>
   
   <body>
   <div class="img-wap">
-    <img class="img-bottom" src="img/admin/home.jpg">
+    <img src="img/admin/home.jpg" class="img-responsive" alt="Cinque Terre"> 
    </div>
   </body>
 </html>

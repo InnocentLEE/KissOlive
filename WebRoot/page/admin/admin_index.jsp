@@ -33,7 +33,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				<input type="text" class="form-control" placeholder="搜索...">
 		</form>
 		<ul class="nav navbar-nav navbar-right">
-		  <li class="dropDown"><span>欢迎，admin</span>
+		  <li class="username"><span>欢迎，admin</span>
 		  <li><a href="#"><i class="fa fa-power-off"></i></a></li>
 		  </ul>
 		  </ul>
@@ -54,7 +54,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						<ul class="nav nav-sidebar">
 							<li><a href="page/admin/adamin_home.jsp" target="test"><i class="fa fa-home"></i><span class="text"> &nbsp;商城首页</span></a></li>
 							<li><a href="#"><i class="fa fa-picture-o"></i><span class="text"> &nbsp;轮播图管理</span></a></li>
-							<li><a href="#"><i class="fa fa-tag"></i><span class="text"> &nbsp;品牌管理</span></a></li>
+							<li><a href="page/admin/admin_brand.jsp" target="test"><i class="fa fa-tag"></i><span class="text"> &nbsp;品牌管理</span></a></li>
 							<li><a href="#"><i class="fa fa-shopping-cart"></i><span class="text"> &nbsp;商品管理</span></a></li>
 							<li><a href="#"><i class="fa fa-circle"></i><span class="text"> &nbsp;色号管理</span></a></li>
 							<li><a href="#"><i class="fa fa-heart"></i><span class="text"> &nbsp;选购热点管理</span></a></li>
@@ -67,10 +67,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<!-- end: sidebar -->
 	<!-- start: body -->
 	<div class="container-fluid content">
-      <div class="ppap" >
+      <div class="mbody" >
          <iframe src="http://localhost:8080/KissOlive/page/admin/adamin_home.jsp" frameborder="0" 
-                 scrolling="yes" width="100%" height="100%" id="test"  name="test"></iframe>  
-          </div>
+                 scrolling="yes" width="100%" height="100%" id="test"  name="test"></iframe> 
        </div>
      </div>
    </div>
