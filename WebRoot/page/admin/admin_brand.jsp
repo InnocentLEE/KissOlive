@@ -62,7 +62,9 @@
 					<tbody>
 						<tr>
 							<td>迪奥</td>
-							<td><a class="picture" href="#">查看logo</a></td>
+							<td><a class="picture" href="#"><img
+									src="img//kissolive.png" class="img-thumbnail"
+									alt="Cinque Terre" width="65" height="45"></a></td>
 							<td><a class="opera" href="page/admin/admin_series.jsp">查看系列</a>
 								<a class="opera">编辑</a> <a class="opera">删除</a></td>
 						</tr>
@@ -76,7 +78,9 @@
 						</tr>
 						<tr>
 							<td>植村秀</td>
-							<td><a class="picture" href="#">查看logo</a></td>
+							<td><a class="picture" href="#"><img
+									src="img//kissolive.png" class="img-thumbnail"
+									alt="Cinque Terre" width="65" height="45"></a></td>
 							<td><a class="opera" href="#">查看系列</a> <a class="opera">编辑</a>
 								<a class="opera">删除</a></td>
 						</tr>

@@ -22,6 +22,8 @@
 <link rel="stylesheet" type="text/css"
 	href="css/admin/bootstrap.min.css">
 <link rel="stylesheet" type="text/css" href="css/admin/main.css">
+<link href="css/admin/bootstrap.file-input.css" rel="stylesheet">
+
 
 
 </head>
@@ -38,15 +40,24 @@
 
 		<!-- start:添加 -->
 		<div class="input-group">
-			<span class="input-group-addon">品牌名称</span> 
-			<input type="text"class="form-control"  placeholder="请输入品牌名称">
+			<span class="input-group-addon">品牌名称</span> <input type="text"
+				class="form-control" placeholder="请输入品牌名称">
 		</div>
-		<div class="upload">
-			<span class="upload-picture">logo上传</span>
+		<div class="file-input">
+			<input type="file" id="file" class="custom-file-input">
 
 		</div>
 		<!-- end:添加 -->
-	</div>
 
+		<!-- start:提交&取消 -->
+		<div class="btn-group">
+			<button type="button" class="btn btn-primary">提交</button>
+			<button type="button" class="btn btn-primary">取消</button>
+		</div>
+		<!-- end:提交&取消 -->
+	</div>
+	<script src="js/jquery.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/bootstrap.file-input.js"></script>
 </body>
 </html>

@@ -19,17 +19,59 @@
 <meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
 <meta http-equiv="description" content="This is my page">
 
-<link rel="stylesheet" type="text/css" href="admin/bootstrap.min.css">
+<link rel="stylesheet" type="text/css"
+	href="css/admin/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="css/admin/main.css">
+<link href="css/admin/bootstrap.file-input.css" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.4/css/bootstrap-select.css" rel="stylesheet">
+
 
 
 </head>
 
 <body>
-	<
-	
-	
+	<div class="page-wrapper">
+		<!-- start:添加系列 -->
+		<div class="row">
+			<div class="col-lg-10">
+				<h1 class="page-header">品牌管理--添加系列</h1>
+			</div>
+		</div>
+		<!-- end:添加系列 -->
+
+		<!-- start:添加 -->
+		<div class="form-group">
+		<span class="form-group-addon">所属品牌</span>
+			<select class="selectpicker show-tick" title="请选择一项"
+				data-live-search="true" data-size="40">
+				<option>迪奥</option>
+				<option>阿玛尼</option>
+				<option>YSL</option>
+				<option>植村秀</option>
+				<option>美宝莲</option>
+				<option>MAC</option>
+				<option>妙巴黎</option>
+			</select>
+		</div>
+		<div class="input-group">
+			<span class="input-group-addon">系列名称</span> <input type="text"
+				class="form-control" placeholder="请输入系列名称">
+		</div>
+
+
+		<!-- end:添加 -->
+
+		<!-- start:提交&取消 -->
+		<div class="btn-group">
+			<button type="button" class="btn btn-primary">提交</button>
+			<button type="button" class="btn btn-primary">取消</button>
+		</div>
+		<!-- end:提交&取消 -->
+	</div>
 	<script src="js/jquery.js"></script>
 	<script src="js/bootstrap.min.js"></script>
+	<script src="js/bootstrap-select.js"></script>
+	<script src="https://cdn.bootcss.com/bootstrap-select/1.12.4/js/i18n/defaults-zh_CN.min.js"></script>
 
 
 </body>
