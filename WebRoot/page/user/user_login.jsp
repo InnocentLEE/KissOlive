@@ -130,7 +130,7 @@
 						<div class="form-group">
 							<div style="padding-left:60px;padding-top: 25px;">
 								<button class="btn btn-default lbtn" style="width：79%"
-									onclick="regis()">没有登陆账号？快速进行注册</button>
+									onclick="regis()">没有登录账号？快速进行注册</button>
 								<%-- <a href="<c:url value='/page/user/user_register.jsp'/>" class="btn btn-default  col-md-12 col-lg-12 lbtn">没有登陆账号？快速进行注册</a>
 							    --%>
 							</div>
