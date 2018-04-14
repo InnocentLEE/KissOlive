@@ -310,6 +310,34 @@ function validateVerifyCode() {
 	return true;
 	
 }
+function sentUserpassword(){
+    //发送用户密码到手机调用后台函数
+	 var id = "tel";
+	 var value = $("#" + id).val();
+	  /*
+	   * ajax获取手机号码到后台，以便后台对忘记密码问题进行处理
+	   */
+	  $.ajax({
+		url:"/KissOlive/servlet/UserServlet",  
+       data:{method:"sentVerifyCode", tel:value},  
+		type:"POST",
+		dataType:"json",
+		async:false,//是否异步请求，如果是异步，那么不会等服务器返回，这个函数就向下运行了。
+		cache:false,
+		success:function(result) {
+			if(!result) {
+				//如果校验失败
+				staus = 1;
+				$("#" + id + "Error").text("● 用户不存在");
+				showError($("#" + id + "Error"));
+				return false;
+			}
+			else{
+				alert('密码已发送至手机！请自行查看！');
+			}
+		}
+	});
+}
 function sentVerifyCode(){
 	//发送验证码调用后台函数
 	var id = "usertel";

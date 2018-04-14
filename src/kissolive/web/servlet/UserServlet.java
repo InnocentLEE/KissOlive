@@ -192,10 +192,11 @@ public class UserServlet extends BaseServlet {
 			HttpServletResponse resp) throws ServletException, IOException,
 			SQLException, com.aliyuncs.exceptions.ClientException {
 
-		String usertel = req.getParameter("usertel");
-
+		String usertel = req.getParameter("usertel");//登陆和注册账号手机id为usertel
+		//String tel = req.getParameter("tel");  //忘记密码的手机id为tel
 		/* 测试ajax发送验证码是否访问正常 */
-		// System.out.print("Usertel_print: "+usertel+"\n");
+		//System.out.print("Usertel_print: "+usertel+"\n");
+		//System.out.print("Tel_print: "+tel+"\n");
 
 		// 判断手机号码
 		Map<String, String> errors = new HashMap<String, String>();

@@ -1,3 +1,10 @@
+.registerform .tip1 {
+    line-height: 20px;
+    color: #5f6a72;
+    left: 30px;
+    font-size: 10px;
+}
+
 /*常规验证码*/
 #mpanel2{
 	margin-top: -60px;
