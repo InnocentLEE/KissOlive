@@ -4,16 +4,16 @@ public class Recommend {
 	private String bid;
 	private String sid1;
 	private String sid2;
-	private String gid;
+	private String lid;
 	public Recommend() {
 		super();
 	}
-	public Recommend(String bid, String sid1, String sid2, String gid) {
+	public Recommend(String bid, String sid1, String sid2, String lid) {
 		super();
 		this.bid = bid;
 		this.sid1 = sid1;
 		this.sid2 = sid2;
-		this.gid = gid;
+		this.lid = lid;
 	}
 	public String getBid() {
 		return bid;
@@ -33,16 +33,16 @@ public class Recommend {
 	public void setSid2(String sid2) {
 		this.sid2 = sid2;
 	}
-	public String getGid() {
-		return gid;
+	public String getLid() {
+		return lid;
 	}
-	public void setGid(String gid) {
-		this.gid = gid;
+	public void setLid(String lid) {
+		this.lid = lid;
 	}
 	@Override
 	public String toString() {
-		return "DBRecommend [bid=" + bid + ", sid1=" + sid1 + ", sid2=" + sid2
-				+ ", gid=" + gid + "]";
+		return "Recommend [bid=" + bid + ", sid1=" + sid1 + ", sid2=" + sid2
+				+ ", lid=" + lid + "]";
 	}
 	
 }

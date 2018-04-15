@@ -6,6 +6,7 @@ import java.util.List;
 import kissolive.goods.domain.Goods;
 
 import org.apache.commons.dbutils.QueryRunner;
+import org.apache.commons.dbutils.handlers.BeanHandler;
 import org.apache.commons.dbutils.handlers.BeanListHandler;
 
 import util.TxQueryRunner;
@@ -32,6 +33,17 @@ public class GoodsDao {
 		String sql = "SELECT * FROM tb_goods where lid=?";
 		List<Goods> goodList = qr.query(sql, new BeanListHandler<Goods>(Goods.class),lid);
 		return goodList;
+	}
+	/**
+	 * 根据gid查找某个商品
+	 * @param gid
+	 * @return
+	 * @throws SQLException
+	 */
+	public Goods findByGid(String gid) throws SQLException {
+		String sql = "SELECT * FROM tb_goods where gid=?";
+		Goods goods = qr.query(sql, new BeanHandler<Goods>(Goods.class),gid);
+		return goods;
 	}
 	/**
 	 * 更新某个商品的信息

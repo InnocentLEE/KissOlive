@@ -117,13 +117,19 @@
 							</ol>
 							<div class="carousel-inner">
 								<div class="item active">
-									<img src="<c:url value='/img/user_home/1.jpg'/>" alt="">
+									<img src="<c:url value='${src1 }'/>" alt="">
 								</div>
 								<div class="item">
-									<img src="<c:url value='/img/user_home/2.jpg'/>" alt="">
+									<img src="<c:url value='${src2 }'/>" alt="">
 								</div>
 								<div class="item">
-									<img src="<c:url value='/img/user_home/3.jpg'/>" alt="">
+									<img src="<c:url value='${src3 }'/>" alt="">
+								</div>
+								<div class="item">
+									<img src="<c:url value='${src4 }'/>" alt="">
+								</div>
+								<div class="item">
+									<img src="<c:url value='${src5 }'/>" alt="">
 								</div>
 							</div>
 							<a href="#myCarousel" data-slide="prev"
@@ -141,16 +147,15 @@
 							<div class="panel-body">
 								<div class="push push-brand">
 									<a href="#"><img alt="" class="home_logo"
-										src="<c:url value='/img/user_home/dior.jpg'/>"></a>
+										src="<c:url value='${recommendresult1.brand.bsrc }'/>"></a>
 								</div>
 								<div class="push push-good">
 
 									<a href="#"><img alt="" class="home_good"
-										src="<c:url value='/img/user_home/6.jpg'/>" /></a>
+										src="<c:url value='${recommendresult1.lipstickpicture.lpsrc }'/>" /></a>
 									<div class="push-text">
 										<a href="#">
-											<h4>Lady Dior黑色光滑小牛皮袖珍手提包，点缀妮基·桑法勒（Niki de Saint
-												Phalle）的刺绣，搭配链带</h4> <span class="push-variant"></span>
+											<h4>${recommendresult1.lipstick.lname }</h4> <span class="push-variant"></span>
 										</a>
 									</div>
 								</div>
@@ -161,10 +166,10 @@
 						<div class="panel js-equal-height">
 							<div class="panel-body">
 								<figure> <a href="#"><img alt=""
-									class="home_series" src="<c:url value='/img/user_home/4.jpg'/>"></a>
+									class="home_series" src="<c:url value='${recommendresult1.series1.ssrc }'/>"></a>
 								<figcaption class="goods_text"> <a href="#">
 									<h5 class="push-suptitle">Dior唇膏</h5>
-								</a> <a href="#"><h4 class="push-title">2018夏季系列</h4></a> </figcaption> </figure>
+								</a> <a href="#"><h4 class="push-title">${recommendresult1.series1.sname }</h4></a> </figcaption> </figure>
 							</div>
 						</div>
 					</div>
@@ -173,10 +178,10 @@
 						<div class="panel js-equal-height">
 							<div class="panel-body">
 								<figure> <a href="#"><img alt=""
-									class="home_series" src="<c:url value='/img/user_home/4.jpg'/>"></a>
+									class="home_series" src="<c:url value='${recommendresult1.series2.ssrc }'/>"></a>
 								<figcaption class="goods_text"> <a href="#"><h5
 										class="push-suptitle">Dior唇膏</h5></a> <a href="#"><h4
-										class="push-title">2018夏季系列</h4></a> </figcaption> </figure>
+										class="push-title">${recommendresult1.series2.sname }</h4></a> </figcaption> </figure>
 							</div>
 						</div>
 					</div>
@@ -190,16 +195,15 @@
 							<div class="panel-body">
 								<div class="push push-brand">
 									<a href="#"><img alt="" class="home_logo"
-										src="<c:url value='/img/user_home/dior.jpg'/>"></a>
+										src="<c:url value='${recommendresult2.brand.bsrc }'/>"></a>
 								</div>
 								<div class="push push-good">
 
 									<a href="#"><img alt="" class="home_good"
-										src="<c:url value='/img/user_home/6.jpg'/>"></a>
+										src="<c:url value='${recommendresult2.lipstickpicture.lpsrc }'/>"></a>
 									<div class="push-text">
 										<a href="#">
-											<h4>Lady Dior黑色光滑小牛皮袖珍手提包，点缀妮基·桑法勒（Niki de Saint
-												Phalle）的刺绣，搭配链带</h4> <span class="push-variant"></span>
+											<h4>${recommendresult2.lipstick.lname }</h4> <span class="push-variant"></span>
 										</a>
 									</div>
 								</div>
@@ -210,10 +214,10 @@
 						<div class="panel js-equal-height">
 							<div class="panel-body">
 								<figure> <a href="#"><img alt=""
-									class="home_series" src="<c:url value='/img/user_home/4.jpg'/>"></a>
+									class="home_series" src="<c:url value='${recommendresult2.series1.ssrc }'/>"></a>
 								<figcaption class="goods_text"> <a href="#">
 									<h5 class="push-suptitle">Dior唇膏</h5>
-								</a> <a href="#"><h4 class="push-title">2018夏季系列</h4></a> </figcaption> </figure>
+								</a> <a href="#"><h4 class="push-title">${recommendresult2.series1.sname }</h4></a> </figcaption> </figure>
 							</div>
 						</div>
 					</div>
@@ -222,10 +226,10 @@
 						<div class="panel js-equal-height">
 							<div class="panel-body">
 								<figure> <a href="#"><img alt=""
-									class="home_series" src="<c:url value='/img/user_home/4.jpg'/>"></a>
+									class="home_series" src="<c:url value='${recommendresult2.series2.ssrc }'/>"></a>
 								<figcaption class="goods_text"> <a href="#"><h5
 										class="push-suptitle">Dior唇膏</h5></a> <a href="#"><h4
-										class="push-title">2018夏季系列</h4></a> </figcaption> </figure>
+										class="push-title">${recommendresult2.series2.sname }</h4></a> </figcaption> </figure>
 							</div>
 						</div>
 					</div>
