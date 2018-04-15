@@ -37,6 +37,11 @@
     <servlet-name>HomeInitServlet</servlet-name>
     <servlet-class>kissolive.web.servlet.HomeInitServlet</servlet-class>
   </servlet>
+  <servlet>
+    <servlet-name>AddBrandServlet</servlet-name>
+    <servlet-class>kissolive.web.servlet.AddBrandServlet</servlet-class>
+  </servlet>
+
 
 
   <servlet-mapping>
@@ -50,5 +55,9 @@
   <servlet-mapping>
     <servlet-name>HomeInitServlet</servlet-name>
     <url-pattern>/servlet/HomeInitServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>AddBrandServlet</servlet-name>
+    <url-pattern>/servlet/AddBrandServlet</url-pattern>
   </servlet-mapping>
 </web-app>
