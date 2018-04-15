@@ -1,15 +1,10 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
-<%
-	String path = request.getContextPath();
-	String basePath = request.getScheme() + "://"
-			+ request.getServerName() + ":" + request.getServerPort()
-			+ path + "/";
-%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
-<base href="<%=basePath%>">
+
 
 <title>My JSP 'admin_addbrand.jsp' starting page</title>
 
@@ -39,19 +34,20 @@
 		<!-- end:添加品牌 -->
 
 		<!-- start:添加 -->
-		<form action="page/admin/admin_brand.jsp">
-		<div class="input-group">
-			<span class="input-group-addon">品牌名称</span> <input type="text"
-				class="form-control" placeholder="请输入品牌名称">
-		</div>
-		<!-- 上传图片 -->
-		<div class="file-input">
-			<input type="file" id="file" class="custom-file-input">
-		</div>
-		<!-- end:添加 -->
+		<form action="<c:url value='/servlet/AddBrandServlet'/>"
+			enctype="multipart/form-data" method="post">
+			<div class="input-group">
+				<span class="input-group-addon">品牌名称</span> <input type="text"
+					name="brand" class="form-control" placeholder="请输入品牌名称">
+			</div>
+			<!-- 上传图片 -->
+			<div class="file-input">
+				<input type="file" id="file" name="brandimg" class="custom-file-input">
+			</div>
+			<!-- end:添加 -->
 
-		<input type="submit" value="提交" class="submit">
-		<!-- end:提交&取消 -->
+			<input type="submit" value="提交" class="submit">
+			<!-- end:提交&取消 -->
 		</form>
 	</div>
 	<script src="js/jquery.js"></script>
