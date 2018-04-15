@@ -35,12 +35,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					<div class="sidebar-menu">						
 						<ul class="nav nav-sidebar">
 							<li><a href="page/admin/admin_home.jsp" target="right"><i class="fa fa-home"></i><span class="text"> &nbsp;商城首页</span></a></li>
-							<li><a href="#"><i class="fa fa-picture-o"></i><span class="text"> &nbsp;轮播图管理</span></a></li>
+							<li><a href="page/admin/admin_carousel.jsp" target="right"><i class="fa fa-picture-o"></i><span class="text"> &nbsp;轮播图管理</span></a></li>
 							<li><a href="page/admin/admin_brand.jsp" target="right"><i class="fa fa-tag"></i><span class="text"> &nbsp;品牌管理</span></a></li>
 							<li><a href="page/admin/admin_goods.jsp" target="right"><i class="fa fa-shopping-cart"></i><span class="text"> &nbsp;商品管理</span></a></li>
-							<li><a href="#"><i class="fa fa-circle"></i><span class="text"> &nbsp;色号管理</span></a></li>
+							<li><a href="page/admin/admin_color.jsp" target="right"><i class="fa fa-circle"></i><span class="text"> &nbsp;色号管理</span></a></li>
 							<li><a href="page/admin/admin_hot.jsp" target="right"><i class="fa fa-heart"></i><span class="text"> &nbsp;选购热点管理</span></a></li>
-							<li><a href="#"><i class="fa fa-list-alt"></i><span class="text"> &nbsp;订单管理</span></a></li>
+							<li><a href="page/admin/admin_list.jsp" target="right"><i class="fa fa-list-alt"></i><span class="text"> &nbsp;订单管理</span></a></li>
 							
 						</ul>
 					</div>					
