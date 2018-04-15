@@ -1,102 +1,129 @@
-.home_logo{
-	width:411px;
-	height:271px;
-}
-.home_good{
-	width:411px;
-	height:271px;
-}
-.home_series{
-	width:411px;
-	height:579px;
-}
-.js-equal-height{
-	position:relative;
-	top:0;
-	left:0;
-}
-.push_good{
-	margin:9.2% 0 0;
-}
-.col-md-4{
-	padding:0 1.45%;
-}
-.row{
-	margin-bottom: 2.9%;
-}
-.main-olive .grid .cols{
-padding: 0 1.45%;
-}
-.brand{
-	margin:0;
-}
-.cover{
-	margin-top:-20;
-	margin-left:0;
-	margin-right:0;
-}
-.carousel .slide{
-	/*width: 100%;
-	margin-bottom: 2.9%;*/
-}
-.main-olive{
-	/*width:100%;
-	padding-bottom:60px;
-	display:block;*/
-	
-}
-.grid{
-	/*max-width: 1440px; 
-	height:411
-	margin:0px 30px;
-	display: block;
-	border-spacing: 0;
-	border-collapse: separate;"*/
-			}
-
-.header-logo {
-    height: 90px;
-    position: absolute;
-    top: -15px;
-    left: 50%;
-    overflow: hidden;
-    transform: translateX(-50%);
-}
-.logo_header{
-	position:absolute;
-	left:38%;
-	 top:2%
-}
-
- .header-main-bar{
- 	position: relative;
- 	top:52px;
+ /*header部分的css*/
+ .row{
+    margin-left:0;
+    margin-right:0;
+    width: 100%;
+    height:auto;
+    /* float:left; */
+    z-index:1030;
  }
- .main-bar-content{
- 	width: 100%;
- 	height: 79px;
- 	/*margin: 0 auto*/
+ 
+ .input-group-btn:last-child>.btn, .input-group-btn:last-child>.btn-group{
+ 		margin-top: -1;
+ }
+ .form-control{
+   height:34px;
+ }
+ .nav-search{
+    width: 65%;
+    margin:0 auto;
+    padding: 30 20;
+ }
+ .header-logo{
+   height:85px;
+   padding-top: 10px;
  }
  .icon-olive{
+     height: 85px;
  	clear: both;
  	display: block;
  	margin: 0 auto;
- 	height: 95px;
-    padding-top: 15;
  }
- .main-olive{
- 	position: relative;
- 	top:75px;
- }
+.main-bar-content{
+	margin-top: 52px;
+	text-align: center;
+}
+.header{
+	padding-top: 0.2%;
+	height:56px;
+}
+/*主元素*/
+.main-olive{
+	width:100%;
+	padding-bottom:60px;
+	display:block;
+	padding: 0 1.45%;
+}
 
+/*轮播图的css*/
+ @media (min-width: 1200px){
+   .container.content {
+    width: 1349.49px;
+    padding: 0;
+    margin: 0 auto; 
+ } 
+ .main-olive .grid .row .col{
+    padding: 0 1.45%;
+    	zoom:1;
+	/* display:table; */
+} 
+.carousel-inner{
+	width:100%;
+	backgroud:pink;
+}
 .carousel-inner img{
-	margin：0 auto；
-	width: 1398.28px;
+	margin:0 auto;
+	width:100%;
 	height:542.672px;
 	overflow: hidden;
-    /*vertical-align: top;*/
+    vertical-align: top;
 }
 .carousel-control{
 	font-size:50px;
 	color: #fff;
+} 
+.carousel{
+	width: 100%;
+	min-height:411px;
+	margin-bottom: 2.9%;
+}
+/*产品logo及商品系列部分*/
+.brand1,.brand2{
+	margin:0 auto;
+	 z-index:-1;
+	 zoom:1;
+}
+.brand1:after{
+	content: "."; 
+	clear: both; 
+	display: block; 
+	visibility: hidden;
+	height: 0;   
+} 
+
+.panel{
+	left:0;
+	width:100%;
+    display:table;
+}
+/* .panel:after{
+	content: "."; display: block; height: 0; clear: both; visibility: hidden; 
+} */
+.home_good{
+	border-color:#000000;
+}
+.home_logo, .home_good{
+	width:100%;
+	height:271px;
+}
+.home_series{
+	width:100%;
+	height:581px;
+}
+.push-good .push-text h4{
+	font-size:0.75rem;
+}
+.goods_text .push-suptitle {
+    font-size: 0.75rem;
+    line-height: 18px;
+}
+.goods_text .push-title {
+    margin: 5px 0 0;
+    font-size: 1.125rem;
+}
+.panel-body{
+	padding: 0 15;
+}
+.push-good{
+	margin: 9.2% 0 0;
 }

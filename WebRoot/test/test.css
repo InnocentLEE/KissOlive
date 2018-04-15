@@ -1,0 +1,115 @@
+ul{
+	/*display:flex;*/
+}
+li{
+	width:100px;
+	height:100px;
+	background-color:#8cacea;
+	margin:8px;
+}
+.grid-container{
+	display:grid;
+	grid-template-rows: 50px 100px 300px;
+	grid-template-columns:1fr 1fr 2fr 
+}
+.grid-item{
+	background-color:#f0bf8c;
+	/* width:100px;*/
+	/*height:100px; */
+	margin:8px;
+}
+/* @media only screen and (min-width: 600px) {
+.container {
+    display: grid;   父元素 
+    grid-template-columns: repeat(12, 1fr);创建十二列，fr为网格容器剩余空间的等分单位
+    grid-template-rows: 50px 350px 50px; 各行行高
+    grid-gap: 5px; 在网格中的网格项添加一个间隙
+    grid-template-areas:
+        "h h h h h h h h h h h h"
+        "m m c c c c c c c c c c"
+        "f f f f f f f f f f f f";网格区域(Grid Area) 名称
+        
+}
+.header {
+    grid-area: h;
+   background-color:#8cacea;
+}
+.menu {
+    grid-area: m;
+    background-color:#00ff40;
+}
+.content {
+    grid-area: c;
+    background-color:#ff0080;
+}
+.footer {
+   grid-area: f;
+   background-color:#ffff00;
+}
+}
+@media only screen and (min-width: 400px) {
+.container {
+    display: grid;   父元素 
+    grid-template-columns: repeat(12, 1fr);创建十二列，fr为网格容器剩余空间的等分单位
+    grid-template-rows: 50px 350px 50px; 各行行高
+    grid-gap: 5px; 在网格中的网格项添加一个间隙
+    grid-template-areas:
+        "h h h h h h h h h h h h"
+        "c1 c1 c1 c1 c1 c1 c1 c1 c1 c1 c1 c1"
+        "c2 c2 c2 c2 c2 c2 c2 c2 c2 c2 c2 c2"
+        "c3 c3 c3 c3 c3 c3 c3 c3 c3 c3 c3 c3"
+        "f f f f f f f f f f f f";网格区域(Grid Area) 名称
+        
+}
+.header {
+    grid-area: h;
+   background-color:#8cacea;
+}
+.menu {
+    grid-area: m;
+    background-color:#00ff40;
+}
+.content {
+    grid-area: c;
+    background-color:#ff0080;
+}
+.footer {
+   grid-area: f;
+   background-color:#ffff00;
+}
+} */
+.container {
+    display: grid;
+    /* grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 50px 50px; */
+    /* grid-template-columns: repeat(3, 100px);
+    grid-template-rows: repeat(2, 50px); */
+   /*  grid-template-columns: repeat(auto-fit, 100px);
+    grid-template-rows: repeat(2, 100px); */
+    grid-gap: 5px;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-template-rows: repeat(2, 100px);
+}
+.container > div > img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.header{
+	background-color:#8cacea;
+}
+.home_collapse{
+	background-color:#00ff40;
+}
+.home_content1{
+	 background-color:#ff0080;
+}
+.home_content2{
+	background-color:#ffff00;
+}
+.footer1{
+	background-color:#c0c0c0;
+}
+.footer2{
+	background-color:#800000;
+}
