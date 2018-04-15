@@ -30,27 +30,53 @@
 	<div class="header-main-bar">
 		<nav class="navbar navbar-default navbar-fixed-top">
 		<div class="container header">
-			<div class="navbar-header">
-				<ul class="nav navbar-nav navbar-left ">
-					<li><a href="<c:url value='/page/user/user_login.jsp'/>"
-						class="navbar-brand">登陆</a></li>
-					<li><a href="<c:url value='/page/user/user_register.jsp'/>"
-						class="navbar-brand">注册</a></li>
+			<c:choose>
+				<c:when test="${empty sessionScope.sessionUser }">
+					<div class="navbar-header">
+						<ul class="nav navbar-nav navbar-left ">
+							<li><a href="<c:url value='/page/user/user_login.jsp'/>"
+								class="navbar-brand">登录</a></li>
+							<li><a href="<c:url value='/page/user/user_register.jsp'/>"
+								class="navbar-brand">注册</a></li>
 
-					<!-- 响应式布局按钮-下拉框 -->
-					<button type="button" class="navbar-toggle" data-toggle="collapse"
-						data-target="#navbar-collapse">
-						<span class="icon-bar"></span> <span class="icon-bar"></span>
-					</button>
-				</ul>
-			</div>
-			<div class="collapse navbar-collapse" id="navbar-collapse">
-				<ul class="nav navbar-nav navbar-right" style="margin: 0">
-					<li><a href="#"><span
-							class="glyphicon glyphicon-shopping-cart">&nbsp;<span>我的购物车</a></li>
-					<li><a href="#"><span class="glyphicon glyphicon-list">&nbsp;</span>我的订单</a></li>
-				</ul>
-			</div>
+							<!-- 响应式布局按钮-下拉框 -->
+							<button type="button" class="navbar-toggle"
+								data-toggle="collapse" data-target="#navbar-collapse">
+								<span class="icon-bar"></span> <span class="icon-bar"></span>
+							</button>
+						</ul>
+					</div>
+					<div class="collapse navbar-collapse" id="navbar-collapse">
+						<ul class="nav navbar-nav navbar-right" style="margin: 0">
+							<li><a href="#"><span
+									class="glyphicon glyphicon-shopping-cart">&nbsp;<span></a></li>
+							<li><a href="#"><span class="glyphicon glyphicon-list">&nbsp;</span>
+							</a></li>
+						</ul>
+					</div>
+				</c:when>
+				<c:otherwise>
+					<div class="navbar-header">
+						<ul class="nav navbar-nav navbar-left ">
+							<li><a href="<c:url value=''/>" class="navbar-brand">${sessionScope.sessionUser.username }</a></li>
+							<li><a href="<c:url value='/servlet/UserServlet?method=quit'/>"
+								class="navbar-brand">[退出]</a></li>
+							<!-- 响应式布局按钮-下拉框 -->
+							<button type="button" class="navbar-toggle"
+								data-toggle="collapse" data-target="#navbar-collapse">
+								<span class="icon-bar"></span> <span class="icon-bar"></span>
+							</button>
+						</ul>
+					</div>
+					<div class="collapse navbar-collapse" id="navbar-collapse">
+						<ul class="nav navbar-nav navbar-right" style="margin: 0">
+							<li><a href="#"><span
+									class="glyphicon glyphicon-shopping-cart">&nbsp;<span>我的购物车</a></li>
+							<li><a href="#"><span class="glyphicon glyphicon-list">&nbsp;</span>我的订单</a></li>
+						</ul>
+					</div>
+				</c:otherwise>
+			</c:choose>
 		</div>
 		</nav>
 		<div class="main-bar-content">
@@ -248,8 +274,10 @@
 				<div class="col-md-3">
 					<span class="title-footer-section">客户服务</span>
 					<div class="nav-footer">
-						<span class="title-footer-section"><a href="#">联系我们</a></span>
-						<span class="title-footer-section wechat"><img class="wechat-img" src="<c:url value='/img/user_home/wechat.jpg'/>"></span>
+						<span class="title-footer-section"><a href="#">联系我们</a></span> <span
+							class="title-footer-section wechat"><img
+							class="wechat-img"
+							src="<c:url value='/img/user_home/wechat.jpg'/>"></span>
 					</div>
 				</div>
 				<div class="col-md-3">
@@ -265,13 +293,15 @@
 				<div class="col-md-4">
 					<span class="title-footer-section1">电子通讯</span>
 					<div class="nav-footer">
-						<span class="title-footer-section font">率先获取最新商品的信息及KISS OLIVE的独家优惠：</a></span>
-							<div class="input-group title-footer-section">
-								<input type="text" class="form-control"
-									placeholder="Recipient's username"
-									aria-describedby="basic-addon2"> <span
-									class="input-group-addon" id="basic-addon2">@example.com</span>
-							</div>
+						<span class="title-footer-section font">率先获取最新商品的信息及KISS
+							OLIVE的独家优惠：</a>
+						</span>
+						<div class="input-group title-footer-section">
+							<input type="text" class="form-control"
+								placeholder="Recipient's username"
+								aria-describedby="basic-addon2"> <span
+								class="input-group-addon" id="basic-addon2">@example.com</span>
+						</div>
 					</div>
 				</div>
 

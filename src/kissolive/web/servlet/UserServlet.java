@@ -301,4 +301,10 @@ public class UserServlet extends BaseServlet {
 		}
 		return null;
 	}
+	
+	public String quit(HttpServletRequest req, HttpServletResponse resp)
+			throws ServletException, IOException {
+		req.getSession().invalidate();
+		return "r:/index.jsp";
+	}
 }
