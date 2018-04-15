@@ -19,10 +19,10 @@
 <meta http-equiv="X-UA-Compatible" content="IE-edge,chrome=1">
 
 <link rel="stylesheet" href="<c:url value='/css/bootstrap.min.css'/>">
-<link rel="stylesheet" href="<c:url value='/css/validform/style.css'/>">
+<link rel="stylesheet" href="<c:url value='/css/user/validform/style.css'/>">
 <link rel="stylesheet" href="<c:url value='/css/validform/demo.css'/>">
-<link rel="stylesheet" href="<c:url value='/css/slide-unlock.css'/>">
-<link rel="stylesheet" href="<c:url value='/css/sign_login.css'/>">
+<link rel="stylesheet" href="<c:url value='/css/user/slide-unlock.css'/>">
+<link rel="stylesheet" href="<c:url value='/css/user/sign_login.css'/>">
 
 </head>
 

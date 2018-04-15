@@ -26,7 +26,8 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 
 <link rel="stylesheet" href="<c:url value='/css/bootstrap.min.css'/>">
-<link rel="stylesheet" href="<c:url value='/css/home.css'/>">
+<link rel="stylesheet" href="<c:url value='/css/user/home.css'/>">
+<link rel="stylesheet" href="<c:url value='/css/user/user_brand.css'/>">
 
 </head>
 
@@ -52,8 +53,8 @@
 			<div class="collapse navbar-collapse" id="navbar-collapse">
 				<ul class="nav navbar-nav navbar-right" style="margin: 0">
 					<li><a href="#"><span
-							class="glyphicon glyphicon-shopping-cart"></span>我的购物车</a></li>
-					<li><a href="#"><span class="glyphicon glyphicon-list"></span>我的订单</a></li>
+							class="glyphicon glyphicon-shopping-cart">&nbsp;</span>我的购物车</a></li>
+					<li><a href="#"><span class="glyphicon glyphicon-list">&nbsp;</span>我的订单</a></li>
 				</ul>
 			</div>
 		</div>
@@ -86,7 +87,107 @@
 	
 	
 	<!-- start of 内容 -->
-	<div class="container"></div>
+	<div class="container content">
+	    <div class="lmenu">
+	       <div class="lmenu-top">
+	         <span class="brand-name">Dior迪奥</span>
+	       </div>
+	       <div class="lmenu-content">
+	          <div class="sum-series"><h5>系列</h5></div>
+	          <div class="series">
+	            <ul class="sum">
+	            <li class="series-item"><a herf="#">Dior迪奥金焰幻彩唇膏-2017圣诞节限量版&nbsp;(5)</a></li>
+	            <li class="series-item"><a herf="#">Dior迪奥魅惑润唇膏&nbsp;(2)</a></li>
+	            <li class="series-item"><a herf="#">Dior迪奥烈焰蓝金唇膏&nbsp;(2)</a></li>
+	            <li class="series-item"><a herf="#">Dior迪奥魅惑唇蜜&nbsp;(1)</a></li>
+	            <li class="series-item"><a herf="#">Dior迪奥999传奇挚爱礼盒&nbsp;(1)</a></li>
+	            <li class="series-item"><a herf="#">Dior迪奥烈焰蓝金臻彩唇釉-2017春季限量版&nbsp;(1)</a></li>
+	            </ul>
+	          </div>
+	       </div>
+	    </div>
+	    <div class="rcontent">
+	        <div class="rcontent-top">
+	           <div class="top">
+	         		  <span class="product">产品&nbsp;(6)</span>  
+	           </div>
+	        </div>
+	        <div class="rcontent-list">
+	           <div class="card">
+	           	  <figure> 
+		           	 <a href="#">
+		           	      <img alt="" class="card-good" src="<c:url value='/img/user/user_brand/goods1.jpg'/>">
+					</a>
+				    <figcaption class="goods_text"> 
+				     <a href="#">
+				      <span class="mh4">Dior迪奥魅惑润唇密</span>
+				      <p></p>
+				      <span class="mh5">着色彩染，持久轻盈裸唇感</span>
+				       <p></p>
+				      <span class="price">￥&nbsp;300.00</span>
+				       <p></p>
+				      <button type="button" class="book">订&nbsp;购</button>
+				     </a> 
+				    </figcaption> 
+				  </figure>
+				 </div>
+	           <div class="card">
+	           		<figure> 
+		           	 <a href="#">
+		           	      <img alt="" class="card-good" src="<c:url value='/img/user/user_brand/goods1.jpg'/>">
+					</a>
+				    <figcaption class="goods_text"> 
+				     <a href="#">
+				      <span class="mh4">Dior迪奥魅惑润唇密</span>
+				      <p></p>
+				      <span class="mh5">着色彩染，持久轻盈裸唇感</span>
+				       <p></p>
+				      <span class="price">￥&nbsp;300.00</span>
+				       <p></p>
+				      <button type="button" class="book">订&nbsp;购</button>
+				     </a> 
+				    </figcaption> 
+				  </figure>
+	           </div>
+	           <div class="card">
+	           		<figure> 
+		           	 <a href="#">
+		           	      <img alt="" class="card-good" src="<c:url value='/img/user/user_brand/goods1.jpg'/>">
+					</a>
+				    <figcaption class="goods_text"> 
+				     <a href="#">
+				      <span class="mh4">Dior迪奥魅惑润唇密</span>
+				      <p></p>
+				      <span class="mh5">着色彩染，持久轻盈裸唇感</span>
+				       <p></p>
+				      <span class="price">￥&nbsp;300.00</span>
+				       <p></p>
+				      <button type="button" class="book">订&nbsp;购</button>
+				     </a> 
+				    </figcaption> 
+				  </figure>
+	           </div>
+	           <div class="card">
+	           		<figure> 
+		           	 <a href="#">
+		           	      <img alt="" class="card-good" src="<c:url value='/img/user/user_brand/goods1.jpg'/>">
+					</a>
+				    <figcaption class="goods_text"> 
+				     <a href="#">
+				      <span class="mh4">Dior迪奥魅惑润唇密</span>
+				      <p></p>
+				      <span class="mh5">着色彩染，持久轻盈裸唇感</span>
+				       <p></p>
+				      <span class="price">￥&nbsp;300.00</span>
+				       <p></p>
+				      <button type="button" class="book">订&nbsp;购</button>
+				     </a> 
+				    </figcaption> 
+				  </figure>
+	           </div>
+	        </div>
+	    </div>
+	</div>
 	<!-- end of 内容 -->
 	
 	<!-- start of 尾部  -->
@@ -123,11 +224,12 @@
 	<div class="footer-bottom">
 		<div class="footer-bottom-border">
 			<div class="row">
-				<div class="col-md-2"></div>
-				<div class="col-md-2">
+				<div class="col-md-1"></div>
+				<div class="col-md-3">
 					<span class="title-footer-section">客户服务</span>
 					<div class="nav-footer">
 						<span class="title-footer-section"><a href="#">联系我们</a></span>
+						<span class="title-footer-section wechat"><img class="wechat-img" src="<c:url value='/img/user_home/wechat.jpg'/>"></span>
 					</div>
 				</div>
 				<div class="col-md-3">
@@ -140,8 +242,8 @@
 						</ul>
 					</div>
 				</div>
-				<div class="col-md-3">
-					<span class="title-footer-section">电子通讯</span>
+				<div class="col-md-4">
+					<span class="title-footer-section1">电子通讯</span>
 					<div class="nav-footer">
 						<span class="title-footer-section font">率先获取最新商品的信息及KISS OLIVE的独家优惠：</a></span>
 							<div class="input-group title-footer-section">

@@ -18,7 +18,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 
 <link rel="stylesheet" href="<c:url value='/css/bootstrap.min.css'/>">
-<link rel="stylesheet" href="<c:url value='/css/home.css'/>">
+<link rel="stylesheet" href="<c:url value='/css/user/home.css'/>">
 
 <!--
 	<link rel="stylesheet" type="text/css" href="styles.css">
@@ -47,8 +47,8 @@
 			<div class="collapse navbar-collapse" id="navbar-collapse">
 				<ul class="nav navbar-nav navbar-right" style="margin: 0">
 					<li><a href="#"><span
-							class="glyphicon glyphicon-shopping-cart"></span>我的购物车</a></li>
-					<li><a href="#"><span class="glyphicon glyphicon-list"></span>我的订单</a></li>
+							class="glyphicon glyphicon-shopping-cart">&nbsp;<span>我的购物车</a></li>
+					<li><a href="#"><span class="glyphicon glyphicon-list">&nbsp;</span>我的订单</a></li>
 				</ul>
 			</div>
 		</div>
