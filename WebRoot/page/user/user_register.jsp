@@ -22,7 +22,7 @@
 	 
 	 <link rel="stylesheet" href="<c:url value='/css/validform/style.css'/>">
 	 <link rel="stylesheet" href="<c:url value='/css/validform/demo.css'/>">
-	
+	 <link rel="stylesheet" href="<c:url value='/css/user/register.css'/>">
 	<!--
 	<link rel="stylesheet" type="text/css" href="styles.css">
 	-->

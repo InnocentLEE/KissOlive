@@ -5,7 +5,7 @@
 <html>
 <head>
 
-<title>Kiss Olive 官方商城 注册页面</title>
+<title>Kiss Olive 官方商城 登录页面</title>
 
 <meta http-equiv="pragma" content="no-cache">
 <meta http-equiv="cache-control" content="no-cache">
@@ -19,7 +19,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE-edge,chrome=1">
 
 <link rel="stylesheet" href="<c:url value='/css/bootstrap.min.css'/>">
-<link rel="stylesheet" href="<c:url value='/css/user/validform/style.css'/>">
+<link rel="stylesheet" href="<c:url value='/css/validform/style.css'/>">
 <link rel="stylesheet" href="<c:url value='/css/validform/demo.css'/>">
 <link rel="stylesheet" href="<c:url value='/css/user/slide-unlock.css'/>">
 <link rel="stylesheet" href="<c:url value='/css/user/sign_login.css'/>">
@@ -136,7 +136,7 @@
 								</div>
 							</div>
 							<div class="form-group">
-								<div style="padding-left:60px;padding-top: 25px;">
+								<div style="padding: 25 12 0 70;">
 									<button class="btn btn-default lbtn" style="width：79%"
 										onclick="regis()">没有登录账号？快速进行注册</button>
 								</div>
