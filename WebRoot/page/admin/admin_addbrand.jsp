@@ -14,10 +14,9 @@
 <meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
 <meta http-equiv="description" content="This is my page">
 
-<link rel="stylesheet" type="text/css"
-	href="css/admin/bootstrap.min.css">
-<link rel="stylesheet" type="text/css" href="css/admin/main.css">
-<link href="css/admin/bootstrap.file-input.css" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="<%=request.getContextPath() %>/css/admin/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="<%=request.getContextPath() %>/css/admin/main.css">
+<link rel="stylesheet" type="text/css" href="<%=request.getContextPath() %>/css/admin/bootstrap.file-input.css">
 
 
 
@@ -38,11 +37,12 @@
 			enctype="multipart/form-data" method="post">
 			<div class="input-group">
 				<span class="input-group-addon">品牌名称</span> <input type="text"
-					name="brand" class="form-control" placeholder="请输入品牌名称">
+					class="form-control" placeholder="请输入品牌名称">
 			</div>
 			<!-- 上传图片 -->
 			<div class="file-input">
-				<input type="file" id="file" name="brandimg" class="custom-file-input">
+				<input type="file" id="file" name="brandimg"
+					class="custom-file-input">
 			</div>
 			<!-- end:添加 -->
 
@@ -50,8 +50,8 @@
 			<!-- end:提交&取消 -->
 		</form>
 	</div>
-	<script src="js/jquery.js"></script>
-	<script src="js/bootstrap.min.js"></script>
-	<script src="js/bootstrap.file-input.js"></script>
+	<script src="<%=request.getContextPath() %>/js/jquery.js"></script>
+	<script src="<%=request.getContextPath() %>/js/bootstrap.min.js"></script>
+	<script src="<%=request.getContextPath() %>/js/bootstrap.file-input.js"></script>
 </body>
 </html>

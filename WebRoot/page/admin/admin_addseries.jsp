@@ -40,7 +40,8 @@
 		<!-- end:添加系列 -->
 
 		<!-- start:添加 -->
-		<form action="page/admin/admin_series.jsp">
+		<form action="<c:url value='/servlet/AddSeriesServlet'/>"
+			enctype="multipart/form-data" method="post">
 			<div class="form-group">
 				<span class="form-group-addon">所属品牌</span> <select
 					class="selectpicker show-tick" title="请选择一项"
@@ -58,8 +59,11 @@
 				<span class="input-group-addon">系列名称</span> <input type="text"
 					class="form-control" placeholder="请输入系列名称">
 			</div>
-
-
+			<!-- 上传图片 -->
+			<div class="file-input">
+				<input type="file" id="file" name="seriesimg"
+					class="custom-file-input">
+			</div>
 			<!-- end:添加 -->
 
 			<input type="submit" value="提交" class="submit">

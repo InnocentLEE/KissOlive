@@ -125,3 +125,8 @@ form>input{
     border-color: transparent;
     color:#fff;
 }
+input[type=file] {
+    display: block;
+    margin-top: 18px;
+}
+

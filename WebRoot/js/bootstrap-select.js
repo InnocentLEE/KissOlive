@@ -2267,7 +2267,7 @@
 					return b(a)
 				})
 				: "object" == typeof module && module.exports ? module.exports = b(require("jquery"))
-						: b(a.jQuery)
+						: b(a.jquery)
 	}(this, function(a) {
 		!function(a) {
 			a.fn.selectpicker.defaults = {
