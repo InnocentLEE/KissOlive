@@ -9,20 +9,22 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <head>
     <base href="<%=basePath%>">
     
-    <title>KissOlive商城后台管理系统</title>
+    <title>My JSP 'adamin_home.jsp' starting page</title>
     
 	<meta http-equiv="pragma" content="no-cache">
 	<meta http-equiv="cache-control" content="no-cache">
 	<meta http-equiv="expires" content="0">    
 	<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
 	<meta http-equiv="description" content="This is my page">
-	<!--
-	<link rel="stylesheet" type="text/css" href="styles.css">
-	-->
+	
+	<link rel="stylesheet" type="text/css" href="css/admin/main.css">
+	<link rel="stylesheet" type="text/css" href="css/admin/bootstrap.min.css">
 
   </head>
-	<frameset cols="17%,83%" frameborder="no" border="0" framespacing="0">
-	<frame src="page/admin/admin_index.jsp" name="left" scrolling="no">
-	<frame src="page/admin/admin_welcome.jsp" name="right">
-	</frameset>
+  
+  <body>
+  <div class="img-wap">
+    <img src="img/admin/home.jpg" class="img-responsive" alt="Cinque Terre"> 
+   </div>
+  </body>
 </html>

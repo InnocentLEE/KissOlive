@@ -71,8 +71,8 @@
 					<div class="collapse navbar-collapse" id="navbar-collapse">
 						<ul class="nav navbar-nav navbar-right" style="margin: 0">
 							<li><a href="#"><span
-									class="glyphicon glyphicon-shopping-cart">&nbsp;<span>我的购物车</a></li>
-							<li><a href="#"><span class="glyphicon glyphicon-list">&nbsp;</span>我的订单</a></li>
+									class="glyphicon glyphicon-shopping-cart">&nbsp;<span>我的购物车</span></span></a></li>
+							<li><a href="#"><span class="glyphicon glyphicon-list">&nbsp;<span>我的订单</span></span></a></li>
 						</ul>
 					</div>
 				</c:otherwise>

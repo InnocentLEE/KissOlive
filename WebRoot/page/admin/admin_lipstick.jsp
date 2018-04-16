@@ -9,7 +9,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <head>
     <base href="<%=basePath%>">
     
-    <title>KissOlive商城后台管理系统</title>
+    <title>My JSP 'admin_lipstick.jsp' starting page</title>
     
 	<meta http-equiv="pragma" content="no-cache">
 	<meta http-equiv="cache-control" content="no-cache">
@@ -21,8 +21,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	-->
 
   </head>
-	<frameset cols="17%,83%" frameborder="no" border="0" framespacing="0">
-	<frame src="page/admin/admin_index.jsp" name="left" scrolling="no">
-	<frame src="page/admin/admin_welcome.jsp" name="right">
-	</frameset>
+  
+  <body>
+    This is my JSP page. <br>
+  </body>
 </html>

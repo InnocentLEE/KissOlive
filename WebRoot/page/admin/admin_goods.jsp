@@ -62,14 +62,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						<tr>
 							<td>迪奥999</td>
 							<td>¥300</td>
-							<td>上架</td>
+							<td>已下架</td>
 							<td><a class="opera" href="page/admin/admin_addgoods.jsp">查看</a>
 								<a class="opera" href="page/admin/admin_addgoods.jsp">编辑</a> <a class="opera">删除</a></td>
 						</tr>						
 						<tr>
 							<td>迪奥999</td>
 							<td>¥300</td>
-							<td>上架</td>
+							<td>在售</td>
 							<td><a class="opera" href="page/admin/admin_addgoods.jsp">查看</a>
 								<a class="opera" href="page/admin/admin_addgoods.jsp">编辑</a> <a class="opera">删除</a></td>
 						</tr>
