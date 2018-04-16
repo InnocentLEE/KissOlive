@@ -1,3 +1,9 @@
+th {
+    text-align: center;
+}
+table.table.table-striped.table-bordered.table-hover {
+    text-align: center;
+}
 .sidebar ul.nav.nav-sidebar li i.active,
 .sidebar ul.nav.nav-sidebar li i:hover {
   color: #fff;

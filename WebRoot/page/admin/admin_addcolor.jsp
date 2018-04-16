@@ -39,9 +39,8 @@
 		   <div class="input-group">
 				<span class="input-group-addon">颜色代号</span>
 				<input type="text" id="cnRGB" class="form-control demo" value="#70c24a">
-			    </div>
-		   </div> 
-	
+			</div>
+		  
 		<!-- end:获取色值 -->    
 
 			<input type="submit" value="确认添加" class="submit">

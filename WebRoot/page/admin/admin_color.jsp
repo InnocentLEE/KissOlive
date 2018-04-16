@@ -1,4 +1,5 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%
 	String path = request.getContextPath();
 	String basePath = request.getScheme() + "://"
@@ -19,8 +20,8 @@
 <meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
 <meta http-equiv="description" content="This is my page">
 
-<link rel="stylesheet" type="text/css"
-	href="css/admin/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="css/admin/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="css/admin/font-awesome.min.css">
 <link rel="stylesheet" type="text/css" href="css/admin/main.css">
 
 </head>
@@ -43,7 +44,7 @@
 <!-- start:色号列表 -->
 		<div class="row">
 			<div class="table-wrap col-lg-10">
-				<table class="table table-striped table-bordered table-hover" style="text-align:center;">
+				<table class="table table-striped table-bordered table-hover">
 					<thead>
 						<tr>
 							<th>色号名称</th>
@@ -56,7 +57,7 @@
 						<tr>
 							<td>#001</td>
 							<td>#fefefe</td>
-							<td><i class="fas fa-circle"></i></td>
+							<td><i class="fa fa-square"></i></td>
 							<td><a class="opera" href="page/admin/admin_addcolor.jsp">编辑</a> <a class="opera">删除</a></td>
 						</tr>
 						<tr>
