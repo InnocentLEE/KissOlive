@@ -30,15 +30,16 @@
 		</div>
 		<!-- end:添加色号 -->
 		<!-- start:添加 -->
-		<form action="page/admin/admin_hot.jsp">
+		<form action="/KissOlive/admin/AdminServlet" method="post">
+			<input type="hidden" name="method" value="addColor" />
 			<div class="input-group">
 				<span class="input-group-addon">色号代码</span> 
-				<input type="text" class="form-control" placeholder="请输入色号名称" id="cncode">
+				<input type="text" class="form-control" placeholder="请输入色号名称" id="cncode" name="cncode" />
 			</div>
 		<!-- start:获取色值 -->
 		   <div class="input-group">
 				<span class="input-group-addon">颜色代号</span>
-				<input type="text" id="cnRGB" class="form-control demo" value="#70c24a">
+				<input type="text" id="cnRGB" name="cnRGB" class="form-control demo" value="#70c24a">
 			</div>
 		  
 		<!-- end:获取色值 -->    
