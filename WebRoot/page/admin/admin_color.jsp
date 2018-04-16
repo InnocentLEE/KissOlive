@@ -43,7 +43,7 @@
 <!-- start:色号列表 -->
 		<div class="row">
 			<div class="table-wrap col-lg-10">
-				<table class="table table-striped table-bordered table-hover">
+				<table class="table table-striped table-bordered table-hover" style="text-align:center;">
 					<thead>
 						<tr>
 							<th>色号名称</th>
@@ -56,7 +56,7 @@
 						<tr>
 							<td>#001</td>
 							<td>#fefefe</td>
-							<td>▇</td>
+							<td><i class="fas fa-circle"></i></td>
 							<td><a class="opera" href="page/admin/admin_addcolor.jsp">编辑</a> <a class="opera">删除</a></td>
 						</tr>
 						<tr>
