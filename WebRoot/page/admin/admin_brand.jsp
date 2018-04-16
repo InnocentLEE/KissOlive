@@ -19,7 +19,8 @@
 <meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
 <meta http-equiv="description" content="This is my page">
 
-<link rel="stylesheet" type="text/css" href="css/admin/bootstrap.min.css">
+<link rel="stylesheet" type="text/css"
+	href="css/admin/bootstrap.min.css">
 <link rel="stylesheet" type="text/css" href="css/admin/main.css">
 
 </head>
@@ -32,15 +33,9 @@
 				<h1 class="page-header">品牌管理</h1>
 				<div class="page-header-right">
 					<div class="btn-group">
-						<button type="button" class="btn btn-primary dropdown-toggle"
-							data-toggle="dropdown">
-							添加 <span class="caret"></span>
-						</button>
-						<ul class="dropdown-menu" role="menu">
-							<li><a href="page/admin/admin_addbrand.jsp">品牌</a></li>
-							<li><a href="page/admin/admin_addseries.jsp">系列</a></li>
-						</ul>
+						<a class="btn btn-primary" href="page/admin/admin_addbrand.jsp">添加品牌</a>
 					</div>
+
 				</div>
 			</div>
 		</div>
@@ -64,15 +59,15 @@
 							<td><a class="picture" href="#"><img
 									src="img//kissolive.png" class="img-thumbnail"
 									alt="Cinque Terre" width="65" height="45"></a></td>
-							<td><a class="opera" href="page/admin/admin_series.jsp">查看系列</a>
-								<a class="opera" href="page/admin/admin_addbrand.jsp">编辑</a> <a class="opera">删除</a></td>
+							<td><a class="opera" href="page/admin/admin_addbrand.jsp">编辑</a>
+								<a class="opera">删除</a></td>
 						</tr>
 						<tr>
 							<td>阿玛尼</td>
 							<td><a class="picture" href="#"><img
 									src="img//kissolive.png" class="img-thumbnail"
 									alt="Cinque Terre" width="65" height="45"></a></td>
-							<td><a class="opera" href="#">查看系列</a> <a class="opera">编辑</a>
+							<td><a class="opera" href="page/admin/admin_addbrand.jsp">编辑</a>
 								<a class="opera">删除</a></td>
 						</tr>
 						<tr>
@@ -80,7 +75,7 @@
 							<td><a class="picture" href="#"><img
 									src="img//kissolive.png" class="img-thumbnail"
 									alt="Cinque Terre" width="65" height="45"></a></td>
-							<td><a class="opera" href="#">查看系列</a> <a class="opera">编辑</a>
+							<td><a class="opera" href="page/admin/admin_addbrand.jsp">编辑</a>
 								<a class="opera">删除</a></td>
 						</tr>
 					</tbody>
