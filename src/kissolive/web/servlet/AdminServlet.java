@@ -1,11 +1,14 @@
 package kissolive.web.servlet;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import kissolive.brand.domain.Brand;
+import kissolive.brand.service.BrandService;
 import kissolive.colorno.domain.Colorno;
 import kissolive.colorno.service.ColornoService;
 import cn.itcast.commons.CommonUtils;
@@ -14,6 +17,7 @@ import cn.itcast.servlet.BaseServlet;
 public class AdminServlet extends BaseServlet {
 	
 	ColornoService colornoService = new ColornoService();
+	BrandService brandService = new BrandService();
 	
 	/**
 	 * 首页管理
@@ -61,7 +65,14 @@ public class AdminServlet extends BaseServlet {
 	 */
 	public String adminBrand(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
-		return "f:/";
+		List<Brand> brandList = brandService.find();
+		for(int i=0;i<brandList.size();i++){
+			String bsrc = brandList.get(i).getBsrc();
+			bsrc = bsrc.replaceAll("/images/", "images//");
+			brandList.get(i).setBsrc(bsrc);
+		}
+		req.setAttribute("brandList", brandList);
+		return "f:/page/admin/admin_brand.jsp";
 	}
 	/**
 	 * 系列管理
@@ -111,6 +122,14 @@ public class AdminServlet extends BaseServlet {
 			throws ServletException, IOException {
 		return "f:/";
 	}
+	/**
+	 * 添加色号
+	 * @param req
+	 * @param resp
+	 * @return
+	 * @throws ServletException
+	 * @throws IOException
+	 */
 	public String addColor(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
 		String cncode = req.getParameter("cncode");

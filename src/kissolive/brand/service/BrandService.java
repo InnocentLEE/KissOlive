@@ -1,6 +1,7 @@
 package kissolive.brand.service;
 
 import java.sql.SQLException;
+import java.util.List;
 
 import kissolive.brand.dao.BrandDao;
 import kissolive.brand.domain.Brand;
@@ -17,5 +18,14 @@ public class BrandService {
 		} catch (SQLException e) {
 			throw new RuntimeException();
 		}
+	}
+	public List<Brand> find(){
+		try {
+			List<Brand> brandList= brandDao.find();
+			return brandList;
+		} catch (SQLException e) {
+			throw new RuntimeException();
+		}
+
 	}
 }

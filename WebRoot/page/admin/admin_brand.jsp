@@ -1,4 +1,5 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%
 	String path = request.getContextPath();
 	String basePath = request.getScheme() + "://"
@@ -54,30 +55,16 @@
 						</tr>
 					</thead>
 					<tbody>
-						<tr>
-							<td>迪奥</td>
-							<td><a class="picture" href="#"><img
-									src="img//kissolive.png" class="img-thumbnail"
-									alt="Cinque Terre" width="65" height="45"></a></td>
+<c:forEach items="${brandList }" var="brand">
+			    		<tr>
+							<td>${brand.bname }</td>
+							<td><a class="picture" href=""><img
+									src="${brand.bsrc }" class="img-thumbnail"
+									alt="Cinque Terre" width="90" height="60"></a></td>
 							<td><a class="opera" href="page/admin/admin_addbrand.jsp">编辑</a>
 								<a class="opera">删除</a></td>
 						</tr>
-						<tr>
-							<td>阿玛尼</td>
-							<td><a class="picture" href="#"><img
-									src="img//kissolive.png" class="img-thumbnail"
-									alt="Cinque Terre" width="65" height="45"></a></td>
-							<td><a class="opera" href="page/admin/admin_addbrand.jsp">编辑</a>
-								<a class="opera">删除</a></td>
-						</tr>
-						<tr>
-							<td>植村秀</td>
-							<td><a class="picture" href="#"><img
-									src="img//kissolive.png" class="img-thumbnail"
-									alt="Cinque Terre" width="65" height="45"></a></td>
-							<td><a class="opera" href="page/admin/admin_addbrand.jsp">编辑</a>
-								<a class="opera">删除</a></td>
-						</tr>
+</c:forEach>
 					</tbody>
 				</table>
 			</div>
