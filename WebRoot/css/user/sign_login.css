@@ -181,7 +181,8 @@
 .panel{
 	top: auto;
     left: 31.5%;
-   
+   -webkit-box-shadow:none;
+    box-shadow: none;  
 }
 .btn-default {
 	line-height: 1;
