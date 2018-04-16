@@ -55,97 +55,18 @@
 					<tbody>
 						<tr>
 							<td>保湿</td>
-							<td><button type="button" class="btn btn-link"
-									data-toggle="modal" data-target="#myModal">编辑</button>
-
-								<div class="modal fade" id="myModal" tabindex="-1" role="dialog"
-									aria-labelledby="myModalLabel" aria-hidden="true">
-									<div class="modal-dialog">
-										<div class="modal-content">
-											<div class="modal-header">
-												<button type="button" class="close" data-dismiss="modal"
-													aria-hidden="true">&times;</button>
-												<h4 class="modal-title" id="myModalLabel">请输入新的热点名称</h4>
-											</div>
-											<form action="page/admin/admin_hot.jsp">
-												<div class="modal-body">
-													<div class="col-sm-10">
-														<input type="text" class="form-control inputxt" />
-													</div>
-												</div>
-												<div class="modal-footer">
-													<button type="button" class="btn btn-default"
-														data-dismiss="modal">关闭</button>
-													<input type="submit" value="提交" class="submit">
-												</div>
-												</form>
-										</div>
-										<!-- /.modal-content -->
-									</div>
-									<!-- /.modal -->
-								</div> <a class="opera">删除</a></td>
+							<td><a class="opera" href="page/admin/admin_addhot">编辑</a> <a
+								class="opera">删除</a></td>
 						</tr>
 						<tr>
 							<td>哑光</td>
-							<td><button type="button" class="btn btn-link"
-									data-toggle="modal" data-target="#myModal">编辑</button> <!-- 模态框（Modal） -->
-								<div class="modal fade" id="myModal" tabindex="-1" role="dialog"
-									aria-labelledby="myModalLabel" aria-hidden="true">
-									<div class="modal-dialog">
-										<div class="modal-content">
-											<div class="modal-header">
-												<button type="button" class="close" data-dismiss="modal"
-													aria-hidden="true">&times;</button>
-												<h4 class="modal-title" id="myModalLabel">请输入新的热点名称</h4>
-											</div>
-											<form action="page/admin/admin_hot.jsp">
-											<div class="modal-body">
-												<div class="col-sm-10">
-													<input type="text" class="form-control inputxt" />
-												</div>
-											</div>
-											<div class="modal-footer">
-												<button type="button" class="btn btn-default"
-													data-dismiss="modal">关闭</button>
-												<input type="submit" value="提交" class="submit">
-											</div>
-											</form>
-										</div>
-										<!-- /.modal-content -->
-									</div>
-									<!-- /.modal -->
-								</div> <a class="opera">删除</a></td>
+							<td><a class="opera" href="page/admin/admin_addhot">编辑</a> <a
+								class="opera">删除</a></td>
 						</tr>
 						<tr>
 							<td>防晒</td>
-							<td><button type="button" class="btn btn-link"
-									data-toggle="modal" data-target="#myModal">编辑</button> <!-- 模态框（Modal） -->
-								<div class="modal fade" id="myModal" tabindex="-1" role="dialog"
-									aria-labelledby="myModalLabel" aria-hidden="true">
-									<div class="modal-dialog">
-										<div class="modal-content">
-											<div class="modal-header">
-												<button type="button" class="close" data-dismiss="modal"
-													aria-hidden="true">&times;</button>
-												<h4 class="modal-title" id="myModalLabel">请输入新的热点名称</h4>
-											</div>
-											<form action="page/admin/admin_hot.jsp">
-											<div class="modal-body">
-												<div class="col-sm-10">
-													<input type="text" class="form-control inputxt" />
-												</div>
-											</div>
-											<div class="modal-footer">
-												<button type="button" class="btn btn-default"
-													data-dismiss="modal">关闭</button>
-												<input type="submit" value="提交" class="submit">
-											</div>
-											</form>
-										</div>
-										<!-- /.modal-content -->
-									</div>
-									<!-- /.modal -->
-								</div> <a class="opera">删除</a></td>
+							<td><a class="opera" href="page/admin/admin_addhot">编辑</a> <a
+								class="opera">删除</a></td>
 						</tr>
 					</tbody>
 				</table>
