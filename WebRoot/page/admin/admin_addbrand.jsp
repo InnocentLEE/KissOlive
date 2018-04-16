@@ -33,7 +33,7 @@
 		<!-- end:添加品牌 -->
 
 		<!-- start:添加 -->
-		<form action="<c:url value='/servlet/AddBrandServlet'/>"
+		<form action="<c:url value='/admin/AdminServlet?method=adminBrand'/>"
 			enctype="multipart/form-data" method="post">
 			<div class="input-group">
 				<span class="input-group-addon">品牌名称</span> <input type="text"
