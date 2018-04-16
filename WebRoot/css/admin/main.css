@@ -129,4 +129,6 @@ input[type=file] {
     display: block;
     margin-top: 18px;
 }
-
+img#previewImg {
+    margin-bottom: 10px;
+}

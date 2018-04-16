@@ -14,9 +14,12 @@
 <meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
 <meta http-equiv="description" content="This is my page">
 
-<link rel="stylesheet" type="text/css" href="<%=request.getContextPath() %>/css/admin/bootstrap.min.css">
-<link rel="stylesheet" type="text/css" href="<%=request.getContextPath() %>/css/admin/main.css">
-<link rel="stylesheet" type="text/css" href="<%=request.getContextPath() %>/css/admin/bootstrap.file-input.css">
+<link rel="stylesheet" type="text/css"
+	href="<%=request.getContextPath()%>/css/admin/bootstrap.min.css">
+<link rel="stylesheet" type="text/css"
+	href="<%=request.getContextPath()%>/css/admin/main.css">
+<link rel="stylesheet" type="text/css"
+	href="<%=request.getContextPath()%>/css/admin/bootstrap.file-input.css">
 
 
 
@@ -33,25 +36,23 @@
 		<!-- end:添加品牌 -->
 
 		<!-- start:添加 -->
-		<form action="<c:url value='/admin/AdminServlet?method=adminBrand'/>"
-			enctype="multipart/form-data" method="post">
-			<div class="input-group">
-				<span class="input-group-addon">品牌名称</span> <input type="text"
-					class="form-control" placeholder="请输入品牌名称">
-			</div>
-			<!-- 上传图片 -->
+		<div class="input-group">
+			<span class="input-group-addon">品牌名称</span> <input type="text"
+				class="form-control" placeholder="请输入品牌名称">
+		</div>
+		<br>
+		<img id="previewImg" src="img/kissolive.png" width="80" height="80" />
+		<form action="admin_brand.jsp" method="post" enctype="multipart/form-data">
 			<div class="file-input">
-				<input type="file" id="file" name="brandimg"
-					class="custom-file-input">
+				请选择LOGO图片：<input id="myfile" name="myfile" type="file"
+					class="fileloading" />
 			</div>
-			<!-- end:添加 -->
-
-			<input type="submit" value="提交" class="submit">
-			<!-- end:提交&取消 -->
+			<input type="submit" value="确认添加" class="submit">
 		</form>
+		<!-- end:添加 -->
 	</div>
-	<script src="<%=request.getContextPath() %>/js/jquery.js"></script>
-	<script src="<%=request.getContextPath() %>/js/bootstrap.min.js"></script>
-	<script src="<%=request.getContextPath() %>/js/bootstrap.file-input.js"></script>
+	<script src="<%=request.getContextPath()%>/js/jquery.js"></script>
+	<script src="<%=request.getContextPath()%>/js/bootstrap.min.js"></script>
+	<script src="<%=request.getContextPath()%>/js/fileupload.js"></script>
 </body>
 </html>
