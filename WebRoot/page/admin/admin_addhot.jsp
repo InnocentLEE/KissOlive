@@ -45,7 +45,7 @@
 
 
 			<!-- end:添加 -->
-				<input type="submit" value="提交" class="submit">
+				<input type="submit" value="确认添加" class="submit">
 		</form>
 	</div>
 	<script src="js/jquery.js"></script>
