@@ -21,7 +21,7 @@
 
 <link rel="stylesheet" type="text/css" href="css/admin/style.min.css">
 <link rel="stylesheet" type="text/css"
-	href="css/admin/font-awesome.min.css">
+	href="css/admin/fontawesome-all.css">
 <link rel="stylesheet" type="text/css"
 	href="css/admin/bootstrap.min.css">
 <link rel="stylesheet" type="text/css" href="css/admin/main.css">
@@ -40,23 +40,38 @@
 			</div>
 			<div class="sidebar-menu">
 				<ul class="nav nav-sidebar">
-					<li><a href="<c:url value='/admin/AdminServlet?method=adminHomePage'/>" target="right"><i
-							class="fa fa-home"></i><span class="text"> &nbsp;首页管理</span></a></li>
-					<li><a href="<c:url value='/admin/AdminServlet?method=adminHotspot'/>" target="right"><i
-							class="fa fa-heart"></i><span class="text"> &nbsp;选购热点管理</span></a></li>
-					<li><a href="<c:url value='/admin/AdminServlet?method=adminColorno'/>" target="right"><i
-							class="fa fa-circle"></i><span class="text"> &nbsp;色号管理</span></a></li>
-					<li><a href="<c:url value='/admin/AdminServlet?method=adminBrand'/>" target="right"><i
-							class="fa fa-tag"></i><span class="text"> &nbsp;品牌管理</span></a></li>
-					<li><a href="<c:url value='/admin/AdminServlet?method=adminSeries'/>" target="right"><i
-							class="fa fa-tags"></i><span class="text"> &nbsp;系列管理</span></a></li>
-					<li><a href="<c:url value='/admin/AdminServlet?method=adminLipstick'/>" target="right"><i
-							class="fa fa-square"></i><span class="text"> &nbsp;口红管理</span></a></li>
-					<li><a href="<c:url value='/admin/AdminServlet?method=adminGoods'/>" target="right"><i
-							class="fa fa-shopping-cart"></i><span class="text">
-								&nbsp;商品管理</span></a></li>
-					<li><a href="<c:url value='/admin/AdminServlet?method=adminOrder'/>" target="right"><i
-							class="fa fa-list-alt"></i><span class="text"> &nbsp;订单管理</span></a></li>
+					<li><a
+						href="<c:url value='/admin/AdminServlet?method=adminHomePage'/>"
+						target="right"><i class="fas fa-home"></i><span class="text">
+								&nbsp;首页管理</span></a></li>
+					<li><a
+						href="<c:url value='/admin/AdminServlet?method=adminHotspot'/>"
+						target="right"><i class="fas fa-heart"></i><span class="text">
+								&nbsp;选购热点管理</span></a></li>
+					<li><a
+						href="<c:url value='/admin/AdminServlet?method=adminColorno'/>"
+						target="right"><i class="fas fa-circle"></i><span class="text">
+								&nbsp;色号管理</span></a></li>
+					<li><a
+						href="<c:url value='/admin/AdminServlet?method=adminBrand'/>"
+						target="right"><i class="fas fa-tag"></i><span class="text">
+								&nbsp;品牌管理</span></a></li>
+					<li><a
+						href="<c:url value='/admin/AdminServlet?method=adminSeries'/>"
+						target="right"><i class="fas fa-tags"></i><span class="text">
+								&nbsp;系列管理</span></a></li>
+					<li><a
+						href="<c:url value='/admin/AdminServlet?method=adminLipstick'/>"
+						target="right"><i class="fas fa-square"></i><span class="text">
+								&nbsp;口红管理</span></a></li>
+					<li><a
+						href="<c:url value='/admin/AdminServlet?method=adminGoods'/>"
+						target="right"><i class="fas fa-shopping-cart"></i><span
+							class="text"> &nbsp;商品管理</span></a></li>
+					<li><a
+						href="<c:url value='/admin/AdminServlet?method=adminOrder'/>"
+						target="right"><i class="fas fa-list-alt"></i><span
+							class="text"> &nbsp;订单管理</span></a></li>
 
 				</ul>
 			</div>
