@@ -36,20 +36,22 @@
 		<!-- end:添加品牌 -->
 
 		<!-- start:添加 -->
+		<form action="/KissOlive/servlet/AddBrandServlet" method="post" enctype="multipart/form-data">
 		<div class="input-group">
 			<span class="input-group-addon">品牌名称</span> <input type="text"
-				class="form-control" placeholder="请输入品牌名称">
+				class="form-control" placeholder="请输入品牌名称" name="bname">
 		</div>
 		<br>
-		<img id="previewImg" src="img/kissolive.png" width="80" height="80" />
-		<form action="admin_brand.jsp" method="post" enctype="multipart/form-data">
+		<img id="previewImg" src="img/kissolive.png" width="200" height="50" />
+		
 			<div class="file-input">
 				请选择LOGO图片：<input id="myfile" name="myfile" type="file"
 					class="fileloading" />
 			</div>
 			<input type="submit" value="确认添加" class="submit">
 		</form>
-		<!-- end:添加 -->
+		
+	<!-- end:添加 -->
 	</div>
 	<script src="<%=request.getContextPath()%>/js/jquery.js"></script>
 	<script src="<%=request.getContextPath()%>/js/bootstrap.min.js"></script>

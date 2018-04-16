@@ -45,20 +45,29 @@ public class AddBrandServlet extends HttpServlet {
 			e.printStackTrace();
 		}
 		Files files = su.getFiles();
-		File file = files.getFile(0);
-		String extFile = file.getFileExt();
-		String bid = CommonUtils.uuid();
-		String img = "/images/" + bid + "." + extFile;
-		try {
-			file.saveAs(img);
-		} catch (SmartUploadException e) {
-			e.printStackTrace();
-		}
 		Request req = su.getRequest();
-		String bname = req.getParameter("brand");
-		Brand brand = new Brand(bid, bname, img);
-		BrandService brandService = new BrandService();
-		brandService.addBrand(brand);
+		String bname = req.getParameter("bname");
+		if(files.getSize()==0||bname==null||bname.equals("")){
+			request.setAttribute("message", "添加失败！品牌名字和图片都不可以为空");
+			request.getRequestDispatcher("/page/admin/message.jsp").forward(request, response);
+			
+		}else{
+			File file = files.getFile(0);
+			String extFile = file.getFileExt();
+			String bid = CommonUtils.uuid();
+			String img = "/images/" + bid + "." + extFile;
+			try {
+				file.saveAs(img);
+			} catch (SmartUploadException e) {
+				e.printStackTrace();
+			}
+			
+			Brand brand = new Brand(bid, bname, img);
+			BrandService brandService = new BrandService();
+			brandService.addBrand(brand);
+			request.setAttribute("message", "添加成功");
+			request.getRequestDispatcher("/page/admin/message.jsp").forward(request, response);
+		}
 	}
 
 }

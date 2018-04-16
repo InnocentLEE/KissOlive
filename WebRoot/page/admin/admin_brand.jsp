@@ -58,7 +58,7 @@
 <c:forEach items="${brandList }" var="brand">
 			    		<tr>
 							<td>${brand.bname }</td>
-							<td><a class="picture" href=""><img
+							<td><a class="picture"><img
 									src="${brand.bsrc }" class="img-thumbnail"
 									alt="Cinque Terre" width="90" height="60"></a></td>
 							<td><a class="opera" href="page/admin/admin_addbrand.jsp">编辑</a>
