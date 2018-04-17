@@ -8,6 +8,7 @@ import kissolive.lipstick.domain.Lipstick;
 import org.apache.commons.dbutils.QueryRunner;
 import org.apache.commons.dbutils.handlers.BeanHandler;
 import org.apache.commons.dbutils.handlers.BeanListHandler;
+import org.apache.commons.dbutils.handlers.ScalarHandler;
 
 import util.TxQueryRunner;
 
@@ -43,6 +44,17 @@ public class LipstickDao {
 		String sql = "SELECT * FROM tb_lipstick where sid=?";
 		List<Lipstick> lipstickList = qr.query(sql, new BeanListHandler<Lipstick>(Lipstick.class),sid);
 		return lipstickList;
+	}
+	/**
+	 * 查找某个系列的所有口红数量
+	 * @param sid
+	 * @return
+	 * @throws SQLException
+	 */
+	public int countBySid(String sid) throws SQLException {
+		String sql = "SELECT count(1) FROM tb_lipstick where sid=?";
+		Number number = (Number)qr.query(sql, new ScalarHandler(), sid);
+		return number.intValue();
 	}
 	/**
 	 * 通过id查找口红

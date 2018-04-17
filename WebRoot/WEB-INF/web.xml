@@ -45,6 +45,11 @@
     <servlet-name>AdminServlet</servlet-name>
     <servlet-class>kissolive.web.servlet.AdminServlet</servlet-class>
   </servlet>
+  <servlet>
+    <servlet-name>MainServlet</servlet-name>
+    <servlet-class>kissolive.web.servlet.MainServlet</servlet-class>
+  </servlet>
+
 
 
 
@@ -68,5 +73,9 @@
   <servlet-mapping>
     <servlet-name>AdminServlet</servlet-name>
     <url-pattern>/admin/AdminServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>MainServlet</servlet-name>
+    <url-pattern>/MainServlet</url-pattern>
   </servlet-mapping>
 </web-app>

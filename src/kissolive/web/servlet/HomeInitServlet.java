@@ -8,6 +8,8 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import kissolive.brand.domain.Brand;
+import kissolive.brand.service.BrandService;
 import kissolive.recommend.domain.RecommendResult;
 import kissolive.recommend.service.RecommendService;
 import kissolive.shuffling.domain.Shuffling;
@@ -21,6 +23,7 @@ public class HomeInitServlet extends BaseServlet {
 
 	private ShufflingService shufflingService = new ShufflingService();
 	private RecommendService recommendService = new RecommendService();
+	private BrandService brandService = new BrandService();
 	@Test
 	public void test(){
 		List<Shuffling> resultList = shufflingService.findLast5();
@@ -33,7 +36,6 @@ public class HomeInitServlet extends BaseServlet {
 	}
 	public String initHomepage(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException, SQLException {
-		//获取轮播图片的地址
 		List<Shuffling> resultList = shufflingService.findLast5();
 		for(int i=1;i<=resultList.size();i++)
 			req.setAttribute("src"+i, resultList.get(i-1).getSrc());
@@ -42,6 +44,8 @@ public class HomeInitServlet extends BaseServlet {
 			req.setAttribute("recommendresult1", recommendresultList.get(0));
 			req.setAttribute("recommendresult2", recommendresultList.get(1));
 		}
+		List<Brand> brandList = brandService.find();
+		req.setAttribute("brandList", brandList);
 		return "f:/page/user/user_home.jsp";
 	}
 
