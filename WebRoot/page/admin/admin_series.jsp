@@ -22,6 +22,7 @@
 <link rel="stylesheet" type="text/css"
 	href="css/admin/bootstrap.min.css">
 <link rel="stylesheet" type="text/css" href="css/admin/main.css">
+<link rel="stylesheet" type="text/css" href="css/admin/series.css">
 
 </head>
 
@@ -31,122 +32,226 @@
 		<div class="row">
 			<div class="col-lg-12">
 				<h1 class="page-header">系列管理</h1>
+				<div class="page-header-right">
+					<div class="btn-group">
+						<a class="btn btn-primary" href="page/admin/admin_addbrand.jsp">添加系列</a>
+					</div>
+
+				</div>
 			</div>
 		</div>
 		<!-- end:系列管理 -->
 
 		<!-- start:系列列表 -->
+		<!-- start:一个品牌系列 -->
 		<div class="row">
 			<div class="table-wrap col-lg-10">
-				<table class="table table-striped table-bordered table-hover">
-					<thead>
-						<tr>
-							<th>系列名称</th>
-							<th>操作</th>
-						</tr>
-					</thead>
-					<tbody>
-						<tr>
-							<td>迪奥烈焰蓝金系列</td>
-							<td><button type="button" class="btn btn-link"
-									data-toggle="modal" data-target="#myModal">编辑</button>
-									 <!-- 模态框（Modal） -->
-								<div class="modal fade" id="myModal" tabindex="-1" role="dialog"
-									aria-labelledby="myModalLabel" aria-hidden="true">
-									<div class="modal-dialog">
-										<div class="modal-content">
-											<div class="modal-header">
-												<button type="button" class="close" data-dismiss="modal"
-													aria-hidden="true">&times;</button>
-												<h4 class="modal-title" id="myModalLabel">请输入新的系列名称</h4>
-											</div>
-											<form action="page/admin/admin_series.jsp">
-											<div class="modal-body">
-												<div class="col-sm-10">
-													<input type="text" class="form-control inputxt" />
-												</div>
-											</div>
-											<div class="modal-footer">
-												<button type="button" class="btn btn-default"
-													data-dismiss="modal">关闭</button>
-												<input type="submit" value="提交" class="submit">
-											</div>
-											</form>
-										</div>
-										<!-- /.modal-content -->
-									</div>
-									<!-- /.modal -->
-								</div>
-								<a class="opera">删除</a></td>
-						</tr>
-						<tr>
-							<td>玩色狂想系列</td>
-							<td><button type="button" class="btn btn-link"
-									data-toggle="modal" data-target="#myModal">编辑</button>
-									 <!-- 模态框（Modal） -->
-								<div class="modal fade" id="myModal" tabindex="-1" role="dialog"
-									aria-labelledby="myModalLabel" aria-hidden="true">
-									<div class="modal-dialog">
-										<div class="modal-content">
-											<div class="modal-header">
-												<button type="button" class="close" data-dismiss="modal"
-													aria-hidden="true">&times;</button>
-												<h4 class="modal-title" id="myModalLabel">请输入新的系列名称</h4>
-											</div>
-											<form action="page/admin/admin_series.jsp">
-											<div class="modal-body">
-												<div class="col-sm-10">
-													<input type="text" class="form-control inputxt" />
-												</div>
-											</div>
-											<div class="modal-footer">
-												<button type="button" class="btn btn-default"
-													data-dismiss="modal">关闭</button>
-												<input type="submit" value="提交" class="submit">
-											</div>
-											</form>
-										</div>
-										<!-- /.modal-content -->
-									</div>
-									<!-- /.modal -->
-								</div>
-								<a class="opera">删除</a></td>
-						</tr>
-						<tr>
-							<td>魅惑系列</td>
-							<td><button type="button" class="btn btn-link"
-									data-toggle="modal" data-target="#myModal">编辑</button>
-									 <!-- 模态框（Modal） -->
-								<div class="modal fade" id="myModal" tabindex="-1" role="dialog"
-									aria-labelledby="myModalLabel" aria-hidden="true">
-									<div class="modal-dialog">
-										<div class="modal-content">
-											<div class="modal-header">
-												<button type="button" class="close" data-dismiss="modal"
-													aria-hidden="true">&times;</button>
-												<h4 class="modal-title" id="myModalLabel">请输入新的系列名称</h4>
-											</div>
-											<form action="page/admin/admin_series.jsp">
-											<div class="modal-body">
-												<div class="col-sm-10">
-													<input type="text" class="form-control inputxt" />
-												</div>
-											</div>
-											<div class="modal-footer">
-												<button type="button" class="btn btn-default"
-													data-dismiss="modal">关闭</button>
-												<input type="submit" value="提交" class="submit">
-											</div>
-											</form>
-										</div>
-										<!-- /.modal-content -->
-									</div>
-									<!-- /.modal -->
-								</div>
-								<a class="opera">删除</a></td>
-						</tr>
-					</tbody>
-				</table>
+				<div class="container content">
+					<div class="lmenu">
+						<div class="lmenu-top">
+							<img class="brand-logo" src="img/kissolive.png"> <span class="brand-name">Dior迪奥</span>
+						</div>
+					</div>
+					<div class="rcontent">
+						<div class="rcontent-list">
+							<div class="card">
+								<figure> <img id="card-series"
+									src="images/6913240BB1704701A6B24F42CD9B12FB.jpg"> <figcaption class="series_text">
+								<span class="mh4">Dior迪奥魅惑润唇膏Dior迪奥魅惑润唇膏Dior迪奥魅惑润唇膏</span>
+								<p></p>
+								<a class="opera" href="page/admin/admin_addbrand.jsp">编辑</a> <a
+									class="opera">删除</a>
+								</td></figure>
+							</div>
+							<div class="card">
+								<figure> <img id="card-series"
+									src="images/6913240BB1704701A6B24F42CD9B12FB.jpg"> <figcaption class="series_text">
+								<span class="mh4">Dior迪奥魅惑润唇膏</span>
+								<p></p>
+								<a class="opera" href="page/admin/admin_addbrand.jsp">编辑</a> <a
+									class="opera">删除</a>
+								</td></figure>
+							</div>
+							<div class="card">
+								<figure> <img id="card-series"
+									src="images/6913240BB1704701A6B24F42CD9B12FB.jpg"> <figcaption class="series_text">
+								<span class="mh4">Dior迪奥魅惑润唇膏</span>
+								<p></p>
+								<a class="opera" href="page/admin/admin_addbrand.jsp">编辑</a> <a
+									class="opera">删除</a>
+								</td></figure>
+							</div>
+							<div class="card">
+								<figure> <img id="card-series"
+									src="images/6913240BB1704701A6B24F42CD9B12FB.jpg"> <figcaption class="series_text">
+								<span class="mh4">Dior迪奥魅惑润唇膏</span>
+								<p></p>
+								<a class="opera" href="page/admin/admin_addbrand.jsp">编辑</a> <a
+									class="opera">删除</a>
+								</td></figure>
+							</div>
+							<div class="card">
+								<figure> <img id="card-series"
+									src="images/6913240BB1704701A6B24F42CD9B12FB.jpg"> <figcaption class="series_text">
+								<span class="mh4">Dior迪奥魅惑润唇膏</span>
+								<p></p>
+								<a class="opera" href="page/admin/admin_addbrand.jsp">编辑</a> <a
+									class="opera">删除</a>
+								</td></figure>
+							</div>
+							<div class="card">
+								<figure> <img id="card-series"
+									src="images/6913240BB1704701A6B24F42CD9B12FB.jpg"> <figcaption class="series_text">
+								<span class="mh4">Dior迪奥魅惑润唇膏</span>
+								<p></p>
+								<a class="opera" href="page/admin/admin_addbrand.jsp">编辑</a> <a
+									class="opera">删除</a>
+								</td></figure>
+							</div>
+							<div class="card">
+								<figure> <img id="card-series"
+									src="images/6913240BB1704701A6B24F42CD9B12FB.jpg"> <figcaption class="series_text">
+								<span class="mh4">Dior迪奥魅惑润唇膏</span>
+								<p></p>
+								<a class="opera" href="page/admin/admin_addbrand.jsp">编辑</a> <a
+									class="opera">删除</a>
+								</td></figure>
+							</div>
+							<div class="card">
+								<figure> <img id="card-series"
+									src="images/6913240BB1704701A6B24F42CD9B12FB.jpg"> <figcaption class="series_text">
+								<span class="mh4">Dior迪奥魅惑润唇膏</span>
+								<p></p>
+								<a class="opera" href="page/admin/admin_addbrand.jsp">编辑</a> <a
+									class="opera">删除</a>
+								</td></figure>
+							</div>
+							<div class="card">
+								<figure> <img id="card-series"
+									src="images/6913240BB1704701A6B24F42CD9B12FB.jpg"> <figcaption class="series_text">
+								<span class="mh4">Dior迪奥魅惑润唇膏</span>
+								<p></p>
+								<a class="opera" href="page/admin/admin_addbrand.jsp">编辑</a> <a
+									class="opera">删除</a>
+								</td></figure>
+							</div>
+							<div class="card">
+								<figure> <img id="card-series"
+									src="images/6913240BB1704701A6B24F42CD9B12FB.jpg"> <figcaption class="series_text">
+								<span class="mh4">Dior迪奥魅惑润唇膏</span>
+								<p></p>
+								<a class="opera" href="page/admin/admin_addbrand.jsp">编辑</a> <a
+									class="opera">删除</a>
+								</td></figure>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- end:一个品牌系列 -->
+				
+				<!-- start:一个品牌系列 -->
+				<div class="container content">
+					<div class="lmenu">
+						<div class="lmenu-top">
+							<img class="brand-logo" src="img/kissolive.png"> <span class="brand-name">Dior迪奥</span>
+						</div>
+					</div>
+					<div class="rcontent">
+						<div class="rcontent-list">
+							<div class="card">
+								<figure> <img id="card-series"
+									src="images/6913240BB1704701A6B24F42CD9B12FB.jpg"> <figcaption class="series_text">
+								<span class="mh4">Dior迪奥魅惑润唇膏</span>
+								<p></p>
+								<a class="opera" href="page/admin/admin_addbrand.jsp">编辑</a> <a
+									class="opera">删除</a>
+								</td></figure>
+							</div>
+							<div class="card">
+								<figure> <img id="card-series"
+									src="images/6913240BB1704701A6B24F42CD9B12FB.jpg"> <figcaption class="series_text">
+								<span class="mh4">Dior迪奥魅惑润唇膏</span>
+								<p></p>
+								<a class="opera" href="page/admin/admin_addbrand.jsp">编辑</a> <a
+									class="opera">删除</a>
+								</td></figure>
+							</div>
+							<div class="card">
+								<figure> <img id="card-series"
+									src="images/6913240BB1704701A6B24F42CD9B12FB.jpg"> <figcaption class="series_text">
+								<span class="mh4">Dior迪奥魅惑润唇膏</span>
+								<p></p>
+								<a class="opera" href="page/admin/admin_addbrand.jsp">编辑</a> <a
+									class="opera">删除</a>
+								</td></figure>
+							</div>
+							<div class="card">
+								<figure> <img id="card-series"
+									src="images/6913240BB1704701A6B24F42CD9B12FB.jpg"> <figcaption class="series_text">
+								<span class="mh4">Dior迪奥魅惑润唇膏</span>
+								<p></p>
+								<a class="opera" href="page/admin/admin_addbrand.jsp">编辑</a> <a
+									class="opera">删除</a>
+								</td></figure>
+							</div>
+							<div class="card">
+								<figure> <img id="card-series"
+									src="images/6913240BB1704701A6B24F42CD9B12FB.jpg"> <figcaption class="series_text">
+								<span class="mh4">Dior迪奥魅惑润唇膏</span>
+								<p></p>
+								<a class="opera" href="page/admin/admin_addbrand.jsp">编辑</a> <a
+									class="opera">删除</a>
+								</td></figure>
+							</div>
+							<div class="card">
+								<figure> <img id="card-series"
+									src="images/6913240BB1704701A6B24F42CD9B12FB.jpg"> <figcaption class="series_text">
+								<span class="mh4">Dior迪奥魅惑润唇膏</span>
+								<p></p>
+								<a class="opera" href="page/admin/admin_addbrand.jsp">编辑</a> <a
+									class="opera">删除</a>
+								</td></figure>
+							</div>
+							<div class="card">
+								<figure> <img id="card-series"
+									src="images/6913240BB1704701A6B24F42CD9B12FB.jpg"> <figcaption class="series_text">
+								<span class="mh4">Dior迪奥魅惑润唇膏</span>
+								<p></p>
+								<a class="opera" href="page/admin/admin_addbrand.jsp">编辑</a> <a
+									class="opera">删除</a>
+								</td></figure>
+							</div>
+							<div class="card">
+								<figure> <img id="card-series"
+									src="images/6913240BB1704701A6B24F42CD9B12FB.jpg"> <figcaption class="series_text">
+								<span class="mh4">Dior迪奥魅惑润唇膏</span>
+								<p></p>
+								<a class="opera" href="page/admin/admin_addbrand.jsp">编辑</a> <a
+									class="opera">删除</a>
+								</td></figure>
+							</div>
+							<div class="card">
+								<figure> <img id="card-series"
+									src="images/6913240BB1704701A6B24F42CD9B12FB.jpg"> <figcaption class="series_text">
+								<span class="mh4">Dior迪奥魅惑润唇膏</span>
+								<p></p>
+								<a class="opera" href="page/admin/admin_addbrand.jsp">编辑</a> <a
+									class="opera">删除</a>
+								</td></figure>
+							</div>
+							<div class="card">
+								<figure> <img id="card-series"
+									src="images/6913240BB1704701A6B24F42CD9B12FB.jpg"> <figcaption class="series_text">
+								<span class="mh4">Dior迪奥魅惑润唇膏</span>
+								<p></p>
+								<a class="opera" href="page/admin/admin_addbrand.jsp">编辑</a> <a
+									class="opera">删除</a>
+								</td></figure>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- end:一个品牌系列 -->
 			</div>
 		</div>
 		<!-- end:系列列表 -->
