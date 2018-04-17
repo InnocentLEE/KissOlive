@@ -30,7 +30,6 @@
 		 background: pink; /*后台返回css数据请将背景颜色默认设为白色*/
 		 border-radius: 2px;
    }
-
 </style>
 </head>
 
