@@ -2,7 +2,6 @@
 .container.content {
     display: flex;
     border-top: 1px solid #ccc;
-    padding-bottom: 80px; 
 }
 /*@media (min-width: 1200px)
 .container.content {
@@ -126,5 +125,8 @@ figcaption.series_text {
     width: 180px;
     text-align: center;
     margin: 0 auto;
-    height:100px;
+    height:60px;
+}
+.operate {
+    margin-top: 10px;
 }
