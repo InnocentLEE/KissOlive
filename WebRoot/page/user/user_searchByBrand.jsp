@@ -136,7 +136,7 @@
 	           </div>
 	        </div>
 	        <div class="rcontent-list">
-			    <c:forEach items="${lipstickAvgPriceList }" var="lipstickAvgPrice">
+<c:forEach items="${lipstickAvgPriceList }" var="lipstickAvgPrice">
 					<div class="card">
 		           	  <figure> 
 			           	 <a href="#">
@@ -155,7 +155,7 @@
 					    </figcaption> 
 					  </figure>
 					 </div>	
-                 </c:forEach> 
+</c:forEach> 
 	        </div>
 	    </div>
 	</div>

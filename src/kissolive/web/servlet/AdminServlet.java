@@ -11,6 +11,8 @@ import kissolive.brand.domain.Brand;
 import kissolive.brand.service.BrandService;
 import kissolive.colorno.domain.Colorno;
 import kissolive.colorno.service.ColornoService;
+import kissolive.hotspot.domain.Hotspot;
+import kissolive.hotspot.service.HotspotService;
 import cn.itcast.commons.CommonUtils;
 import cn.itcast.servlet.BaseServlet;
 
@@ -18,6 +20,7 @@ public class AdminServlet extends BaseServlet {
 	
 	ColornoService colornoService = new ColornoService();
 	BrandService brandService = new BrandService();
+	HotspotService hotspotService = new HotspotService();
 	
 	/**
 	 * 首页管理
@@ -41,7 +44,9 @@ public class AdminServlet extends BaseServlet {
 	 */
 	public String adminHotspot(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
-		return "f:/";
+		List<Hotspot> hotspotList = hotspotService.find();
+		req.setAttribute("hotspotList", hotspotList);
+		return "f:/page/admin/admin_hot.jsp";
 	}
 	/**
 	 * 色号管理

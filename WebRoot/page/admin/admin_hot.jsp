@@ -1,4 +1,5 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%
 	String path = request.getContextPath();
 	String basePath = request.getScheme() + "://"
@@ -53,21 +54,13 @@
 						</tr>
 					</thead>
 					<tbody>
-						<tr>
-							<td>保湿</td>
+<c:forEach items="${hotspotList }" var="hotspot">
+					<tr>
+							<td>${hotspot.hdescribe }</td>
 							<td><a class="opera" href="page/admin/admin_addhot">编辑</a> <a
 								class="opera">删除</a></td>
-						</tr>
-						<tr>
-							<td>哑光</td>
-							<td><a class="opera" href="page/admin/admin_addhot">编辑</a> <a
-								class="opera">删除</a></td>
-						</tr>
-						<tr>
-							<td>防晒</td>
-							<td><a class="opera" href="page/admin/admin_addhot">编辑</a> <a
-								class="opera">删除</a></td>
-						</tr>
+					</tr>
+</c:forEach>
 					</tbody>
 				</table>
 			</div>
