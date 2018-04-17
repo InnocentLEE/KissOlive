@@ -37,10 +37,11 @@
 		<!-- end:添加热点 -->
 
 		<!-- start:添加 -->
-		<form action="page/admin/admin_hot.jsp">
+		<form action="/KissOlive/admin/AdminServlet" method="post">
+			<input type="hidden" name="method" value="addHotspot" />
 			<div class="input-group">
 				<span class="input-group-addon">热点名称</span> <input type="text"
-					class="form-control" placeholder="请输入热点名称">
+					class="form-control" placeholder="请输入热点名称" name="hdescribe">
 			</div>
 
 

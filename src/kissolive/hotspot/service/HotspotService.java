@@ -23,4 +23,11 @@ public class HotspotService {
 			throw new RuntimeException();
 		}
 	}
+	public void add(Hotspot hotspot){
+		try {
+			hotspotDao.add(hotspot);
+		} catch (SQLException e) {
+			throw new RuntimeException();
+		}
+	}
 }

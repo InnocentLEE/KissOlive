@@ -148,4 +148,16 @@ public class AdminServlet extends BaseServlet {
 		req.setAttribute("message", "添加成功");
 		return "f:/page/admin/message.jsp";
 	}
+	public String addHotspot(HttpServletRequest req, HttpServletResponse resp)
+			throws ServletException, IOException {
+		String hdescribe = req.getParameter("hdescribe");
+		if(hdescribe==null||hdescribe.equals("")){
+			req.setAttribute("message", "添加失败！选购热点描述不可以为空");
+			return "f:/page/admin/message.jsp";
+		}
+		Hotspot hotspot = new Hotspot(CommonUtils.uuid(), hdescribe);
+		hotspotService.add(hotspot);
+		req.setAttribute("message", "添加成功");
+		return "f:/page/admin/message.jsp";
+	}
 }
