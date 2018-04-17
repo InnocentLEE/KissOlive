@@ -91,6 +91,7 @@
 						class="icon-olive" /></a>
 				</div>
 				<div class="col-md-4 col-lg-4">
+				   <form action="#" method="post">
 					<div class="nav-search">
 						<div class="input-group">
 							<input type="text" class="form-control"
@@ -102,6 +103,7 @@
 						</div>
 						<!-- /input-group -->
 					</div>
+					</form>
 				</div>
 			</div>
 		</div>

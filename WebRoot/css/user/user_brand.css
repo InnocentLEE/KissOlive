@@ -77,7 +77,8 @@ li.series-item {
 }
 .rcontent-list{
 	display:grid;
-	grid-template-columns:repeat(auto-fit, minmax(358px,1fr));
+	/* grid-template-columns:repeat(auto-fit, minmax(358px,1fr));三列显示 */
+	grid-template-columns:repeat(auto-fit, minmax(440px,1fr));/*两列显示*/
 	grid-template-rows:repeat(auto-fit, 553px);
 	grid-gap: 15px;
 	
