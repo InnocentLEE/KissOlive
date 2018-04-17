@@ -33,4 +33,27 @@
             }).mouseout(function(){  
                 la.hide();  
             });  
-        });   
+            
+          //实现预览即将上传的大图片【口红详情页面】的功能  
+           $("#mylgfile").change(function(){  
+                 var file = this.files[0];  
+                    var reader = new FileReader();  
+                    reader.readAsDataURL(file);  
+                    reader.onload = function(e){  
+                        $("#previewLgImg").attr("src", e.target.result);  
+                    };  
+            });  
+              
+            var la = $("#large");  
+            la.hide();  
+              
+            $("#previewLgImg").mousemove(function(e){  
+                la.css({  
+                    top : e.pageY,  
+                    left : e.pageX  
+                }).html('<img src = "' + this.src + '" />').show();  
+            }).mouseout(function(){  
+                la.hide();  
+            });  
+
+  });   
