@@ -40,7 +40,7 @@ public class HotspotDao {
 	 * @throws SQLException
 	 */
 	public Hotspot findByHid(String hid) throws SQLException{
-		String sql = "SELECT * FROM tb_hotspot WHERE bid=?";
+		String sql = "SELECT * FROM tb_hotspot WHERE hid=?";
 		Hotspot hotspot = qr.query(sql, new BeanHandler<Hotspot>(Hotspot.class),hid);
 		return hotspot;
 	}

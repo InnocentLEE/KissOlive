@@ -36,34 +36,58 @@
 	<div class="header-main-bar">
 		<nav class="navbar navbar-default navbar-fixed-top">
 		<div class="container header">
-			<div class="navbar-header">
-				<ul class="nav navbar-nav navbar-left ">
-					<li><a href="<c:url value='/page/user/user_login.jsp'/>"
-						class="navbar-brand">登陆</a></li>
-					<li><a href="<c:url value='/page/user/user_register.jsp'/>"
-						class="navbar-brand">注册</a></li>
+			<c:choose>
+				<c:when test="${empty sessionScope.sessionUser }">
+					<div class="navbar-header">
+						<ul class="nav navbar-nav navbar-left ">
+							<li><a href="<c:url value='/page/user/user_login.jsp'/>"
+								class="navbar-brand">登录</a></li>
+							<li><a href="<c:url value='/page/user/user_register.jsp'/>"
+								class="navbar-brand">注册</a></li>
 
-					<!-- 响应式布局按钮-下拉框 -->
-					<button type="button" class="navbar-toggle" data-toggle="collapse"
-						data-target="#navbar-collapse">
-						<span class="icon-bar"></span> <span class="icon-bar"></span>
-					</button>
-				</ul>
-			</div>
-			<div class="collapse navbar-collapse" id="navbar-collapse">
-				<ul class="nav navbar-nav navbar-right" style="margin: 0">
-					<li><a href="#"><span
-							class="glyphicon glyphicon-shopping-cart">&nbsp;</span>我的购物车</a></li>
-					<li><a href="#"><span class="glyphicon glyphicon-list">&nbsp;</span>我的订单</a></li>
-				</ul>
-			</div>
+							<!-- 响应式布局按钮-下拉框 -->
+							<button type="button" class="navbar-toggle"
+								data-toggle="collapse" data-target="#navbar-collapse">
+								<span class="icon-bar"></span> <span class="icon-bar"></span>
+							</button>
+						</ul>
+					</div>
+					<div class="collapse navbar-collapse" id="navbar-collapse">
+						<ul class="nav navbar-nav navbar-right" style="margin: 0">
+							<li></li>
+							<li></li>
+						</ul>
+					</div>
+				</c:when>
+				<c:otherwise>
+					<div class="navbar-header">
+						<ul class="nav navbar-nav navbar-left ">
+							<li><a href="<c:url value=''/>" class="navbar-brand">${sessionScope.sessionUser.username }</a></li>
+							<li><a href="<c:url value='/servlet/UserServlet?method=quit'/>"
+								class="navbar-brand">[退出]</a></li>
+							<!-- 响应式布局按钮-下拉框 -->
+							<button type="button" class="navbar-toggle"
+								data-toggle="collapse" data-target="#navbar-collapse">
+								<span class="icon-bar"></span> <span class="icon-bar"></span>
+							</button>
+						</ul>
+					</div>
+					<div class="collapse navbar-collapse" id="navbar-collapse">
+						<ul class="nav navbar-nav navbar-right" style="margin: 0">
+							<li><a href="#"><span
+									class="glyphicon glyphicon-shopping-cart">&nbsp;<span>我的购物车</span></span></a></li>
+							<li><a href="#"><span class="glyphicon glyphicon-list">&nbsp;<span>我的订单</span></span></a></li>
+						</ul>
+					</div>
+				</c:otherwise>
+			</c:choose>
 		</div>
 		</nav>
 		<div class="main-bar-content">
 			<div class="header-logo row">
 				<div class="col-md-4 col-lg-4"></div>
 				<div class="col-md-4 col-lg-4">
-					<a href="#"><img src="<c:url value='/img/kissolive.png'/>"
+					<a href="index.jsp"><img src="<c:url value='/img/kissolive.png'/>"
 						class="icon-olive" /></a>
 				</div>
 				<div class="col-md-4 col-lg-4">
@@ -90,18 +114,15 @@
 	<div class="container content">
 	    <div class="lmenu">
 	       <div class="lmenu-top">
-	         <span class="brand-name">Dior迪奥</span>
+	         <span class="brand-name">${bname }</span>
 	       </div>
 	       <div class="lmenu-content">
 	          <div class="sum-series"><h5>系列</h5></div>
 	          <div class="series">
 	            <ul class="sum">
-	            <li class="series-item"><a herf="#">Dior迪奥金焰幻彩唇膏-2017圣诞节限量版&nbsp;(5)</a></li>
-	            <li class="series-item"><a herf="#">Dior迪奥魅惑润唇膏&nbsp;(2)</a></li>
-	            <li class="series-item"><a herf="#">Dior迪奥烈焰蓝金唇膏&nbsp;(2)</a></li>
-	            <li class="series-item"><a herf="#">Dior迪奥魅惑唇蜜&nbsp;(1)</a></li>
-	            <li class="series-item"><a herf="#">Dior迪奥999传奇挚爱礼盒&nbsp;(1)</a></li>
-	            <li class="series-item"><a herf="#">Dior迪奥烈焰蓝金臻彩唇釉-2017春季限量版&nbsp;(1)</a></li>
+<c:forEach items="${seriescountList }" var="seriescount">
+					<li class="series-item"><a href="<c:url value='/MainServlet?method=searchBySeries&sid=${seriescount.series.sid }&bid=${bid }&bname=${bname }'/>">${seriescount.series.sname }&nbsp;(${seriescount.count })</a></li>
+</c:forEach>
 	            </ul>
 	          </div>
 	       </div>
@@ -109,82 +130,130 @@
 	    <div class="rcontent">
 	        <div class="rcontent-top">
 	           <div class="top">
-	         		  <span class="product">产品&nbsp;(6)</span>  
+	         		  <span class="product">产品&nbsp;(${lipstickCount })</span>  
 	           </div>
 	        </div>
 	        <div class="rcontent-list">
-	           <div class="card">
+<c:forEach items="${lipstickAvgPriceList }" var="lipstickAvgPrice">
+				<div class="card">
 	           	  <figure> 
 		           	 <a href="#">
-		           	      <img alt="" class="card-good" src="<c:url value='/img/user/user_brand/goods1.jpg'/>">
+		           	      <img alt="" class="card-good" src="<c:url value='${lipstickAvgPrice.lsrc }'/>">
 					</a>
 				    <figcaption class="goods_text"> 
 				     <a href="#">
-				      <span class="mh4">Dior迪奥魅惑润唇密</span>
+				      <span class="mh4">${lipstickAvgPrice.lipstick.lname }</span>
 				      <p></p>
-				      <span class="mh5">着色彩染，持久轻盈裸唇感</span>
+				      <span class="mh5">${lipstickAvgPrice.hotspot }</span>
 				       <p></p>
-				      <span class="price">￥&nbsp;300.00</span>
+				      <span class="price">￥&nbsp;${lipstickAvgPrice.avgprice }</span>
 				       <p></p>
 				      <button type="button" class="book">订&nbsp;购</button>
 				     </a> 
 				    </figcaption> 
 				  </figure>
-				 </div>
-	           <div class="card">
-	           		<figure> 
+				 </div>	
+</c:forEach>
+<c:forEach items="${lipstickAvgPriceList }" var="lipstickAvgPrice">
+				<div class="card">
+	           	  <figure> 
 		           	 <a href="#">
-		           	      <img alt="" class="card-good" src="<c:url value='/img/user/user_brand/goods1.jpg'/>">
+		           	      <img alt="" class="card-good" src="<c:url value='${lipstickAvgPrice.lsrc }'/>">
 					</a>
 				    <figcaption class="goods_text"> 
 				     <a href="#">
-				      <span class="mh4">Dior迪奥魅惑润唇密</span>
+				      <span class="mh4">${lipstickAvgPrice.lipstick.lname }</span>
 				      <p></p>
-				      <span class="mh5">着色彩染，持久轻盈裸唇感</span>
+				      <span class="mh5">${lipstickAvgPrice.hotspot }</span>
 				       <p></p>
-				      <span class="price">￥&nbsp;300.00</span>
+				      <span class="price">￥&nbsp;${lipstickAvgPrice.avgprice }</span>
 				       <p></p>
 				      <button type="button" class="book">订&nbsp;购</button>
 				     </a> 
 				    </figcaption> 
 				  </figure>
-	           </div>
-	           <div class="card">
-	           		<figure> 
+				 </div>	
+</c:forEach>
+<c:forEach items="${lipstickAvgPriceList }" var="lipstickAvgPrice">
+				<div class="card">
+	           	  <figure> 
 		           	 <a href="#">
-		           	      <img alt="" class="card-good" src="<c:url value='/img/user/user_brand/goods1.jpg'/>">
+		           	      <img alt="" class="card-good" src="<c:url value='${lipstickAvgPrice.lsrc }'/>">
 					</a>
 				    <figcaption class="goods_text"> 
 				     <a href="#">
-				      <span class="mh4">Dior迪奥魅惑润唇密</span>
+				      <span class="mh4">${lipstickAvgPrice.lipstick.lname }</span>
 				      <p></p>
-				      <span class="mh5">着色彩染，持久轻盈裸唇感</span>
+				      <span class="mh5">${lipstickAvgPrice.hotspot }</span>
 				       <p></p>
-				      <span class="price">￥&nbsp;300.00</span>
+				      <span class="price">￥&nbsp;${lipstickAvgPrice.avgprice }</span>
 				       <p></p>
 				      <button type="button" class="book">订&nbsp;购</button>
 				     </a> 
 				    </figcaption> 
 				  </figure>
-	           </div>
-	           <div class="card">
-	           		<figure> 
+				 </div>	
+</c:forEach>
+<c:forEach items="${lipstickAvgPriceList }" var="lipstickAvgPrice">
+				<div class="card">
+	           	  <figure> 
 		           	 <a href="#">
-		           	      <img alt="" class="card-good" src="<c:url value='/img/user/user_brand/goods1.jpg'/>">
+		           	      <img alt="" class="card-good" src="<c:url value='${lipstickAvgPrice.lsrc }'/>">
 					</a>
 				    <figcaption class="goods_text"> 
 				     <a href="#">
-				      <span class="mh4">Dior迪奥魅惑润唇密</span>
+				      <span class="mh4">${lipstickAvgPrice.lipstick.lname }</span>
 				      <p></p>
-				      <span class="mh5">着色彩染，持久轻盈裸唇感</span>
+				      <span class="mh5">${lipstickAvgPrice.hotspot }</span>
 				       <p></p>
-				      <span class="price">￥&nbsp;300.00</span>
+				      <span class="price">￥&nbsp;${lipstickAvgPrice.avgprice }</span>
 				       <p></p>
 				      <button type="button" class="book">订&nbsp;购</button>
 				     </a> 
 				    </figcaption> 
 				  </figure>
-	           </div>
+				 </div>	
+</c:forEach>
+<c:forEach items="${lipstickAvgPriceList }" var="lipstickAvgPrice">
+				<div class="card">
+	           	  <figure> 
+		           	 <a href="#">
+		           	      <img alt="" class="card-good" src="<c:url value='${lipstickAvgPrice.lsrc }'/>">
+					</a>
+				    <figcaption class="goods_text"> 
+				     <a href="#">
+				      <span class="mh4">${lipstickAvgPrice.lipstick.lname }</span>
+				      <p></p>
+				      <span class="mh5">${lipstickAvgPrice.hotspot }</span>
+				       <p></p>
+				      <span class="price">￥&nbsp;${lipstickAvgPrice.avgprice }</span>
+				       <p></p>
+				      <button type="button" class="book">订&nbsp;购</button>
+				     </a> 
+				    </figcaption> 
+				  </figure>
+				 </div>	
+</c:forEach>
+<c:forEach items="${lipstickAvgPriceList }" var="lipstickAvgPrice">
+				<div class="card">
+	           	  <figure> 
+		           	 <a href="#">
+		           	      <img alt="" class="card-good" src="<c:url value='${lipstickAvgPrice.lsrc }'/>">
+					</a>
+				    <figcaption class="goods_text"> 
+				     <a href="#">
+				      <span class="mh4">${lipstickAvgPrice.lipstick.lname }</span>
+				      <p></p>
+				      <span class="mh5">${lipstickAvgPrice.hotspot }</span>
+				       <p></p>
+				      <span class="price">￥&nbsp;${lipstickAvgPrice.avgprice }</span>
+				       <p></p>
+				      <button type="button" class="book">订&nbsp;购</button>
+				     </a> 
+				    </figcaption> 
+				  </figure>
+				 </div>	
+</c:forEach>
 	        </div>
 	    </div>
 	</div>
@@ -202,21 +271,9 @@
 			</div>
 			<div class="col-md-9">
 				<ul style="display:flex">
-					<li class="branditem" id="branditem"><a href="#">迪奥</a></li>
-					<li class="branditem"><a href="#">美宝莲纽约</a></li>
-					<li class="branditem"><a href="#">香奈儿</a></li>
-					<li class="branditem"><a href="#">雅诗兰黛</a></li>
-					<li class="branditem"><a href="#">M.A.C</a></li>
-					<li class="branditem"><a href="#">植村秀</a></li>
-					<li class="branditem"><a href="#">妙巴黎</a></li>
-					<li class="branditem"><a href="#">迪奥</a></li>
-					<li class="branditem"><a href="#">美宝莲纽约</a></li>
-					<li class="branditem"><a href="#">香奈儿</a></li>
-					<li class="branditem"><a href="#">雅诗兰黛</a></li>
-					<li class="branditem"><a href="#">M.A.C</a></li>
-					<li class="branditem"><a href="#">植村秀</a></li>
-					<li class="branditem"><a href="#">妙巴黎</a></li>
-
+<c:forEach items="${brandList }" var="brand">
+					<li class="branditem" ><a href="<c:url value='/MainServlet?method=searchByBrand&bid=${brand.bid }&bname=${brand.bname }'/>">${brand.bname }</a></li>
+</c:forEach>
 				</ul>
 			</div>
 		</div>

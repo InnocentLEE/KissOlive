@@ -48,10 +48,8 @@
 					</div>
 					<div class="collapse navbar-collapse" id="navbar-collapse">
 						<ul class="nav navbar-nav navbar-right" style="margin: 0">
-							<li><a href="#"><span
-									class="glyphicon glyphicon-shopping-cart">&nbsp;<span></a></li>
-							<li><a href="#"><span class="glyphicon glyphicon-list">&nbsp;</span>
-							</a></li>
+							<li></li>
+							<li></li>
 						</ul>
 					</div>
 				</c:when>
@@ -83,7 +81,7 @@
 			<div class="header-logo row">
 				<div class="col-md-4 col-lg-4"></div>
 				<div class="col-md-4 col-lg-4">
-					<a href="#"><img src="<c:url value='/img/kissolive.png'/>"
+					<a href="index.jsp"><img src="<c:url value='/img/kissolive.png'/>"
 						class="icon-olive" /></a>
 				</div>
 				<div class="col-md-4 col-lg-4">
@@ -114,6 +112,8 @@
 								<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
 								<li data-target="#myCarousel" data-slide-to="1"></li>
 								<li data-target="#myCarousel" data-slide-to="2"></li>
+								<li data-target="#myCarousel" data-slide-to="3"></li>
+								<li data-target="#myCarousel" data-slide-to="4"></li>
 							</ol>
 							<div class="carousel-inner">
 								<div class="item active">
@@ -252,21 +252,9 @@
 			</div>
 			<div class="col-md-9">
 				<ul style="display:flex">
-					<li class="branditem" id="branditem"><a href="#">迪奥</a></li>
-					<li class="branditem"><a href="#">美宝莲纽约</a></li>
-					<li class="branditem"><a href="#">香奈儿</a></li>
-					<li class="branditem"><a href="#">雅诗兰黛</a></li>
-					<li class="branditem"><a href="#">M.A.C</a></li>
-					<li class="branditem"><a href="#">植村秀</a></li>
-					<li class="branditem"><a href="#">妙巴黎</a></li>
-					<li class="branditem"><a href="#">迪奥</a></li>
-					<li class="branditem"><a href="#">美宝莲纽约</a></li>
-					<li class="branditem"><a href="#">香奈儿</a></li>
-					<li class="branditem"><a href="#">雅诗兰黛</a></li>
-					<li class="branditem"><a href="#">M.A.C</a></li>
-					<li class="branditem"><a href="#">植村秀</a></li>
-					<li class="branditem"><a href="#">妙巴黎</a></li>
-
+<c:forEach items="${brandList }" var="brand">
+					<li class="branditem" ><a href="<c:url value='/MainServlet?method=searchByBrand&bid=${brand.bid }&bname=${brand.bname }'/>">${brand.bname }</a></li>
+</c:forEach>
 				</ul>
 			</div>
 		</div>
