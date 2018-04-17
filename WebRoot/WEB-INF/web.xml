@@ -46,10 +46,8 @@
     <servlet-class>kissolive.web.servlet.AdminServlet</servlet-class>
   </servlet>
   <servlet>
-  	<description>This is the description of my J2EE component</description>
-    <display-name>This is the display name of my J2EE component</display-name>
-    <servlet-name>CssTestServlet</servlet-name>
-    <servlet-class>test.util.CssTestServlet</servlet-class>
+    <servlet-name>MainServlet</servlet-name>
+    <servlet-class>kissolive.web.servlet.MainServlet</servlet-class>
   </servlet>
 
 
@@ -77,7 +75,7 @@
     <url-pattern>/admin/AdminServlet</url-pattern>
   </servlet-mapping>
   <servlet-mapping>
-    <servlet-name>CssTestServlet</servlet-name>
-    <url-pattern>/CssTestServlet</url-pattern>
+    <servlet-name>MainServlet</servlet-name>
+    <url-pattern>/MainServlet</url-pattern>
   </servlet-mapping>
 </web-app>
