@@ -19,7 +19,6 @@ public class TestServlet extends BaseServlet {
     public TestServlet() {
         super();
     }
-    
     public String addLipstick1(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
     	Brand brand1 = new Brand("bid1", "品牌一", "bsrc1");
@@ -29,7 +28,6 @@ public class TestServlet extends BaseServlet {
     	brandList.add(brand2);
     	req.setAttribute("brandList", brandList);
 		return "f:/test/testAddLipstick.jsp";
-	
 	}
     public String ajaxValidateUsername(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {

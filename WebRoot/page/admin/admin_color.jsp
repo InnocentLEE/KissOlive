@@ -21,17 +21,9 @@
 <meta http-equiv="description" content="This is my page">
 
 <link rel="stylesheet" type="text/css" href="css/admin/bootstrap.min.css">
-<link rel="stylesheet" type="text/css" href="css/admin/fontawesome-all.css">
+<link rel="stylesheet" type="text/css" href="css/admin/font-awesome.min.css">
 <link rel="stylesheet" type="text/css" href="css/admin/main.css">
 
-<style type="text/css">
-   .rect{
-         padding: 3 30;
-		 background: pink; /*后台返回css数据请将背景颜色默认设为白色*/
-		 border-radius: 2px;
-   }
-
-</style>
 </head>
 
 <body>
@@ -52,7 +44,6 @@
 <!-- start:色号列表 -->
 		<div class="row">
 			<div class="table-wrap col-lg-10">
-			    <input type="hidden" name="method" value="${CSS }" id="cnRGB"/>
 				<table class="table table-striped table-bordered table-hover">
 					<thead>
 						<tr>
@@ -65,20 +56,20 @@
 					<tbody>
 						<tr>
 							<td>#001</td>
-							<td>#ffc0cb</td>
-							<td><span id="cn" class="rect"></span></td>
+							<td>#fefefe</td>
+							<td><i class="fa fa-square"></i></td>
 							<td><a class="opera" href="page/admin/admin_addcolor.jsp">编辑</a> <a class="opera">删除</a></td>
 						</tr>
 						<tr>
-							<td>#001</td>
-							<td>#ffc0cb</td>
-							<td><span class="rect" ></span></td>
+							<td>#002</td>
+							<td>#fefefe</td>
+							<td>▇</td>
 							<td><a class="opera" href="page/admin/admin_addcolor.jsp">编辑</a> <a class="opera">删除</a></td>
 						</tr>
 						<tr>
-							<td>#001</td>
-							<td>#ffc0cb</td>
-							<td><span class="rect"></span></td>
+							<td>#003</td>
+							<td>#fefefe</td>
+							<td>▇</td>
 							<td><a class="opera" href="page/admin/admin_addcolor.jsp">编辑</a> <a class="opera">删除</a></td>
 						</tr>
 					</tbody>
@@ -91,15 +82,5 @@
 	
 	<script src="js/jquery.js"></script>
 	<script src="js/bootstrap.min.js"></script>
-	
-	<script type="text/javascript">
-	 $(function(){
-		 var id = "cnRGB";
-		 var value = $("#" + id).val();//获取输入框内容 
-		 
-		 var obj=document.getElementById("cn");
-			cn.style.backgroundColor=value;
-	 });
-	</script>
 </body>
 </html>
