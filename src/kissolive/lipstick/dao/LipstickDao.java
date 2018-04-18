@@ -46,6 +46,17 @@ public class LipstickDao {
 		return lipstickList;
 	}
 	/**
+	 * 查找同一选购热点的所有口红
+	 * @param sid
+	 * @return
+	 * @throws SQLException
+	 */
+	public List<Lipstick> findByHid(String hid) throws SQLException {
+		String sql = "SELECT * FROM tb_lipstick where hid=?  order by orderBy DESC";
+		List<Lipstick> lipstickList = qr.query(sql, new BeanListHandler<Lipstick>(Lipstick.class),hid);
+		return lipstickList;
+	}
+	/**
 	 * 查找某个系列的所有口红数量
 	 * @param sid
 	 * @return

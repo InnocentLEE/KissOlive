@@ -26,6 +26,20 @@ public class BrandService {
 		} catch (SQLException e) {
 			throw new RuntimeException();
 		}
-
+	}
+	
+	public boolean findByBid(String bid){
+		try {
+			return brandDao.findByBid(bid)==null;
+		} catch (SQLException e) {
+			throw new RuntimeException();
+		}
+	}
+	public void deteleByBid(String bid){
+		try {
+			brandDao.delete(bid);
+		} catch (SQLException e) {
+			throw new RuntimeException();
+		}
 	}
 }

@@ -20,6 +20,6 @@
   
   <body>
     ${message }<br/>
-    <input type="button" value="返回" onclick="history.go(-1)"/>
+    <a href="<c:url value='${href }'/>">返回</a>
   </body>
 </html>

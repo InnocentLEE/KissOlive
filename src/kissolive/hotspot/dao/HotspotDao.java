@@ -29,7 +29,7 @@ public class HotspotDao {
 	 * @throws SQLException
 	 */
 	public List<Hotspot> find() throws SQLException{
-		String sql = "SELECT * FROM tb_hotspot";
+		String sql = "SELECT * FROM tb_hotspot order by orderBy DESC";
 		List<Hotspot> hotspotList = qr.query(sql, new BeanListHandler<Hotspot>(Hotspot.class));
 		return hotspotList;
 	}

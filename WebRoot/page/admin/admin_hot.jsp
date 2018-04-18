@@ -58,7 +58,7 @@
 					<tr>
 							<td>${hotspot.hdescribe }</td>
 							<td><a class="opera" href="page/admin/admin_addhot">编辑</a> <a
-								class="opera">删除</a></td>
+								class="opera" href="admin/AdminServlet?method=deleteHotspot&hid=${hotspot.hid }">删除</a></td>
 					</tr>
 </c:forEach>
 					</tbody>

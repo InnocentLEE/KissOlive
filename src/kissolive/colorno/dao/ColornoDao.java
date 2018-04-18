@@ -34,7 +34,7 @@ public class ColornoDao {
 	 * @throws SQLException
 	 */
 	public List<Colorno> find() throws SQLException {
-		String sql = "SELECT * FROM tb_colorno";
+		String sql = "SELECT * FROM tb_colorno order by orderBy DESC";
 		List<Colorno> colornoList = qr.query(sql, new BeanListHandler<Colorno>(
 				Colorno.class));
 		return colornoList;

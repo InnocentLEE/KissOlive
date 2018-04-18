@@ -50,6 +50,7 @@ public class AddSeriesServlet extends HttpServlet {
 		String bid = req.getParameter("bid");
 		if(files.getSize()==0||sname==null||sname.equals("")||bid==null||bid.equals("")){
 			request.setAttribute("message", "添加失败！系列名字,所属系列和图片都不可以为空");
+			request.setAttribute("href", "/admin/AdminServlet?method=adminSeries");
 			request.getRequestDispatcher("/page/admin/message.jsp").forward(request, response);
 			
 		}else{
@@ -66,6 +67,7 @@ public class AddSeriesServlet extends HttpServlet {
 			SeriesService seriesService = new SeriesService();
 			seriesService.add(series);
 			request.setAttribute("message", "添加成功");
+			request.setAttribute("href", "/admin/AdminServlet?method=adminSeries");
 			request.getRequestDispatcher("/page/admin/message.jsp").forward(request, response);
 		}
 	}

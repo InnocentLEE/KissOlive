@@ -13,8 +13,10 @@ import kissolive.brand.domain.BrandAndSeries;
 import kissolive.brand.service.BrandService;
 import kissolive.colorno.domain.Colorno;
 import kissolive.colorno.service.ColornoService;
+import kissolive.goods.service.GoodsService;
 import kissolive.hotspot.domain.Hotspot;
 import kissolive.hotspot.service.HotspotService;
+import kissolive.lipstick.service.LipstickService;
 import kissolive.series.domain.Series;
 import kissolive.series.service.SeriesService;
 import cn.itcast.commons.CommonUtils;
@@ -26,7 +28,8 @@ public class AdminServlet extends BaseServlet {
 	BrandService brandService = new BrandService();
 	HotspotService hotspotService = new HotspotService();
 	SeriesService seriesService = new SeriesService();
-	
+	LipstickService lipstickService = new LipstickService();
+	GoodsService goodsService = new GoodsService();
 	/**
 	 * 首页管理
 	 * @param req
@@ -160,11 +163,13 @@ public class AdminServlet extends BaseServlet {
 		String cnRGB = req.getParameter("cnRGB");
 		if((cncode==null||cncode.equals(""))||(cncode==null||cncode.equals(""))){
 			req.setAttribute("message", "添加失败！色号代码和颜色代号不可以为空");
+			req.setAttribute("href", "/admin/AdminServlet?method=adminColorno");
 			return "f:/page/admin/message.jsp";
 		}
 		Colorno colorno = new Colorno(CommonUtils.uuid(), cncode, cnRGB);
 		colornoService.addColor(colorno);
 		req.setAttribute("message", "添加成功");
+		req.setAttribute("href", "/admin/AdminServlet?method=adminColorno");
 		return "f:/page/admin/message.jsp";
 	}
 	/**
@@ -180,11 +185,13 @@ public class AdminServlet extends BaseServlet {
 		String hdescribe = req.getParameter("hdescribe");
 		if(hdescribe==null||hdescribe.equals("")){
 			req.setAttribute("message", "添加失败！选购热点描述不可以为空");
+			req.setAttribute("href", "/admin/AdminServlet?method=adminHotspot");
 			return "f:/page/admin/message.jsp";
 		}
 		Hotspot hotspot = new Hotspot(CommonUtils.uuid(), hdescribe);
 		hotspotService.add(hotspot);
 		req.setAttribute("message", "添加成功");
+		req.setAttribute("href", "/admin/AdminServlet?method=adminHotspot");
 		return "f:/page/admin/message.jsp";
 	}
 	/**
@@ -200,5 +207,77 @@ public class AdminServlet extends BaseServlet {
 		List<Brand> brandList = brandService.find();
 		req.setAttribute("brandList", brandList);
 		return "f:/page/admin/admin_addseries.jsp";
+	}
+	/**
+	 * 删除品牌
+	 * @param req
+	 * @param resp
+	 * @return
+	 * @throws ServletException
+	 * @throws IOException
+	 */
+	public String deleteBrand(HttpServletRequest req, HttpServletResponse resp)
+			throws ServletException, IOException {
+		String bid = req.getParameter("bid");
+		if(seriesService.findByBid(bid).size()>0){
+			req.setAttribute("message", "删除失败！该品牌下有系列");
+			req.setAttribute("href", "/admin/AdminServlet?method=adminBrand");
+			return "f:/page/admin/message.jsp";
+		}else{
+			brandService.deteleByBid(bid);
+			return adminBrand(req, resp);
+		}
+	}
+	/**
+	 * 删除系列
+	 * @param req
+	 * @param resp
+	 * @return
+	 * @throws ServletException
+	 * @throws IOException
+	 */
+	public String deleteSeries(HttpServletRequest req, HttpServletResponse resp)
+			throws ServletException, IOException {
+		String sid = req.getParameter("sid");
+		if(lipstickService.findBySid(sid).size()>0){
+			req.setAttribute("message", "删除失败！该系列下有口红产品");
+			req.setAttribute("href", "/admin/AdminServlet?method=adminSeries");
+			return "f:/page/admin/message.jsp";
+		}else{
+			seriesService.delete(sid);
+			return adminSeries(req, resp);
+		}
+	}
+	/**
+	 * 删除色号
+	 * @param req
+	 * @param resp
+	 * @return
+	 * @throws ServletException
+	 * @throws IOException
+	 */
+	public String deleteColorno(HttpServletRequest req, HttpServletResponse resp)
+			throws ServletException, IOException {
+		String cnid = req.getParameter("cnid");
+		if(goodsService.findByCnid(cnid).size()>0){
+			req.setAttribute("message", "删除失败！该色号正在使用中");
+			req.setAttribute("href", "/admin/AdminServlet?method=adminColorno");
+			return "f:/page/admin/message.jsp";
+		}else{
+			colornoService.delete(cnid);
+			return adminColorno(req, resp);
+		}
+	}
+	public String deleteHotspot(HttpServletRequest req, HttpServletResponse resp)
+			throws ServletException, IOException {
+		String hid = req.getParameter("hid");
+		if(lipstickService.findByHid(hid).size()>0){
+			req.setAttribute("message", "删除失败！该选购热点正在使用中");
+			req.setAttribute("href", "/admin/AdminServlet?method=adminHotspot");
+			return "f:/page/admin/message.jsp";
+		}else{
+			hotspotService.delete(hid);
+			return adminHotspot(req, resp);
+		}
 	}
 }

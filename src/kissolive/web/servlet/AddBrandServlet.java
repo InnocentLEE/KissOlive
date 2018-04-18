@@ -49,6 +49,7 @@ public class AddBrandServlet extends HttpServlet {
 		String bname = req.getParameter("bname");
 		if(files.getSize()==0||bname==null||bname.equals("")){
 			request.setAttribute("message", "添加失败！品牌名字和图片都不可以为空");
+			request.setAttribute("href", "/admin/AdminServlet?method=adminBrand");
 			request.getRequestDispatcher("/page/admin/message.jsp").forward(request, response);
 			
 		}else{
@@ -66,6 +67,7 @@ public class AddBrandServlet extends HttpServlet {
 			BrandService brandService = new BrandService();
 			brandService.addBrand(brand);
 			request.setAttribute("message", "添加成功");
+			request.setAttribute("href", "/admin/AdminServlet?method=adminBrand");
 			request.getRequestDispatcher("/page/admin/message.jsp").forward(request, response);
 		}
 	}

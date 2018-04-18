@@ -25,4 +25,11 @@ public class SeriesService {
 			throw new RuntimeException();
 		}
 	}
+	public void delete(String sid){
+		try {
+			seriesDao.delete(sid);
+		} catch (SQLException e) {
+			throw new RuntimeException();
+		}
+	}
 }

@@ -30,8 +30,19 @@ public class GoodsDao {
 	 * @throws SQLException
 	 */
 	public List<Goods> findByLid(String lid) throws SQLException {
-		String sql = "SELECT * FROM tb_goods where lid=?";
+		String sql = "SELECT * FROM tb_goods where lid=? order by orderBy DESC";
 		List<Goods> goodList = qr.query(sql, new BeanListHandler<Goods>(Goods.class),lid);
+		return goodList;
+	}
+	/**
+	 * 查找某个色号的所有商品
+	 * @param lid
+	 * @return
+	 * @throws SQLException
+	 */
+	public List<Goods> findByCnid(String cnid) throws SQLException {
+		String sql = "SELECT * FROM tb_goods where cnid=?";
+		List<Goods> goodList = qr.query(sql, new BeanListHandler<Goods>(Goods.class),cnid);
 		return goodList;
 	}
 	/**

@@ -58,7 +58,7 @@
 			
 			<!-- 上传图片 -->
 			<div class="file-input">
-				请选择LOGO图片：<input id="myfile" name="myfile" type="file"
+				请选择系列展示图片：<input id="myfile" name="myfile" type="file"
 					class="fileloading" />
 			</div>
 			<!-- end:添加 -->

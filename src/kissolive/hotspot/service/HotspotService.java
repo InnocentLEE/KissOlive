@@ -30,4 +30,11 @@ public class HotspotService {
 			throw new RuntimeException();
 		}
 	}
+	public void delete(String hid){
+		try {
+			hotspotDao.delete(hid);
+		} catch (SQLException e) {
+			throw new RuntimeException();
+		}
+	}
 }

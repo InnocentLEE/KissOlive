@@ -16,4 +16,11 @@ public class GoodsService {
 			throw new RuntimeException();
 		}
 	}
+	public List<Goods> findByCnid(String cnid){
+		try {
+			return goodsDao.findByCnid(cnid);
+		} catch (SQLException e) {
+			throw new RuntimeException();
+		}
+	}
 }

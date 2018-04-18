@@ -24,7 +24,13 @@ public class LipstickService {
 			throw new RuntimeException();
 		}
 	}
-	
+	public List<Lipstick> findByHid(String hid){
+		try {
+			return lipstickDao.findByHid(hid);
+		} catch (SQLException e) {
+			throw new RuntimeException();
+		}
+	}
 	public List<Lipstick> find(){
 		try {
 			return lipstickDao.find();
