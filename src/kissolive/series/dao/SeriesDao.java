@@ -31,7 +31,7 @@ public class SeriesDao {
 	 * @throws SQLException
 	 */
 	public List<Series> findByBid(String bid) throws SQLException{
-		String sql = "SELECT * FROM tb_series where bid=?";
+		String sql = "SELECT * FROM tb_series where bid=?  order by orderBy DESC";
 		List<Series> seriesList = qr.query(sql, new BeanListHandler<Series>(Series.class),bid);
 		return seriesList;
 	}

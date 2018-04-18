@@ -1,6 +1,7 @@
 package kissolive.web.servlet;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.ServletException;
@@ -8,11 +9,14 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import kissolive.brand.domain.Brand;
+import kissolive.brand.domain.BrandAndSeries;
 import kissolive.brand.service.BrandService;
 import kissolive.colorno.domain.Colorno;
 import kissolive.colorno.service.ColornoService;
 import kissolive.hotspot.domain.Hotspot;
 import kissolive.hotspot.service.HotspotService;
+import kissolive.series.domain.Series;
+import kissolive.series.service.SeriesService;
 import cn.itcast.commons.CommonUtils;
 import cn.itcast.servlet.BaseServlet;
 
@@ -21,6 +25,7 @@ public class AdminServlet extends BaseServlet {
 	ColornoService colornoService = new ColornoService();
 	BrandService brandService = new BrandService();
 	HotspotService hotspotService = new HotspotService();
+	SeriesService seriesService = new SeriesService();
 	
 	/**
 	 * 首页管理
@@ -91,7 +96,19 @@ public class AdminServlet extends BaseServlet {
 	 */
 	public String adminSeries(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
-		return "f:/";
+		List<Brand> brandList = brandService.find();
+		List<BrandAndSeries> brandAndSeriesList = new ArrayList<BrandAndSeries>();
+		for(int i=0;i<brandList.size();i++){
+			Brand brand = brandList.get(i);
+			brand.setBsrc(brand.getBsrc().substring(1));
+			List<Series> seriesList = seriesService.findByBid(brand.getBid());
+			for(int j=0;j<seriesList.size();j++){
+				seriesList.get(j).setSsrc(seriesList.get(j).getSsrc().substring(1));
+			}
+			brandAndSeriesList.add(new BrandAndSeries(brand, seriesList));
+		}
+		req.setAttribute("brandAndSeriesList", brandAndSeriesList);
+		return "f:/page/admin/admin_series.jsp";
 	}
 	/**
 	 * 口红管理

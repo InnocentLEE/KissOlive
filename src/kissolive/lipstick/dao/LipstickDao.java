@@ -30,7 +30,7 @@ public class LipstickDao {
 	 * @throws SQLException
 	 */
 	public List<Lipstick> find() throws SQLException {
-		String sql = "SELECT * FROM tb_lipstick";
+		String sql = "SELECT * FROM tb_lipstick order by orderBy DESC";
 		List<Lipstick> lipstickList = qr.query(sql, new BeanListHandler<Lipstick>(Lipstick.class));
 		return lipstickList;
 	}
@@ -41,7 +41,7 @@ public class LipstickDao {
 	 * @throws SQLException
 	 */
 	public List<Lipstick> findBySid(String sid) throws SQLException {
-		String sql = "SELECT * FROM tb_lipstick where sid=?";
+		String sql = "SELECT * FROM tb_lipstick where sid=?  order by orderBy DESC";
 		List<Lipstick> lipstickList = qr.query(sql, new BeanListHandler<Lipstick>(Lipstick.class),sid);
 		return lipstickList;
 	}

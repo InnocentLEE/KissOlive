@@ -30,7 +30,7 @@ public class BrandDao {
 	 * @throws SQLException
 	 */
 	public List<Brand> find() throws SQLException {
-		String sql = "SELECT * FROM tb_brand";
+		String sql = "SELECT * FROM tb_brand order by orderBy DESC";
 		List<Brand> brandList = qr.query(sql, new BeanListHandler<Brand>(Brand.class));
 		return brandList;
 	}

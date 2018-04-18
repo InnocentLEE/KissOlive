@@ -1,4 +1,5 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%
 	String path = request.getContextPath();
 	String basePath = request.getScheme() + "://"
@@ -44,20 +45,22 @@
 
 		<!-- start:系列列表 -->
 		<!-- start:一个品牌系列 -->
+<c:forEach items="${brandAndSeriesList }" var="brandandseries">
 		<div class="row">
 			<div class="table-wrap col-lg-10">
 				<div class="container content">
 					<div class="lmenu">
 						<div class="lmenu-top">
-							<img class="brand-logo" src="img/kissolive.png"> <span class="brand-name">Dior迪奥</span>
+							<img class="brand-logo" src="${brandandseries.brand.bsrc }"> <span class="brand-name">${brandandseries.brand.bname }</span>
 						</div>
 					</div>
 					<div class="rcontent">
 						<div class="rcontent-list">
+		<c:forEach items="${brandandseries.seriesList }" var="series">
 							<div class="card">
-								<figure> <img id="card-series" src="images/6913240BB1704701A6B24F42CD9B12FB.jpg">
+								<figure> <img id="card-series" src="${series.ssrc }">
 									 <figcaption class="series_text">
-								<span class="mh4">Dior迪奥魅惑润唇膏Dior迪奥魅惑润唇膏Dior迪奥魅惑润唇膏</span>
+								<span class="mh4">${series.sname }</span>
 								<p></p>
 								</figcaption>
 								<div class="operate">
@@ -66,119 +69,13 @@
 									</div>
 								</figure>
 							</div>
-							<div class="card">
-								<figure> <img id="card-series" src="images/6913240BB1704701A6B24F42CD9B12FB.jpg">
-									 <figcaption class="series_text">
-								<span class="mh4">Dior迪奥魅惑润唇膏</span>
-								<p></p>
-								</figcaption>
-								<div class="operate">
-								<a class="opera" href="page/admin/admin_addbrand.jsp">编辑</a> <a
-									class="opera">删除</a>
-									</div>
-								</figure>
-							</div>
-							<div class="card">
-								<figure> <img id="card-series" src="images/6913240BB1704701A6B24F42CD9B12FB.jpg">
-									 <figcaption class="series_text">
-								<span class="mh4">Dior迪奥魅惑润唇膏Dior迪奥</span>
-								<p></p>
-								</figcaption>
-								<div class="operate">
-								<a class="opera" href="page/admin/admin_addbrand.jsp">编辑</a> <a
-									class="opera">删除</a>
-									</div>
-								</figure>
-							</div>
-							<div class="card">
-								<figure> <img id="card-series" src="images/6913240BB1704701A6B24F42CD9B12FB.jpg">
-									 <figcaption class="series_text">
-								<span class="mh4">Dior迪奥魅惑润唇膏</span>
-								<p></p>
-								</figcaption>
-								<div class="operate">
-								<a class="opera" href="page/admin/admin_addbrand.jsp">编辑</a> <a
-									class="opera">删除</a>
-									</div>
-								</figure>
-							</div>
-							<div class="card">
-								<figure> <img id="card-series" src="images/6913240BB1704701A6B24F42CD9B12FB.jpg">
-									 <figcaption class="series_text">
-								<span class="mh4">Dior迪奥魅惑润唇膏</span>
-								<p></p>
-								</figcaption>
-								<div class="operate">
-								<a class="opera" href="page/admin/admin_addbrand.jsp">编辑</a> <a
-									class="opera">删除</a>
-									</div>
-								</figure>
-							</div>
-							<div class="card">
-								<figure> <img id="card-series" src="images/6913240BB1704701A6B24F42CD9B12FB.jpg">
-									 <figcaption class="series_text">
-								<span class="mh4">Dior迪奥魅惑润唇膏</span>
-								<p></p>
-								</figcaption>
-								<div class="operate">
-								<a class="opera" href="page/admin/admin_addbrand.jsp">编辑</a> <a
-									class="opera">删除</a>
-									</div>
-								</figure>
-							</div>
-							<div class="card">
-								<figure> <img id="card-series" src="images/6913240BB1704701A6B24F42CD9B12FB.jpg">
-									 <figcaption class="series_text">
-								<span class="mh4">Dior迪奥魅惑润唇膏</span>
-								<p></p>
-								</figcaption>
-								<div class="operate">
-								<a class="opera" href="page/admin/admin_addbrand.jsp">编辑</a> <a
-									class="opera">删除</a>
-									</div>
-								</figure>
-							</div>
-							<div class="card">
-								<figure> <img id="card-series" src="images/6913240BB1704701A6B24F42CD9B12FB.jpg">
-									 <figcaption class="series_text">
-								<span class="mh4">Dior迪奥魅惑润唇膏</span>
-								<p></p>
-								</figcaption>
-								<div class="operate">
-								<a class="opera" href="page/admin/admin_addbrand.jsp">编辑</a> <a
-									class="opera">删除</a>
-									</div>
-								</figure>
-							</div>
-							<div class="card">
-								<figure> <img id="card-series" src="images/6913240BB1704701A6B24F42CD9B12FB.jpg">
-									 <figcaption class="series_text">
-								<span class="mh4">Dior迪奥魅惑润唇膏</span>
-								<p></p>
-								</figcaption>
-								<div class="operate">
-								<a class="opera" href="page/admin/admin_addbrand.jsp">编辑</a> <a
-									class="opera">删除</a>
-									</div>
-								</figure>
-							</div>
-							<div class="card">
-								<figure> <img id="card-series" src="images/6913240BB1704701A6B24F42CD9B12FB.jpg">
-									 <figcaption class="series_text">
-								<span class="mh4">Dior迪奥魅惑润唇膏</span>
-								<p></p>
-								</figcaption>
-								<div class="operate">
-								<a class="opera" href="page/admin/admin_addbrand.jsp">编辑</a> <a
-									class="opera">删除</a>
-									</div>
-								</figure>
-							</div>
+		</c:forEach>			
+							
 						</div>
 					</div>
 				</div>
 				<!-- end:一个品牌系列 -->
-				
+</c:forEach>				
 				<!-- start:一个品牌系列 -->
 				<div class="container content">
 					<div class="lmenu">
