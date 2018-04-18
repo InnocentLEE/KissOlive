@@ -8,6 +8,7 @@
 img#card-series {
     width: 100%;
     height: auto;
+      margin-bottom: 25px;
 }
 .rcontent-list {
     /* grid-template-columns: repeat(4, minmax(220px,1fr)); */
@@ -20,6 +21,15 @@ figcaption.lip_text {
     margin-bottom: 15px;
 }
 /*口红添加页面css**/
+img#previewLgImg {
+    margin: 20;
+}
+a.btn.btn-opera {
+	background:#000;
+	color:#fff;
+    margin-right: 10;
+    font-weight: bold;
+}
 .input-group {
 	margin-bottom: 20px;
 	width:790px;
@@ -33,7 +43,7 @@ input#myfile {
 	margin: 0 auto;
 	float: right;
 	width: 100%;
-	margin-bottom: 15px;
+	/* margin-bottom: 15px; */
 	padding: 2px 0px 0px 0px;
 	height: 30px;
 }
@@ -47,7 +57,7 @@ input#mylgfile {
 	margin: 0 auto;
     padding: 2px 0px 0px 0px;
     height: 30px;
-    margin-bottom: 15px;
+   /*  margin-bottom: 15px; */
 }
 
 .PIC.input-group {
@@ -73,7 +83,7 @@ img#previewImg {
 	margin: 20 0; */
 	
     text-align: center;
-    margin: 20 0;
+    margin: 10 0;
     display: grid;
     grid-template-columns: 120px 425px;
 }

@@ -22,10 +22,18 @@
 		<!-- start:添加口红 -->
 		<div class="row">
 			<div class="col-lg-10">
-				<h1 class="page-header">口红管理--添加口红</h1>
+				<h1 class="page-header">口红管理--口红详情</h1>
+				<div class="page-header-right">
+					<div class="btn-group">
+						<a class="btn btn-opera" href="<c:url value='/page/admin/admin_addlipstick.jsp'/>">口红编辑</a>
+						
+						<a class="btn btn-opera" href="<c:url value='/page/admin/admin_addlipstick.jsp'/>">口红删除</a>
+					
+					</div>
+				</div>
 			</div>
 		</div>
-		<!-- start:添加 -->
+		<!-- start:详情 -->
 		<form action="#">
 		  <div class="sum-group">
 			<div class="input-group">
@@ -67,13 +75,13 @@
 			</div>
 			<div class="PIC input-group">
 				<span class="input-group-addon">上传主图</span> 
-			    <input id="myfile" name="myfile" type="file" class="fileloading form-control" /> 
-			   </div>
+				<input id="myfile" name="myfile" type="file" class="fileloading form-control" /> 
+			</div>
 			<div class="PIC input-group">
 				<span class="input-group-addon">上传详情图</span>
 				<input id="mylgfile" name="mylgfile" type="file" class="fileloading form-control" /> 
 			</div>
-			<input type="submit" value="确认添加" class="submit">
+		
 			<div class="PIC input-group">
 				<span class="PIC input-group-addon">主图预览</span>
 				<img id="previewImg" src="<c:url value='/img/null.jpg'/>" width="440" height="290" />
@@ -86,7 +94,7 @@
 			</div>
 			
 		</form>
-		<!-- end:添加 -->
+		<!-- end:详情 -->
 </div>
 	
 	

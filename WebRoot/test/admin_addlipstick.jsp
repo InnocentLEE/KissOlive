@@ -65,26 +65,29 @@
 				<span class="input-group-addon">适用肤质</span> <input type="text" id=""
 					class="form-control" placeholder="请输入适用肤质">
 			</div>
+			
 			<div class="PIC input-group">
-				<span class="input-group-addon">上传主图</span> 
-			    <input id="myfile" name="myfile" type="file" class="fileloading form-control" /> 
-			   </div>
+				<span class="PIC input-group-addon">主&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;图</span>
+				<img id="previewImg" src="<c:url value='/img/null.jpg'/>" width="440" height="290" />
+		
+				<div class="file-input">
+				    <span class="piclab">请选择口红图片：</span>
+					<input id="myfile" name="myfile" type="file" class="fileloading form-control" /> 
+				</div>
+			</div>
+			
 			<div class="PIC input-group">
-				<span class="input-group-addon">上传详情图</span>
-				<input id="mylgfile" name="mylgfile" type="file" class="fileloading form-control" /> 
+			     <span class="PIC input-group-addon">详&nbsp;&nbsp;情&nbsp;&nbsp;图</span> 
+			     <div class="file-input">
+				    <span class="piclab">请选择详情图片：</span>
+					<input id="mylgfile" name="mylgfile" type="file" class="fileloading form-control" /> 
+				    <button type="button" class="btn btn-default" id="showbtn" name="showbtn">点击预览图片&nbsp;▼</button>
+				 </div>
+				    <img id="previewLgImg" src="<c:url value='/img/user/user_prointro/morecontent.png'/>" width="790px" height="auto" style="display:none"/>
+						
+			</div>
 			</div>
 			<input type="submit" value="确认添加" class="submit">
-			<div class="PIC input-group">
-				<span class="PIC input-group-addon">主图预览</span>
-				<img id="previewImg" src="<c:url value='/img/null.jpg'/>" width="440" height="290" />
-		    </div>
-			
-			<div class="PIC input-group">
-			     <span class="PIC input-group-addon">详情预览</span> 
-			     <img id="previewLgImg" src="<c:url value='/img/user/user_prointro/morecontent.png'/>" width="790px" height="auto"/>
-			</div>
-			</div>
-			
 		</form>
 		<!-- end:添加 -->
 </div>
@@ -114,6 +117,14 @@
 				}
 			});
 		}
+
+		$(document).ready(function(){
+			  
+			  $("#showbtn").click(function(){
+			    $("#previewLgImg").slideToggle();
+			  });
+			});
+	    
    </script>
 </body>
 </html>

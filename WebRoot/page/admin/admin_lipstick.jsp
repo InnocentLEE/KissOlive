@@ -18,9 +18,9 @@
 <link rel="stylesheet" href="<c:url value='/css/admin/lipsticks.css'/>">
 
 <style type="text/css">
-
-
-
+    span.mh4 {
+    color: #333;
+   }
 </style>
 	
 
@@ -44,16 +44,20 @@
 		<div class="row">
 			<div class="table-wrap col-lg-10">
 			    <div class="rcontent-list">
+							<a href="<c:url value='/page/admin/admin_editlipstick.jsp'/>"><div class="card">
+								<figure> <img id="card-series"
+									src="<c:url value='/img/user_home/6.jpg'/>"> 
+								<figcaption class="lip_text">
+								<span class="mh4">Dior迪奥魅惑润唇膏Dior迪奥魅惑润唇膏Dior迪奥魅惑润唇膏Dior迪奥魅惑润唇膏</span>
+								</figcaption>
+								</figure>
+							</div></a>
 							<div class="card">
 								<figure> <img id="card-series"
 									src="<c:url value='/img/user_home/6.jpg'/>"> 
 								<figcaption class="lip_text">
-								<span class="mh4">Dior迪奥魅惑润唇膏Dior迪奥魅惑润唇膏Dior迪奥魅惑润唇膏</span>
+								<span class="mh4">Dior迪奥魅惑润唇膏</span>
 								</figcaption>
-								<div class="operate">
-								<a class="opera" href="page/admin/admin_addbrand.jsp">编辑</a> <a
-									class="opera">删除</a>
-									</div>
 								</figure>
 							</div>
 							<div class="card">
@@ -62,46 +66,22 @@
 								<figcaption class="lip_text">
 								<span class="mh4">Dior迪奥魅惑润唇膏</span>
 								</figcaption>
-								<div class="operate">
-								<a class="opera" href="page/admin/admin_addbrand.jsp">编辑</a> <a
-									class="opera">删除</a>
-									</div>
 								</figure>
 							</div>
 							<div class="card">
 								<figure> <img id="card-series"
 									src="<c:url value='/img/user_home/6.jpg'/>"> 
 								<figcaption class="lip_text">
-								<span class="mh4">Dior迪奥魅惑润唇膏Dior迪奥魅惑润唇膏Dior迪奥魅惑润唇膏Dior迪奥魅惑润唇膏</span>
+								<span class="mh4">Dior迪奥魅惑润唇膏</span>
 								</figcaption>
-								<div class="operate">
-								<a class="opera" href="page/admin/admin_addbrand.jsp">编辑</a> <a
-									class="opera">删除</a>
-									</div>
 								</figure>
 							</div>
 							<div class="card">
 								<figure> <img id="card-series"
 									src="<c:url value='/img/user_home/6.jpg'/>"> 
 								<figcaption class="lip_text">
-								<span class="mh4">Dior迪奥魅惑润唇膏Dior迪奥魅惑润唇膏Dior迪奥魅惑润唇膏</span>
+								<span class="mh4">Dior迪奥魅惑润唇膏</span>
 								</figcaption>
-								<div class="operate">
-								<a class="opera" href="page/admin/admin_addbrand.jsp">编辑</a> <a
-									class="opera">删除</a>
-									</div>
-								</figure>
-							</div>
-							<div class="card">
-								<figure> <img id="card-series"
-									src="<c:url value='/img/user_home/6.jpg'/>"> 
-								<figcaption class="lip_text">
-								<span class="mh4">Dior迪奥魅惑润唇膏Dior迪奥魅惑润唇膏Dior迪奥魅惑润唇膏</span>
-								</figcaption>
-								<div class="operate">
-								<a class="opera" href="page/admin/admin_addbrand.jsp">编辑</a> <a
-									class="opera">删除</a>
-									</div>
 								</figure>
 							</div>
 						
