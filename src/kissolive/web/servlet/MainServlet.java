@@ -135,4 +135,50 @@ public class MainServlet extends BaseServlet {
 		req.setAttribute("lipstickCount", lipstickList.size());
 		return "f:/page/user/user_searchBySeries.jsp";
 	}
+	/**
+	 * 根据关键字搜索
+	 * @param req
+	 * @param resp
+	 * @return
+	 * @throws ServletException
+	 * @throws IOException
+	 * @throws SQLException
+	 */
+	public String search(HttpServletRequest req, HttpServletResponse resp)
+			throws ServletException, IOException, SQLException {
+		List<Lipstick> lipstickList = lipstickService.find();
+		List<LipstickAvgPrice> lipstickAvgPriceList = new ArrayList<LipstickAvgPrice>();
+		for(int i=0;i<lipstickList.size();i++){
+			List<Goods> goodsList = goodsService.findByLid(lipstickList.get(i).getLid());
+			double avgprice = 0;
+			for(int j=0;j<goodsList.size();j++){
+				avgprice = avgprice + goodsList.get(j).getGprice();
+			}
+			avgprice = avgprice / goodsList.size();
+			BigDecimal b = new BigDecimal(avgprice);    
+			avgprice = b.setScale(2,BigDecimal.ROUND_HALF_UP).doubleValue();  
+			String hotspot = hotspotService.findByHid(lipstickList.get(i).getHid()).getHdescribe();
+			String lsrc = lipstickPictureService.findMainPictureByLid(lipstickList.get(i).getLid()).getLpsrc();
+			LipstickAvgPrice lipstickAvgPrice = new LipstickAvgPrice(lipstickList.get(i), avgprice, hotspot, lsrc);
+			lipstickAvgPriceList.add(lipstickAvgPrice);
+		}
+		List<LipstickAvgPrice> resultlipstickAvgPriceList = new ArrayList<LipstickAvgPrice>();
+		String search = req.getParameter("search");
+		if(search!=null){
+			for(int i=0;i<lipstickAvgPriceList.size();i++){
+				LipstickAvgPrice lipstickAvgPrice = lipstickAvgPriceList.get(i);
+				String hotspot = lipstickAvgPrice.getHotspot();
+				String lname = lipstickAvgPrice.getLipstick().getLname();
+				if((hotspot.indexOf(search)>=0)||(lname.indexOf(search)>=0)){
+					resultlipstickAvgPriceList.add(lipstickAvgPrice);
+				}
+			}
+
+		}
+		req.setAttribute("resultlipstickAvgPriceList", resultlipstickAvgPriceList);
+		req.setAttribute("resultlipstickCount", resultlipstickAvgPriceList.size());
+		List<Brand> brandList = brandService.find();
+		req.setAttribute("brandList", brandList);
+		return "f:/page/user/user_search.jsp";
+	}
 }

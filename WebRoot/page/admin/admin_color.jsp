@@ -51,7 +51,6 @@
 <!-- start:色号列表 -->
 		<div class="row">
 			<div class="table-wrap col-lg-10">
-			    <input type="hidden" name="method" value="${CSS }" id="cnRGB"/>
 				<table class="table table-striped table-bordered table-hover">
 					<thead>
 						<tr>
@@ -62,24 +61,14 @@
 						</tr>
 					</thead>
 					<tbody>
-						<tr>
-							<td>#001</td>
-							<td>#ffc0cb</td>
-							<td><span id="cn" class="rect"></span></td>
+<c:forEach items="${colornoList }" var="colorno">
+					<tr>
+							<td>${colorno.cncode }</td>
+							<td>${colorno.cnRGB }</td>
+							<td><span id="cn" class="rect" style="background:${colorno.cnRGB }"></span></td>
 							<td><a class="opera" href="page/admin/admin_addcolor.jsp">编辑</a> <a class="opera">删除</a></td>
-						</tr>
-						<tr>
-							<td>#001</td>
-							<td>#ffc0cb</td>
-							<td><span class="rect" ></span></td>
-							<td><a class="opera" href="page/admin/admin_addcolor.jsp">编辑</a> <a class="opera">删除</a></td>
-						</tr>
-						<tr>
-							<td>#001</td>
-							<td>#ffc0cb</td>
-							<td><span class="rect"></span></td>
-							<td><a class="opera" href="page/admin/admin_addcolor.jsp">编辑</a> <a class="opera">删除</a></td>
-						</tr>
+					</tr>
+</c:forEach>
 					</tbody>
 				</table>
 			</div>
@@ -91,14 +80,5 @@
 	<script src="js/jquery.js"></script>
 	<script src="js/bootstrap.min.js"></script>
 	
-	<script type="text/javascript">
-	 $(function(){
-		 var id = "cnRGB";
-		 var value = $("#" + id).val();//获取输入框内容 
-		 
-		 var obj=document.getElementById("cn");
-			cn.style.backgroundColor=value;
-	 });
-	</script>
 </body>
 </html>

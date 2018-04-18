@@ -91,14 +91,15 @@
 						class="icon-olive" /></a>
 				</div>
 				<div class="col-md-4 col-lg-4">
-				   <form action="#" method="post">
+				   <form action="/KissOlive/MainServlet" method="post">
+				   <input type="hidden" name="method" value="search" />
 					<div class="nav-search">
 						<div class="input-group">
 							<input type="text" class="form-control"
 								placeholder="Search for..."> <span
 								class="input-group-btn">
 								<button class="btn btn-default glyphicon glyphicon-search"
-									type="button"></button>
+									type="submit"></button>
 							</span>
 						</div>
 						<!-- /input-group -->

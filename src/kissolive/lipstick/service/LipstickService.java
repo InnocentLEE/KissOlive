@@ -24,4 +24,12 @@ public class LipstickService {
 			throw new RuntimeException();
 		}
 	}
+	
+	public List<Lipstick> find(){
+		try {
+			return lipstickDao.find();
+		} catch (SQLException e) {
+			throw new RuntimeException();
+		}
+	}
 }

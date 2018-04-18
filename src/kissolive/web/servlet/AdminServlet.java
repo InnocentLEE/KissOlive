@@ -58,7 +58,9 @@ public class AdminServlet extends BaseServlet {
 	 */
 	public String adminColorno(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
-		return "f:/";
+		List<Colorno> colornoList = colornoService.find();
+		req.setAttribute("colornoList", colornoList);
+		return "f:/page/admin/admin_color.jsp";
 	}
 	/**
 	 * 品牌管理

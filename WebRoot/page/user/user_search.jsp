@@ -116,28 +116,15 @@
 	<!-- start of 内容 -->
 	<div class="container content">
 	    <div class="lmenu">
-	       <div class="lmenu-top">
-	         <span class="brand-name">${bname }</span>
-	       </div>
-	       <div class="lmenu-content">
-	          <div class="sum-series"><h5>系列</h5></div>
-	          <div class="series">
-	            <ul class="sum">
-<c:forEach items="${seriescountList }" var="seriescount">
-					<li class="series-item"><a href="<c:url value='/MainServlet?method=searchBySeries&sid=${seriescount.series.sid }&bid=${bid }&bname=${bname }'/>">${seriescount.series.sname }&nbsp;(${seriescount.count })</a></li>
-</c:forEach>
-	            </ul>
-	          </div>
-	       </div>
 	    </div>
 	    <div class="rcontent">
 	        <div class="rcontent-top">
 	           <div class="top">
-	         		  <span class="product">产品&nbsp;(${lipstickCount })</span>  
+	         		  <span class="product">产品&nbsp;(${resultlipstickCount })</span>  
 	           </div>
 	        </div>
 	        <div class="rcontent-list">
-<c:forEach items="${lipstickAvgPriceList }" var="lipstickAvgPrice">
+<c:forEach items="${resultlipstickAvgPriceList }" var="lipstickAvgPrice">
 					<div class="card">
 		           	  <figure> 
 			           	 <a href="#">
