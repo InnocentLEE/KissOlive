@@ -49,6 +49,11 @@
     <servlet-name>MainServlet</servlet-name>
     <servlet-class>kissolive.web.servlet.MainServlet</servlet-class>
   </servlet>
+  <servlet>
+    <servlet-name>AddSeriesServlet</servlet-name>
+    <servlet-class>kissolive.web.servlet.AddSeriesServlet</servlet-class>
+  </servlet>
+
 
 
 
@@ -77,5 +82,9 @@
   <servlet-mapping>
     <servlet-name>MainServlet</servlet-name>
     <url-pattern>/MainServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>AddSeriesServlet</servlet-name>
+    <url-pattern>/servlet/AddSeriesServlet</url-pattern>
   </servlet-mapping>
 </web-app>

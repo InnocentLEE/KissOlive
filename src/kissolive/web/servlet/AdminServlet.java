@@ -167,6 +167,14 @@ public class AdminServlet extends BaseServlet {
 		req.setAttribute("message", "添加成功");
 		return "f:/page/admin/message.jsp";
 	}
+	/**
+	 * 添加选购热点
+	 * @param req
+	 * @param resp
+	 * @return
+	 * @throws ServletException
+	 * @throws IOException
+	 */
 	public String addHotspot(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
 		String hdescribe = req.getParameter("hdescribe");
@@ -178,5 +186,19 @@ public class AdminServlet extends BaseServlet {
 		hotspotService.add(hotspot);
 		req.setAttribute("message", "添加成功");
 		return "f:/page/admin/message.jsp";
+	}
+	/**
+	 * 添加系列先发送品牌信息
+	 * @param req
+	 * @param resp
+	 * @return
+	 * @throws ServletException
+	 * @throws IOException
+	 */
+	public String addSeriespre(HttpServletRequest req, HttpServletResponse resp)
+			throws ServletException, IOException {
+		List<Brand> brandList = brandService.find();
+		req.setAttribute("brandList", brandList);
+		return "f:/page/admin/admin_addseries.jsp";
 	}
 }

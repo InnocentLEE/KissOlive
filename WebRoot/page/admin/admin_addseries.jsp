@@ -44,15 +44,15 @@
 		<form action="<c:url value='/servlet/AddSeriesServlet'/>"
 			enctype="multipart/form-data" method="post">
 			<div class="input-group">
-				<span class="input-group-addon">系列名称</span> <input type="text"
+				<span class="input-group-addon">系列名称</span> <input type="text" name="sname"
 					class="form-control" placeholder="请输入系列名称">
 			</div>
 			<div class="form-group">
 				<span class="form-group-addon">所属品牌</span> 
 				<select name="bid" id="bid" class="selectpicker show-tick" title="请选择一项" data-live-search="true" data-size="40">
-					<c:forEach items="${brandList }" var="brand">
+<c:forEach items="${brandList }" var="brand">
 					<option value="${brand.bid }">${brand.bname }</option>
-					</c:forEach>
+</c:forEach>
 				</select>
 			</div>
 			
@@ -64,34 +64,13 @@
 			<!-- end:添加 -->
 			<input type="submit" value="确认添加" class="submit"><br/>
 			<!-- 图片预览 -->
-			<img id="previewImg" src="images/6913240BB1704701A6B24F42CD9B12FB.jpg" width="220" height="310" />
+			<img id="previewImg" src="" width="220" height="310" />
 		</form>
 	</div>
-	<script type="text/javascript">
-function loadSeries() {
-
-	var bid = $("#bid").val();
-	$.ajax({
-		async:true,
-		cache:false,
-		url:"/KissOlive/TestServlet",
-		data:{method:"ajaxFindSeries", bid:bid},
-		type:"POST",
-		dataType:"json",
-		success:function(arr) {
-			$("#sid").empty();
-			$("#sid").append($("<option>====请选择系列====</option>"));
-			for(var i = 0; i < arr.length; i++) {
-				var option = $("<option>").val(arr[i].sid).text(arr[i].sname);
-				$("#sid").append(option);
-			}
-		}
-	});
-}
-</script>
 	<script src="js/jquery.js"></script>
 	<script src="js/bootstrap.min.js"></script>
 	<script src="js/bootstrap-select.js"></script>
+	<script src="<%=request.getContextPath()%>/js/fileupload.js"></script>
 
 </body>
 </html>

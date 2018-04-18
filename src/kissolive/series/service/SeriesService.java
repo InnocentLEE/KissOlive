@@ -17,4 +17,12 @@ public class SeriesService {
 			throw new RuntimeException();
 		}
 	}
+	
+	public void add(Series series){
+		try {
+			seriesDao.add(series);
+		} catch (SQLException e) {
+			throw new RuntimeException();
+		}
+	}
 }
