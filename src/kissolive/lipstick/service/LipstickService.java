@@ -38,4 +38,11 @@ public class LipstickService {
 			throw new RuntimeException();
 		}
 	}
+	public void add(Lipstick lipstick){
+		try {
+			lipstickDao.add(lipstick);
+		} catch (SQLException e) {
+			throw new RuntimeException();
+		}
+	}
 }

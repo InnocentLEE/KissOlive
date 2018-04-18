@@ -33,7 +33,7 @@
 				<h1 class="page-header">口红管理</h1>
 				<div class="page-header-right">
 					<div class="btn-group">
-						<a class="btn btn-primary" href="<c:url value='/page/admin/admin_addlipstick.jsp'/>">口红添加</a>
+						<a class="btn btn-primary" href="<c:url value='/admin/AdminServlet?method=addLipstickpre'/>">口红添加</a>
 					</div>
 				</div>
 			</div>

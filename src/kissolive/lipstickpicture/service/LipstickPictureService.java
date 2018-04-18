@@ -15,4 +15,11 @@ public class LipstickPictureService {
 			throw new RuntimeException();
 		}
 	}
+	public void add(LipstickPicture lipstickpicture){
+		try {
+			lipstickPictureDao.add(lipstickpicture);
+		} catch (SQLException e) {
+			throw new RuntimeException();
+		}
+	}
 }

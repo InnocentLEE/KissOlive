@@ -268,6 +268,14 @@ public class AdminServlet extends BaseServlet {
 			return adminColorno(req, resp);
 		}
 	}
+	/**
+	 * 删除选购热点
+	 * @param req
+	 * @param resp
+	 * @return
+	 * @throws ServletException
+	 * @throws IOException
+	 */
 	public String deleteHotspot(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
 		String hid = req.getParameter("hid");
@@ -280,4 +288,64 @@ public class AdminServlet extends BaseServlet {
 			return adminHotspot(req, resp);
 		}
 	}
+	/**
+	 * 添加口红先行步骤
+	 * @param req
+	 * @param resp
+	 * @return
+	 * @throws ServletException
+	 * @throws IOException
+	 */
+	public String addLipstickpre(HttpServletRequest req, HttpServletResponse resp)
+			throws ServletException, IOException {
+    	List<Brand> brandList = brandService.find();
+    	req.setAttribute("brandList", brandList);
+    	List<Hotspot> hotspotList = hotspotService.find();
+    	req.setAttribute("hotspotList", hotspotList);
+    	return "f:/page/admin/admin_addlipstick.jsp";
+	
+	}
+    public String ajaxFindSeries(HttpServletRequest req, HttpServletResponse resp)
+			throws ServletException, IOException {
+		String bid = req.getParameter("bid");
+		List<Series> seriesList = seriesService.findByBid(bid);
+		String json = toJson(seriesList);
+		System.out.println(json);
+		resp.getWriter().print(json);
+		return null;
+	}
+	/**
+	 * 把一个系列转化为json格式的数据
+	 * @param series
+	 * @return
+	 */
+	private String toJson(Series series) {
+		StringBuilder sb = new StringBuilder("{");
+		sb.append("\"sid\"").append(":").append("\"").append(series.getSid()).append("\"");
+		sb.append(",");
+		sb.append("\"bid\"").append(":").append("\"").append(series.getBid()).append("\"");
+		sb.append(",");
+		sb.append("\"sname\"").append(":").append("\"").append(series.getSname()).append("\"");
+		sb.append(",");
+		sb.append("\"ssrc\"").append(":").append("\"").append(series.getSsrc()).append("\"");
+		sb.append("}");
+		return sb.toString();
+	}
+	/**
+	 * 将系列集合转化为json格式的数据
+	 * @param seriesList
+	 * @return
+	 */
+	private String toJson(List<Series> seriesList) {
+		StringBuilder sb = new StringBuilder("[");
+		for(int i = 0; i < seriesList.size(); i++) {
+			sb.append(toJson(seriesList.get(i)));
+			if(i < seriesList.size() - 1) {
+				sb.append(",");
+			}
+		}
+		sb.append("]");
+		return sb.toString();
+	}
+    
 }
