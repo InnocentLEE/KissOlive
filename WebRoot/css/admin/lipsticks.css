@@ -1,46 +1,81 @@
+/*口红管理列表页面css*/
+.card{
+	border: 1px solid #ccc;
+}
+.operate {
+    margin-bottom: 25px;
+}
+img#card-series {
+    width: 100%;
+    height: auto;
+}
+.rcontent-list {
+    /* grid-template-columns: repeat(4, minmax(220px,1fr)); */
+    grid-template-rows: repeat(auto-fit, 340px);
+    grid-template-columns: repeat(auto-fit, minmax(220px,1fr));
+}
+figcaption.lip_text {
+    padding: 0 20;
+    height: 130px;
+    margin-bottom: 15px;
+}
+/*口红添加页面css**/
 .input-group {
 	margin-bottom: 20px;
+	width:790px;
 }
 
-select #bid, #sid, #hid {
+select#sid,#hid,#bid {
 	height: 30px;
 }
 
 input#myfile {
 	margin: 0 auto;
 	float: right;
-	width: 80%;
+	width: 100%;
 	margin-bottom: 15px;
 	padding: 2px 0px 0px 0px;
 	height: 30px;
 }
 input#mylgfile {
-    margin: 0 auto;
+    /* margin: 0 auto;
 	float: right;
 	width: 80%;
 	margin-bottom: 15px;
 	padding: 2px 0px 0px 0px;
-	height: 30px;
+	height: 30px; */
+	margin: 0 auto;
+    padding: 2px 0px 0px 0px;
+    height: 30px;
+    margin-bottom: 15px;
 }
 
 .PIC.input-group {
 	margin-bottom: 20px;
 	border: 1px solid #ccc;
 	border-radius: 4px;
+	margin-right:0px;
+	width:790px;
 }
 
 .PIC.input-group-addon {
     border-color: transparent;
-    vertical-align: text-top;
+    vertical-align: middle;
 }
 
 img#previewImg {
-	margin: 5 20% 15;
+	/* margin: 5 20% 15; */
+	margin: 5 0 15 105px
 }
 
 .file-input {
-	text-align: center;
-	margin: 20 0;
+	/* text-align: center;
+	margin: 20 0; */
+	
+    text-align: center;
+    margin: 20 0;
+    display: grid;
+    grid-template-columns: 120px 425px;
 }
 
 span.piclab {
@@ -57,10 +92,11 @@ input.submit {
     border-color: #000;
 }
 button#showbtn {
-    width: 80%;
+    width: 100%;
     float: right;
-    margin-bottom: 20;
+    /* margin-bottom: 20; */
     height: 30px;
     border-radius: 4px;
     background: #ccc;
+    grid-column-start: 2;
 }

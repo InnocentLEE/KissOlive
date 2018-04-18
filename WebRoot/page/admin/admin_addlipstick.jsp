@@ -27,6 +27,7 @@
 		</div>
 		<!-- start:添加 -->
 		<form action="#">
+		  <div class="sum-group">
 			<div class="input-group">
 				<span class="input-group-addon">所属品牌</span> 
 				<select name="bid" id="bid" class="form-control" onchange="loadSeries()">
@@ -67,7 +68,7 @@
 			
 			<div class="PIC input-group">
 				<span class="PIC input-group-addon">主&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;图</span>
-				<img id="previewImg" src="img/null.jpg" width="440" height="290" />
+				<img id="previewImg" src="<c:url value='/img/null.jpg'/>" width="440" height="290" />
 		
 				<div class="file-input">
 				    <span class="piclab">请选择口红图片：</span>
@@ -78,12 +79,13 @@
 			<div class="PIC input-group">
 			     <span class="PIC input-group-addon">详&nbsp;&nbsp;情&nbsp;&nbsp;图</span> 
 			     <div class="file-input">
-				    <span class="piclab">请选择口红详情图片：</span>
+				    <span class="piclab">请选择详情图片：</span>
 					<input id="mylgfile" name="mylgfile" type="file" class="fileloading form-control" /> 
 				    <button type="button" class="btn btn-default" id="showbtn" name="showbtn">点击预览图片&nbsp;▼</button>
 				 </div>
-				    <img id="previewLgImg" src="img/user/user_prointro/morecontent.png" width="790px" height="auto" style="display:none"/>
+				    <img id="previewLgImg" src="<c:url value='/img/user/user_prointro/morecontent.png'/>" width="790px" height="auto" style="display:none"/>
 						
+			</div>
 			</div>
 			<input type="submit" value="确认添加" class="submit">
 		</form>
