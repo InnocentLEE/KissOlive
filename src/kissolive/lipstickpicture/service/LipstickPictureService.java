@@ -15,9 +15,23 @@ public class LipstickPictureService {
 			throw new RuntimeException();
 		}
 	}
+	public LipstickPicture findPictureByLid(String lid){
+		try {
+			return lipstickPictureDao.findPictureByLid(lid);
+		} catch (SQLException e) {
+			throw new RuntimeException();
+		}
+	}
 	public void add(LipstickPicture lipstickpicture){
 		try {
 			lipstickPictureDao.add(lipstickpicture);
+		} catch (SQLException e) {
+			throw new RuntimeException();
+		}
+	}
+	public void deleteByLid(String lid){
+		try {
+			lipstickPictureDao.deleteByLid(lid);
 		} catch (SQLException e) {
 			throw new RuntimeException();
 		}

@@ -45,4 +45,18 @@ public class LipstickService {
 			throw new RuntimeException();
 		}
 	}
+	public Lipstick findByLid(String lid){
+		try {
+			return lipstickDao.findByLid(lid);
+		} catch (SQLException e) {
+			throw new RuntimeException();
+		}
+	}
+	public void delete(String lid){
+		try {
+			lipstickDao.delete(lid);
+		} catch (SQLException e) {
+			throw new RuntimeException();
+		}
+	}
 }
