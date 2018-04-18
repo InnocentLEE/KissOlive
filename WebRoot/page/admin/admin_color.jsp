@@ -66,7 +66,8 @@
 							<td>${colorno.cncode }</td>
 							<td>${colorno.cnRGB }</td>
 							<td><span id="cn" class="rect" style="background:${colorno.cnRGB }"></span></td>
-							<td><a class="opera" href="page/admin/admin_addcolor.jsp">编辑</a> <a class="opera">删除</a></td>
+							<td><a class="opera" href="page/admin/admin_addcolor.jsp">编辑</a> 
+							<a class="opera" href="admin/AdminServlet?method=deleteColorno&hid=${colorno.cnid }">删除</a></td>
 					</tr>
 </c:forEach>
 					</tbody>
