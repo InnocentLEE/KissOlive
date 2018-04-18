@@ -38,49 +38,33 @@
 		  <div class="sum-group">
 			<div class="input-group">
 				<span class="input-group-addon">所属品牌</span> 
-				<select name="bid" id="bid" class="form-control" onchange="loadSeries()">
-						<option value="" >====请选择品牌====</option>
-						<c:forEach items="${brandList }" var="brand">
-						<option value="${brand.bid }">${brand.bname }</option>
-						</c:forEach>
-				</select>
+				<label class="form-control"></label>
 			</div>
 			<div class="input-group">
 				<span class="input-group-addon">所属系列</span>
-				<select name="sid" id="sid" class="form-control">
-						<option value="">====请选择系列====</option>
-				</select>
+				<label class="form-control"></label>
 			</div>
 			<div class="input-group">
 				<span class="input-group-addon">选购热点</span> 
-				<select name="hid" id="hid" class="form-control">
-						<option value="">====请选择系列====</option>
-				</select>
+				<label class="form-control"></label>
 			</div>
 			<div class="input-group">
 				<span class="input-group-addon">口红名字</span> 
-				<input type="text" id="" class="form-control" placeholder="请输入口红名称">
+				<label class="form-control"></label>
 			</div>
 			<div class="input-group">
 				<span class="input-group-addon">产&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;地</span>
-				<input type="text" id="" class="form-control" placeholder="请输入生产产地">
+				<label class="form-control"></label>
 			</div>
 			<div class="input-group">
-				<span class="input-group-addon">保&nbsp;&nbsp;质&nbsp;&nbsp;期</span> <input
-					type="text" id="" class="form-control" placeholder="请输入保质期限">
+				<span class="input-group-addon">保&nbsp;&nbsp;质&nbsp;&nbsp;期</span> 
+				<label class="form-control"></label>
 			</div>
 			<div class="input-group">
-				<span class="input-group-addon">适用肤质</span> <input type="text" id=""
-					class="form-control" placeholder="请输入适用肤质">
+				<span class="input-group-addon">适用肤质</span> 
+				<label class="form-control"></label>
 			</div>
-			<div class="PIC input-group">
-				<span class="input-group-addon">上传主图</span> 
-				<input id="myfile" name="myfile" type="file" class="fileloading form-control" /> 
-			</div>
-			<div class="PIC input-group">
-				<span class="input-group-addon">上传详情图</span>
-				<input id="mylgfile" name="mylgfile" type="file" class="fileloading form-control" /> 
-			</div>
+		
 		
 			<div class="PIC input-group">
 				<span class="PIC input-group-addon">主图预览</span>

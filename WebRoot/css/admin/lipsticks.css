@@ -1,6 +1,10 @@
 /*口红管理列表页面css*/
+a#link {
+    height: 100%;
+}
 .card{
 	border: 1px solid #ccc;
+	height:100%;
 }
 .operate {
     margin-bottom: 25px;
@@ -8,7 +12,7 @@
 img#card-series {
     width: 100%;
     height: auto;
-      margin-bottom: 25px;
+    margin-bottom: 25px;
 }
 .rcontent-list {
     /* grid-template-columns: repeat(4, minmax(220px,1fr)); */

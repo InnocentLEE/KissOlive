@@ -44,7 +44,7 @@
 		<div class="row">
 			<div class="table-wrap col-lg-10">
 			    <div class="rcontent-list">
-							<a href="<c:url value='/page/admin/admin_editlipstick.jsp'/>"><div class="card">
+							<a id="link" href="<c:url value='/page/admin/admin_lipstickdetail.jsp'/>"><div class="card">
 								<figure> <img id="card-series"
 									src="<c:url value='/img/user_home/6.jpg'/>"> 
 								<figcaption class="lip_text">
