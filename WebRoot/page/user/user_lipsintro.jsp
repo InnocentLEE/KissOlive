@@ -18,6 +18,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 
 <link rel="stylesheet" href="<c:url value='/css/bootstrap.min.css'/>">
+<link rel="stylesheet" href="<c:url value='/css/admin/fontawesome-all.css'/>">
 <link rel="stylesheet" href="<c:url value='/css/user/home.css'/>">
 <link rel="stylesheet" href="<c:url value='/css/user/user_lips.css'/>">
 <!--
@@ -82,40 +83,82 @@
 	 <!-- start of 内容 -->
 	<div class="container content">
 		   <div class="product-pic">
-		     <img class="pic" src="<c:url value='/img/user/user_prointro/intro2.jpg'/>" alt="">
+		     <img class="pic" src="<c:url value='/img/user_home/6.jpg'/>" alt="">
 		   </div>
 		   <div class="product-intro">
 		     <h1 class="product-name">DIOR迪奥魅惑染唇蜜</h1>
 		     <h2 class="product-disc">着色彩染，持久轻盈裸唇感</h2>
-		     <h3 class="product-price">￥&nbsp;290.00&nbsp;/3.5g</h3>
+		     <h3 class="product-price">￥&nbsp;290.00</h3>
 		     <div class="product-color row">
-		        <div class="col-md-4">
-		        	 <label class="pro-label">颜色分类&nbsp;</label>
+		        <label class="pro-label">颜色分类&nbsp;</label>
+		        <!-- <div class="color-group btn-group">
+		           <label for="" class="color-item selected btn">
+		              <em id="cnid" style="background: #ff0080">&nbsp;<i></i></em>
+			          <input type="radio"  value="#ff0080" name="color"checked>
+		           </label>
+		           <label for="" class="btn color-item">
+		              <em id="cnid" style="background: #ff0180">&nbsp;<i></i></em>
+			          <input type="radio"  value="#ff0180" name="color">
+		           </label>
+		           
+		        </div> -->
+		        
+		        <ul class="color-group">
+		          <li class="color-item selected">
+			          <em id="cnid" title="请输入颜色名，鼠标悬停色块会显示" style="background: #ff0080">&nbsp;<i></i></em>
+			          <input type="radio"  value="${colorno.cnRGB }" name="color"checked>
+			      </li>
+			     <li class="color-item">
+			        <em id="cnid" style="background: #ff0181">&nbsp;<i></i></em>
+			         <input type="radio"  value="${colorno.cnRGB }" name="color">
+			     </li>
+			     <li class="color-item">
+			        <em id="cnid" style="background: #ff1212">&nbsp;<i></i></em>
+			         <input type="radio"  value="${colorno.cnRGB }" name="color">
+			     </li>
+			     <li class="color-item">
+			        <em id="cnid" style="background: #ff4444">&nbsp;<i></i></em>
+			        <input type="radio" value="${colorno.cnRGB }" name="color">
+			     </li>
+			     <li class="color-item">
+			        <em id="cnid" style="background: #ff0412">&nbsp;<i></i></em>
+			         <input type="radio"  value="${colorno.cnRGB }" name="color">
+			     </li>
+		        </ul>
 		        </div>
-		        <div class="col-md-8">
-		        	 <!-- <i class="fas fa-circle"></i> -->
-		             <input type="color"/>
-		        </div>
-		     </div>
-		     <div class="product-num row">
-		        <div class="col-md-4">
-		        	 <label class="pro-label">数量&nbsp;</label>
-		        </div>
-		        <div class="col-md-8 input-group"">
-		             <input type="number" class="formgroup" value=""/>
-		        </div>
-		     </div>
-		     <button type="button" class="btn btn-default">>立即购买</button>
+		        <div class="product-num row">
+		           <label class="pro-label num">数量&nbsp;</label>
+		           <div class="input-group count" style="grid-row-start:1;margin:auto 0;">
+		              <input class="inputclass" id="reduce" type=button value="-">
+                      <input class="inputclass" id="gnumber" type=text name=amount value="1" disabled>
+                      <input class="inputclass" id="plus" type=button value="+">
+		           </div>
+		         </div>
+		     <button type="button" class="btn btn-buy">>加入购物袋</button>
 		 </div>
-		<%--  <div class="product-pram mid">
+		 <div class="product-pram mid">
 		 	<div class="line"><span class="header">商品详情</span></div>
-		 	<table class="pram">
-		 	    <tr><td></td></tr>
-		 	</table>
+		 	<div class="pram">
+		 		<div class="content">
+		 		    <div class="title">
+		 			<h2>PRODUCT PARAMETER</h2>
+		 			<h3>产品参数</h3>
+		 			</div>
+		 			<div class="intro-text">
+		 			 <label class="lip-label"style="grid-column-start: 2;">产品名称：&nbsp;Dior 迪奥魅惑染唇蜜&nbsp;</label>
+		 			  <label class="lip-label"style="grid-row-start: 2;grid-column-start: 2;">产品品牌：&nbsp;DIOR 迪奥&nbsp;</label>
+		 			   <label class="lip-label"style="grid-row-start: 3;grid-column-start: 2;">产品系列：&nbsp;Dior 迪奥染唇系列&nbsp;</label>
+		 			    <label class="lip-label" style="grid-column: 1/6;grid-row-start:4 ;grid-column-start:2;">选购热点：&nbsp;着色彩染，持久轻盈裸唇感&nbsp;</label>
+		 			     <label class="lip-label"style="grid-row-start: 1;grid-column-start: 4;">所属产地：&nbsp;法国&nbsp;</label>
+		 			      <label class="lip-label"style="grid-row-start: 2;grid-column-start: 4;">适合肤质：&nbsp;所有肤质&nbsp;</label>
+		 			       <label class="lip-label"style="grid-row-start: 3;grid-column-start: 4;">保质期限：&nbsp;2020-04-19&nbsp;</label>
+		 			</div>
+		 		</div>
+		 	</div>
 		 </div>
 		 <div class="product-pic bottom">
-		 	 <img src="<c:url value='/img/user/user_prointro/intro1.jpeg'/>">
-		 </div> --%>
+		 	 <img class="morecontent" src="<c:url value='/img/user/user_prointro/morecontent.png'/>">
+		 </div>
 	</div>
 	<!-- end of 内容 -->
 	
@@ -190,7 +233,40 @@
 	
 	<script type="text/javascript" src="<c:url value='/js/jquery.js'/>"></script>
 	<script src="<c:url value='/js/bootstrap.min.js'/>"></script>
-	
+	<script type="text/javascript">
+	   $(function() {
+		$("li.color-item").click(
+				function() {
+					$(this).addClass("selected").siblings()
+							.removeClass("selected");
+				})
+	  })
+	</script>
+	<script>  
+		$(document).ready(function(){  
+		//获得文本框对象  
+		var t = $("#gnumber");  
+			//初始化数量为1,并失效减  
+			$('#reduce').attr('disabled',true); 
+			
+		    //数量增加操作  
+		    $("#plus").click(function(){      
+		        // 给获取的val加上绝对值，避免出现负数  
+		        t.val(Math.abs(parseInt(t.val()))+1);  
+		        if (parseInt(t.val())!=1){  
+		        $('#reduce').attr('disabled',false);  
+		        };  
+		    })   
+		    //数量减少操作  
+		    $("#reduce").click(function(){  
+		    t.val(Math.abs(parseInt(t.val()))-1);  
+		    if (parseInt(t.val())==1){  
+		    $('#reduce').attr('disabled',true);  
+		    };  
+		    })  
+		  
+});  
+</script>    
 	 
   </body>
 </html>
