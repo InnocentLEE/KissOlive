@@ -1,0 +1,157 @@
+/*主元素*/
+.container.content {
+    display: flex;
+    border-top: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+}
+/*@media (min-width: 1200px)
+.container.content {
+    width:1299.99;
+    margin: 0 auto;
+}*/
+/*内容部分左菜单样式*/
+.lmenu {
+   width: 18%;
+    border-right: 2px solid #ccc;
+    padding-right: 10px;
+}
+
+.lmenu-top {
+    padding: 0 35;
+}
+span.brand-name {
+    display: block;
+    font-family: montserrat bold,sans-serif,microsoft yahei;
+    font-weight: 600;
+    font-size: 18px;
+    text-transform: uppercase;
+    padding: 0 10px 20px;
+    padding: 0 .625rem 1.25rem;
+    margin: 20px 0 0;
+    margin: 1.25rem 0 0;
+    border-bottom: 1px solid #ccc;
+    text-align: center;
+    width: 140px;
+}
+.sum-series {
+    font-family: montserrat bold,sans-serif,microsoft yahei;
+        font-size: 16px;
+    text-transform: uppercase;
+    margin: 11px 30px;
+    /* margin: .6875rem 0; */
+    padding: 0 5px;
+    border-bottom: 1px solid #ccc;
+}
+li.series-item {
+    font-family: montserrat light,sans-serif,microsoft yahei;
+    font-size: 12px;
+    color: #666;
+    text-transform: capitalize;
+    padding-bottom: 20px;
+}
+.sum{ 
+	margin-top: 10;
+    padding-left: 22;
+    padding-right: 22;
+    padding-top: 18;
+}
+/*内容部分右内容样式*/
+.rcontent {
+    width: 87%;
+    margin-bottom: 0px;
+}
+
+.rcontent-list{
+	display:grid;
+	grid-template-columns:repeat(5, minmax(3px,1fr));
+	grid-template-rows: 270px;
+	grid-gap: 10px;
+	
+}
+.card{
+	width:100%;
+	/* height:100%;*/
+	object-fit:cover; 
+}
+.rcontent-list>div>figure>img{
+	width:100%;
+	object-fit:cover; 
+}
+.rcontent-list>div>img{
+	width:100%;
+	object-fit:cover; 
+}
+img.card-series {
+    padding: 50 30 35;
+}
+figure {
+    text-align: center;
+    width: 100%;
+    height: 220px;
+    margin-top: 10px;
+}
+span.mh4 {
+    font-family:montserrat light,sans-serif,microsoft yahei;
+    margin: 10 auto;
+}
+span.mh5 {
+    font-size: 15px;
+    font-family: montserrat light,sans-serif,microsoft yahei;
+}
+span.price {
+    font-size: 15px;
+}
+button.book {
+    width: 100px;
+    height: 30px;
+    color: #fff;
+    background-color: #000;
+    border-color: #000;
+    border-radius: 5px;
+}
+img#card-series {
+    width: 110px;
+    height: auto;
+    margin-bottom: 10px;
+}
+img.brand-logo {
+    margin-top: 20px;
+    width:100px;
+    height:25px;
+}
+.series-text{
+	text-align: center;
+}
+figcaption.series_text {
+    padding: 0 20;
+    width: 180px;
+    text-align: center;
+    margin: 0 auto;
+    height:60px;
+}
+.operate {
+    margin-top: 10px;
+}
+.rect {
+	padding: 3 30;
+	background: pink; /*后台返回css数据请将背景颜色默认设为白色*/
+	border-radius: 2px;
+}
+
+.table-wrap.col-lg-10 {
+	padding-left: 40px;
+	padding-top: 20px;
+}
+
+.lmenu-top {
+	padding-top: 20px;
+	padding: 20 20 0 0;
+}
+
+.container {
+	margin-left: 0px;
+}
+
+.opera {
+	margin-right: 0px;
+}
