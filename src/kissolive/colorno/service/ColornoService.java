@@ -24,6 +24,13 @@ public class ColornoService {
 			throw new RuntimeException();
 		}
 	}
+	public Colorno findByCnid(String cnid){
+		try {
+			return colornoDao.findByCnid(cnid);
+		} catch (SQLException e) {
+			throw new RuntimeException();
+		}
+	}
 	public void delete(String cnid){
 		try {
 			colornoDao.delete(cnid);

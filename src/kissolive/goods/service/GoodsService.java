@@ -37,4 +37,11 @@ public class GoodsService {
 			throw new RuntimeException();
 		}
 	}
+	public void updateStatusByGid(String gid,int status){
+		try {
+			goodsDao.updateStatusByGid(gid, status);
+		} catch (SQLException e) {
+			throw new RuntimeException();
+		}
+	}
 }

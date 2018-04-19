@@ -15,12 +15,15 @@ import kissolive.brand.service.BrandService;
 import kissolive.colorno.domain.Colorno;
 import kissolive.colorno.service.ColornoService;
 import kissolive.goods.domain.Goods;
+import kissolive.goods.domain.GoodsAndColorno;
 import kissolive.goods.service.GoodsService;
 import kissolive.hotspot.domain.Hotspot;
 import kissolive.hotspot.service.HotspotService;
 import kissolive.lipstick.domain.Lipstick;
+import kissolive.lipstick.domain.LipstickAndGoods;
 import kissolive.lipstick.domain.LipstickAndPicture;
 import kissolive.lipstick.service.LipstickService;
+import kissolive.lipstickpicture.domain.LipstickPicture;
 import kissolive.lipstickpicture.service.LipstickPictureService;
 import kissolive.recommend.service.RecommendService;
 import kissolive.series.domain.Series;
@@ -152,7 +155,24 @@ public class AdminServlet extends BaseServlet {
 	 */
 	public String adminGoods(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
-		return "f:/";
+		List<Lipstick> lipstickList = lipstickService.find();
+		List<LipstickAndGoods> lipstickAndGoodsList = new ArrayList<LipstickAndGoods>();
+		for(int i=0;i<lipstickList.size();i++){
+			Lipstick lipstick = lipstickList.get(i);
+			String lid = lipstick.getLid();
+			List<Goods> goodsList = goodsService.findByLid(lid);
+			List<GoodsAndColorno> goodsAndColornoList = new ArrayList<GoodsAndColorno>();
+			for(int j=0;j<goodsList.size();j++){
+				Colorno colorno = colornoService.findByCnid(goodsList.get(j).getCnid());
+				GoodsAndColorno goodsAndColorno = new GoodsAndColorno(goodsList.get(j), colorno);
+				goodsAndColornoList.add(goodsAndColorno);
+			}
+			LipstickPicture lipstickPicture = lipstickPictureService.findMainPictureByLid(lid);
+			LipstickAndGoods lipstickAndGoods = new LipstickAndGoods(lipstickList.get(i), lipstickPicture.getLpsrc().substring(1), goodsAndColornoList);
+			lipstickAndGoodsList.add(lipstickAndGoods);
+		}
+		req.setAttribute("lipstickAndGoodsList", lipstickAndGoodsList);
+		return "f:/page/admin/admin_goods.jsp";
 	}
 	/**
 	 * 订单管理
@@ -337,6 +357,25 @@ public class AdminServlet extends BaseServlet {
 			lipstickService.delete(lid);
 			return adminLipstick(req, resp);
 		}
+	}
+	/**
+	 * 修改商品状态
+	 * @param req
+	 * @param resp
+	 * @return
+	 * @throws ServletException
+	 * @throws IOException
+	 */
+	public String updateGoodsStatus(HttpServletRequest req, HttpServletResponse resp)
+			throws ServletException, IOException {
+		String gid = req.getParameter("gid");
+		String status = req.getParameter("status");
+		if(status.equals("1")){
+			goodsService.updateStatusByGid(gid, 0);
+		}else{
+			goodsService.updateStatusByGid(gid, 1);
+		}
+		return adminGoods(req, resp);
 	}
 	/**
 	 * 添加口红先行步骤
