@@ -171,7 +171,7 @@
 								<figure> <a href="#"><img alt=""
 									class="home_series" src="<c:url value='${recommendresult1.series1.ssrc }'/>"></a>
 								<figcaption class="goods_text"> <a href="#">
-									<h5 class="push-suptitle">Dior唇膏</h5>
+									<h5 class="push-suptitle">${recommendresult1.brand.bname }</h5>
 								</a> <a href="#"><h4 class="push-title">${recommendresult1.series1.sname }</h4></a> </figcaption> </figure>
 							</div>
 						</div>
@@ -183,7 +183,7 @@
 								<figure> <a href="#"><img alt=""
 									class="home_series" src="<c:url value='${recommendresult1.series2.ssrc }'/>"></a>
 								<figcaption class="goods_text"> <a href="#"><h5
-										class="push-suptitle">Dior唇膏</h5></a> <a href="#"><h4
+										class="push-suptitle">${recommendresult1.brand.bname }</h5></a> <a href="#"><h4
 										class="push-title">${recommendresult1.series2.sname }</h4></a> </figcaption> </figure>
 							</div>
 						</div>
@@ -219,7 +219,7 @@
 								<figure> <a href="#"><img alt=""
 									class="home_series" src="<c:url value='${recommendresult2.series1.ssrc }'/>"></a>
 								<figcaption class="goods_text"> <a href="#">
-									<h5 class="push-suptitle">Dior唇膏</h5>
+									<h5 class="push-suptitle">${recommendresult2.brand.bname }</h5>
 								</a> <a href="#"><h4 class="push-title">${recommendresult2.series1.sname }</h4></a> </figcaption> </figure>
 							</div>
 						</div>
@@ -231,7 +231,7 @@
 								<figure> <a href="#"><img alt=""
 									class="home_series" src="<c:url value='${recommendresult2.series2.ssrc }'/>"></a>
 								<figcaption class="goods_text"> <a href="#"><h5
-										class="push-suptitle">Dior唇膏</h5></a> <a href="#"><h4
+										class="push-suptitle">${recommendresult2.brand.bname }</h5></a> <a href="#"><h4
 										class="push-title">${recommendresult2.series2.sname }</h4></a> </figcaption> </figure>
 							</div>
 						</div>

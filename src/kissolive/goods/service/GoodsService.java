@@ -23,4 +23,18 @@ public class GoodsService {
 			throw new RuntimeException();
 		}
 	}
+	public void add(Goods goods){
+		try {
+			goodsDao.add(goods);
+		} catch (SQLException e) {
+			throw new RuntimeException();
+		}
+	}
+	public List<Goods> findByLidAndCnid(String lid,String cnid){
+		try {
+			return goodsDao.findByLidAndCnid(lid, cnid);
+		} catch (SQLException e) {
+			throw new RuntimeException();
+		}
+	}
 }

@@ -20,7 +20,7 @@ public class GoodsDao {
 	 */
 	public void add(Goods goods) throws SQLException {
 		String sql = "insert into tb_goods(gid,lid,cnid,gprice,gnumber,status) values(?,?,?,?,?,?)";
-		Object[] params = { goods.getGid(),goods.getLid(),goods.getGprice(),goods.getGnumber(),goods.getStatus() };
+		Object[] params = { goods.getGid(),goods.getLid(),goods.getCnid(),goods.getGprice(),goods.getGnumber(),goods.getStatus() };
 		qr.update(sql, params);
 	}
 	/**
@@ -32,6 +32,17 @@ public class GoodsDao {
 	public List<Goods> findByLid(String lid) throws SQLException {
 		String sql = "SELECT * FROM tb_goods where lid=? order by orderBy DESC";
 		List<Goods> goodList = qr.query(sql, new BeanListHandler<Goods>(Goods.class),lid);
+		return goodList;
+	}
+	/**
+	 * 查找某个口红某个色号的商品
+	 * @param lid
+	 * @return
+	 * @throws SQLException
+	 */
+	public List<Goods> findByLidAndCnid(String lid,String cnid) throws SQLException {
+		String sql = "SELECT * FROM tb_goods where lid=? and cnid=? order by orderBy DESC";
+		List<Goods> goodList = qr.query(sql, new BeanListHandler<Goods>(Goods.class),lid,cnid);
 		return goodList;
 	}
 	/**

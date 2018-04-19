@@ -1,4 +1,5 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%
 	String path = request.getContextPath();
 	String basePath = request.getScheme() + "://"
@@ -50,40 +51,41 @@
 		<!-- end:添加品牌 -->
 
 		<!-- start:添加 -->
-		<form action="page/admin/admin_goods.jsp">
+		<form action="/KissOlive/admin/AdminServlet" method="post">
+			<input type="hidden" name="method" value="addGoods" />
 			<div class="form-group">
-				<span class="form-group-addon">所属口红</span> <select name="bid"
-					id="bid" class="selectpicker show-tick" title="请选择一项"
+				<span class="form-group-addon">所属口红</span> <select name="lid"
+					id="lid" class="selectpicker show-tick" title="请选择一项"
 					data-live-search="true" data-size="40">
-					<c:forEach items="${brandList }" var="brand">
-						<option value="${brand.bid }">${brand.bname }</option>
+					<c:forEach items="${lipstickList }" var="lipstick">
+						<option value="${lipstick.lid }">${lipstick.lname }</option>
 					</c:forEach>
 				</select>
 			</div>
 			<div class="form-group">
-				<span class="form-group-addon">所属色号</span> <select name="bid"
-					id="bid" class="selectpicker show-tick" title="请选择一项"
+				<span class="form-group-addon">所属色号</span> <select name="cnid"
+					id="cnid" class="selectpicker show-tick" title="请选择一项"
 					data-live-search="true" data-size="40">
-					<c:forEach items="${brandList }" var="brand">
-						<option value="${brand.bid }">${brand.bname }</option>
+					<c:forEach items="${colornoList }" var="colorno">
+						<option value="${colorno.cnid }">${colorno.cncode }</option>
 					</c:forEach>
 				</select>
 			</div>
 			<div class="input-group">
 				<span class="input-group-addon">价格</span> <input type="text"
-					name="sname" class="form-control" placeholder="请输入价格">
+					name="gprice" class="form-control" placeholder="请输入价格">
 			</div>
 			<div class="input-group">
 				<span class="input-group-addon">库存</span> <input type="text"
-					name="sname" class="form-control" placeholder="请输入库存量 "> <span
+					name="gnumber" class="form-control" placeholder="请输入库存量 "> <span
 					class="input-group-addon">件</span>
 			</div>
 			<div class="form-group">
-				<span class="form-group-addon">状态</span> <select name="bid" id="bid"
+				<span class="form-group-addon">状态</span> <select name="status" id="status"
 					class="selectpicker show-tick" title="请选择一项"
 					data-live-search="true" data-size="40">
-					<option>在售</option>
-					<option>下架</option>
+					<option value="1">在售</option>
+					<option value="0">下架</option>
 
 				</select>
 			</div>
@@ -91,18 +93,6 @@
 			<!-- end:提交&取消 -->
 		</form>
 	</div>
-	<script type="text/javascript">
-		function check() {
-			var value = doucument.getElementByld("input").valaue;
-			var reg = /^[1-9]\d*$|^0$/;
-			if (reg.test(value) == true) {
-				return true;
-			} else {
-				alert("请输入正确的数字");
-				return false;
-			}
-		}
-	</script>
 	<script src="js/jquery.js"></script>
 	<script src="js/bootstrap.min.js"></script>
 	<script src="js/bootstrap-select.js"></script>

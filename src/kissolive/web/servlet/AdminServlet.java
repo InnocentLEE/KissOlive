@@ -1,6 +1,7 @@
 package kissolive.web.servlet;
 
 import java.io.IOException;
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -13,6 +14,7 @@ import kissolive.brand.domain.BrandAndSeries;
 import kissolive.brand.service.BrandService;
 import kissolive.colorno.domain.Colorno;
 import kissolive.colorno.service.ColornoService;
+import kissolive.goods.domain.Goods;
 import kissolive.goods.service.GoodsService;
 import kissolive.hotspot.domain.Hotspot;
 import kissolive.hotspot.service.HotspotService;
@@ -421,5 +423,83 @@ public class AdminServlet extends BaseServlet {
 		req.setAttribute("hotspot", hotspot);
 		return "f:/page/admin/admin_lipstickdetails.jsp";
 	}
-    
+	/**
+	 * 添加商品先行步骤
+	 * @param req
+	 * @param resp
+	 * @return
+	 * @throws ServletException
+	 * @throws IOException
+	 */
+	public String addGoodspre(HttpServletRequest req, HttpServletResponse resp)
+			throws ServletException, IOException {
+    	List<Lipstick> lipstickList = lipstickService.find();
+    	List<Colorno> colornoList = colornoService.find();
+    	req.setAttribute("lipstickList", lipstickList);
+    	req.setAttribute("colornoList", colornoList);
+    	return "f:/page/admin/admin_addgoods.jsp";
+	
+	}
+	/**
+	 * 判断能否传化为整数
+	 * @param s
+	 * @return
+	 */
+	public boolean canToInteger(String s){
+		try {  
+		    Integer.parseInt(s);  
+		    return true;  
+		} catch (NumberFormatException e) {  
+		    return false;  
+		}  
+	}
+	/**
+	 * 判断能否转化为小数
+	 * @param s
+	 * @return
+	 */
+	public boolean canToDouble(String s){
+		try {  
+		    Double.parseDouble(s);
+		    return true;  
+		} catch (Exception e) {  
+		    return false;  
+		}  
+	}
+	/**
+	 * 添加商品
+	 * @param req
+	 * @param resp
+	 * @return
+	 * @throws ServletException
+	 * @throws IOException
+	 */
+	public String addGoods(HttpServletRequest req, HttpServletResponse resp)
+			throws ServletException, IOException {
+    	String lid = req.getParameter("lid");
+    	String cnid = req.getParameter("cnid");
+    	String Sgprice = req.getParameter("gprice");
+    	String Sgnumber = req.getParameter("gnumber");
+    	String Sstatus = req.getParameter("status");
+    	if(lid==null||lid.equals("")||cnid==null||cnid.equals("")||Sstatus==null||Sstatus.equals("")||Sgprice==null||Sgprice.equals("")||Sgnumber==null||Sgnumber.equals("")||!(canToInteger(Sgnumber))||!(canToDouble(Sgprice))){
+    		req.setAttribute("message", "添加失败！所属口红、色号、库存量、价格和状态都不可为空，库存量为整数，价格为整数或者小数");
+			req.setAttribute("href", "/admin/AdminServlet?method=addGoodspre");
+			return "f:/page/admin/message.jsp";
+    	}else if(goodsService.findByLidAndCnid(lid, cnid).size()>0){
+    		req.setAttribute("message", "添加失败！该口红已经存在这个色号了，您只需要去修改就行了");
+			req.setAttribute("href", "/admin/AdminServlet?method=adminGood");
+			return "f:/page/admin/message.jsp";
+    	}else{
+    		int gnumber = Integer.parseInt(Sgnumber);
+    		int status = Integer.parseInt(Sstatus);
+    		double gprice = Double.parseDouble(Sgprice);
+    		BigDecimal b = new BigDecimal(gprice);    
+    		gprice = b.setScale(2,BigDecimal.ROUND_HALF_UP).doubleValue();
+    		Goods goods = new Goods(CommonUtils.uuid(), lid, cnid, gprice, gnumber, status);
+    		goodsService.add(goods);
+    		req.setAttribute("message", "添加成功！");
+			req.setAttribute("href", "/admin/AdminServlet?method=adminGoods");
+			return "f:/page/admin/message.jsp";
+    	}	
+	}
 }

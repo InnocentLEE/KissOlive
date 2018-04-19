@@ -72,8 +72,10 @@ public class MainServlet extends BaseServlet {
 			for(int j=0;j<goodsList.size();j++){
 				avgprice = avgprice + goodsList.get(j).getGprice();
 			}
-			avgprice = avgprice / goodsList.size();
-			BigDecimal b = new BigDecimal(avgprice);    
+			if(goodsList.size()>0){
+				avgprice = avgprice / goodsList.size();
+			}
+			BigDecimal b = new BigDecimal(avgprice);
 			avgprice = b.setScale(2,BigDecimal.ROUND_HALF_UP).doubleValue();  
 			String hotspot = hotspotService.findByHid(lipstickList.get(i).getHid()).getHdescribe();
 			String lsrc = lipstickPictureService.findMainPictureByLid(lipstickList.get(i).getLid()).getLpsrc();
@@ -118,7 +120,9 @@ public class MainServlet extends BaseServlet {
 			for(int j=0;j<goodsList.size();j++){
 				avgprice = avgprice + goodsList.get(j).getGprice();
 			}
-			avgprice = avgprice / goodsList.size();
+			if(goodsList.size()>0){
+				avgprice = avgprice / goodsList.size();
+			}
 			BigDecimal b = new BigDecimal(avgprice);    
 			avgprice = b.setScale(2,BigDecimal.ROUND_HALF_UP).doubleValue();  
 			String hotspot = hotspotService.findByHid(lipstickList.get(i).getHid()).getHdescribe();
@@ -154,7 +158,9 @@ public class MainServlet extends BaseServlet {
 			for(int j=0;j<goodsList.size();j++){
 				avgprice = avgprice + goodsList.get(j).getGprice();
 			}
-			avgprice = avgprice / goodsList.size();
+			if(goodsList.size()>0){
+				avgprice = avgprice / goodsList.size();
+			}
 			BigDecimal b = new BigDecimal(avgprice);    
 			avgprice = b.setScale(2,BigDecimal.ROUND_HALF_UP).doubleValue();  
 			String hotspot = hotspotService.findByHid(lipstickList.get(i).getHid()).getHdescribe();

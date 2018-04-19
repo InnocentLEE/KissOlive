@@ -95,7 +95,7 @@
 				   <input type="hidden" name="method" value="search" />
 					<div class="nav-search">
 						<div class="input-group">
-							<input type="text" class="form-control"
+							<input type="text" class="form-control" name="search"
 								placeholder="Search for..."> <span
 								class="input-group-btn">
 								<button class="btn btn-default glyphicon glyphicon-search"
@@ -138,24 +138,6 @@
 	        </div>
 	        <div class="rcontent-list">
 <c:forEach items="${lipstickAvgPriceList }" var="lipstickAvgPrice">
-				<div class="card">
-	           	  <figure> 
-		           	 <a href="#">
-		           	      <img alt="" class="card-good" src="<c:url value='${lipstickAvgPrice.lsrc }'/>">
-					</a>
-				    <figcaption class="goods_text"> 
-				     <a href="#">
-				      <span class="mh4">${lipstickAvgPrice.lipstick.lname }</span>
-				      <p></p>
-				      <span class="mh5">${lipstickAvgPrice.hotspot }</span>
-				       <p></p>
-				      <span class="price">￥&nbsp;${lipstickAvgPrice.avgprice }</span>
-				       <p></p>
-				      <button type="button" class="book">订&nbsp;购</button>
-				     </a> 
-				    </figcaption> 
-				  </figure>
-				 </div>	
 				 <div class="card">
 	           	  <figure> 
 		           	 <a href="#">
