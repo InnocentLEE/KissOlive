@@ -33,7 +33,7 @@
 				<h1 class="page-header">口红管理</h1>
 				<div class="page-header-right">
 					<div class="btn-group">
-						<a class="btn btn-primary" href="<c:url value='/page/admin/admin_addlipstick.jsp'/>">口红添加</a>
+						<a class="btn btn-primary" href="<c:url value='/admin/AdminServlet?method=addLipstickpre'/>">口红添加</a>
 					</div>
 				</div>
 			</div>
@@ -44,48 +44,17 @@
 		<div class="row">
 			<div class="table-wrap col-lg-10">
 			    <div class="rcontent-list">
-							<a id="link" href="<c:url value='/page/admin/admin_lipstickdetail.jsp'/>"><div class="card">
+<c:forEach items="${lipstickAndPicturelist }" var="lipstickAndPicture">
+			    		<a id="link" href="<c:url value='/admin/AdminServlet?method=deatilLipstick&lid=${lipstickAndPicture.lipstick.lid }'/>"><div class="card">
 								<figure> <img id="card-series"
-									src="<c:url value='/img/user_home/6.jpg'/>"> 
+									src="<c:url value='${lipstickAndPicture.mainsrc }'/>"> 
 								<figcaption class="lip_text">
-								<span class="mh4">Dior迪奥魅惑润唇膏Dior迪奥魅惑润唇膏Dior迪奥魅惑润唇膏Dior迪奥魅惑润唇膏</span>
+								<span class="mh4">${lipstickAndPicture.lipstick.lname }</span>
 								</figcaption>
 								</figure>
 							</div></a>
-							<div class="card">
-								<figure> <img id="card-series"
-									src="<c:url value='/img/user_home/6.jpg'/>"> 
-								<figcaption class="lip_text">
-								<span class="mh4">Dior迪奥魅惑润唇膏</span>
-								</figcaption>
-								</figure>
-							</div>
-							<div class="card">
-								<figure> <img id="card-series"
-									src="<c:url value='/img/user_home/6.jpg'/>"> 
-								<figcaption class="lip_text">
-								<span class="mh4">Dior迪奥魅惑润唇膏</span>
-								</figcaption>
-								</figure>
-							</div>
-							<div class="card">
-								<figure> <img id="card-series"
-									src="<c:url value='/img/user_home/6.jpg'/>"> 
-								<figcaption class="lip_text">
-								<span class="mh4">Dior迪奥魅惑润唇膏</span>
-								</figcaption>
-								</figure>
-							</div>
-							<div class="card">
-								<figure> <img id="card-series"
-									src="<c:url value='/img/user_home/6.jpg'/>"> 
-								<figcaption class="lip_text">
-								<span class="mh4">Dior迪奥魅惑润唇膏</span>
-								</figcaption>
-								</figure>
-							</div>
-						
-				 
+</c:forEach>
+
 			</div>
 		</div>
 		<!-- end:口红卡片列表 -->

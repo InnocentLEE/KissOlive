@@ -35,6 +35,13 @@ public class BrandService {
 			throw new RuntimeException();
 		}
 	}
+	public Brand findByBid1(String bid){
+		try {
+			return brandDao.findByBid(bid);
+		} catch (SQLException e) {
+			throw new RuntimeException();
+		}
+	}
 	public void deteleByBid(String bid){
 		try {
 			brandDao.delete(bid);

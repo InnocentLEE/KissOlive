@@ -49,4 +49,25 @@ public class RecommendService {
 		}
 		return null;
 	}
+	public List<Recommend> findByBid(String bid){
+		try {
+			return recommendDao.findByBid(bid);
+		} catch (SQLException e) {
+			throw new RuntimeException();
+		}
+	}
+	public List<Recommend> findByLid(String lid){
+		try {
+			return recommendDao.findByBid(lid);
+		} catch (SQLException e) {
+			throw new RuntimeException();
+		}
+	}
+	public List<Recommend> findBySid(String sid){
+		try {
+			return recommendDao.findByBid(sid);
+		} catch (SQLException e) {
+			throw new RuntimeException();
+		}
+	}
 }

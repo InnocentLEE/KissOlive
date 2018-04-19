@@ -53,6 +53,11 @@
     <servlet-name>AddSeriesServlet</servlet-name>
     <servlet-class>kissolive.web.servlet.AddSeriesServlet</servlet-class>
   </servlet>
+  <servlet>
+    <servlet-name>AddLipstickServlet</servlet-name>
+    <servlet-class>kissolive.web.servlet.AddLipstickServlet</servlet-class>
+  </servlet>
+
 
 
 
@@ -86,5 +91,9 @@
   <servlet-mapping>
     <servlet-name>AddSeriesServlet</servlet-name>
     <url-pattern>/servlet/AddSeriesServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>AddLipstickServlet</servlet-name>
+    <url-pattern>/servlet/AddLipstickServlet</url-pattern>
   </servlet-mapping>
 </web-app>

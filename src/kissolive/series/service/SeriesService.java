@@ -17,7 +17,13 @@ public class SeriesService {
 			throw new RuntimeException();
 		}
 	}
-	
+	public Series findBySid(String sid){
+		try {
+			return seriesDao.findBySid(sid);
+		} catch (SQLException e) {
+			throw new RuntimeException();
+		}
+	}
 	public void add(Series series){
 		try {
 			seriesDao.add(series);

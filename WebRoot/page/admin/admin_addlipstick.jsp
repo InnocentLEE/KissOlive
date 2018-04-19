@@ -26,7 +26,7 @@
 			</div>
 		</div>
 		<!-- start:添加 -->
-		<form action="#">
+		<form action="/KissOlive/servlet/AddLipstickServlet" method="post" enctype="multipart/form-data">
 		  <div class="sum-group">
 			<div class="input-group">
 				<span class="input-group-addon">所属品牌</span> 
@@ -40,29 +40,32 @@
 			<div class="input-group">
 				<span class="input-group-addon">所属系列</span>
 				<select name="sid" id="sid" class="form-control">
-						<option value="">====请选择系列====</option>
+					<option value="" >====请选择系列====</option>
 				</select>
 			</div>
 			<div class="input-group">
 				<span class="input-group-addon">选购热点</span> 
 				<select name="hid" id="hid" class="form-control">
-						<option value="">====请选择系列====</option>
+						<option value="" >====请选择热点====</option>
+						<c:forEach items="${hotspotList }" var="hotspot">
+						<option value="${hotspot.hid }">${hotspot.hdescribe }</option>
+						</c:forEach>
 				</select>
 			</div>
 			<div class="input-group">
 				<span class="input-group-addon">口红名字</span> 
-				<input type="text" id="" class="form-control" placeholder="请输入口红名称">
+				<input type="text" id="lname" name="lname" class="form-control" placeholder="请输入口红名称">
 			</div>
 			<div class="input-group">
 				<span class="input-group-addon">产&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;地</span>
-				<input type="text" id="" class="form-control" placeholder="请输入生产产地">
+				<input type="text" id="lorigin" name="lorigin" class="form-control" placeholder="请输入生产产地">
 			</div>
 			<div class="input-group">
 				<span class="input-group-addon">保&nbsp;&nbsp;质&nbsp;&nbsp;期</span> <input
-					type="text" id="" class="form-control" placeholder="请输入保质期限">
+					type="text" id="shelflife" name="shelflife" class="form-control" placeholder="请输入保质期限">
 			</div>
 			<div class="input-group">
-				<span class="input-group-addon">适用肤质</span> <input type="text" id=""
+				<span class="input-group-addon">适用肤质</span> <input type="text" id="skin" name="skin"
 					class="form-control" placeholder="请输入适用肤质">
 			</div>
 			<div class="PIC input-group">
@@ -76,12 +79,12 @@
 			<input type="submit" value="确认添加" class="submit">
 			<div class="PIC input-group">
 				<span class="PIC input-group-addon">主图预览</span>
-				<img id="previewImg" src="<c:url value='/img/null.jpg'/>" width="440" height="290" />
+				<img id="previewImg" src="<c:url value=''/>" width="440" height="290" />
 		    </div>
 			
 			<div class="PIC input-group">
 			     <span class="PIC input-group-addon">详情预览</span> 
-			     <img id="previewLgImg" src="<c:url value='/img/user/user_prointro/morecontent.png'/>" width="790px" height="auto"/>
+			     <img id="previewLgImg" src="<c:url value=''/>" width="790px" height="auto"/>
 			</div>
 			</div>
 			
@@ -100,7 +103,7 @@
 			$.ajax({
 				async:true,
 				cache:false,
-				url:"/KissOlive/TestServlet",
+				url:"/KissOlive/admin/AdminServlet",
 				data:{method:"ajaxFindSeries", bid:bid},
 				type:"POST",
 				dataType:"json",

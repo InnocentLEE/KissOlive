@@ -28,10 +28,10 @@ public class LipstickPictureDao {
 	 * @return
 	 * @throws SQLException
 	 */
-	public List<LipstickPicture> findPictureByLid(String lid) throws SQLException {
-		String sql = "SELECT * FROM tb_lipstickpicture where lid=? and ismain=0 order by orderBy";
-		List<LipstickPicture> lipstickpictureList = qr.query(sql, new BeanListHandler<LipstickPicture>(LipstickPicture.class),lid);
-		return lipstickpictureList;
+	public LipstickPicture findPictureByLid(String lid) throws SQLException {
+		String sql = "SELECT * FROM tb_lipstickpicture where lid=? and ismain=0";
+		LipstickPicture lipstickpicture = qr.query(sql, new BeanHandler<LipstickPicture>(LipstickPicture.class),lid);
+		return lipstickpicture;
 	}
 	/**
 	 * 查找某个口红的主图

@@ -27,7 +27,7 @@
 					<div class="btn-group">
 						<a class="btn btn-opera" href="<c:url value='/page/admin/admin_addlipstick.jsp'/>">口红编辑</a>
 						
-						<a class="btn btn-opera" href="<c:url value='/page/admin/admin_addlipstick.jsp'/>">口红删除</a>
+						<a class="btn btn-opera" href="<c:url value='/admin/AdminServlet?method=deleteLipstick&lid=${lipstickAndPicture.lipstick.lid }'/>">口红删除</a>
 					
 					</div>
 				</div>
@@ -38,42 +38,42 @@
 		  <div class="sum-group">
 			<div class="input-group">
 				<span class="input-group-addon">所属品牌</span> 
-				<label class="form-control"></label>
+				<label class="form-control">${brand.bname }</label>
 			</div>
 			<div class="input-group">
 				<span class="input-group-addon">所属系列</span>
-				<label class="form-control"></label>
+				<label class="form-control">${series.sname }</label>
 			</div>
 			<div class="input-group">
 				<span class="input-group-addon">选购热点</span> 
-				<label class="form-control"></label>
+				<label class="form-control">${hotspot.hdescribe }</label>
 			</div>
 			<div class="input-group">
 				<span class="input-group-addon">口红名字</span> 
-				<label class="form-control"></label>
+				<label class="form-control">${lipstickAndPicture.lipstick.lname }</label>
 			</div>
 			<div class="input-group">
 				<span class="input-group-addon">产&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;地</span>
-				<label class="form-control"></label>
+				<label class="form-control">${lipstickAndPicture.lipstick.lorigin }</label>
 			</div>
 			<div class="input-group">
 				<span class="input-group-addon">保&nbsp;&nbsp;质&nbsp;&nbsp;期</span> 
-				<label class="form-control"></label>
+				<label class="form-control">${lipstickAndPicture.lipstick.shelflife }</label>
 			</div>
 			<div class="input-group">
 				<span class="input-group-addon">适用肤质</span> 
-				<label class="form-control"></label>
+				<label class="form-control">${lipstickAndPicture.lipstick.skin }</label>
 			</div>
 		
 		
 			<div class="PIC input-group">
 				<span class="PIC input-group-addon">主图预览</span>
-				<img id="previewImg" src="<c:url value='/img/null.jpg'/>" width="440" height="290" />
+				<img id="previewImg" src="<c:url value='${lipstickAndPicture.mainsrc }'/>" width="440" height="290" />
 		    </div>
 			
 			<div class="PIC input-group">
 			     <span class="PIC input-group-addon">详情预览</span> 
-			     <img id="previewLgImg" src="<c:url value='/img/user/user_prointro/morecontent.png'/>" width="790px" height="auto"/>
+			     <img id="previewLgImg" src="<c:url value='${lipstickAndPicture.detailsrc }'/>" width="790px" height="auto"/>
 			</div>
 			</div>
 			

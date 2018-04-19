@@ -16,7 +16,11 @@ import kissolive.colorno.service.ColornoService;
 import kissolive.goods.service.GoodsService;
 import kissolive.hotspot.domain.Hotspot;
 import kissolive.hotspot.service.HotspotService;
+import kissolive.lipstick.domain.Lipstick;
+import kissolive.lipstick.domain.LipstickAndPicture;
 import kissolive.lipstick.service.LipstickService;
+import kissolive.lipstickpicture.service.LipstickPictureService;
+import kissolive.recommend.service.RecommendService;
 import kissolive.series.domain.Series;
 import kissolive.series.service.SeriesService;
 import cn.itcast.commons.CommonUtils;
@@ -30,6 +34,8 @@ public class AdminServlet extends BaseServlet {
 	SeriesService seriesService = new SeriesService();
 	LipstickService lipstickService = new LipstickService();
 	GoodsService goodsService = new GoodsService();
+	LipstickPictureService lipstickPictureService = new LipstickPictureService();
+	RecommendService recommendService = new RecommendService();
 	/**
 	 * 首页管理
 	 * @param req
@@ -123,7 +129,16 @@ public class AdminServlet extends BaseServlet {
 	 */
 	public String adminLipstick(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
-		return "f:/";
+		List<Lipstick> lipstickList = lipstickService.find();
+		List<LipstickAndPicture> lipstickAndPicturelist = new ArrayList<LipstickAndPicture>();
+		for(int i=0;i<lipstickList.size();i++){
+			String detailsrc = lipstickPictureService.findPictureByLid(lipstickList.get(i).getLid()).getLpsrc();
+			String mainsrc = lipstickPictureService.findMainPictureByLid(lipstickList.get(i).getLid()).getLpsrc();
+			lipstickAndPicturelist.add(new LipstickAndPicture(lipstickList.get(i), mainsrc, detailsrc));
+		}
+		req.setAttribute("lipstickAndPicturelist", lipstickAndPicturelist);
+		return "f:/page/admin/admin_lipstick.jsp";
+	
 	}
 	/**
 	 * 商品管理
@@ -223,6 +238,10 @@ public class AdminServlet extends BaseServlet {
 			req.setAttribute("message", "删除失败！该品牌下有系列");
 			req.setAttribute("href", "/admin/AdminServlet?method=adminBrand");
 			return "f:/page/admin/message.jsp";
+		}else if(recommendService.findByBid(bid).size()>0){
+			req.setAttribute("message", "删除失败！该品牌被推荐到首页展示，不可删除");
+			req.setAttribute("href", "/admin/AdminServlet?method=adminBrand");
+			return "f:/page/admin/message.jsp";
 		}else{
 			brandService.deteleByBid(bid);
 			return adminBrand(req, resp);
@@ -241,6 +260,10 @@ public class AdminServlet extends BaseServlet {
 		String sid = req.getParameter("sid");
 		if(lipstickService.findBySid(sid).size()>0){
 			req.setAttribute("message", "删除失败！该系列下有口红产品");
+			req.setAttribute("href", "/admin/AdminServlet?method=adminSeries");
+			return "f:/page/admin/message.jsp";
+		}else if(recommendService.findBySid(sid).size()>0){
+			req.setAttribute("message", "删除失败！该系列被推荐到首页展示，不可删除");
 			req.setAttribute("href", "/admin/AdminServlet?method=adminSeries");
 			return "f:/page/admin/message.jsp";
 		}else{
@@ -268,6 +291,14 @@ public class AdminServlet extends BaseServlet {
 			return adminColorno(req, resp);
 		}
 	}
+	/**
+	 * 删除选购热点
+	 * @param req
+	 * @param resp
+	 * @return
+	 * @throws ServletException
+	 * @throws IOException
+	 */
 	public String deleteHotspot(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
 		String hid = req.getParameter("hid");
@@ -280,4 +311,115 @@ public class AdminServlet extends BaseServlet {
 			return adminHotspot(req, resp);
 		}
 	}
+	/**
+	 * 删除口红
+	 * @param req
+	 * @param resp
+	 * @return
+	 * @throws ServletException
+	 * @throws IOException
+	 */
+	public String deleteLipstick(HttpServletRequest req, HttpServletResponse resp)
+			throws ServletException, IOException {
+		String lid = req.getParameter("lid");
+		if(goodsService.findByLid(lid).size()>0){
+			req.setAttribute("message", "删除失败！该口红产品已经上线交易了");
+			req.setAttribute("href", "/admin/AdminServlet?method=adminLipstick");
+			return "f:/page/admin/message.jsp";
+		}else if(recommendService.findByLid(lid).size()>0){
+			req.setAttribute("message", "删除失败！该产品被推荐到首页展示，不可删除");
+			req.setAttribute("href", "/admin/AdminServlet?method=adminLipstick");
+			return "f:/page/admin/message.jsp";
+		}else{
+			lipstickPictureService.deleteByLid(lid);
+			lipstickService.delete(lid);
+			return adminLipstick(req, resp);
+		}
+	}
+	/**
+	 * 添加口红先行步骤
+	 * @param req
+	 * @param resp
+	 * @return
+	 * @throws ServletException
+	 * @throws IOException
+	 */
+	public String addLipstickpre(HttpServletRequest req, HttpServletResponse resp)
+			throws ServletException, IOException {
+    	List<Brand> brandList = brandService.find();
+    	req.setAttribute("brandList", brandList);
+    	List<Hotspot> hotspotList = hotspotService.find();
+    	req.setAttribute("hotspotList", hotspotList);
+    	return "f:/page/admin/admin_addlipstick.jsp";
+	
+	}
+    public String ajaxFindSeries(HttpServletRequest req, HttpServletResponse resp)
+			throws ServletException, IOException {
+		String bid = req.getParameter("bid");
+		List<Series> seriesList = seriesService.findByBid(bid);
+		String json = toJson(seriesList);
+		System.out.println(json);
+		resp.getWriter().print(json);
+		return null;
+	}
+	/**
+	 * 把一个系列转化为json格式的数据
+	 * @param series
+	 * @return
+	 */
+	private String toJson(Series series) {
+		StringBuilder sb = new StringBuilder("{");
+		sb.append("\"sid\"").append(":").append("\"").append(series.getSid()).append("\"");
+		sb.append(",");
+		sb.append("\"bid\"").append(":").append("\"").append(series.getBid()).append("\"");
+		sb.append(",");
+		sb.append("\"sname\"").append(":").append("\"").append(series.getSname()).append("\"");
+		sb.append(",");
+		sb.append("\"ssrc\"").append(":").append("\"").append(series.getSsrc()).append("\"");
+		sb.append("}");
+		return sb.toString();
+	}
+	/**
+	 * 将系列集合转化为json格式的数据
+	 * @param seriesList
+	 * @return
+	 */
+	private String toJson(List<Series> seriesList) {
+		StringBuilder sb = new StringBuilder("[");
+		for(int i = 0; i < seriesList.size(); i++) {
+			sb.append(toJson(seriesList.get(i)));
+			if(i < seriesList.size() - 1) {
+				sb.append(",");
+			}
+		}
+		sb.append("]");
+		return sb.toString();
+	}
+	/**
+	 * 查看口红的详情
+	 * @param req
+	 * @param resp
+	 * @return
+	 * @throws ServletException
+	 * @throws IOException
+	 */
+	public String deatilLipstick(HttpServletRequest req, HttpServletResponse resp)
+			throws ServletException, IOException {
+    	String lid = req.getParameter("lid");
+    	Lipstick lipstick = lipstickService.findByLid(lid);
+    	String sid = lipstick.getSid();
+    	Series series = seriesService.findBySid(sid);
+    	Brand brand  = brandService.findByBid1(series.getBid());
+    	Hotspot hotspot = hotspotService.findByHid(lipstick.getHid());
+    	String mainsrc = lipstickPictureService.findMainPictureByLid(lid).getLpsrc();
+    	String detailsrc = lipstickPictureService.findPictureByLid(lid).getLpsrc();
+    	
+    	LipstickAndPicture lipstickAndPicture = new LipstickAndPicture(lipstick, mainsrc, detailsrc);	
+		req.setAttribute("lipstickAndPicture", lipstickAndPicture);
+		req.setAttribute("brand", brand);
+		req.setAttribute("series", series);
+		req.setAttribute("hotspot", hotspot);
+		return "f:/page/admin/admin_lipstickdetails.jsp";
+	}
+    
 }
