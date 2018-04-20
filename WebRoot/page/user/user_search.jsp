@@ -127,11 +127,11 @@
 <c:forEach items="${resultlipstickAvgPriceList }" var="lipstickAvgPrice">
 					<div class="card">
 		           	  <figure> 
-			           	 <a href="#">
+			           	 <a href="<c:url value='/MainServlet?method=detailsLipstick&lid=${lipstickAvgPrice.lipstick.lid }'/>">
 			           	      <img alt="" class="card-good" src="<c:url value='${lipstickAvgPrice.lsrc }'/>">
 						</a>
 					    <figcaption class="goods_text"> 
-					     <a href="#">
+					     <a href="<c:url value='/MainServlet?method=detailsLipstick&lid=${lipstickAvgPrice.lipstick.lid }'/>">
 					      <span class="mh4">${lipstickAvgPrice.lipstick.lname }</span>
 					      <p></p>
 					      <span class="mh5">${lipstickAvgPrice.hotspot }</span>

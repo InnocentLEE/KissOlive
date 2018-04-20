@@ -32,48 +32,75 @@
 	<div class="header-main-bar">
 		<nav class="navbar navbar-default navbar-fixed-top">
 		<div class="container header">
-			<div class="navbar-header">
-				<ul class="nav navbar-nav navbar-left ">
-					<li><a href="<c:url value='/page/user/user_login.jsp'/>"
-						class="navbar-brand">登陆</a></li>
-					<li><a href="<c:url value='/page/user/user_register.jsp'/>"
-						class="navbar-brand">注册</a></li>
+			<c:choose>
+				<c:when test="${empty sessionScope.sessionUser }">
+					<div class="navbar-header">
+						<ul class="nav navbar-nav navbar-left ">
+							<li><a href="<c:url value='/page/user/user_login.jsp'/>"
+								class="navbar-brand">登录</a></li>
+							<li><a href="<c:url value='/page/user/user_register.jsp'/>"
+								class="navbar-brand">注册</a></li>
 
-					<!-- 响应式布局按钮-下拉框 -->
-					<button type="button" class="navbar-toggle" data-toggle="collapse"
-						data-target="#navbar-collapse">
-						<span class="icon-bar"></span> <span class="icon-bar"></span>
-					</button>
-				</ul>
-			</div>
-			<div class="collapse navbar-collapse" id="navbar-collapse">
-				<ul class="nav navbar-nav navbar-right" style="margin: 0">
-					<li><a href="#"><span
-							class="glyphicon glyphicon-shopping-cart">&nbsp;</span>我的购物车</a></li>
-					<li><a href="#"><span class="glyphicon glyphicon-list">&nbsp;</span>我的订单</a></li>
-				</ul>
-			</div>
+							<!-- 响应式布局按钮-下拉框 -->
+							<button type="button" class="navbar-toggle"
+								data-toggle="collapse" data-target="#navbar-collapse">
+								<span class="icon-bar"></span> <span class="icon-bar"></span>
+							</button>
+						</ul>
+					</div>
+					<div class="collapse navbar-collapse" id="navbar-collapse">
+						<ul class="nav navbar-nav navbar-right" style="margin: 0">
+							<li></li>
+							<li></li>
+						</ul>
+					</div>
+				</c:when>
+				<c:otherwise>
+					<div class="navbar-header">
+						<ul class="nav navbar-nav navbar-left ">
+							<li><a href="<c:url value=''/>" class="navbar-brand">${sessionScope.sessionUser.username }</a></li>
+							<li><a href="<c:url value='/servlet/UserServlet?method=quit'/>"
+								class="navbar-brand">[退出]</a></li>
+							<!-- 响应式布局按钮-下拉框 -->
+							<button type="button" class="navbar-toggle"
+								data-toggle="collapse" data-target="#navbar-collapse">
+								<span class="icon-bar"></span> <span class="icon-bar"></span>
+							</button>
+						</ul>
+					</div>
+					<div class="collapse navbar-collapse" id="navbar-collapse">
+						<ul class="nav navbar-nav navbar-right" style="margin: 0">
+							<li><a href="#"><span
+									class="glyphicon glyphicon-shopping-cart">&nbsp;<span>我的购物车</span></span></a></li>
+							<li><a href="#"><span class="glyphicon glyphicon-list">&nbsp;<span>我的订单</span></span></a></li>
+						</ul>
+					</div>
+				</c:otherwise>
+			</c:choose>
 		</div>
 		</nav>
 		<div class="main-bar-content">
 			<div class="header-logo row">
 				<div class="col-md-4 col-lg-4"></div>
 				<div class="col-md-4 col-lg-4">
-					<a href="#"><img src="<c:url value='/img/kissolive.png'/>"
+					<a href="index.jsp"><img src="<c:url value='/img/kissolive.png'/>"
 						class="icon-olive" /></a>
 				</div>
 				<div class="col-md-4 col-lg-4">
+				    <form action="/KissOlive/MainServlet" method="post">
+				    <input type="hidden" name="method" value="search" />
 					<div class="nav-search">
 						<div class="input-group">
-							<input type="text" class="form-control"
+							<input type="text" class="form-control" name="search"
 								placeholder="Search for..."> <span
 								class="input-group-btn">
 								<button class="btn btn-default glyphicon glyphicon-search"
-									type="button"></button>
+									type="submit"></button>
 							</span>
 						</div>
 						<!-- /input-group -->
 					</div>
+					</form>
 				</div>
 			</div>
 		</div>
@@ -83,47 +110,31 @@
 	 <!-- start of 内容 -->
 	<div class="container content">
 		   <div class="product-pic">
-		     <img class="pic" src="<c:url value='/img/user_home/6.jpg'/>" alt="">
+		     <img class="pic" src="<c:url value='${lipstickAndPictureAndGoodsAndColorno.mainPicture.lpsrc }'/>" alt="">
 		   </div>
 		   <div class="product-intro">
-		     <h1 class="product-name">DIOR迪奥魅惑染唇蜜</h1>
-		     <h2 class="product-disc">着色彩染，持久轻盈裸唇感</h2>
-		     <h3 class="product-price">￥&nbsp;290.00</h3>
-		     <div class="product-color row">
+		     <h1 class="product-name">${lipstickAndPictureAndGoodsAndColorno.lipstick.lname }</h1>
+		     <h2 class="product-disc">${hotspot.hdescribe }</h2>
+		     <h3 class="product-price" id="gprice"></h3>
+		     <div class="product-color row" id="wrap">
 		        <label class="pro-label">颜色分类&nbsp;</label>
-		        <!-- <div class="color-group btn-group">
-		           <label for="" class="color-item selected btn">
-		              <em id="cnid" style="background: #ff0080">&nbsp;<i></i></em>
-			          <input type="radio"  value="#ff0080" name="color"checked>
-		           </label>
-		           <label for="" class="btn color-item">
-		              <em id="cnid" style="background: #ff0180">&nbsp;<i></i></em>
-			          <input type="radio"  value="#ff0180" name="color">
-		           </label>
-		           
-		        </div> -->
-		        
 		        <ul class="color-group">
-		          <li class="color-item selected">
-			          <em id="cnid" title="请输入颜色名，鼠标悬停色块会显示" style="background: #ff0080">&nbsp;<i></i></em>
-			          <input type="radio"  value="${colorno.cnRGB }" name="color"checked>
-			      </li>
-			     <li class="color-item">
-			        <em id="cnid" style="background: #ff0181">&nbsp;<i></i></em>
-			         <input type="radio"  value="${colorno.cnRGB }" name="color">
+<c:forEach items="${lipstickAndPictureAndGoodsAndColorno.goodsAndColornoList }" var="goodsandcolorno" varStatus="index">
+	<c:choose>
+	<c:when test="${index.count < 2 }">
+				<li class="color-item" id="${goodsandcolorno.goods.gid }" value="${goodsandcolorno.goods.gprice }">
+			          <em id="${goodsandcolorno.goods.gid }" title="${goodsandcolorno.colorno.cncode }" style="background: ${goodsandcolorno.colorno.cnRGB }">&nbsp;<i></i></em>
+			          <input type="radio" id="${goodsandcolorno.goods.gprice }" value="${goodsandcolorno.goods.gid }" name="gid"checked>
 			     </li>
-			     <li class="color-item">
-			        <em id="cnid" style="background: #ff1212">&nbsp;<i></i></em>
-			         <input type="radio"  value="${colorno.cnRGB }" name="color">
+	</c:when>
+	<c:otherwise>
+				<li class="color-item" id="${goodsandcolorno.goods.gid }" value="${goodsandcolorno.goods.gprice }">
+			        <em id="${goodsandcolorno.goods.gid }" style="background: ${goodsandcolorno.colorno.cnRGB }">&nbsp;<i></i></em>
+			         <input type="radio" id="${goodsandcolorno.goods.gprice }" value="${goodsandcolorno.goods.gid }" name="gid">
 			     </li>
-			     <li class="color-item">
-			        <em id="cnid" style="background: #ff4444">&nbsp;<i></i></em>
-			        <input type="radio" value="${colorno.cnRGB }" name="color">
-			     </li>
-			     <li class="color-item">
-			        <em id="cnid" style="background: #ff0412">&nbsp;<i></i></em>
-			         <input type="radio"  value="${colorno.cnRGB }" name="color">
-			     </li>
+	</c:otherwise>
+	</c:choose>
+</c:forEach>
 		        </ul>
 		        </div>
 		        <div class="product-num row">
@@ -145,19 +156,19 @@
 		 			<h3>产品参数</h3>
 		 			</div>
 		 			<div class="intro-text">
-		 			 <label class="lip-label"style="grid-column-start: 2;">产品名称：&nbsp;Dior 迪奥魅惑染唇蜜&nbsp;</label>
-		 			  <label class="lip-label"style="grid-row-start: 2;grid-column-start: 2;">产品品牌：&nbsp;DIOR 迪奥&nbsp;</label>
-		 			   <label class="lip-label"style="grid-row-start: 3;grid-column-start: 2;">产品系列：&nbsp;Dior 迪奥染唇系列&nbsp;</label>
-		 			    <label class="lip-label" style="grid-column: 1/6;grid-row-start:4 ;grid-column-start:2;">选购热点：&nbsp;着色彩染，持久轻盈裸唇感&nbsp;</label>
-		 			     <label class="lip-label"style="grid-row-start: 1;grid-column-start: 4;">所属产地：&nbsp;法国&nbsp;</label>
-		 			      <label class="lip-label"style="grid-row-start: 2;grid-column-start: 4;">适合肤质：&nbsp;所有肤质&nbsp;</label>
-		 			       <label class="lip-label"style="grid-row-start: 3;grid-column-start: 4;">保质期限：&nbsp;2020-04-19&nbsp;</label>
+		 			 <label class="lip-label"style="grid-column: 1/6;grid-column-start: 2;">产品名称：&nbsp;${lipstickAndPictureAndGoodsAndColorno.lipstick.lname }&nbsp;</label>
+		 			  <label class="lip-label"style="grid-row-start: 2;grid-column-start: 2;">产品品牌：&nbsp;${Brand.bname }&nbsp;</label>
+		 			   <label class="lip-label"style="grid-row-start: 3;grid-column-start: 2;">产品系列：&nbsp;${Series.sname }&nbsp;</label>
+		 			    <label class="lip-label" style="grid-column: 1/6;grid-row-start:4 ;grid-column-start:2;">选购热点：&nbsp;${hotspot.hdescribe }&nbsp;</label>
+		 			     <label class="lip-label"style="grid-row-start: 2;grid-column-start: 4;">所属产地：&nbsp;${lipstickAndPictureAndGoodsAndColorno.lipstick.lorigin }&nbsp;</label>
+		 			      <label class="lip-label"style="grid-row-start: 3;grid-column-start: 4;">适合肤质：&nbsp;${lipstickAndPictureAndGoodsAndColorno.lipstick.skin }&nbsp;</label>
+		 			       <label class="lip-label"style="grid-row-start: 4;grid-column-start: 4;">保质期限：&nbsp;${lipstickAndPictureAndGoodsAndColorno.lipstick.shelflife }年&nbsp;</label>
 		 			</div>
 		 		</div>
 		 	</div>
 		 </div>
 		 <div class="product-pic bottom">
-		 	 <img class="morecontent" src="<c:url value='/img/user/user_prointro/morecontent.png'/>">
+		 	 <img class="morecontent" src="<c:url value='${lipstickAndPictureAndGoodsAndColorno.detailPicture.lpsrc }'/>">
 		 </div>
 	</div>
 	<!-- end of 内容 -->
@@ -167,26 +178,16 @@
 	<div class="footer-top">
 		<div class="row">
 			<div class="col-md-3">
-		 	     <span class="logoname">
-		 	     <img src="<c:url value='/img/user_home/logo_black.png'/>"></span>
+				<!-- <span><h6 class="logoname">KISS OLIVE</h6><p>&nbsp;口&nbsp;红&nbsp;热&nbsp;门&nbsp;商&nbsp;城&nbsp;</p></span>
+			           -->
+				<span class="logoname"><img
+					src="<c:url value='/img/user_home/logo_black.png'/>"></span>
 			</div>
 			<div class="col-md-9">
 				<ul style="display:flex">
-					<li class="branditem" id="branditem"><a href="#">迪奥</a></li>
-					<li class="branditem"><a href="#">美宝莲纽约</a></li>
-					<li class="branditem"><a href="#">香奈儿</a></li>
-					<li class="branditem"><a href="#">雅诗兰黛</a></li>
-					<li class="branditem"><a href="#">M.A.C</a></li>
-					<li class="branditem"><a href="#">植村秀</a></li>
-					<li class="branditem"><a href="#">妙巴黎</a></li>
-					<li class="branditem"><a href="#">迪奥</a></li>
-					<li class="branditem"><a href="#">美宝莲纽约</a></li>
-					<li class="branditem"><a href="#">香奈儿</a></li>
-					<li class="branditem"><a href="#">雅诗兰黛</a></li>
-					<li class="branditem"><a href="#">M.A.C</a></li>
-					<li class="branditem"><a href="#">植村秀</a></li>
-					<li class="branditem"><a href="#">妙巴黎</a></li>
-
+<c:forEach items="${brandList }" var="brand">
+					<li class="branditem" ><a href="<c:url value='/MainServlet?method=searchByBrand&bid=${brand.bid }&bname=${brand.bname }'/>">${brand.bname }</a></li>
+</c:forEach>
 				</ul>
 			</div>
 		</div>
@@ -198,8 +199,10 @@
 				<div class="col-md-3">
 					<span class="title-footer-section">客户服务</span>
 					<div class="nav-footer">
-						<span class="title-footer-section"><a href="#">联系我们</a></span>
-						<span class="title-footer-section wechat"><img class="wechat-img" src="<c:url value='/img/user_home/wechat.jpg'/>"></span>
+						<span class="title-footer-section"><a href="#">联系我们</a></span> <span
+							class="title-footer-section wechat"><img
+							class="wechat-img"
+							src="<c:url value='/img/user_home/wechat.jpg'/>"></span>
 					</div>
 				</div>
 				<div class="col-md-3">
@@ -215,13 +218,15 @@
 				<div class="col-md-4">
 					<span class="title-footer-section1">电子通讯</span>
 					<div class="nav-footer">
-						<span class="title-footer-section font">率先获取最新商品的信息及KISS OLIVE的独家优惠：</a></span>
-							<div class="input-group title-footer-section">
-								<input type="text" class="form-control"
-									placeholder="Recipient's username"
-									aria-describedby="basic-addon2"> <span
-									class="input-group-addon" id="basic-addon2">@example.com</span>
-							</div>
+						<span class="title-footer-section font">率先获取最新商品的信息及KISS
+							OLIVE的独家优惠：</a>
+						</span>
+						<div class="input-group title-footer-section">
+							<input type="text" class="form-control"
+								placeholder="Recipient's username"
+								aria-describedby="basic-addon2"> <span
+								class="input-group-addon" id="basic-addon2">@example.com</span>
+						</div>
 					</div>
 				</div>
 
@@ -235,10 +240,13 @@
 	<script src="<c:url value='/js/bootstrap.min.js'/>"></script>
 	<script type="text/javascript">
 	   $(function() {
+		document.getElementById("gprice").innerHTML = "选择颜色查看价钱";
 		$("li.color-item").click(
 				function() {
 					$(this).addClass("selected").siblings()
 							.removeClass("selected");
+					//var value = $('#wrap input[name="gid"]:checked').attr("id");
+					document.getElementById("gprice").innerHTML = "￥ "+ $(this).attr("value") + "元";
 				})
 	  })
 	</script>

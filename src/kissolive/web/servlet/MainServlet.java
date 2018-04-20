@@ -12,16 +12,23 @@ import javax.servlet.http.HttpServletResponse;
 
 import kissolive.brand.domain.Brand;
 import kissolive.brand.service.BrandService;
+import kissolive.colorno.domain.Colorno;
+import kissolive.colorno.service.ColornoService;
 import kissolive.goods.domain.Goods;
+import kissolive.goods.domain.GoodsAndColorno;
 import kissolive.goods.service.GoodsService;
+import kissolive.hotspot.domain.Hotspot;
 import kissolive.hotspot.service.HotspotService;
 import kissolive.lipstick.domain.Lipstick;
+import kissolive.lipstick.domain.LipstickAndPicturesAndGoodsAndColorno;
 import kissolive.lipstick.domain.LipstickAvgPrice;
 import kissolive.lipstick.service.LipstickService;
+import kissolive.lipstickpicture.domain.LipstickPicture;
 import kissolive.lipstickpicture.service.LipstickPictureService;
 import kissolive.series.domain.Series;
 import kissolive.series.domain.SeriesCount;
 import kissolive.series.service.SeriesService;
+import kissolive.user.domain.User;
 import cn.itcast.servlet.BaseServlet;
 
 public class MainServlet extends BaseServlet {
@@ -32,6 +39,7 @@ public class MainServlet extends BaseServlet {
 	private HotspotService hotspotService = new HotspotService();
 	private LipstickPictureService lipstickPictureService = new LipstickPictureService();
 	private BrandService brandService = new BrandService();
+	private ColornoService colornoService = new ColornoService();
 	
 	/**
 	 * 根据品牌查找信息发送到品牌查询商品的页面
@@ -186,5 +194,66 @@ public class MainServlet extends BaseServlet {
 		List<Brand> brandList = brandService.find();
 		req.setAttribute("brandList", brandList);
 		return "f:/page/user/user_search.jsp";
+	}
+	/**
+	 * 查看口红详情
+	 * @param req
+	 * @param resp
+	 * @return
+	 * @throws ServletException
+	 * @throws IOException
+	 * @throws SQLException
+	 */
+	public String detailsLipstick(HttpServletRequest req, HttpServletResponse resp)
+			throws ServletException, IOException, SQLException {
+		String lid = req.getParameter("lid");
+		Lipstick lipstick = lipstickService.findByLid(lid);
+		List<Goods> goodsList = goodsService.findByLid(lid);
+		List<GoodsAndColorno> goodsAndColornoList = new ArrayList<GoodsAndColorno>();
+		for(int i=0;i<goodsList.size();i++){
+			Colorno colorno = colornoService.findByCnid(goodsList.get(i).getCnid());
+			GoodsAndColorno goodsAndColorno = new GoodsAndColorno(goodsList.get(i), colorno);
+			goodsAndColornoList.add(goodsAndColorno);
+		}
+		Hotspot hotspot = hotspotService.findByHid(lipstick.getHid());
+		LipstickPicture mainPicture = lipstickPictureService.findMainPictureByLid(lid);
+		LipstickPicture detailPicture = lipstickPictureService.findPictureByLid(lid);
+		LipstickAndPicturesAndGoodsAndColorno lipstickAndPictureAndGoodsAndColorno = new LipstickAndPicturesAndGoodsAndColorno(lipstick, mainPicture, detailPicture, goodsAndColornoList);
+		req.setAttribute("lipstickAndPictureAndGoodsAndColorno", lipstickAndPictureAndGoodsAndColorno);
+		req.setAttribute("hotspot", hotspot);
+		List<Brand> brandList = brandService.find();
+		req.setAttribute("brandList", brandList);
+		Series series = seriesService.findBySid(lipstick.getSid());
+		Brand brand = brandService.findByBid1(series.getBid());
+		req.setAttribute("Brand", brand);
+		req.setAttribute("Series", series);
+		return "f:/page/user/user_lipsintro.jsp";
+	}
+	/**
+	 * 异步添加购物车
+	 * @param req
+	 * @param resp
+	 * @return
+	 * @throws ServletException
+	 * @throws IOException
+	 * @throws SQLException
+	 */
+	public String ajaxAddCart(HttpServletRequest req,
+			HttpServletResponse resp) throws ServletException, IOException,
+			SQLException {
+
+		String gid = req.getParameter("gid");
+		String number = req.getParameter("number");
+		User user = (User)req.getSession().getAttribute("sessionUser");
+		System.out.println("gid:"+gid);
+		System.out.println("number:"+number);
+		System.out.println("user:"+user);
+		
+		
+		
+		
+		resp.getWriter().print(true);
+
+		return null;
 	}
 }
