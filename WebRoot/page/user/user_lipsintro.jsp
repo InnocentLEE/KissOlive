@@ -34,6 +34,7 @@
 		<div class="container header">
 			<c:choose>
 				<c:when test="${empty sessionScope.sessionUser }">
+				 <input type="hidden" name="validate_user" id="booleanuser" value="${empty sessionScope.sessionUser }">
 					<div class="navbar-header">
 						<ul class="nav navbar-nav navbar-left ">
 							<li><a href="<c:url value='/page/user/user_login.jsp'/>"
@@ -125,6 +126,8 @@
 				<li class="color-item" id="${goodsandcolorno.goods.gid }" value="${goodsandcolorno.goods.gprice }">
 			          <em id="${goodsandcolorno.goods.gid }" title="${goodsandcolorno.colorno.cncode }" style="background: ${goodsandcolorno.colorno.cnRGB }">&nbsp;<i></i></em>
 			          <input type="radio" id="${goodsandcolorno.goods.gprice }" value="${goodsandcolorno.goods.gid }" name="gid"checked>
+			          <input type="radio" id="${goodsandcolorno.goods.gprice }" value="${goodsandcolorno.goods.gid }" name="gid"checked>
+			    
 			     </li>
 	</c:when>
 	<c:otherwise>
@@ -135,7 +138,7 @@
 	</c:otherwise>
 	</c:choose>
 </c:forEach>
-		        </ul>
+               </ul>
 		        </div>
 		        <div class="product-num row">
 		           <label class="pro-label num">数量&nbsp;</label>
@@ -145,7 +148,7 @@
                       <input class="inputclass" id="plus" type=button value="+">
 		           </div>
 		         </div>
-		     <button type="button" class="btn btn-buy">>加入购物袋</button>
+		     <button type="button" class="btn btn-buy" onclick="valid()">>加入购物袋</button>
 		 </div>
 		 <div class="product-pram mid">
 		 	<div class="line"><span class="header">商品详情</span></div>
@@ -271,9 +274,36 @@
 		    if (parseInt(t.val())==1){  
 		    $('#reduce').attr('disabled',true);  
 		    };  
-		    })  
-		  
+		    }) 
 });  
+		  function valid(){
+			  var islogin = $("input[type='hidden']").val();
+			  var price = $('#gprice').text();
+			 
+			  var gid = $("input[type='radio']").attr("value");//获取商品id
+			  var gnumber = $('#gnumber').val();//获取商品当前数量gnmber
+			  
+			   if(islogin){
+				  alert("您还没有登录！");
+			  }else if(price=="选择颜色查看价钱"){
+				  alert("请选择想购买的口红颜色！");
+			  }else{
+				  $.ajax({
+						url:"/KissOlive/MainServlet",//要请求的servlet
+						data:{method:"ajaxAddCart", gid:gid,number:gnumber},//给服务器的参数
+						type:"POST",
+						dataType:"json",
+						async:false,//是否异步请求，如果是异步，那么不会等服务器返回，这个函数就向下运行了。
+						cache:false,
+						success:function(result) {
+							if(!result) {//如果校验失败
+								alert("加入购物车失败！");
+								return false;
+							}
+						}
+					}); 
+			  }
+		    }
 </script>    
 	 
   </body>
