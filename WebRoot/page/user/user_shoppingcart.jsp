@@ -259,11 +259,11 @@
 					   <li>联系方式：17876253479</li>
 					   <li>收货地址：广东省肇庆市端州区肇庆学院</li>
 					</ul>
-					<div class="btn_add_addr"><button class="add_addr">新增地址</button><div class="clearfix"></div></div>
-					
+					<!-- <div class="btn_add_addr"><button class="add_addr">新增地址</button><div class="clearfix"></div></div>
+					 -->
 					
 					<!-- 新增地址div -->
-					<div class="div_add_addr" style="display:none">
+					<!-- <div class="div_add_addr" style="display:none">
 					 <form action="#">
 					   <ul class="addr add">
 					   <li>收件人：
@@ -290,7 +290,7 @@
 					   </ul>
 					   <div class="btn_save_addr"><button type="submit" class="save_addr">保存地址</button><div class="clearfix"></div></div>
 					 </form>
-					</div>
+					</div> -->
 					<!-- 新增地址div -->
 					
 					<table class="table">

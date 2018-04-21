@@ -150,6 +150,9 @@ input.sum {
     font-size: 18px;
 }
 /*支付及物流页面*/
+table.table {
+    margin-top: 80;
+}
 .titleborder {
     /* padding: 40 10 20 10; */
     margin: 50 0 50 50;
@@ -209,6 +212,7 @@ label#nameCorrect,#telCorrect,#detailCorrect {
     height: auto;
 }
 div.modal-body.code>img {
+	width: 400;
     padding: 0 0 0 0;
 }
 /*成功页面样式*/
