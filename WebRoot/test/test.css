@@ -1,3 +1,39 @@
+*{
+  margin:0;padding:0;
+}
+.img{
+  position:relative;
+  width:510px;
+  height:330px;
+}
+.img img,#mask{
+  width:100%;
+  height:100%;
+  position:absolute;
+  left:0;
+  top:0;
+}
+#mask{
+  background:rgba(0,0,0,0.5) url(https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcQzp1BTGai2xXe6hHRJoTjyeCd2pZdpEgLiXTLVf1N4cW-Nar0JLg) no-repeat center;
+   z-index:999;
+  display:none;
+}
+#mask1{
+	width:80;
+	height:40;
+	color:#000;
+	position: absolute;
+    left: 10%;
+    top: 20%;
+}
+i{
+	position:absolute
+	left:10%
+	top:20%
+}
+
+
+
 ul{
 	/*display:flex;*/
 }
