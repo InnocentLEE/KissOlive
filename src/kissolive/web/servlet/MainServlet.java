@@ -249,9 +249,6 @@ public class MainServlet extends BaseServlet {
 		String gid = req.getParameter("gid");
 		String gnumber = req.getParameter("gnumber");
 		User user = (User)req.getSession().getAttribute("sessionUser");
-		System.out.println("gid:"+gid);
-		System.out.println("gnumber:"+gnumber);
-		System.out.println("user:"+user);
 		if(user==null){
 			resp.getWriter().print(false);
 		}else{

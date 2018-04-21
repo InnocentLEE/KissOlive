@@ -1,4 +1,5 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%
 	String path = request.getContextPath();
 	String basePath = request.getScheme() + "://"
@@ -29,7 +30,7 @@
 <link rel="stylesheet" type="text/css" href="css/admin/series.css">
 <style type="text/css">
 img#card-series {
-	width: 213px;
+	width: 217px;
 }
 
 figcaption.series_text {
@@ -66,7 +67,6 @@ figure {
 				<h1 class="page-header">首页管理</h1>
 				<div class="page-header-right">
 					<div class="btn-group">
-						<a class="btn btn-primary" href="page/admin/admin_addcarousel.jsp">添加图片</a>
 					</div>
 				</div>
 			</div>
@@ -77,73 +77,27 @@ figure {
 		<div class="row">
 			<div class="table-wrap col-lg-10">
 				<div class="rcontent-list">
+<c:forEach items="${shufflingList }" var="shuffling">
 					<div class="card">
 						<figure> <img id="card-series"
-							src="images/00A5E5139864418D888FA338D9FC9561.jpg"> <figcaption
-							class="series_text"> <span class="mh4">${series.sname }</span>
+							src="${shuffling.src }"> <figcaption
+							class="series_text"> <span class="mh4"></span>
 						<p></p>
 						</figcaption>
 						<div class="operate">
 							<a class="opera"
-								href="admin/AdminServlet?method=deleteSeries&sid=${series.sid }">删除</a>
+								href="admin/AdminServlet?method=updateShufflingpre&orderBy=${shuffling.orderBy }">更换</a>
 						</div>
 						</figure>
-					</div>
-					<div class="card">
-						<figure> <img id="card-series"
-							src="images/00A5E5139864418D888FA338D9FC9561.jpg"> <figcaption
-							class="series_text"> <span class="mh4">${series.sname }</span>
-						<p></p>
-						</figcaption>
-						<div class="operate">
-							<a class="opera"
-								href="admin/AdminServlet?method=deleteSeries&sid=${series.sid }">删除</a>
-						</div>
-						</figure>
-					</div>
-					<div class="card">
-						<figure> <img id="card-series"
-							src="images/00A5E5139864418D888FA338D9FC9561.jpg"> <figcaption
-							class="series_text"> <span class="mh4">${series.sname }</span>
-						<p></p>
-						</figcaption>
-						<div class="operate">
-							<a class="opera"
-								href="admin/AdminServlet?method=deleteSeries&sid=${series.sid }">删除</a>
-						</div>
-						</figure>
-					</div>
-					<div class="card">
-						<figure> <img id="card-series"
-							src="images/00A5E5139864418D888FA338D9FC9561.jpg"> <figcaption
-							class="series_text"> <span class="mh4">${series.sname }</span>
-						<p></p>
-						</figcaption>
-						<div class="operate">
-							<a class="opera"
-								href="admin/AdminServlet?method=deleteSeries&sid=${series.sid }">删除</a>
-						</div>
-						</figure>
-					</div>
-					<div class="card">
-						<figure> <img id="card-series"
-							src="images/00A5E5139864418D888FA338D9FC9561.jpg"> <figcaption
-							class="series_text"> <span class="mh4">${series.sname }</span>
-						<p></p>
-						</figcaption>
-						<div class="operate">
-							<a class="opera"
-								href="admin/AdminServlet?method=deleteSeries&sid=${series.sid }">删除</a>
-						</div>
-						</figure>
-					</div>
+					</div>&nbsp;&nbsp;&nbsp;
+</c:forEach>
 				</div>
 			</div>
 		</div>
 		<!-- end:轮播图列表 -->
 
-		<h2 class="page-header-2">首页展示1</h2>
-		<!-- start:首页展示1 -->
+		<h2 class="page-header-2"></h2>
+		<!-- start:首页展示1
 		<div class="row">
 			<div class="table-wrap col-lg-10">
 				<div class="rcontent-list-2">
@@ -194,10 +148,10 @@ figure {
 				</div>
 			</div>
 		</div>
-		<!-- end:首页展示1 -->
+
 		
 		<h2 class="page-header-2">首页展示2</h2>
-		<!-- start:首页展示2 -->
+
 		<div class="row">
 			<div class="table-wrap col-lg-10">
 				<div class="rcontent-list-2">
@@ -248,7 +202,7 @@ figure {
 				</div>
 			</div>
 		</div>
-		<!-- end:首页展示2 -->
+end:首页展示2 -->
 	</div>
 
 	<script src="js/jquery.js"></script>

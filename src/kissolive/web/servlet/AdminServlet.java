@@ -28,6 +28,8 @@ import kissolive.lipstickpicture.service.LipstickPictureService;
 import kissolive.recommend.service.RecommendService;
 import kissolive.series.domain.Series;
 import kissolive.series.service.SeriesService;
+import kissolive.shuffling.domain.Shuffling;
+import kissolive.shuffling.service.ShufflingService;
 import cn.itcast.commons.CommonUtils;
 import cn.itcast.servlet.BaseServlet;
 
@@ -41,6 +43,7 @@ public class AdminServlet extends BaseServlet {
 	GoodsService goodsService = new GoodsService();
 	LipstickPictureService lipstickPictureService = new LipstickPictureService();
 	RecommendService recommendService = new RecommendService();
+	ShufflingService shufflingService = new ShufflingService();
 	/**
 	 * 首页管理
 	 * @param req
@@ -51,7 +54,13 @@ public class AdminServlet extends BaseServlet {
 	 */
 	public String adminHomePage(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
-		return "f:/";
+		List<Shuffling> shufflingList = shufflingService.findLast5();
+		for(int i=0;i<shufflingList.size();i++){
+			String src = shufflingList.get(i).getSrc();
+			shufflingList.get(i).setSrc(src.substring(1));
+		}
+		req.setAttribute("shufflingList", shufflingList);
+		return "f:/page/admin/admin_home.jsp";
 	}
 	/**
 	 * 选购热点管理
@@ -540,5 +549,21 @@ public class AdminServlet extends BaseServlet {
 			req.setAttribute("href", "/admin/AdminServlet?method=adminGoods");
 			return "f:/page/admin/message.jsp";
     	}	
+	}
+	/**
+	 * 更换轮播图先行步骤
+	 * @param req
+	 * @param resp
+	 * @return
+	 * @throws ServletException
+	 * @throws IOException
+	 */
+	public String updateShufflingpre(HttpServletRequest req, HttpServletResponse resp)
+			throws ServletException, IOException {
+    	int orderBy = Integer.parseInt(req.getParameter("orderBy"));
+    	Shuffling shuffling = shufflingService.findByOrderBy(orderBy);
+    	shuffling.setSrc(shuffling.getSrc().substring(1));
+    	req.setAttribute("shuffling", shuffling);
+    	return "f:/page/admin/admin_addcarousel.jsp";
 	}
 }

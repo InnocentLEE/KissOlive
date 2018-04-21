@@ -57,6 +57,11 @@
     <servlet-name>AddLipstickServlet</servlet-name>
     <servlet-class>kissolive.web.servlet.AddLipstickServlet</servlet-class>
   </servlet>
+  <servlet>
+    <servlet-name>UpdateShufflingServlet</servlet-name>
+    <servlet-class>kissolive.web.servlet.UpdateShufflingServlet</servlet-class>
+  </servlet>
+
 
 
 
@@ -95,5 +100,9 @@
   <servlet-mapping>
     <servlet-name>AddLipstickServlet</servlet-name>
     <url-pattern>/servlet/AddLipstickServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>UpdateShufflingServlet</servlet-name>
+    <url-pattern>/servlet/UpdateShufflingServlet</url-pattern>
   </servlet-mapping>
 </web-app>
