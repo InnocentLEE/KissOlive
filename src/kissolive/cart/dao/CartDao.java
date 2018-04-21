@@ -6,6 +6,7 @@ import java.util.List;
 import kissolive.cart.domain.Cart;
 
 import org.apache.commons.dbutils.QueryRunner;
+import org.apache.commons.dbutils.handlers.BeanHandler;
 import org.apache.commons.dbutils.handlers.BeanListHandler;
 
 import util.TxQueryRunner;
@@ -29,9 +30,21 @@ public class CartDao {
 	 * @throws SQLException
 	 */
 	public List<Cart> findByUserid(String userid) throws SQLException {
-		String sql = "SELECT * FROM tb_brand where userid=? order by orderBy";
+		String sql = "SELECT * FROM tb_cart where userid=? order by orderBy";
 		List<Cart> cartList = qr.query(sql, new BeanListHandler<Cart>(Cart.class),userid);
 		return cartList;
+	}
+	/**
+	 * 根据用户和商品查找购物车记录
+	 * @param userid
+	 * @param gid
+	 * @return
+	 * @throws SQLException
+	 */
+	public Cart findByUseridAndGid(String userid,String gid) throws SQLException{
+		String sql = "SELECT * FROM tb_cart where userid=? and gid=?";
+		Cart cart = qr.query(sql, new BeanHandler<Cart>(Cart.class),userid,gid);
+		return cart;
 	}
 	/**
 	 * 修改购物车中某个商品的记录

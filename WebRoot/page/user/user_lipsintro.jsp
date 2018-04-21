@@ -283,22 +283,25 @@
 			  var gid = $("input[type='radio']").attr("value");//获取商品id
 			  var gnumber = $('#gnumber').val();//获取商品当前数量gnmber
 			  
-			   if(islogin){
+			   if(islogin==true){
 				  alert("您还没有登录！");
 			  }else if(price=="选择颜色查看价钱"){
 				  alert("请选择想购买的口红颜色！");
 			  }else{
 				  $.ajax({
 						url:"/KissOlive/MainServlet",//要请求的servlet
-						data:{method:"ajaxAddCart", gid:gid,number:gnumber},//给服务器的参数
+						data:{method:"ajaxAddCart", gid:gid,gnumber:gnumber},//给服务器的参数
 						type:"POST",
 						dataType:"json",
 						async:false,//是否异步请求，如果是异步，那么不会等服务器返回，这个函数就向下运行了。
 						cache:false,
 						success:function(result) {
 							if(!result) {//如果校验失败
-								alert("加入购物车失败！");
+								alert("您还没有登录！");
 								return false;
+							}else{
+								alert("添加成功！");
+								return true;
 							}
 						}
 					}); 

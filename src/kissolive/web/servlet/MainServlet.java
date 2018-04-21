@@ -12,6 +12,8 @@ import javax.servlet.http.HttpServletResponse;
 
 import kissolive.brand.domain.Brand;
 import kissolive.brand.service.BrandService;
+import kissolive.cart.domain.Cart;
+import kissolive.cart.service.CartService;
 import kissolive.colorno.domain.Colorno;
 import kissolive.colorno.service.ColornoService;
 import kissolive.goods.domain.Goods;
@@ -29,6 +31,7 @@ import kissolive.series.domain.Series;
 import kissolive.series.domain.SeriesCount;
 import kissolive.series.service.SeriesService;
 import kissolive.user.domain.User;
+import cn.itcast.commons.CommonUtils;
 import cn.itcast.servlet.BaseServlet;
 
 public class MainServlet extends BaseServlet {
@@ -40,6 +43,7 @@ public class MainServlet extends BaseServlet {
 	private LipstickPictureService lipstickPictureService = new LipstickPictureService();
 	private BrandService brandService = new BrandService();
 	private ColornoService colornoService = new ColornoService();
+	private CartService cartService = new CartService();
 	
 	/**
 	 * 根据品牌查找信息发送到品牌查询商品的页面
@@ -243,17 +247,27 @@ public class MainServlet extends BaseServlet {
 			SQLException {
 
 		String gid = req.getParameter("gid");
-		String number = req.getParameter("number");
+		String gnumber = req.getParameter("gnumber");
 		User user = (User)req.getSession().getAttribute("sessionUser");
 		System.out.println("gid:"+gid);
-		System.out.println("number:"+number);
+		System.out.println("gnumber:"+gnumber);
 		System.out.println("user:"+user);
-		
-		
-		
-		
-		resp.getWriter().print(true);
-
+		if(user==null){
+			resp.getWriter().print(false);
+		}else{
+			int number = Integer.parseInt(gnumber);
+			String userid = user.getUserid();
+			Cart cart = cartService.findByUseridAndGid(userid, gid);
+			if(cart==null){
+				Cart newcart = new Cart(CommonUtils.uuid(), userid, gid, number);
+				cartService.add(newcart);
+			}else{
+				number += cart.getNumber();
+				cart.setNumber(number);
+				cartService.update(userid, cart.getCid(), number);
+			}
+			resp.getWriter().print(true);
+		}
 		return null;
 	}
 }
