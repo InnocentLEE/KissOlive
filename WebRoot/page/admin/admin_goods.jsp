@@ -65,7 +65,7 @@
 											<th>价格</th>
 											<th>库存</th>
 											<th>下架</th>
-											<th>编辑</th>
+											<th>操作</th>
 										</tr>
 									</thead>
 									<tbody>
@@ -85,7 +85,7 @@
 	</c:otherwise>
 </c:choose>
 											</td>
-											<td><a class="opera" href="page/admin/admin_addlipstick.jsp">编辑</a>
+											<td><a class="opera" href="admin/AdminServlet?method=editgoodspre&gid=${goodsAndColorno.goods.gid }&gprice=${goodsAndColorno.goods.gprice }&gnumber=${goodsAndColorno.goods.gnumber }">编辑</a>
 <c:choose>
 	<c:when test="${goodsAndColorno.goods.status > 0 }">
 		<a class="opera" href="<c:url value='/admin/AdminServlet?method=updateGoodsStatus&gid=${goodsAndColorno.goods.gid }&status=${goodsAndColorno.goods.status }'/>">下架</a>

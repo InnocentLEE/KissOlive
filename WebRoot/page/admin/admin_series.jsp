@@ -65,7 +65,7 @@
 								<p></p>
 								</figcaption>
 								<div class="operate">
-								<a class="opera" href="page/admin/admin_addbrand.jsp">编辑</a> <a
+								<!-- <a class="opera" href="page/admin/admin_addbrand.jsp">编辑</a> --><a
 									class="opera" href="admin/AdminServlet?method=deleteSeries&sid=${series.sid }">删除</a>
 									</div>
 								</figure>

@@ -44,4 +44,11 @@ public class GoodsService {
 			throw new RuntimeException();
 		}
 	}
+	public void update(String gid,int gnumber,double gprice){
+		try {
+			goodsDao.update(gid, gnumber, gprice);
+		} catch (SQLException e) {
+			throw new RuntimeException();
+		}
+	}
 }

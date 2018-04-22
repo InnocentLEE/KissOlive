@@ -61,7 +61,7 @@
 							<td><a class="picture"><img
 									src="${brand.bsrc }" class="img-thumbnail"
 									alt="Cinque Terre" width="90" height="60"></a></td>
-							<td><a class="opera" >编辑</a>
+							<td><!-- <a class="opera" >编辑</a> -->
 								<a class="opera" href="admin/AdminServlet?method=deleteBrand&bid=${brand.bid }">删除</a></td>
 						</tr>
 </c:forEach>

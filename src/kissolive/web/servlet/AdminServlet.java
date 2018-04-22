@@ -566,4 +566,72 @@ public class AdminServlet extends BaseServlet {
     	req.setAttribute("shuffling", shuffling);
     	return "f:/page/admin/admin_addcarousel.jsp";
 	}
+	/**
+	 * 
+	 * @param req
+	 * @param resp
+	 * @return
+	 * @throws ServletException
+	 * @throws IOException
+	 */
+	public String test(HttpServletRequest req, HttpServletResponse resp)
+			throws ServletException, IOException {
+    	String[] cart = req.getParameterValues("cart");
+    	int len = cart.length;
+    	for(int i=0;i<len;i++){
+    		System.out.println(cart[i]);
+    	}
+    	String[] face = req.getParameterValues("face");
+    	int flen = face.length;
+    	for(int i=0;i<flen;i++){
+    		System.out.println(face[i]);
+    	}
+    	return null;
+	}
+	/**
+	 * 编辑商品先行步骤
+	 * @param req
+	 * @param resp
+	 * @return
+	 * @throws ServletException
+	 * @throws IOException
+	 */
+	public String editgoodspre(HttpServletRequest req, HttpServletResponse resp)
+			throws ServletException, IOException {
+    	String gid = req.getParameter("gid");
+    	String gprice = req.getParameter("gprice");
+    	String gnumber = req.getParameter("gnumber");
+    	req.setAttribute("gid", gid);
+    	req.setAttribute("gprice", gprice);
+    	req.setAttribute("gnumber", gnumber);
+    	return "f:/page/admin/admin_editgoods.jsp";
+	}
+	/**
+	 * 编辑商品
+	 * @param req
+	 * @param resp
+	 * @return
+	 * @throws ServletException
+	 * @throws IOException
+	 */
+	public String editgoods(HttpServletRequest req, HttpServletResponse resp)
+			throws ServletException, IOException {
+    	String gid = req.getParameter("gid");
+    	String Sgprice = req.getParameter("gprice");
+    	String Sgnumber = req.getParameter("gnumber");
+    	if(Sgprice==null||Sgprice.equals("")||Sgnumber==null||Sgnumber.equals("")||!(canToInteger(Sgnumber))||!(canToDouble(Sgprice))){
+    		req.setAttribute("message", "库存量为整数，价格为整数或者小数");
+			req.setAttribute("href", "/admin/AdminServlet?method=editGoodspre");
+			return "f:/page/admin/message.jsp";
+    	}else{
+    		int gnumber = Integer.parseInt(Sgnumber);
+    		double gprice = Double.parseDouble(Sgprice);
+    		BigDecimal b = new BigDecimal(gprice);    
+    		gprice = b.setScale(2,BigDecimal.ROUND_HALF_UP).doubleValue();
+    		goodsService.update(gid, gnumber, gprice);
+    		req.setAttribute("message", "修改成功！");
+			req.setAttribute("href", "/admin/AdminServlet?method=adminGoods");
+			return "f:/page/admin/message.jsp";
+    	}	
+	}
 }

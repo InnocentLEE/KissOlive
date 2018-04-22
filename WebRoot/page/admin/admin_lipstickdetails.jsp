@@ -25,7 +25,7 @@
 				<h1 class="page-header">口红管理--口红详情</h1>
 				<div class="page-header-right">
 					<div class="btn-group">
-						<a class="btn btn-opera" href="<c:url value='/page/admin/admin_addlipstick.jsp'/>">口红编辑</a>
+						<!-- <a class="btn btn-opera" href="<c:url value='/page/admin/admin_addlipstick.jsp'/>">口红编辑</a>-->
 						
 						<a class="btn btn-opera" href="<c:url value='/admin/AdminServlet?method=deleteLipstick&lid=${lipstickAndPicture.lipstick.lid }'/>">口红删除</a>
 					
