@@ -84,6 +84,37 @@
 	<!-- start of 头部 -->
 	<!-- start of 内容 -->
 	<div class="container content">
+	      <!-- 支付二维码模态框  -->
+				    <!-- Start of Modal -->
+								<div class="modal fade" id="codeModal" tabindex="-1" role="dialog"
+									aria-labelledby="myModalLabel">
+									<div class="modal-dialog" role="document" 
+									     style="margin: 200 auto; width: fit-content;">
+										<div class="modal-content" style="width:fit-content">
+											<div class="modal-header" style="height:16px">
+												<button type="button" class="close" data-dismiss="modal"
+													aria-label="Close">
+													<span aria-hidden="true">&times;</span>
+												</button>
+											</div>
+											<!-- end of modal-header -->
+											<div class="modal-body code">
+												<img src="<c:url value='/img/user/alipay.jpg'/>"/>
+											</div>
+											<!-- end of modal-body -->
+											<div class="modal-footer">
+												<button type="button" class="btn btn-primary"
+													data-dismiss="modal" id="cancel">取消</button>
+												<button type="button" class="btn btn-primary surepay">确定</button>
+											</div>
+											<!-- end of modal-footer -->
+										</div>
+										<!-- end of modal-content -->
+									</div>
+									<!-- end of modal-dialog -->
+								</div>
+								<!-- end of modal fade -->
+								<!-- End of Modal -->
 		<div class="leadertab row">
 			<ul id="myTab" class="nav nav-tabs" role="tablist">
 				<li id="step1Li" class="gray">
@@ -97,7 +128,7 @@
 
 			<div id="myTabContent" class="tab-content">
 				<!-- 订单成功页面 -->
-				<div id="step3" class="tab-pane fade active in">
+				<div id="step3" class="tab-pane fade">
 				  <div class="paysuccess" style="display:flex">
 				      <img alt="" src="<c:url value='/img/user/success.png'/>">
 				      <div class="successtext">
@@ -192,6 +223,13 @@
 	<script type="text/javascript" src="<c:url value='/js/jquery.js'/>"></script>
 	<script src="<c:url value='/js/bootstrap.min.js'/>"></script>
 	<script type="text/javascript" src="<c:url value='/js/jquery.cityselect.js'/>"></script>
+	<script type="text/javascript" src="<c:url value='/js/shoppingcart.js'/>"></script>
+	
+	<script type="text/javascript">
+	   $(function(){
+		   $('#codeModal').modal('show');
+	   });
+	</script>
    
 </body>
 </html>

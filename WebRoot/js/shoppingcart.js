@@ -55,11 +55,11 @@ $(function () {
         $all_sum = $('.sum');
     $plus.click(function () {
         var $inputVal = $(this).prev('input'),
-            $count = parseInt($inputVal.val())+1,
+            $count = parseDouble($inputVal.val())+1,
             $obj = $(this).parents('.amount_box').find('.reduce'),
             $priceTotalObj = $(this).parents('.order_lists').find('.sum_price'),
             $price = $(this).parents('.order_lists').find('.price').html(),  //单价
-            $priceTotal = $count*parseInt($price.substring(1));
+            $priceTotal = $count*parseDouble($price.substring(1));
             $gid =$("input[type='hidden']").attr("value");
             $inputVal.val($count);
 	       // console.log($count);
@@ -89,10 +89,10 @@ $(function () {
 
     $reduce.click(function () {
         var $inputVal = $(this).next('input'),
-            $count = parseInt($inputVal.val())-1,
+            $count = parseDouble($inputVal.val())-1,
             $priceTotalObj = $(this).parents('.order_lists').find('.sum_price'),
             $price = $(this).parents('.order_lists').find('.price').html(),  //单价
-            $priceTotal = $count*parseInt($price.substring(1));
+            $priceTotal = $count*parseDouble($price.substring(1));
             $gid =$("input[type='hidden']").attr("value");
            
         if($inputVal.val()>1){
@@ -124,16 +124,16 @@ $(function () {
     });
 
     $all_sum.keyup(function () {
-        var $count = 0,
+        var $count = 0.00,
             $priceTotalObj = $(this).parents('.order_lists').find('.sum_price'),
             $price = $(this).parents('.order_lists').find('.price').html(),  //单价
-            $priceTotal = 0;
+            $priceTotal = 0.00;
         if($(this).val()==''){
             $(this).val('1');
         }
         $(this).val($(this).val().replace(/\D|^0/g,''));
         $count = $(this).val();
-        $priceTotal = $count*parseInt($price.substring(1));
+        $priceTotal = $count*parseDouble($price.substring(1));
         $(this).attr('value',$count);
         $priceTotalObj.html('￥'+$priceTotal);
         totalMoney();
@@ -142,13 +142,13 @@ $(function () {
     //======================================总计==========================================
 
     function totalMoney() {
-        var total_money = 0;
-        var total_count = 0;
+        var total_money = 0.00;
+        var total_count = 0.00;
         var calBtn = $('.calBtn a');
         $sonCheckBox.each(function () {
             if ($(this).is(':checked')) {
-                var goods = parseInt($(this).parents('.order_lists').find('.sum_price').html().substring(1));
-                var num =  parseInt($(this).parents('.order_lists').find('.sum').val());
+                var goods = parseDouble($(this).parents('.order_lists').find('.sum_price').html().substring(1));
+                var num =  parseDouble($(this).parents('.order_lists').find('.sum').val());
                 total_money += goods;
                 total_count += num;
             }
@@ -179,7 +179,7 @@ $(document).ready(function(){
 	//点击支付成功触发函数
 	$(".surepay").click(function (){
 		  $('#codeModal').modal('hide');
-		 
+		  $('#step3').addClass("active in");
 	});
 	
 
