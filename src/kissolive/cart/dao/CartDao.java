@@ -35,6 +35,17 @@ public class CartDao {
 		return cartList;
 	}
 	/**
+	 * 通过id查找购物车
+	 * @param cid
+	 * @return
+	 * @throws SQLException
+	 */
+	public Cart findByCid(String cid) throws SQLException {
+		String sql = "SELECT * FROM tb_cart where cid=?";
+		Cart cart = qr.query(sql, new BeanHandler<Cart>(Cart.class),cid);
+		return cart;
+	}
+	/**
 	 * 根据用户和商品查找购物车记录
 	 * @param userid
 	 * @param gid

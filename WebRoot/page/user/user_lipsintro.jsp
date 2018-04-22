@@ -280,7 +280,7 @@
 			  var islogin = $("input[type='hidden']").val();
 			  var price = $('#gprice').text();
 			 
-			  var gid = $("input[type='radio']").attr("value");//获取商品id
+			  var gid = $("li[class='color-item selected']").attr("id");//获取商品id
 			  var gnumber = $('#gnumber').val();//获取商品当前数量gnmber
 			  
 			   if(islogin==true){

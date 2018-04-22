@@ -1,6 +1,7 @@
 package kissolive.address.service;
 
 import java.sql.SQLException;
+import java.util.List;
 
 import org.junit.Test;
 
@@ -23,10 +24,11 @@ public class AddressService {
 	/**
 	 * 查找用户的全部收货地址
 	 * @param suerid
+	 * @return 
 	 */
-	public void findByUser(String suerid){
+	public List<Address> findByUser(String userid){
 		try {
-			addressDao.findByUser(suerid);
+			return addressDao.findByUser(userid);
 		} catch (SQLException e) {
 			throw new RuntimeException(e);
 		}

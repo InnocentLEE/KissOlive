@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 import kissolive.brand.domain.Brand;
 import kissolive.brand.service.BrandService;
 import kissolive.cart.domain.Cart;
+import kissolive.cart.domain.CartItem;
 import kissolive.cart.service.CartService;
 import kissolive.colorno.domain.Colorno;
 import kissolive.colorno.service.ColornoService;
@@ -212,7 +213,7 @@ public class MainServlet extends BaseServlet {
 			throws ServletException, IOException, SQLException {
 		String lid = req.getParameter("lid");
 		Lipstick lipstick = lipstickService.findByLid(lid);
-		List<Goods> goodsList = goodsService.findByLid(lid);
+		List<Goods> goodsList = goodsService.findByLid1(lid);
 		List<GoodsAndColorno> goodsAndColornoList = new ArrayList<GoodsAndColorno>();
 		for(int i=0;i<goodsList.size();i++){
 			Colorno colorno = colornoService.findByCnid(goodsList.get(i).getCnid());
@@ -266,5 +267,83 @@ public class MainServlet extends BaseServlet {
 			resp.getWriter().print(true);
 		}
 		return null;
+	}
+	/**
+	 * 查看购物车
+	 * @param req
+	 * @param resp
+	 * @return
+	 * @throws ServletException
+	 * @throws IOException
+	 * @throws SQLException
+	 */
+	public String userCart(HttpServletRequest req,
+			HttpServletResponse resp) throws ServletException, IOException,
+			SQLException {
+		User user = (User)req.getSession().getAttribute("sessionUser");
+		String userid = user.getUserid();
+		List<Cart> cartList = cartService.findByUserid(userid);
+		List<CartItem> cartItemList = new ArrayList<CartItem>();
+		for(int i=0;i<cartList.size();i++){
+			String gid = cartList.get(i).getGid();
+			Goods goods = goodsService.findByGid(gid);
+			Lipstick lipstick = lipstickService.findByLid(goods.getLid());
+			LipstickPicture lipstickPicture = lipstickPictureService.findMainPictureByLid(lipstick.getLid());
+			Colorno colorno = colornoService.findByCnid(goods.getCnid());
+			String mainsrc = lipstickPicture.getLpsrc();
+			String lname = lipstick.getLname();
+			String cncode = colorno.getCncode();
+			double gprice = goods.getGprice();
+			int number = cartList.get(i).getNumber();
+			double totalprice = number * gprice;
+			CartItem cartItem = new CartItem(cartList.get(i), mainsrc, lname, cncode, gprice, totalprice, number);
+			cartItemList.add(cartItem);
+		}
+		req.setAttribute("cartItemList", cartItemList);
+		req.setAttribute("size", cartItemList.size());
+		return "f:/page/user/user_myshoppingcart.jsp";
+	}
+	/**
+	 * 
+	 * @param req
+	 * @param resp
+	 * @return
+	 * @throws ServletException
+	 * @throws IOException
+	 * @throws SQLException
+	 */
+	public String sentCartItem(HttpServletRequest req,
+			HttpServletResponse resp) throws ServletException, IOException,
+			SQLException {
+		User user = (User)req.getSession().getAttribute("sessionUser");
+		String[] cids = req.getParameterValues("cart");
+		List<Cart> cartList = new ArrayList<Cart>();
+		for(int i=0;i<cids.length;i++){
+			Cart cart = cartService.findByCid(cids[i]);
+			cartList.add(cart);
+		}
+		List<CartItem> cartItemList = new ArrayList<CartItem>();
+		for(int i=0;i<cartList.size();i++){
+			String gid = cartList.get(i).getGid();
+			Goods goods = goodsService.findByGid(gid);
+			Lipstick lipstick = lipstickService.findByLid(goods.getLid());
+			LipstickPicture lipstickPicture = lipstickPictureService.findMainPictureByLid(lipstick.getLid());
+			Colorno colorno = colornoService.findByCnid(goods.getCnid());
+			String mainsrc = lipstickPicture.getLpsrc();
+			String lname = lipstick.getLname();
+			String cncode = colorno.getCncode();
+			double gprice = goods.getGprice();
+			int number = cartList.get(i).getNumber();
+			double totalprice = number * gprice;
+			CartItem cartItem = new CartItem(cartList.get(i), mainsrc, lname, cncode, gprice, totalprice, number);
+			cartItemList.add(cartItem);
+		}
+		req.setAttribute("cartItemList", cartItemList);
+		req.setAttribute("size", cartItemList.size());
+		
+		
+		
+		return null;
+		//return "f:/page/user/user_myshoppingcart.jsp";
 	}
 }

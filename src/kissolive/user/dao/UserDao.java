@@ -58,4 +58,9 @@ public class UserDao {
 		user = qr.query(sql, new BeanHandler<User>(User.class), usertel);
 		return user;
 	}
+	public void updateUsername(String userid ,String username) throws SQLException{
+		String sql = "UPDATE tb_user SET username=? WHERE userid=?";
+		Object[] params = { username ,userid };
+		qr.update(sql, params);
+	}
 }

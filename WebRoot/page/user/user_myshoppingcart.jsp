@@ -103,8 +103,9 @@
 							<span class="glyphicon glyphicon-shopping-cart"></span>
 						</a>
 					</div>
-					<label class="labelhead">我的购物袋&nbsp;(3)</label>
-					<form action="#" method="post">
+					<label class="labelhead">我的购物袋&nbsp;(${size })</label>
+					<form action="/KissOlive/MainServlet" method="post">
+					<input type="hidden" name="method" value="sentCartItem">
 					<table class="table table-hover">
 						<thead>
 							<tr>
@@ -118,57 +119,33 @@
 							</tr>
 						</thead>
 						<tbody>
-							<tr class="order_lists"> <!-- 每一个orderlist就是一个购物车商品 -->
-								<th class="headth" scope="row"><input type="checkbox" value="cid1"
-									class="son_check" name="cart"> <label for="checkbox_1"></label>
-									 <input type="hidden" id="gid1" value="gid1"/>
-								</th>
-								<th>
-									<div class="list_img">
-										<a href="#"><img
-											src="<c:url value='/img/user_home/6.jpg'/>" alt=""></a>
-									</div></th>
-								<td>
-								    <p class="goodname"><a href="#">DIOR迪奥魅惑染唇蜜</a></p>
-								    <p class="goodcolor">豆沙色&nbsp;#545451</p>
-									<p class="del">
-										<a href="#" class="delBtn"  data-toggle="modal"
-										data-target="#myModal" id="cid1">删除</a>
-									</p></td>
-								<td><p class="price">￥980</p></td>
-								<td>
-									<div class="amount_box">
-										<button class="reduce reSty btn" type="button" ">-</button>
-										<input type="text" value="1" class="sum" id="gnumber" disabled>
-										<button class="plus btn" type="button" >+</button>
-									</div>
-								</td>
-								<td><p class="sum_price">￥980</p></td>
-							</tr>
+						
+<c:forEach items="${cartItemList }" var="cartItem">
 							<tr class="order_lists" id="cid">
-								<th class="headth" scope="row"><input type="checkbox" value="cid2"
+								<th class="headth" scope="row"><input type="checkbox" value="${cartItem.cart.cid }"
 									class="son_check" name="cart" > <label for="checkbox_2"></label>
 								</th>
 								<th>
 									<div class="list_img">
-										<a href="#"><img
-											src="<c:url value='/img/user_home/6.jpg'/>" alt=""></a>
+										<img src="<c:url value='${cartItem.mainsrc }'/>" alt="">
 									</div></th>
-								<td><p class="goodname"><a href="#">DIOR迪奥魅惑染唇蜜</a></p>
-								    <p class="goodcolor">豆沙色&nbsp;#545451</p>
+								<td><p class="goodname">${cartItem.lname }</p>
+								    <p class="goodcolor">${cartItem.cncode }</p>
 									<p class="del">
 										<a href="#" class="delBtn" id="cid2">删除</a>
 									</p></td>
-								<td><p class="price">￥780</p></td>
+								<td><p class="price">￥${cartItem.gprice }</p></td>
 								<td>
 									<div class="amount_box">
 										<button class="reduce reSty btn" type="button" >-</button>
-										<input type="text" value="1" class="sum" disabled>
+										<input type="text" value="${cartItem.number }" class="sum" disabled>
 										<button class="plus btn" type="button" >+</button>
 									</div>
 								</td>
-								<td><p class="sum_price">￥780</p></td>
+								<td><p class="sum_price">￥${cartItem.totalprice }</p></td>
 							</tr>
+</c:forEach>
+							
 							<tr>
 							   <th rowspan="2" colspan="4" style="vertical-align: middle;padding: 0 0 0 50;font-size: 20px;font-weight: normal; ">订单总结</th>
 							   <td>商品价格</td>

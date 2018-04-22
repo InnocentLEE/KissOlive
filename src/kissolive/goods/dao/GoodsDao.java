@@ -40,6 +40,12 @@ public class GoodsDao {
 				Goods.class), lid);
 		return goodList;
 	}
+	public List<Goods> findByLid1(String lid) throws SQLException {
+		String sql = "SELECT * FROM tb_goods where lid=? and status=1 order by orderBy DESC";
+		List<Goods> goodList = qr.query(sql, new BeanListHandler<Goods>(
+				Goods.class), lid);
+		return goodList;
+	}
 
 	/**
 	 * 查找某个口红某个色号的商品

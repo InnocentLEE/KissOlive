@@ -56,8 +56,11 @@
 				<c:otherwise>
 					<div class="navbar-header">
 						<ul class="nav navbar-nav navbar-left ">
-							<li><a href="<c:url value=''/>" class="navbar-brand">${sessionScope.sessionUser.username }</a></li>
-							<li><a href="<c:url value='/servlet/UserServlet?method=quit'/>"
+							<li><a
+								href="<c:url value='/servlet/UserServlet?method=userInfo'/>"
+								class="navbar-brand">${sessionScope.sessionUser.username }</a></li>
+							<li><a
+								href="<c:url value='/servlet/UserServlet?method=quit'/>"
 								class="navbar-brand">[退出]</a></li>
 							<!-- 响应式布局按钮-下拉框 -->
 							<button type="button" class="navbar-toggle"
@@ -68,7 +71,7 @@
 					</div>
 					<div class="collapse navbar-collapse" id="navbar-collapse">
 						<ul class="nav navbar-nav navbar-right" style="margin: 0">
-							<li><a href="#"><span
+							<li><a href="<c:url value='/MainServlet?method=userCart'/>"><span
 									class="glyphicon glyphicon-shopping-cart">&nbsp;<span>我的购物车</span></span></a></li>
 							<li><a href="#"><span class="glyphicon glyphicon-list">&nbsp;<span>我的订单</span></span></a></li>
 						</ul>
@@ -81,23 +84,23 @@
 			<div class="header-logo row">
 				<div class="col-md-4 col-lg-4"></div>
 				<div class="col-md-4 col-lg-4">
-					<a href="index.jsp"><img src="<c:url value='/img/kissolive.png'/>"
-						class="icon-olive" /></a>
+					<a href="index.jsp"><img
+						src="<c:url value='/img/kissolive.png'/>" class="icon-olive" /></a>
 				</div>
 				<div class="col-md-4 col-lg-4">
 					<form action="/KissOlive/MainServlet" method="post">
-				    <input type="hidden" name="method" value="search" />
-					<div class="nav-search">
-						<div class="input-group">
-							<input type="text" class="form-control" name="search"
-								placeholder="Search for..."> <span
-								class="input-group-btn">
-								<button class="btn btn-default glyphicon glyphicon-search"
-									type="submit"></button>
-							</span>
+						<input type="hidden" name="method" value="search" />
+						<div class="nav-search">
+							<div class="input-group">
+								<input type="text" class="form-control" name="search"
+									placeholder="Search for..."> <span
+									class="input-group-btn">
+									<button class="btn btn-default glyphicon glyphicon-search"
+										type="submit"></button>
+								</span>
+							</div>
+							<!-- /input-group -->
 						</div>
-						<!-- /input-group -->
-					</div>
 					</form>
 				</div>
 			</div>
@@ -149,16 +152,21 @@
 						<div class="panel" style="zoom:1;">
 							<div class="panel-body">
 								<div class="push push-brand">
-									<a href="#"><img alt="" class="home_logo"
+									<a
+										href="<c:url value='/MainServlet?method=searchByBrand&bid=${recommendresult1.brand.bid }&bname=${recommendresult1.brand.bname }'/>"><img
+										alt="" class="home_logo"
 										src="<c:url value='${recommendresult1.brand.bsrc }'/>"></a>
 								</div>
 								<div class="push push-good">
 
-									<a href="#"><img alt="" class="home_good"
+									<a
+										href="<c:url value='/MainServlet?method=detailsLipstick&lid=${recommendresult1.lipstickpicture.lid }'/>"><img
+										alt="" class="home_good"
 										src="<c:url value='${recommendresult1.lipstickpicture.lpsrc }'/>" /></a>
 									<div class="push-text">
 										<a href="#">
-											<h4>${recommendresult1.lipstick.lname }</h4> <span class="push-variant"></span>
+											<h4>${recommendresult1.lipstick.lname }</h4> <span
+											class="push-variant"></span>
 										</a>
 									</div>
 								</div>
@@ -168,11 +176,16 @@
 					<div class="col col-md-4">
 						<div class="panel js-equal-height">
 							<div class="panel-body">
-								<figure> <a href="#"><img alt=""
-									class="home_series" src="<c:url value='${recommendresult1.series1.ssrc }'/>"></a>
-								<figcaption class="goods_text"> <a href="#">
+								<figure> <a
+									href="<c:url value='/MainServlet?method=searchBySeries&sid=${recommendresult1.series1.sid }&bid=${recommendresult1.brand.bid }&bname=${recommendresult1.brand.bname }'/>"><img
+									alt="" class="home_series"
+									src="<c:url value='${recommendresult1.series1.ssrc }'/>"></a>
+								<figcaption class="goods_text"> <a
+									href="<c:url value='/MainServlet?method=searchBySeries&sid=${recommendresult1.series1.sid }&bid=${recommendresult1.brand.bid }&bname=${recommendresult1.brand.bname }'/>">
 									<h5 class="push-suptitle">${recommendresult1.brand.bname }</h5>
-								</a> <a href="#"><h4 class="push-title">${recommendresult1.series1.sname }</h4></a> </figcaption> </figure>
+								</a> <a
+									href="<c:url value='/MainServlet?method=searchBySeries&sid=${recommendresult1.series1.sid }&bid=${recommendresult1.brand.bid }&bname=${recommendresult1.brand.bname }'/>"><h4
+										class="push-title">${recommendresult1.series1.sname }</h4></a> </figcaption> </figure>
 							</div>
 						</div>
 					</div>
@@ -180,10 +193,14 @@
 					<div class="col col-md-4">
 						<div class="panel js-equal-height">
 							<div class="panel-body">
-								<figure> <a href="#"><img alt=""
-									class="home_series" src="<c:url value='${recommendresult1.series2.ssrc }'/>"></a>
-								<figcaption class="goods_text"> <a href="#"><h5
-										class="push-suptitle">${recommendresult1.brand.bname }</h5></a> <a href="#"><h4
+								<figure> <a
+									href="<c:url value='/MainServlet?method=searchBySeries&sid=${recommendresult1.series2.sid }&bid=${recommendresult1.brand.bid }&bname=${recommendresult1.brand.bname }'/>"><img
+									alt="" class="home_series"
+									src="<c:url value='${recommendresult1.series2.ssrc }'/>"></a>
+								<figcaption class="goods_text"> <a
+									href="<c:url value='/MainServlet?method=searchBySeries&sid=${recommendresult1.series2.sid }&bid=${recommendresult1.brand.bid }&bname=${recommendresult1.brand.bname }'/>"><h5
+										class="push-suptitle">${recommendresult1.brand.bname }</h5></a> <a
+									href="<c:url value='/MainServlet?method=searchBySeries&sid=${recommendresult1.series2.sid }&bid=${recommendresult1.brand.bid }&bname=${recommendresult1.brand.bname }'/>"><h4
 										class="push-title">${recommendresult1.series2.sname }</h4></a> </figcaption> </figure>
 							</div>
 						</div>
@@ -197,16 +214,21 @@
 						<div class="panel" style="zoom:1;">
 							<div class="panel-body">
 								<div class="push push-brand">
-									<a href="#"><img alt="" class="home_logo"
+									<a
+										href="<c:url value='/MainServlet?method=searchByBrand&bid=${recommendresult2.brand.bid }&bname=${recommendresult2.brand.bname }'/>"><img
+										alt="" class="home_logo"
 										src="<c:url value='${recommendresult2.brand.bsrc }'/>"></a>
 								</div>
 								<div class="push push-good">
 
-									<a href="#"><img alt="" class="home_good"
+									<a
+										href="<c:url value='/MainServlet?method=detailsLipstick&lid=${recommendresult2.lipstickpicture.lid }'/>"><img
+										alt="" class="home_good"
 										src="<c:url value='${recommendresult2.lipstickpicture.lpsrc }'/>"></a>
 									<div class="push-text">
 										<a href="#">
-											<h4>${recommendresult2.lipstick.lname }</h4> <span class="push-variant"></span>
+											<h4>${recommendresult2.lipstick.lname }</h4> <span
+											class="push-variant"></span>
 										</a>
 									</div>
 								</div>
@@ -216,11 +238,16 @@
 					<div class="col col-md-4">
 						<div class="panel js-equal-height">
 							<div class="panel-body">
-								<figure> <a href="#"><img alt=""
-									class="home_series" src="<c:url value='${recommendresult2.series1.ssrc }'/>"></a>
-								<figcaption class="goods_text"> <a href="#">
+								<figure> <a
+									href="<c:url value='/MainServlet?method=searchBySeries&sid=${recommendresult2.series1.sid }&bid=${recommendresult2.brand.bid }&bname=${recommendresult2.brand.bname }'/>"><img
+									alt="" class="home_series"
+									src="<c:url value='${recommendresult2.series1.ssrc }'/>"></a>
+								<figcaption class="goods_text"> <a
+									href="<c:url value='/MainServlet?method=searchBySeries&sid=${recommendresult2.series1.sid }&bid=${recommendresult2.brand.bid }&bname=${recommendresult2.brand.bname }'/>">
 									<h5 class="push-suptitle">${recommendresult2.brand.bname }</h5>
-								</a> <a href="#"><h4 class="push-title">${recommendresult2.series1.sname }</h4></a> </figcaption> </figure>
+								</a> <a
+									href="<c:url value='/MainServlet?method=searchBySeries&sid=${recommendresult2.series1.sid }&bid=${recommendresult2.brand.bid }&bname=${recommendresult2.brand.bname }'/>"><h4
+										class="push-title">${recommendresult2.series1.sname }</h4></a> </figcaption> </figure>
 							</div>
 						</div>
 					</div>
@@ -228,10 +255,14 @@
 					<div class="col col-md-4">
 						<div class="panel js-equal-height">
 							<div class="panel-body">
-								<figure> <a href="#"><img alt=""
-									class="home_series" src="<c:url value='${recommendresult2.series2.ssrc }'/>"></a>
-								<figcaption class="goods_text"> <a href="#"><h5
-										class="push-suptitle">${recommendresult2.brand.bname }</h5></a> <a href="#"><h4
+								<figure> <a
+									href="<c:url value='/MainServlet?method=searchBySeries&sid=${recommendresult2.series2.sid }&bid=${recommendresult2.brand.bid }&bname=${recommendresult2.brand.bname }'/>"><img
+									alt="" class="home_series"
+									src="<c:url value='${recommendresult2.series2.ssrc }'/>"></a>
+								<figcaption class="goods_text"> <a
+									href="<c:url value='/MainServlet?method=searchBySeries&sid=${recommendresult2.series2.sid }&bid=${recommendresult2.brand.bid }&bname=${recommendresult2.brand.bname }'/>"><h5
+										class="push-suptitle">${recommendresult2.brand.bname }</h5></a> <a
+									href="<c:url value='/MainServlet?method=searchBySeries&sid=${recommendresult2.series2.sid }&bid=${recommendresult2.brand.bid }&bname=${recommendresult2.brand.bname }'/>"><h4
 										class="push-title">${recommendresult2.series2.sname }</h4></a> </figcaption> </figure>
 							</div>
 						</div>
@@ -255,9 +286,10 @@
 			</div>
 			<div class="col-md-9">
 				<ul style="display:flex">
-<c:forEach items="${brandList }" var="brand">
-					<li class="branditem" ><a href="<c:url value='/MainServlet?method=searchByBrand&bid=${brand.bid }&bname=${brand.bname }'/>">${brand.bname }</a></li>
-</c:forEach>
+					<c:forEach items="${brandList }" var="brand">
+						<li class="branditem"><a
+							href="<c:url value='/MainServlet?method=searchByBrand&bid=${brand.bid }&bname=${brand.bname }'/>">${brand.bname }</a></li>
+					</c:forEach>
 				</ul>
 			</div>
 		</div>

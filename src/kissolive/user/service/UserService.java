@@ -72,4 +72,11 @@ public class UserService {
 			throw new RuntimeException(e);
 		}
 	}
+	public void updateUsername(String userid,String username){
+		try {
+			userDao.updateUsername(userid, username);
+		} catch (SQLException e) {
+			throw new RuntimeException(e);
+		}
+	}
 }

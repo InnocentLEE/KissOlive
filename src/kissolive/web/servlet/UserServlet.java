@@ -3,6 +3,7 @@ package kissolive.web.servlet;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import javax.servlet.ServletException;
@@ -70,7 +71,6 @@ public class UserServlet extends BaseServlet {
 		userService.regist(user);
 
 		// 添加收货地址并设置为默认收货地址
-		AddressService addressService = new AddressService();
 		Address address = new Address(CommonUtils.uuid(), user.getUserid(), province, 1,
 				city, district, detail, name, tel);
 		addressService.addAddress(address);
@@ -306,5 +306,66 @@ public class UserServlet extends BaseServlet {
 			throws ServletException, IOException {
 		req.getSession().invalidate();
 		return "r:/index.jsp";
+	}
+	/**
+	 * 获取个人资料
+	 * @param req
+	 * @param resp
+	 * @return
+	 * @throws ServletException
+	 * @throws IOException
+	 * @throws SQLException
+	 */
+	public String userInfo(HttpServletRequest req,
+			HttpServletResponse resp) throws ServletException, IOException,
+			SQLException {
+		User user = (User)req.getSession().getAttribute("sessionUser");
+		String userid = user.getUserid();
+		List<Address> addressList = addressService.findByUser(userid);
+		String username = user.getUsername();
+		String usertel = user.getUsertel();
+		req.setAttribute("username", username);
+		req.setAttribute("usertel", usertel);
+		req.setAttribute("addressList", addressList);
+		return "f:/page/user/userinfo.jsp";
+	}
+	/**
+	 * 修改用户名
+	 * @param req
+	 * @param resp
+	 * @return
+	 * @throws ServletException
+	 * @throws IOException
+	 * @throws SQLException
+	 */
+	public String updateUsername(HttpServletRequest req,
+			HttpServletResponse resp) throws ServletException, IOException,
+			SQLException {
+		User user = (User)req.getSession().getAttribute("sessionUser");
+		String username = req.getParameter("username");
+		String userid = user.getUserid();
+		if(username==null||username.equals("")){
+			username = " ";
+		}
+		userService.updateUsername(userid, username);
+		req.getSession().invalidate();
+		user.setUsername(username);
+		req.getSession().setAttribute("sessionUser", user);
+		return this.userInfo(req , resp);
+	}
+	public String addAddress(HttpServletRequest req,
+			HttpServletResponse resp) throws ServletException, IOException,
+			SQLException {
+		User user = (User)req.getSession().getAttribute("sessionUser");
+		String province = req.getParameter("province");
+		String city = req.getParameter("city");
+		String district = req.getParameter("district");
+		String detail = req.getParameter("detail");
+		String name = req.getParameter("name");
+		String tel = req.getParameter("tel");
+		Address address = new Address(CommonUtils.uuid(), user.getUserid(), province, 1,
+				city, district, detail, name, tel);
+		addressService.addAddress(address);
+		return this.userInfo(req , resp);
 	}
 }

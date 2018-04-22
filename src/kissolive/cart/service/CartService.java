@@ -1,6 +1,7 @@
 package kissolive.cart.service;
 
 import java.sql.SQLException;
+import java.util.List;
 
 import kissolive.cart.dao.CartDao;
 import kissolive.cart.domain.Cart;
@@ -25,7 +26,21 @@ public class CartService {
 		try {
 			cartDao.update(userid, cid, number);
 		} catch (SQLException e) {
-			throw new RuntimeException();
+			throw new RuntimeException(e);
+		}
+	}
+	public List<Cart> findByUserid(String userid){
+		try {
+			return cartDao.findByUserid(userid);
+		} catch (SQLException e) {
+			throw new RuntimeException(e);
+		}
+	}
+	public Cart findByCid(String cid){
+		try {
+			return cartDao.findByCid(cid);
+		} catch (SQLException e) {
+			throw new RuntimeException(e);
 		}
 	}
 }

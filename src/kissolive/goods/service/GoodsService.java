@@ -16,6 +16,20 @@ public class GoodsService {
 			throw new RuntimeException();
 		}
 	}
+	public Goods findByGid(String gid){
+		try {
+			return goodsDao.findByGid(gid);
+		} catch (SQLException e) {
+			throw new RuntimeException();
+		}
+	}
+	public List<Goods> findByLid1(String lid){
+		try {
+			return goodsDao.findByLid1(lid);
+		} catch (SQLException e) {
+			throw new RuntimeException();
+		}
+	}
 	public List<Goods> findByCnid(String cnid){
 		try {
 			return goodsDao.findByCnid(cnid);

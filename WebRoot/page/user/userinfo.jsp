@@ -87,14 +87,15 @@
 	<div class="part1">
 		<div class="pp">
 		    <div class="qq">
-		    <p>用户名：178****3448</p>
+		    <p>用户名：${username }</p>
 			<button class="btn btn-link update" type="button">修改</button>
 		    </div>
 			
 			<!-- 修改用户名  -->
 			<div class="editname" style="display:none">
-			<form  class="edit1" action="#" method="post">
-			    用户名：<input class="edit-name form-control" id="username"/>
+			<form  class="edit1" action="/KissOlive/servlet/UserServlet" method="post">
+			<input type="hidden" name="method" value="updateUsername">
+			    用户名：<input class="edit-name form-control" id="username" name="username"/>
 			    <button class="btn save" type="submit">保存</button>
 			</form>
 			</div>
@@ -102,39 +103,35 @@
 			
 		</div>
 		<div class="pp">
-			<p>绑定手机号：178****3448</p>
+			<p>绑定手机号：${usertel }</p>
 		</div>
 	</div>
 	<div class="part2">
 		<p id="pick">收货地址</p>
-		<div  class="addr">
-		<ul>
-					   <li>收件人：那隻貓</li>
-					   <li>联系方式：17876253479</li>
-					   <li>收货地址：广东省肇庆市端州区肇庆学院</li>
-					    </ul>
-					</div>
+<c:forEach items="${addressList }" var="address">
 					<div  class="addr">
 					<ul>
-					   <li>收件人：那隻貓</li>
-					   <li>联系方式：17876253479</li>
-					   <li>收货地址：广东省肇庆市端州区肇庆学院</li>
-					  </ul>
+					   <li>收件人：${address.name }</li>
+					   <li>联系方式：${address.tel }</li>
+					   <li>收货地址：${address.province }${address.city }${address.district }${address.detail }</li>
+					    </ul>
 					</div>
+</c:forEach>
 					<div class="btn_add_addr"><button class="add_addr" type="button">新增地址</button><div class="clearfix"></div></div>
 					
 					
 					<!-- 新增地址div -->
 					<div class="div_add_addr" style="display:none">
-					 <form action="#">
+					 <form action="/KissOlive/servlet/UserServlet">
+					 <input type="hidden" name="method" value="addAddress">
 					   <ul class="addr add">
 					   <li>收件人：
-					   <input type="text" id="name" class="form-control inputClass "placeholder="请输入收件人姓名"/>
+					   <input type="text" id="name" name="name" class="form-control inputClass "placeholder="请输入收件人姓名"/>
 					   <label class="errorClass" id="nameError" ></label>
 				       <label class="correctClass" id="nameCorrect"></label>
 					   </li>
 					   <li>联系方式：
-					   <input type="text" id="tel" class="form-control inputClass "placeholder="请输入联系方式"/>
+					   <input type="text" id="tel" name="tel" class="form-control inputClass "placeholder="请输入联系方式"/>
 					   <label class="errorClass" id="telError" ></label>
 				       <label class="correctClass" id="telCorrect"></label>
 					   </li>
