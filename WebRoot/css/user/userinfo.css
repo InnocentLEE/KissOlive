@@ -1,0 +1,120 @@
+.line {
+    width: 90%;
+    height: 37;
+    border-bottom-color: #000;
+    border-bottom: 1px solid #000;
+    margin: 30 auto;
+}
+span.header {
+    padding: 15 30;
+    background: #000;
+    font-size: 17px;
+    color: #fff;
+    font-weight: bold;
+}
+.pp {
+    margin: 40 200 20 200;
+    width: fit-content;
+    font-size: 18px;
+    font-weight: bold;
+    display: flex;
+}
+div.pp>button.btn.btn-link {
+    padding-top: 0;
+    font-size: 18px;
+    padding-bottom: 3px;
+    margin-left: 30;
+    margin-top: -10;
+}
+p#pick {
+    font-size: 18px;
+    color: #000;
+    font-weight: bold;
+    margin-left: 80;
+    margin-top: 30;
+    border-bottom: 1px solid #000c;
+    width: 28%;
+}
+/*新增地址*/
+div.addr{
+    display: flex;
+    height: 200;
+    border: 1px solid #ccc;
+    margin: 40 70 20 80;
+}
+ul.addr{
+    display: flex;
+    height: 100;
+    padding: 30 40 30 40;
+    vertical-align: middle;
+    line-height: 3;
+    border: 1px solid #ccc;
+    margin: 40 70 20 80;
+}
+button.add_addr{
+    margin: 20 0 50 0;
+    float: right;
+}
+button.save_addr {
+    margin: 10 50 50 0;
+    float: right;
+}
+ul.addr.add {
+    height: 200;
+    border: none;
+}
+.div_add_addr {
+    height: auto;
+    border: 1px solid #ccc;
+    margin-bottom: 80;
+    margin-left: 50;
+}
+ul.addr>li{
+	    padding: 0 25 0 15;
+}
+input#name,#tel{
+    width: 200px;
+}
+input#detail {
+	width:600px;
+}
+select#province, .city, .dist {
+    width: 100;
+    height: 32;
+}
+button.edit, button.setdefault {
+    width: 100px;
+    height: 30px;
+    color: #fff;
+    font-weight: bold;
+    background: #000;
+    border: none;
+    margin: 0 20;
+}
+/*新建地址验证*/
+label#nameError,#telError,#detailError {
+    color: red;
+}
+label#nameCorrect,#telCorrect,#detailCorrect {
+    color: green;
+}
+/*主元素*/
+button.add_addr,button.save_addr{
+	 text-align: center;
+    padding: 8;
+    border: none;
+    width: 150;
+    height: 40px;
+    margin: 0 70 0 20;
+    background: #000;
+    color: #fff;
+    font-weight: bolder;
+    font-size: 20;
+}
+div.addr>ul>li {
+    margin: 20 0;
+}
+li#rr {
+    /* float: right; */
+    margin: 0 0 0 800;
+}

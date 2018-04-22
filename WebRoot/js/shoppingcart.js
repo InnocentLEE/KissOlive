@@ -65,7 +65,7 @@ $(function () {
 	       // console.log($count);
            
             //数量变化ajax
-	       /* $.ajax({
+	        /*$.ajax({
 	    		url:"/KissOlive/MainServlet",//要请求的servlet
 	    		data:{method:"ajaxAddCart", number:$count , gid:$gid},//给服务器的参数
 	    		type:"POST",
@@ -158,15 +158,6 @@ $(function () {
 
         // console.log(total_money,total_count);
 
-       /* if(total_money!=0 && total_count!=0){
-            if(!calBtn.hasClass('btn_sty')){
-                calBtn.addClass('btn_sty');
-            }
-        }else{
-            if(calBtn.hasClass('btn_sty')){
-                calBtn.removeClass('btn_sty');
-            }
-        }*/
     }
 });
 $(document).ready(function(){
@@ -177,73 +168,23 @@ $(document).ready(function(){
     	$(".son_check").each(function() { //遍历每个元素
     		if($('.son_check').is(':checked')) {
     		    // 如果该商品被选中
-    			judge = 1;
-    			var cid = $(this).attr("id");
-    			
-    			 $.ajax({
-    		    		url:"/KissOlive/MainServlet",//要请求的servlet
-    		    		data:{method:"ajaxAddCart", cid:cid},//给服务器的参数
-    		    		type:"POST",
-    		    		dataType:"json",
-    		    		async:false,//是否异步请求，如果是异步，那么不会等服务器返回，这个函数就向下运行了。
-    		    		cache:false,
-    		    		success:function(result) {
-    		    			if(!result) {//如果校验失败
-    		    				alert("购买失败，请重试！！");
-    		    				return false;
-    		    			}
-    		    		
-    		    		}
-    		    	});
-    			
-    		}
+    			judge = 1;}
     	});
-        if(judge==0)
+    	if(judge==0)
         	alert("您未选中任何商品，请选择商品再点击购买！！");
-        else{
-        	$("#step1").removeClass("active in");
-			$("#step2").addClass("active in");
-			 for(var i=1;i<2;i++){
-	               $("#step"+i+"Li").addClass("gray").removeClass("active black");
-	            }
-	            for(var i=3;i<=3;i++){
-	                $("#step"+i+"Li").addClass("gray").removeClass("active black");
-	            }
-	        $("#step"+2+"Li").addClass("active black").removeClass("gray");
-	       
-        }
-    	});
+      
+	    
+    });
 	
 	//点击支付成功触发函数
 	$(".surepay").click(function (){
 		  $('#codeModal').modal('hide');
-		  $("#step2").removeClass("active in");
-		  $("#step3").addClass("active in");
-		   for(var i=1;i<3;i++){
-	           $("#step"+i+"Li").addClass("gray").removeClass("active black");
-	        }
-	      $("#step"+3+"Li").addClass("active black").removeClass("gray");
-	   
+		 
 	});
 	
 
 });
 	    
-    /*选项卡实现流程步骤样式事件操作*/
-	   /* 
-	    var eventFun={
-	        setStep:function(index){
-	        	
-	           for(var i=1;i<index;i++){
-	               // $("#step"+i+"Li").addClass("black").removeClass("gray");
-	               $("#step"+i+"Li").addClass("gray").removeClass("black");
-	            }
-	            for(var i=index+1;i<=3;i++){
-	                $("#step"+i+"Li").addClass("gray").removeClass("black");
-	            }
-	            $("#step"+index+"Li").addClass("black").removeClass("gray");
-	        }
-	    }*/
-	    
+   
 	  
 	   
