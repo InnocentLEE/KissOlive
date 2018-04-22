@@ -89,10 +89,9 @@ public class GoodsDao {
 	 * @param goods
 	 * @throws SQLException
 	 */
-	public void update(Goods goods) throws SQLException {
-		String sql = "UPDATE tb_goods SET lid=?, cnid=?, gprice=?, gnumber=?, status=? WHERE gid=?";
-		Object[] params = { goods.getLid(), goods.getCnid(), goods.getGprice(),
-				goods.getGnumber(), goods.getStatus(), goods.getGid() };
+	public void update(String gid,int gnumber,double gprice) throws SQLException {
+		String sql = "UPDATE tb_goods SET gprice=?, gnumber=? WHERE gid=?";
+		Object[] params = { gprice,gnumber,gid };
 		qr.update(sql, params);
 	}
 
