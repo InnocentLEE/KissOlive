@@ -17,7 +17,7 @@ span.header {
     width: fit-content;
     font-size: 18px;
     font-weight: bold;
-    display: flex;
+    /*display: flex;*/
 }
 div.pp>button.btn.btn-link {
     padding-top: 0;
@@ -63,12 +63,6 @@ ul.addr.add {
     height: 200;
     border: none;
 }
-.div_add_addr {
-    height: auto;
-    border: 1px solid #ccc;
-    margin-bottom: 80;
-    margin-left: 50;
-}
 ul.addr>li{
 	    padding: 0 25 0 15;
 }
@@ -91,6 +85,34 @@ button.edit, button.setdefault {
     border: none;
     margin: 0 20;
 }
+button.btn.btn-link.update {
+    float: left;
+    margin: -43px 0px 0px 190px;
+    font-size: 18px;
+}
+input#username {
+    padding-top: 0;
+    margin-top: -5;
+    margin-right: 30;
+    width:200px;
+}
+form.edit1 {
+    display: flex;
+    width: 500;
+}
+button.btn.save {
+    margin: -5px 0 0 0;
+    padding: 0 12;
+    width: 80px;
+    height: 32px;
+}
+.div_add_addr, .div_edit_addr {
+    height: auto;
+    border: 1px solid #ccc;
+    margin-bottom: 80;
+    margin-left: 75px;
+    margin-right: 70px;
+}
 /*新建地址验证*/
 label#nameError,#telError,#detailError {
     color: red;
@@ -105,7 +127,7 @@ button.add_addr,button.save_addr{
     border: none;
     width: 150;
     height: 40px;
-    margin: 0 70 0 20;
+    margin: 30 70 50px 20;
     background: #000;
     color: #fff;
     font-weight: bolder;
@@ -117,4 +139,8 @@ div.addr>ul>li {
 li#rr {
     /* float: right; */
     margin: 0 0 0 800;
+}
+ul.addr.add.edit {
+    margin: 0;
+    width: 920px;
 }
