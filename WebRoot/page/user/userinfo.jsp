@@ -112,16 +112,14 @@
 					   <li>收件人：那隻貓</li>
 					   <li>联系方式：17876253479</li>
 					   <li>收货地址：广东省肇庆市端州区肇庆学院</li>
-					   <li id="rr"><!-- <button class="setdefault" type="button">设置默认地址</button> --><button type="button" class="edit">编辑</button></li>
-					</ul>
+					    </ul>
 					</div>
 					<div  class="addr">
 					<ul>
 					   <li>收件人：那隻貓</li>
 					   <li>联系方式：17876253479</li>
 					   <li>收货地址：广东省肇庆市端州区肇庆学院</li>
-					   <li id="rr"><!-- <button class="setdefault">设置默认地址</button> --><button type="button" class="edit">编辑</button></li>
-					</ul>
+					  </ul>
 					</div>
 					<div class="btn_add_addr"><button class="add_addr" type="button">新增地址</button><div class="clearfix"></div></div>
 					
@@ -156,69 +154,6 @@
 					 </form>
 					</div>
 					<!-- 新增地址div -->
-					
-					
-					<!-- 编辑地址模态框  -->
-					<div class="modal fade" id="addrModal" tabindex="-1" role="dialog"
-									aria-labelledby="myModalLabel">
-									<div class="modal-dialog" role="document" 
-									     style="margin: 200 auto; width: fit-content;">
-									     <form action="#">
-										<div class="modal-content" style="width:fit-content">
-											<div class="modal-header" style="height:30px">
-											    <p>编辑地址</p>
-												<button type="button" class="close" data-dismiss="modal"
-													aria-label="Close">
-													<span aria-hidden="true">&times;</span>
-												</button>
-											</div>
-											<!-- end of modal-header -->
-											<div class="modal-body code">
-												<div>
-												   <ul class="addr add edit">
-												   <li>收件人：
-												   <input type="text" id="name" class="form-control inputClass "placeholder="请输入收件人姓名"/>
-												   <label class="errorClass" id="nameError" ></label>
-											       <label class="correctClass" id="nameCorrect"></label>
-												   </li>
-												   <li>联系方式：
-												   <input type="text" id="tel" class="form-control inputClass "placeholder="请输入联系方式"/>
-												   <label class="errorClass" id="telError" ></label>
-											       <label class="correctClass" id="telCorrect"></label>
-												   </li>
-												   <li>收货地址： <div  id="city">
-														        <select class="prov" id="province" name="province"></select> 		
-																<select class="city" id="city" name="city" disabled="disabled"></select>
-																<select class="dist" id="district" name="district" disabled="disabled"></select>			
-											                    </div>
-											       </li>
-											       <li>详细地址： 
-											       <input type="text" class="inputClass form-control "  id="detail" name="detail" placeholder="请输入详细地址" />
-											       <label class="errorClass" id="detailError" ></label>
-											       <label class="correctClass" id="detailCorrect"></label>
-											       </li>
-												   </ul>
-												</div>
-											</div>
-											<!-- end of modal-body -->
-											<div class="modal-footer">
-												<button type="button" class="btn btn-primary"
-													data-dismiss="modal" id="cancel">取消</button>
-												<button type="submit" class="btn btn-primary sure" data-toggle="modal" data-target="#addrModal">确定</button>
-											</div>
-											<!-- end of modal-footer -->
-										</div>
-										<!-- end of modal-content -->
-										</form>
-									</div>
-									<!-- end of modal-dialog -->
-								</div>
-								<!-- end of modal fade -->
-								<!-- End of Modal -->
-					
-					<!-- 编辑地址模态框  -->
-				    
-					
 	</div>
 	</div>
 	<!-- end of 内容 -->
@@ -298,8 +233,23 @@
 
 	<script type="text/javascript" src="<c:url value='/js/jquery.js'/>"></script>
 	<script src="<c:url value='/js/bootstrap.min.js'/>"></script>
+	<script type="text/javascript" src="<c:url value='/js/jquery.cityselect.js'/>"></script>
+	<script type="text/javascript" src="<c:url value='/js/valid.js'/>"></script>
 	
 	<script type="text/javascript">
+	  $(function(){
+			
+			$("#city").citySelect({
+				prov:"广东",
+				city:"肇庆",
+				dist:"端州区",
+				nodata:"none"
+			});
+			 
+	  });
+	
+   
+	  
 		$(".add_addr").click(function(){
 		    $(".div_add_addr").slideToggle();
 		  });
