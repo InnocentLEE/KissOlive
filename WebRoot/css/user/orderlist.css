@@ -3,11 +3,11 @@ ul#myTab {
     border-bottom: 1px solid #000;
     margin: 0 65;
 }
-li#step1Li, #step2Li, #step3Li,#step4Li{
+li#step1Li, #step2Li, #step3Li,#step4Li,#step5Li{
     /* color: #fff; */
     margin: 0 30 0 0;
 }
-li#step1Li, #step2Li, #step3Li,#step4Li>a {
+li#step1Li, #step2Li, #step3Li, #step4Li>a, #step5Li>a {
     background-color: #555;
     color: #fff;
     font-size: 16px;
@@ -36,7 +36,7 @@ div.line>span.header {
     height: 30;
     color: #fff;
     display: grid;
-    grid-template-columns: 435px 310 1fr;
+    grid-template-columns: 435px 390 300;
     font-size: 20px;
     text-align: center;
     font-family: fantasy;
@@ -65,7 +65,8 @@ button.btn.defalut {
 table.table.table-striped {
     margin-bottom: 10px;
 }
-.nav-tabs>li.active>a, .nav-tabs>li.active>a:focus, .nav-tabs>li.active>a:hover,.nav-tabs>li#step4Li.active>a:hover {
+.nav-tabs>li.active>a, .nav-tabs>li.active>a:focus, 
+.nav-tabs>li.active>a:hover,.nav-tabs>li#step4Li.active>a:hover{
     font-weight: bold;
     color: #f2dede;
     cursor: default;
@@ -81,11 +82,20 @@ table.table.table-striped {
     background: #555;
     color: #fff;
 }
-li#step4Li {
+li#step4Li,#step5Li {
     height: 42px;
 }
-li#step4Li>a {
-    height: 45px;
+li#step4Li>a, li#step5Li>a {
+    height: 44px;
     padding: 8;
     /* margin: auto 0; */
+}
+.nav-tabs>li#step5Li.active>a:hover 
+{
+	  font-weight: bold;
+    color: #f2dede;
+    cursor: default;
+    background-color: #080808;
+    border: 1px solid #080808;
+    border-bottom-color: transparent;
 }
