@@ -18,21 +18,21 @@ public class ShufflingService {
 				return resultList.subList(0, 5);
 			}
 		} catch (SQLException e) {
-			throw new RuntimeException();
+			throw new RuntimeException(e);
 		}
 	}
 	public Shuffling findByOrderBy(int orderBy){
 		try {
 			return shufflingDao.findByOrderBy(orderBy);
 		} catch (SQLException e) {
-			throw new RuntimeException();
+			throw new RuntimeException(e);
 		}
 	}
 	public void update(String src,int orderBy){
 		try {
 			shufflingDao.update(src, orderBy);
 		} catch (SQLException e) {
-			throw new RuntimeException();
+			throw new RuntimeException(e);
 		}
 	}
 }

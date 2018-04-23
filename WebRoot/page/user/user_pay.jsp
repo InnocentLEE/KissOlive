@@ -97,24 +97,32 @@
 
 			<div id="myTabContent" class="tab-content">
 				<!-- 订单提交页面 -->
-				<form id="myForm" action="#">
+				<form id="myForm" action="MainServlet">
+				<input type="hidden" name="method" value="createOrder">
 				<div id="step2" class="tab-pane fade active in">
 				    <div class="titleborder">
 					<label class="labelhead">支付及物流</label>
 					</div>
-					<ul class="addr">
-					   <li><input type="radio" name="selectaddr" id="add1" checked></li>
-					   <li>收件人：那隻貓</li>
-					   <li>联系方式：17876253479</li>
-					   <li>收货地址：广东省肇庆市端州区肇庆学院</li>
+<c:forEach items="${addressList }" var="address" varStatus="index">
+	<c:choose>
+	<c:when test="${index.count < 2 }">
+				<ul class="addr">
+					   <li><input type="radio" value="${address.aid }" name="selectaddr" id="add1" checked></li>
+					   <li>收件人：${address.name }</li>
+					   <li>联系方式：${address.tel }</li>
+					   <li>收货地址：${address.province }${address.city }${address.district }${address.detail }</li>
 					</ul>
+	</c:when>
+	<c:otherwise>
 					<ul class="addr">
-					   <li><input type="radio" name="selectaddr" id="add2"></li>
-					   <li>收件人：那隻貓</li>
-					   <li>联系方式：17876253479</li>
-					   <li>收货地址：广东省肇庆市端州区肇庆学院</li>
+					   <li><input type="radio" value="${address.aid }" name="selectaddr" id="add2"></li>
+					   <li>收件人：${address.name }</li>
+					   <li>联系方式：${address.tel }</li>
+					   <li>收货地址：${address.province }${address.city }${address.district }${address.detail }</li>
 					</ul>
-			
+	</c:otherwise>
+	</c:choose>
+</c:forEach>
 					<table class="table">
 						<thead>
 							<tr>
@@ -126,49 +134,33 @@
 							</tr>
 						</thead>
 						<tbody>
-							<tr class="order_lists"> <!-- 每一个orderlist就是一个购物车商品 -->
+	<c:forEach items="${cartItemList }" var="cartItem">
+						<tr class="order_lists"> <!-- 每一个orderlist就是一个购物车商品 -->
 								<th>
 									<div class="list_img">
-										<a href="#"><img
-											src="<c:url value='/img/user_home/6.jpg'/>" alt=""></a>
+										<img
+											src="<c:url value='${cartItem.mainsrc }'/>" alt="">
 									</div></th>
 								<td>
-								    <p class="goodname"><a href="#">DIOR迪奥魅惑染唇蜜</a></p>
-								    <p class="goodcolor">豆沙色&nbsp;#545451</p>
+								    <p class="goodname">${cartItem.lname }</p>
+								    <p class="goodcolor">${cartItem.cncode }</p>
 									</td>
-								<td><p class="price">￥980</p></td>
+								<td><p class="price">￥${cartItem.gprice }</p></td>
 								<td>
 									<div class="amount_box">
 										<button class="reduce reSty btn" disabled>-</button>
-										<input type="text" value="1" class="sum" id="gnumber" disabled>
+										<input type="text" value="${cartItem.number }" class="sum" id="gnumber" disabled>
 										<button class="plus btn" disabled>+</button>
 									</div>
 								</td>
-								<td><p class="order-sum_price">￥980</p></td>
-							</tr>
-							<tr class="order_lists" id="cid">
-								<th>
-									<div class="list_img">
-										<a href="#"><img
-											src="<c:url value='/img/user_home/6.jpg'/>" alt=""></a>
-									</div></th>
-								<td><p class="goodname"><a href="#">DIOR迪奥魅惑染唇蜜</a></p>
-								    <p class="goodcolor">豆沙色&nbsp;#545451</p>
-									</td>
-								<td><p class="price">￥780</p></td>
-								<td>
-									<div class="amount_box">
-										<button class="reduce reSty btn" disabled>-</button>
-										<input type="text" value="1" class="sum" disabled>
-										<button class="plus btn" disabled>+</button>
-									</div>
-								</td>
-								<td><p class="order-sum_price">￥780</p></td>
-							</tr>
+								<td><p class="order-sum_price">￥${cartItem.totalprice }</p></td>
+						</tr>
+						<input type="hidden" name="cid" value=${cartItem.cart.cid }>
+	</c:forEach>					
 							<tr>
 							   <th rowspan="2" colspan="3" style="vertical-align: middle;padding: 0 0 0 50;font-size: 20px;font-weight: normal; ">订单总结</th>
 							   <td>商品价格</td>
-							   <td><strong class="order-total_text">0.00</strong></td>
+							   <td><strong class="order-total_text">${ttprice }</strong></td>
 							</tr>
 							<tr>
 							   <td>运费</td>
@@ -181,7 +173,7 @@
 								</td>
 								<td>
 									<div class="piece">
-										<strong class="order-piece_num">0</strong>件
+										<strong class="order-piece_num">${totalNumber }</strong>件
 									</div>
 								</td>
 							</tr>
@@ -192,7 +184,7 @@
 								</td>
 								<td >
 									<div class="totalMoney">
-										<strong class="order-total_text">0.00</strong>
+										<strong class="order-total_text">${ttprice }</strong>
 									</div>
 								</td>
 							</tr>
@@ -201,7 +193,8 @@
 								<td colspan="2">
 								   <button style="color: #fff;" class="buyBtn"  id="surecid" onclick="judge();">确定支付</button>
 							    </td>
-							  <tr>
+							</tr>
+					</tbody>
 					</table>
 				</div>
 			  <!-- 订单提交页面 -->

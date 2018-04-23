@@ -238,3 +238,9 @@ button.vieworder {
 div.successtext>a {
     font-size: 20;
 }
+.list_img {
+    width: 300px;
+}
+.list_img>img {
+    width: 300px;
+}

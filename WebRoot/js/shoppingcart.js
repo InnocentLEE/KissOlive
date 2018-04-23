@@ -55,19 +55,19 @@ $(function () {
         $all_sum = $('.sum');
     $plus.click(function () {
         var $inputVal = $(this).prev('input'),
-            $count = parseDouble($inputVal.val())+1,
+            $count = parseFloat($inputVal.val())+1,
             $obj = $(this).parents('.amount_box').find('.reduce'),
             $priceTotalObj = $(this).parents('.order_lists').find('.sum_price'),
             $price = $(this).parents('.order_lists').find('.price').html(),  //单价
-            $priceTotal = $count*parseDouble($price.substring(1));
-            $gid =$("input[type='hidden']").attr("value");
+            $priceTotal = $count*parseFloat($price.substring(1));
+            $cid =$(this).attr("id");
             $inputVal.val($count);
 	       // console.log($count);
            
             //数量变化ajax
-	        /*$.ajax({
+	        $.ajax({
 	    		url:"/KissOlive/MainServlet",//要请求的servlet
-	    		data:{method:"ajaxAddCart", number:$count , gid:$gid},//给服务器的参数
+	    		data:{method:"ajaxUpdateCart", number:$count , cid:$cid},//给服务器的参数
 	    		type:"POST",
 	    		dataType:"json",
 	    		async:false,//是否异步请求，如果是异步，那么不会等服务器返回，这个函数就向下运行了。
@@ -78,8 +78,8 @@ $(function () {
 	    				return false;
 	    			}
 	    		}
-	    	});*/
-        
+	    	});
+            $priceTotal = $priceTotal.toFixed(2);
         $priceTotalObj.html('￥'+$priceTotal);
         if($inputVal.val()>1 && $obj.hasClass('reSty')){
             $obj.removeClass('reSty');
@@ -89,20 +89,20 @@ $(function () {
 
     $reduce.click(function () {
         var $inputVal = $(this).next('input'),
-            $count = parseDouble($inputVal.val())-1,
+            $count = parseFloat($inputVal.val())-1,
             $priceTotalObj = $(this).parents('.order_lists').find('.sum_price'),
             $price = $(this).parents('.order_lists').find('.price').html(),  //单价
-            $priceTotal = $count*parseDouble($price.substring(1));
-            $gid =$("input[type='hidden']").attr("value");
+            $priceTotal = $count*parseFloat($price.substring(1));
+            $cid =$(this).attr("id");
            
         if($inputVal.val()>1){
             $inputVal.val($count);
            // console.log($count);
            
             //数量变化ajax
-            /*$.ajax({
+            $.ajax({
 	    		url:"/KissOlive/MainServlet",//要请求的servlet
-	    		data:{method:"ajaxAddCart", number:$count , gid:$gid},//给服务器的参数
+	    		data:{method:"ajaxUpdateCart", number:$count , cid:$cid},//给服务器的参数
 	    		type:"POST",
 	    		dataType:"json",
 	    		async:false,//是否异步请求，如果是异步，那么不会等服务器返回，这个函数就向下运行了。
@@ -113,8 +113,8 @@ $(function () {
 	    				return false;
 	    			}
 	    		}
-	    	});*/
-            
+	    	});
+            $priceTotal = $priceTotal.toFixed(2);
             $priceTotalObj.html('￥'+$priceTotal);
         }
         if($inputVal.val()==1 && !$(this).hasClass('reSty')){
@@ -133,8 +133,9 @@ $(function () {
         }
         $(this).val($(this).val().replace(/\D|^0/g,''));
         $count = $(this).val();
-        $priceTotal = $count*parseDouble($price.substring(1));
+        $priceTotal = $count*parseFloat($price.substring(1));
         $(this).attr('value',$count);
+        $priceTotal = $priceTotal.toFixed(2);
         $priceTotalObj.html('￥'+$priceTotal);
         totalMoney();
     })
@@ -147,12 +148,14 @@ $(function () {
         var calBtn = $('.calBtn a');
         $sonCheckBox.each(function () {
             if ($(this).is(':checked')) {
-                var goods = parseDouble($(this).parents('.order_lists').find('.sum_price').html().substring(1));
-                var num =  parseDouble($(this).parents('.order_lists').find('.sum').val());
+                var goods = parseFloat($(this).parents('.order_lists').find('.sum_price').html().substring(1));
+                var num =  parseFloat($(this).parents('.order_lists').find('.sum').val());
                 total_money += goods;
                 total_count += num;
             }
         });
+        total_money=total_money.toFixed(2);
+        
         $('.total_text').html('￥'+total_money);
         $('.piece_num').html(total_count);
 

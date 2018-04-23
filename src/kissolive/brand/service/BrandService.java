@@ -16,7 +16,7 @@ public class BrandService {
 		try {
 			brandDao.add(brand);
 		} catch (SQLException e) {
-			throw new RuntimeException();
+			throw new RuntimeException(e);
 		}
 	}
 	public List<Brand> find(){
@@ -24,7 +24,7 @@ public class BrandService {
 			List<Brand> brandList= brandDao.find();
 			return brandList;
 		} catch (SQLException e) {
-			throw new RuntimeException();
+			throw new RuntimeException(e);
 		}
 	}
 	
@@ -32,21 +32,21 @@ public class BrandService {
 		try {
 			return brandDao.findByBid(bid)==null;
 		} catch (SQLException e) {
-			throw new RuntimeException();
+			throw new RuntimeException(e);
 		}
 	}
 	public Brand findByBid1(String bid){
 		try {
 			return brandDao.findByBid(bid);
 		} catch (SQLException e) {
-			throw new RuntimeException();
+			throw new RuntimeException(e);
 		}
 	}
 	public void deteleByBid(String bid){
 		try {
 			brandDao.delete(bid);
 		} catch (SQLException e) {
-			throw new RuntimeException();
+			throw new RuntimeException(e);
 		}
 	}
 }

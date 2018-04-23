@@ -133,10 +133,9 @@
 				      <img alt="" src="<c:url value='/img/user/success.png'/>">
 				      <div class="successtext">
 				      <p>恭喜你订单成功！</p>
-				      <p>订单编号为：148748515445</p>
-				      <p>订单日期为：2018-04-12</p>
+				      <p>订单编号为：${oid }</p>
 				      <button class="vieworder">查看订单</button>
-				      <a href="<c:url value='/page/user/user_home.jsp'/>">&lt;&nbsp;&lt;&nbsp;返回首页</a>
+				      <a href="<c:url value='index.jsp'/>">&lt;&nbsp;&lt;&nbsp;返回首页</a>
 				      </div>
 				  </div>
 				</div>

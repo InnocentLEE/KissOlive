@@ -14,11 +14,8 @@ public class Order {
 	private String detail;
 	private String name;
 	private String tel;
-	private String createtime;
-	private String newtime;
 	public Order(String oid, String userid, int status, String province,
-			String city, String district, String detail, String name,
-			String tel, String createtime, String newtime) {
+			String city, String district, String detail, String name, String tel) {
 		super();
 		this.oid = oid;
 		this.userid = userid;
@@ -29,8 +26,6 @@ public class Order {
 		this.detail = detail;
 		this.name = name;
 		this.tel = tel;
-		this.createtime = createtime;
-		this.newtime = newtime;
 	}
 	public String getOid() {
 		return oid;
@@ -86,25 +81,12 @@ public class Order {
 	public void setTel(String tel) {
 		this.tel = tel;
 	}
-	public String getCreatetime() {
-		return createtime;
-	}
-	public void setCreatetime(String createtime) {
-		this.createtime = createtime;
-	}
-	public String getNewtime() {
-		return newtime;
-	}
-	public void setNewtime(String newtime) {
-		this.newtime = newtime;
-	}
 	@Override
 	public String toString() {
 		return "Order [oid=" + oid + ", userid=" + userid + ", status="
 				+ status + ", province=" + province + ", city=" + city
 				+ ", district=" + district + ", detail=" + detail + ", name="
-				+ name + ", tel=" + tel + ", createtime=" + createtime
-				+ ", newtime=" + newtime + "]";
+				+ name + ", tel=" + tel + "]";
 	}
 	
 	

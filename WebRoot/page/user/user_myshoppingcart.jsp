@@ -109,7 +109,8 @@
 					<table class="table table-hover">
 						<thead>
 							<tr>
-								<th><input type="checkbox" id="all" class="whole_check">
+								<th style=" width: 110;">
+								<input type="checkbox" id="all" class="whole_check">
 									<label for="all" class="lcheck"></label>全选</th>
 								<th>&nbsp;</th>
 								<th>产品</th>
@@ -132,14 +133,14 @@
 								<td><p class="goodname">${cartItem.lname }</p>
 								    <p class="goodcolor">${cartItem.cncode }</p>
 									<p class="del">
-										<a href="#" class="delBtn" id="cid2">删除</a>
+										<a href="MainServlet?method=deleteCart&cid=${cartItem.cart.cid }" class="delBtn" id="cid2">删除</a>
 									</p></td>
 								<td><p class="price">￥${cartItem.gprice }</p></td>
 								<td>
 									<div class="amount_box">
-										<button class="reduce reSty btn" type="button" >-</button>
+										<button class="reduce reSty btn" type="button" id="${cartItem.cart.cid }">-</button>
 										<input type="text" value="${cartItem.number }" class="sum" disabled>
-										<button class="plus btn" type="button" >+</button>
+										<button class="plus btn" type="button" id="${cartItem.cart.cid }">+</button>
 									</div>
 								</td>
 								<td><p class="sum_price">￥${cartItem.totalprice }</p></td>

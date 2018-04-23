@@ -14,28 +14,28 @@ public class SeriesService {
 			List<Series> seriesList = seriesDao.findByBid(bid);
 			return seriesList;
 		} catch (SQLException e) {
-			throw new RuntimeException();
+			throw new RuntimeException(e);
 		}
 	}
 	public Series findBySid(String sid){
 		try {
 			return seriesDao.findBySid(sid);
 		} catch (SQLException e) {
-			throw new RuntimeException();
+			throw new RuntimeException(e);
 		}
 	}
 	public void add(Series series){
 		try {
 			seriesDao.add(series);
 		} catch (SQLException e) {
-			throw new RuntimeException();
+			throw new RuntimeException(e);
 		}
 	}
 	public void delete(String sid){
 		try {
 			seriesDao.delete(sid);
 		} catch (SQLException e) {
-			throw new RuntimeException();
+			throw new RuntimeException(e);
 		}
 	}
 }
