@@ -56,12 +56,14 @@ button.btn.defalut {
     color: #fff;
 }
 .table-btn {
-    margin: 0 0 0 870;
+    margin: 0 0 0 770;
 }
 .table-btn.sure {
-   margin: 0 0 0 920;
+   margin: 0 0 10 920;
 }
-
+.table-btn.two {
+    margin: 0 0 0 850;
+}
 table.table.table-striped {
     margin-bottom: 10px;
 }

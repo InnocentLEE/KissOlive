@@ -62,8 +62,11 @@
 				<c:otherwise>
 					<div class="navbar-header">
 						<ul class="nav navbar-nav navbar-left ">
-							<li><a href="<c:url value=''/>" class="navbar-brand">${sessionScope.sessionUser.username }</a></li>
-							<li><a href="<c:url value='/servlet/UserServlet?method=quit'/>"
+							<li><a
+								href="<c:url value='/servlet/UserServlet?method=userInfo'/>"
+								class="navbar-brand">${sessionScope.sessionUser.username }</a></li>
+							<li><a
+								href="<c:url value='/servlet/UserServlet?method=quit'/>"
 								class="navbar-brand">[退出]</a></li>
 							<!-- 响应式布局按钮-下拉框 -->
 							<button type="button" class="navbar-toggle"
@@ -74,9 +77,9 @@
 					</div>
 					<div class="collapse navbar-collapse" id="navbar-collapse">
 						<ul class="nav navbar-nav navbar-right" style="margin: 0">
-							<li><a href="#"><span
+							<li><a href="<c:url value='/MainServlet?method=userCart'/>"><span
 									class="glyphicon glyphicon-shopping-cart">&nbsp;<span>我的购物车</span></span></a></li>
-							<li><a href="#"><span class="glyphicon glyphicon-list">&nbsp;<span>我的订单</span></span></a></li>
+							<li><a href="<c:url value='/MainServlet?method=userOrder'/>"><span class="glyphicon glyphicon-list">&nbsp;<span>我的订单</span></span></a></li>
 						</ul>
 					</div>
 				</c:otherwise>
@@ -87,23 +90,23 @@
 			<div class="header-logo row">
 				<div class="col-md-4 col-lg-4"></div>
 				<div class="col-md-4 col-lg-4">
-					<a href="index.jsp"><img src="<c:url value='/img/kissolive.png'/>"
-						class="icon-olive" /></a>
+					<a href="index.jsp"><img
+						src="<c:url value='/img/kissolive.png'/>" class="icon-olive" /></a>
 				</div>
 				<div class="col-md-4 col-lg-4">
-				    <form action="/KissOlive/MainServlet" method="post">
-				    <input type="hidden" name="method" value="search" />
-					<div class="nav-search">
-						<div class="input-group">
-							<input type="text" class="form-control" name="search"
-								placeholder="Search for..."> <span
-								class="input-group-btn">
-								<button class="btn btn-default glyphicon glyphicon-search"
-									type="submit"></button>
-							</span>
+					<form action="/KissOlive/MainServlet" method="post">
+						<input type="hidden" name="method" value="search" />
+						<div class="nav-search">
+							<div class="input-group">
+								<input type="text" class="form-control" name="search"
+									placeholder="Search for..."> <span
+									class="input-group-btn">
+									<button class="btn btn-default glyphicon glyphicon-search"
+										type="submit"></button>
+								</span>
+							</div>
+							<!-- /input-group -->
 						</div>
-						<!-- /input-group -->
-					</div>
 					</form>
 				</div>
 			</div>

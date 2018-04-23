@@ -73,7 +73,7 @@
 						<ul class="nav navbar-nav navbar-right" style="margin: 0">
 							<li><a href="<c:url value='/MainServlet?method=userCart'/>"><span
 									class="glyphicon glyphicon-shopping-cart">&nbsp;<span>我的购物车</span></span></a></li>
-							<li><a href="#"><span class="glyphicon glyphicon-list">&nbsp;<span>我的订单</span></span></a></li>
+							<li><a href="<c:url value='/MainServlet?method=userOrder'/>"><span class="glyphicon glyphicon-list">&nbsp;<span>我的订单</span></span></a></li>
 						</ul>
 					</div>
 				</c:otherwise>

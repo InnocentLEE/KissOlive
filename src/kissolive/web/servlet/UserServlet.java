@@ -13,6 +13,8 @@ import javax.servlet.http.HttpSession;
 
 import kissolive.address.domain.Address;
 import kissolive.address.service.AddressService;
+import kissolive.brand.domain.Brand;
+import kissolive.brand.service.BrandService;
 import kissolive.user.domain.User;
 import kissolive.user.service.UserService;
 import util.MNS;
@@ -26,6 +28,7 @@ public class UserServlet extends BaseServlet {
 
 	private UserService userService = new UserService();
 	private AddressService addressService = new AddressService();
+	private BrandService brandService = new BrandService();
 
 	/**
 	 * 注册用户
@@ -327,6 +330,8 @@ public class UserServlet extends BaseServlet {
 		req.setAttribute("username", username);
 		req.setAttribute("usertel", usertel);
 		req.setAttribute("addressList", addressList);
+		List<Brand> brandList = brandService.find();
+		req.setAttribute("brandList", brandList);
 		return "f:/page/user/userinfo.jsp";
 	}
 	/**
@@ -351,6 +356,8 @@ public class UserServlet extends BaseServlet {
 		req.getSession().invalidate();
 		user.setUsername(username);
 		req.getSession().setAttribute("sessionUser", user);
+		List<Brand> brandList = brandService.find();
+		req.setAttribute("brandList", brandList);
 		return this.userInfo(req , resp);
 	}
 	public String addAddress(HttpServletRequest req,

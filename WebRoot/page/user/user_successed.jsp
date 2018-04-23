@@ -34,48 +34,78 @@
 	<div class="header-main-bar">
 		<nav class="navbar navbar-default navbar-fixed-top">
 		<div class="container header">
-			<div class="navbar-header">
-				<ul class="nav navbar-nav navbar-left ">
-					<li><a href="<c:url value='/page/user/user_login.jsp'/>"
-						class="navbar-brand">登陆</a></li>
-					<li><a href="<c:url value='/page/user/user_register.jsp'/>"
-						class="navbar-brand">注册</a></li>
+			<c:choose>
+				<c:when test="${empty sessionScope.sessionUser }">
+					<div class="navbar-header">
+						<ul class="nav navbar-nav navbar-left ">
+							<li><a href="<c:url value='/page/user/user_login.jsp'/>"
+								class="navbar-brand">登录</a></li>
+							<li><a href="<c:url value='/page/user/user_register.jsp'/>"
+								class="navbar-brand">注册</a></li>
 
-					<!-- 响应式布局按钮-下拉框 -->
-					<button type="button" class="navbar-toggle" data-toggle="collapse"
-						data-target="#navbar-collapse">
-						<span class="icon-bar"></span> <span class="icon-bar"></span>
-					</button>
-				</ul>
-			</div>
-			<div class="collapse navbar-collapse" id="navbar-collapse">
-				<ul class="nav navbar-nav navbar-right" style="margin: 0">
-					<li><a href="#"><span
-							class="glyphicon glyphicon-shopping-cart">&nbsp;</span>我的购物车</a></li>
-					<li><a href="#"><span class="glyphicon glyphicon-list">&nbsp;</span>我的订单</a></li>
-				</ul>
-			</div>
+							<!-- 响应式布局按钮-下拉框 -->
+							<button type="button" class="navbar-toggle"
+								data-toggle="collapse" data-target="#navbar-collapse">
+								<span class="icon-bar"></span> <span class="icon-bar"></span>
+							</button>
+						</ul>
+					</div>
+					<div class="collapse navbar-collapse" id="navbar-collapse">
+						<ul class="nav navbar-nav navbar-right" style="margin: 0">
+							<li></li>
+							<li></li>
+						</ul>
+					</div>
+				</c:when>
+				<c:otherwise>
+					<div class="navbar-header">
+						<ul class="nav navbar-nav navbar-left ">
+							<li><a
+								href="<c:url value='/servlet/UserServlet?method=userInfo'/>"
+								class="navbar-brand">${sessionScope.sessionUser.username }</a></li>
+							<li><a
+								href="<c:url value='/servlet/UserServlet?method=quit'/>"
+								class="navbar-brand">[退出]</a></li>
+							<!-- 响应式布局按钮-下拉框 -->
+							<button type="button" class="navbar-toggle"
+								data-toggle="collapse" data-target="#navbar-collapse">
+								<span class="icon-bar"></span> <span class="icon-bar"></span>
+							</button>
+						</ul>
+					</div>
+					<div class="collapse navbar-collapse" id="navbar-collapse">
+						<ul class="nav navbar-nav navbar-right" style="margin: 0">
+							<li><a href="<c:url value='/MainServlet?method=userCart'/>"><span
+									class="glyphicon glyphicon-shopping-cart">&nbsp;<span>我的购物车</span></span></a></li>
+							<li><a href="<c:url value='/MainServlet?method=userOrder'/>"><span class="glyphicon glyphicon-list">&nbsp;<span>我的订单</span></span></a></li>
+						</ul>
+					</div>
+				</c:otherwise>
+			</c:choose>
 		</div>
 		</nav>
 		<div class="main-bar-content">
 			<div class="header-logo row">
 				<div class="col-md-4 col-lg-4"></div>
 				<div class="col-md-4 col-lg-4">
-					<a href="#"><img src="<c:url value='/img/kissolive.png'/>"
-						class="icon-olive" /></a>
+					<a href="index.jsp"><img
+						src="<c:url value='/img/kissolive.png'/>" class="icon-olive" /></a>
 				</div>
 				<div class="col-md-4 col-lg-4">
-					<div class="nav-search">
-						<div class="input-group">
-							<input type="text" class="form-control"
-								placeholder="Search for..."> <span
-								class="input-group-btn">
-								<button class="btn btn-default glyphicon glyphicon-search"
-									type="button"></button>
-							</span>
+					<form action="/KissOlive/MainServlet" method="post">
+						<input type="hidden" name="method" value="search" />
+						<div class="nav-search">
+							<div class="input-group">
+								<input type="text" class="form-control" name="search"
+									placeholder="Search for..."> <span
+									class="input-group-btn">
+									<button class="btn btn-default glyphicon glyphicon-search"
+										type="submit"></button>
+								</span>
+							</div>
+							<!-- /input-group -->
 						</div>
-						<!-- /input-group -->
-					</div>
+					</form>
 				</div>
 			</div>
 		</div>
@@ -151,26 +181,17 @@
 	<div class="footer-top">
 		<div class="row">
 			<div class="col-md-3">
-				<span class="logoname"> <img
+				<!-- <span><h6 class="logoname">KISS OLIVE</h6><p>&nbsp;口&nbsp;红&nbsp;热&nbsp;门&nbsp;商&nbsp;城&nbsp;</p></span>
+			           -->
+				<span class="logoname"><img
 					src="<c:url value='/img/user_home/logo_black.png'/>"></span>
 			</div>
 			<div class="col-md-9">
 				<ul style="display:flex">
-					<li class="branditem" id="branditem"><a href="#">迪奥</a></li>
-					<li class="branditem"><a href="#">美宝莲纽约</a></li>
-					<li class="branditem"><a href="#">香奈儿</a></li>
-					<li class="branditem"><a href="#">雅诗兰黛</a></li>
-					<li class="branditem"><a href="#">M.A.C</a></li>
-					<li class="branditem"><a href="#">植村秀</a></li>
-					<li class="branditem"><a href="#">妙巴黎</a></li>
-					<li class="branditem"><a href="#">迪奥</a></li>
-					<li class="branditem"><a href="#">美宝莲纽约</a></li>
-					<li class="branditem"><a href="#">香奈儿</a></li>
-					<li class="branditem"><a href="#">雅诗兰黛</a></li>
-					<li class="branditem"><a href="#">M.A.C</a></li>
-					<li class="branditem"><a href="#">植村秀</a></li>
-					<li class="branditem"><a href="#">妙巴黎</a></li>
-
+					<c:forEach items="${brandList }" var="brand">
+						<li class="branditem"><a
+							href="<c:url value='/MainServlet?method=searchByBrand&bid=${brand.bid }&bname=${brand.bname }'/>">${brand.bname }</a></li>
+					</c:forEach>
 				</ul>
 			</div>
 		</div>

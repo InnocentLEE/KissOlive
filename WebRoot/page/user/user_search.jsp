@@ -62,8 +62,11 @@
 				<c:otherwise>
 					<div class="navbar-header">
 						<ul class="nav navbar-nav navbar-left ">
-							<li><a href="<c:url value=''/>" class="navbar-brand">${sessionScope.sessionUser.username }</a></li>
-							<li><a href="<c:url value='/servlet/UserServlet?method=quit'/>"
+							<li><a
+								href="<c:url value='/servlet/UserServlet?method=userInfo'/>"
+								class="navbar-brand">${sessionScope.sessionUser.username }</a></li>
+							<li><a
+								href="<c:url value='/servlet/UserServlet?method=quit'/>"
 								class="navbar-brand">[退出]</a></li>
 							<!-- 响应式布局按钮-下拉框 -->
 							<button type="button" class="navbar-toggle"
@@ -74,9 +77,9 @@
 					</div>
 					<div class="collapse navbar-collapse" id="navbar-collapse">
 						<ul class="nav navbar-nav navbar-right" style="margin: 0">
-							<li><a href="#"><span
+							<li><a href="<c:url value='/MainServlet?method=userCart'/>"><span
 									class="glyphicon glyphicon-shopping-cart">&nbsp;<span>我的购物车</span></span></a></li>
-							<li><a href="#"><span class="glyphicon glyphicon-list">&nbsp;<span>我的订单</span></span></a></li>
+							<li><a href="<c:url value='/MainServlet?method=userOrder'/>"><span class="glyphicon glyphicon-list">&nbsp;<span>我的订单</span></span></a></li>
 						</ul>
 					</div>
 				</c:otherwise>
@@ -87,23 +90,23 @@
 			<div class="header-logo row">
 				<div class="col-md-4 col-lg-4"></div>
 				<div class="col-md-4 col-lg-4">
-					<a href="index.jsp"><img src="<c:url value='/img/kissolive.png'/>"
-						class="icon-olive" /></a>
+					<a href="index.jsp"><img
+						src="<c:url value='/img/kissolive.png'/>" class="icon-olive" /></a>
 				</div>
 				<div class="col-md-4 col-lg-4">
-				    <form action="/KissOlive/MainServlet" method="post">
-				    <input type="hidden" name="method" value="search" />
-					<div class="nav-search">
-						<div class="input-group">
-							<input type="text" class="form-control" name="search"
-								placeholder="Search for..."> <span
-								class="input-group-btn">
-								<button class="btn btn-default glyphicon glyphicon-search"
-									type="submit"></button>
-							</span>
+					<form action="/KissOlive/MainServlet" method="post">
+						<input type="hidden" name="method" value="search" />
+						<div class="nav-search">
+							<div class="input-group">
+								<input type="text" class="form-control" name="search"
+									placeholder="Search for..."> <span
+									class="input-group-btn">
+									<button class="btn btn-default glyphicon glyphicon-search"
+										type="submit"></button>
+								</span>
+							</div>
+							<!-- /input-group -->
 						</div>
-						<!-- /input-group -->
-					</div>
 					</form>
 				</div>
 			</div>
@@ -161,9 +164,10 @@
 			</div>
 			<div class="col-md-9">
 				<ul style="display:flex">
-<c:forEach items="${brandList }" var="brand">
-					<li class="branditem" ><a href="<c:url value='/MainServlet?method=searchByBrand&bid=${brand.bid }&bname=${brand.bname }'/>">${brand.bname }</a></li>
-</c:forEach>
+					<c:forEach items="${brandList }" var="brand">
+						<li class="branditem"><a
+							href="<c:url value='/MainServlet?method=searchByBrand&bid=${brand.bid }&bname=${brand.bname }'/>">${brand.bname }</a></li>
+					</c:forEach>
 				</ul>
 			</div>
 		</div>
@@ -175,8 +179,10 @@
 				<div class="col-md-3">
 					<span class="title-footer-section">客户服务</span>
 					<div class="nav-footer">
-						<span class="title-footer-section"><a href="#">联系我们</a></span>
-						<span class="title-footer-section wechat"><img class="wechat-img" src="<c:url value='/img/user_home/wechat.jpg'/>"></span>
+						<span class="title-footer-section"><a href="#">联系我们</a></span> <span
+							class="title-footer-section wechat"><img
+							class="wechat-img"
+							src="<c:url value='/img/user_home/wechat.jpg'/>"></span>
 					</div>
 				</div>
 				<div class="col-md-3">
@@ -192,13 +198,15 @@
 				<div class="col-md-4">
 					<span class="title-footer-section1">电子通讯</span>
 					<div class="nav-footer">
-						<span class="title-footer-section font">率先获取最新商品的信息及KISS OLIVE的独家优惠：</a></span>
-							<div class="input-group title-footer-section">
-								<input type="text" class="form-control"
-									placeholder="Recipient's username"
-									aria-describedby="basic-addon2"> <span
-									class="input-group-addon" id="basic-addon2">@example.com</span>
-							</div>
+						<span class="title-footer-section font">率先获取最新商品的信息及KISS
+							OLIVE的独家优惠：</a>
+						</span>
+						<div class="input-group title-footer-section">
+							<input type="text" class="form-control"
+								placeholder="Recipient's username"
+								aria-describedby="basic-addon2"> <span
+								class="input-group-addon" id="basic-addon2">@example.com</span>
+						</div>
 					</div>
 				</div>
 
