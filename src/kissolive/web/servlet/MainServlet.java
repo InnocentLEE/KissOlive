@@ -631,6 +631,14 @@ public class MainServlet extends BaseServlet {
 		orderService.update(oid, 0);
 		return userOrder(req,resp);
 	}
+	public String cancelOrder1(HttpServletRequest req,
+			HttpServletResponse resp) throws ServletException, IOException,
+			SQLException {
+		String oid = req.getParameter("oid");
+		orderService.update(oid, 0);
+		AdminServlet as = new AdminServlet();
+		return as.adminOrder(req, resp);
+	}
 	/**
 	 * 付款
 	 * @param req
@@ -647,6 +655,23 @@ public class MainServlet extends BaseServlet {
 		orderService.update(oid, 2);
 		req.setAttribute("oid", oid);
 		return "f:/page/user/user_successed.jsp";
+	}
+	/**
+	 * 发货
+	 * @param req
+	 * @param resp
+	 * @return
+	 * @throws ServletException
+	 * @throws IOException
+	 * @throws SQLException
+	 */
+	public String deliverOrder(HttpServletRequest req,
+			HttpServletResponse resp) throws ServletException, IOException,
+			SQLException {
+		String oid = req.getParameter("oid");
+		orderService.update(oid, 3);
+		AdminServlet as = new AdminServlet();
+		return as.adminOrder(req, resp);
 	}
 	/**
 	 * 确认收货

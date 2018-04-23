@@ -25,11 +25,18 @@ import kissolive.lipstick.domain.LipstickAndPicture;
 import kissolive.lipstick.service.LipstickService;
 import kissolive.lipstickpicture.domain.LipstickPicture;
 import kissolive.lipstickpicture.service.LipstickPictureService;
+import kissolive.order.domain.Order;
+import kissolive.order.domain.OrderListItem;
+import kissolive.order.service.OrderService;
+import kissolive.orderitem.domain.OrderItem;
+import kissolive.orderitem.domain.ViewOrderItem;
+import kissolive.orderitem.service.OrderItemService;
 import kissolive.recommend.service.RecommendService;
 import kissolive.series.domain.Series;
 import kissolive.series.service.SeriesService;
 import kissolive.shuffling.domain.Shuffling;
 import kissolive.shuffling.service.ShufflingService;
+import kissolive.user.domain.User;
 import cn.itcast.commons.CommonUtils;
 import cn.itcast.servlet.BaseServlet;
 
@@ -44,6 +51,8 @@ public class AdminServlet extends BaseServlet {
 	LipstickPictureService lipstickPictureService = new LipstickPictureService();
 	RecommendService recommendService = new RecommendService();
 	ShufflingService shufflingService = new ShufflingService();
+	private OrderService orderService = new OrderService();
+	private OrderItemService orderItemService = new OrderItemService();
 	/**
 	 * 首页管理
 	 * @param req
@@ -193,7 +202,147 @@ public class AdminServlet extends BaseServlet {
 	 */
 	public String adminOrder(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
-		return "f:/";
+		List<Order> order0List = orderService.findByStatus(0);
+		List<Order> order1List = orderService.findByStatus(1);
+		List<Order> order2List = orderService.findByStatus(2);
+		List<Order> order3List = orderService.findByStatus(3);
+		List<Order> order4List = orderService.findByStatus(4);
+		/*
+		 * 0.获取已经取消的订单
+		 */
+		List<OrderListItem> order0ListItemList = new ArrayList<OrderListItem>();
+		for(int i=0;i<order0List.size();i++){
+			List<ViewOrderItem> viewOrderItemList = new ArrayList<ViewOrderItem>();
+			List<OrderItem> orderitemList = orderItemService.findByOid(order0List.get(i).getOid());
+			double ttotalprice = 0;
+			for(int j=0;j<orderitemList.size();j++){
+				String oiid = orderitemList.get(j).getOiid();
+				int number = orderitemList.get(j).getNumber();
+				double totalprice = number * orderitemList.get(j).getUnitprice();
+				ttotalprice += totalprice;
+				String gid = orderitemList.get(j).getGid();
+				Goods goods = goodsService.findByGid(gid);
+				Lipstick lipstick = lipstickService.findByLid(goods.getLid());
+				String lname = lipstick.getLname();
+				Colorno colorno = colornoService.findByCnid(goods.getCnid());
+				String cncode = colorno.getCncode();
+				ViewOrderItem viewOrderItem = new ViewOrderItem(oiid, lname, cncode, number, totalprice);
+				viewOrderItemList.add(viewOrderItem);
+			}
+			OrderListItem orderListItem = new OrderListItem(order0List.get(i).getOid(), viewOrderItemList, ttotalprice);
+			order0ListItemList.add(orderListItem);
+		}
+		req.setAttribute("order0ListItemList", order0ListItemList);
+		
+		
+		/*
+		 * 1.获取未付款的订单
+		 */
+		List<OrderListItem> order1ListItemList = new ArrayList<OrderListItem>();
+		for(int i=0;i<order1List.size();i++){
+			List<ViewOrderItem> viewOrderItemList = new ArrayList<ViewOrderItem>();
+			List<OrderItem> orderitemList = orderItemService.findByOid(order1List.get(i).getOid());
+			double ttotalprice = 0;
+			for(int j=0;j<orderitemList.size();j++){
+				String oiid = orderitemList.get(j).getOiid();
+				int number = orderitemList.get(j).getNumber();
+				double totalprice = number * orderitemList.get(j).getUnitprice();
+				ttotalprice += totalprice;
+				String gid = orderitemList.get(j).getGid();
+				Goods goods = goodsService.findByGid(gid);
+				Lipstick lipstick = lipstickService.findByLid(goods.getLid());
+				String lname = lipstick.getLname();
+				Colorno colorno = colornoService.findByCnid(goods.getCnid());
+				String cncode = colorno.getCncode();
+				ViewOrderItem viewOrderItem = new ViewOrderItem(oiid, lname, cncode, number, totalprice);
+				viewOrderItemList.add(viewOrderItem);
+			}
+			OrderListItem orderListItem = new OrderListItem(order1List.get(i).getOid(), viewOrderItemList, ttotalprice);
+			order1ListItemList.add(orderListItem);
+		}
+		req.setAttribute("order1ListItemList", order1ListItemList);
+		
+		/*
+		 * 2.获取等待发货的订单
+		 */
+		List<OrderListItem> order2ListItemList = new ArrayList<OrderListItem>();
+		for(int i=0;i<order2List.size();i++){
+			List<ViewOrderItem> viewOrderItemList = new ArrayList<ViewOrderItem>();
+			List<OrderItem> orderitemList = orderItemService.findByOid(order2List.get(i).getOid());
+			double ttotalprice = 0;
+			for(int j=0;j<orderitemList.size();j++){
+				String oiid = orderitemList.get(j).getOiid();
+				int number = orderitemList.get(j).getNumber();
+				double totalprice = number * orderitemList.get(j).getUnitprice();
+				ttotalprice += totalprice;
+				String gid = orderitemList.get(j).getGid();
+				Goods goods = goodsService.findByGid(gid);
+				Lipstick lipstick = lipstickService.findByLid(goods.getLid());
+				String lname = lipstick.getLname();
+				Colorno colorno = colornoService.findByCnid(goods.getCnid());
+				String cncode = colorno.getCncode();
+				ViewOrderItem viewOrderItem = new ViewOrderItem(oiid, lname, cncode, number, totalprice);
+				viewOrderItemList.add(viewOrderItem);
+			}
+			OrderListItem orderListItem = new OrderListItem(order2List.get(i).getOid(), viewOrderItemList, ttotalprice);
+			order2ListItemList.add(orderListItem);
+		}
+		req.setAttribute("order2ListItemList", order2ListItemList);
+		
+		/*
+		 * 3.获取等待收货的订单
+		 */
+		List<OrderListItem> order3ListItemList = new ArrayList<OrderListItem>();
+		for(int i=0;i<order3List.size();i++){
+			List<ViewOrderItem> viewOrderItemList = new ArrayList<ViewOrderItem>();
+			List<OrderItem> orderitemList = orderItemService.findByOid(order3List.get(i).getOid());
+			double ttotalprice = 0;
+			for(int j=0;j<orderitemList.size();j++){
+				String oiid = orderitemList.get(j).getOiid();
+				int number = orderitemList.get(j).getNumber();
+				double totalprice = number * orderitemList.get(j).getUnitprice();
+				ttotalprice += totalprice;
+				String gid = orderitemList.get(j).getGid();
+				Goods goods = goodsService.findByGid(gid);
+				Lipstick lipstick = lipstickService.findByLid(goods.getLid());
+				String lname = lipstick.getLname();
+				Colorno colorno = colornoService.findByCnid(goods.getCnid());
+				String cncode = colorno.getCncode();
+				ViewOrderItem viewOrderItem = new ViewOrderItem(oiid, lname, cncode, number, totalprice);
+				viewOrderItemList.add(viewOrderItem);
+			}
+			OrderListItem orderListItem = new OrderListItem(order3List.get(i).getOid(), viewOrderItemList, ttotalprice);
+			order3ListItemList.add(orderListItem);
+		}
+		req.setAttribute("order3ListItemList", order3ListItemList);
+		
+		/*
+		 * 4.获取已完成的订单
+		 */
+		List<OrderListItem> order4ListItemList = new ArrayList<OrderListItem>();
+		for(int i=0;i<order4List.size();i++){
+			List<ViewOrderItem> viewOrderItemList = new ArrayList<ViewOrderItem>();
+			List<OrderItem> orderitemList = orderItemService.findByOid(order4List.get(i).getOid());
+			double ttotalprice = 0;
+			for(int j=0;j<orderitemList.size();j++){
+				String oiid = orderitemList.get(j).getOiid();
+				int number = orderitemList.get(j).getNumber();
+				double totalprice = number * orderitemList.get(j).getUnitprice();
+				ttotalprice += totalprice;
+				String gid = orderitemList.get(j).getGid();
+				Goods goods = goodsService.findByGid(gid);
+				Lipstick lipstick = lipstickService.findByLid(goods.getLid());
+				String lname = lipstick.getLname();
+				Colorno colorno = colornoService.findByCnid(goods.getCnid());
+				String cncode = colorno.getCncode();
+				ViewOrderItem viewOrderItem = new ViewOrderItem(oiid, lname, cncode, number, totalprice);
+				viewOrderItemList.add(viewOrderItem);
+			}
+			OrderListItem orderListItem = new OrderListItem(order4List.get(i).getOid(), viewOrderItemList, ttotalprice);
+			order4ListItemList.add(orderListItem);
+		}
+		req.setAttribute("order4ListItemList", order4ListItemList);
+		return "f:/page/admin/admin_list.jsp";
 	}
 	/**
 	 * 添加色号

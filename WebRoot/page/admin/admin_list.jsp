@@ -39,7 +39,7 @@
 					data-toggle="tab" role="tab">等待确认</a></li>
 				<li id="step4Li" class="gray"><a href="#step4"
 					data-toggle="tab" role="tab">已完成</a></li>
-				<li id="step5Li" class="gray"><a href="#step4"
+				<li id="step5Li" class="gray"><a href="#step5"
 					data-toggle="tab" role="tab">已取消</a></li>
 			</ul>
 
@@ -50,366 +50,190 @@
 					<div class="top">
 						<span>产品</span><span>数量</span><span>价格</span>
 					</div>
+<c:forEach items="${order1ListItemList }" var="orderListItem">
 					<div class="orderlist">
 						<form action="/KissOlive/MainServlet" method="post" id="${orderListItem.oid }">
 						<input type="hidden" name="method" id="${orderListItem.oid }" value="">
+						<input type="hidden" name="oid" value="${orderListItem.oid }">
 							<table class="table table-striped">
 							    <thead>
 							      <tr>
 									<th style="width: 100px;"></th>
-									<th style="width: 423; text-align:left">订单编号：248415184452154858</th>
+									<th style="width: 423; text-align:left">订单编号：${orderListItem.oid }</th>
 									<th colspan="2"></th>
 								 </tr>
 							    </thead>
 								<tbody>
+				<c:forEach items="${orderListItem.viewOrderItemList }" var="viewOrderItem">
 									<tr>
 										<td></td>
-										<td>全新DIOR迪奥烈艳蓝金液唇膏</td>
-										<td style="text-align: center;width: 220;">1</td>
-										<td style="text-align: center;">130.88</td>
+										<td>${viewOrderItem.lname }${viewOrderItem.cncode }</td>
+										<td style="text-align: center;width: 220;">${viewOrderItem.number }</td>
+										<td style="text-align: center;">${viewOrderItem.totalprice }</td>
 									</tr>
-									<tr>
-										<td></td>
-										<td>全新DIOR迪奥烈艳蓝金液唇膏</td>
-										<td style="text-align: center;">1</td>
-										<td style=" text-align: center;">130.88</td>
-									</tr>
+				</c:forEach>
 									<tr>
 										<td colspan="3" ></td>
-									    <td style=" text-align: center;">总价：130.88</td>
+									    <td style=" text-align: center;">总价：${orderListItem.totalprice }</td>
 									</tr>
 								</tbody>
 							</table>
 							<div class="table-btn two">
-								<button type="button" class="btn defalut cancel" onclick="foward()">查看详情</button>
+								<button type="button" class="btn defalut cancel" onclick="foward('${orderListItem.oid }')">查看详情</button>
 								<button type="button" class="btn defalut cancel" onclick="cancel('${orderListItem.oid }')">取消</button>
 							</div>
 						</form>
 					</div>
-					<div class="orderlist">
-						<form action="/KissOlive/MainServlet" method="post" id="${orderListItem.oid }">
-						<input type="hidden" name="method" id="${orderListItem.oid }" value="">
-							<table class="table table-striped">
-							    <thead>
-							      <tr>
-									<th style="width: 100px;"></th>
-									<th style="width: 423; text-align:left">订单编号：248415184452154858</th>
-									<th colspan="2"></th>
-								 </tr>
-							    </thead>
-								<tbody>
-									<tr>
-										<td></td>
-										<td>全新DIOR迪奥烈艳蓝金液唇膏</td>
-										<td style="text-align: center;width: 220;">1</td>
-										<td style="text-align: center;">130.88</td>
-									</tr>
-									<tr>
-										<td></td>
-										<td>全新DIOR迪奥烈艳蓝金液唇膏</td>
-										<td style="text-align: center;">1</td>
-										<td style=" text-align: center;">130.88</td>
-									</tr>
-									<tr>
-										<td colspan="3" ></td>
-									    <td style=" text-align: center;">总价：130.88</td>
-									</tr>
-								</tbody>
-							</table>
-							<div class="table-btn two">
-								<button type="button" class="btn defalut cancel" onclick="foward()">查看详情</button>
-								<button type="button" class="btn defalut cancel" onclick="cancel('${orderListItem.oid }')">取消</button>
-							</div>
-						</form>
-					</div>
+</c:forEach>
 				</div>
 				<!-- 等待发货 -->
 				<div id="step2" class="tab-pane fade">
 					<div class="top">
 						<span>产品</span><span>数量</span><span>价格</span>
 					</div>
+<c:forEach items="${order2ListItemList }" var="orderListItem">
 					<div class="orderlist">
 					<form action="/KissOlive/MainServlet" method="post" id="${orderListItem.oid }">
 						<input type="hidden" name="method" id="${orderListItem.oid }" value="">
+						<input type="hidden" name="oid" value="${orderListItem.oid }">
 							<table class="table table-striped">
 							    <thead>
 							      <tr>
 									<th style="width: 100px;"></th>
-									<th style="width: 423; text-align:left">订单编号：248415184452154858</th>
+									<th style="width: 423; text-align:left">订单编号：${orderListItem.oid }</th>
 									<th colspan="2"></th>
 								 </tr>
 							    </thead>
 								<tbody>
+				<c:forEach items="${orderListItem.viewOrderItemList }" var="viewOrderItem">
 									<tr>
 										<td></td>
-										<td>全新DIOR迪奥烈艳蓝金液唇膏</td>
-										<td style="text-align: center;width: 220;">1</td>
-										<td style="text-align: center;">130.88</td>
+										<td>${viewOrderItem.lname }${viewOrderItem.cncode }</td>
+										<td style="text-align: center;width: 220;">${viewOrderItem.number }</td>
+										<td style="text-align: center;">${viewOrderItem.totalprice }</td>
 									</tr>
-									<tr>
-										<td></td>
-										<td>全新DIOR迪奥烈艳蓝金液唇膏</td>
-										<td style="text-align: center;">1</td>
-										<td style=" text-align: center;">130.88</td>
-									</tr>
+				</c:forEach>
 									<tr>
 										<td colspan="3" ></td>
-									     <td style=" text-align: center;">总价：130.88</td>
+									     <td style=" text-align: center;">总价：${orderListItem.totalprice }</td>
 									</tr>
 								</tbody>
 							</table>
 							<div class="table-btn two">
-							    <button type="button" class="btn defalut cancel" onclick="foward()">查看详情</button>
+							    <button type="button" class="btn defalut cancel" onclick="foward('${orderListItem.oid }')">查看详情</button>
 									<button type="button" class="btn defalut payfor" onclick="deliver('${orderListItem.oid }')">发货</button>
 							</div>
 						</form>
 					</div>
-					<div class="orderlist">
-					 <form action="/KissOlive/MainServlet" method="post" id="${orderListItem.oid }">
-						<input type="hidden" name="method" id="${orderListItem.oid }" value="">
-							<table class="table table-striped">
-							    <thead>
-							      <tr>
-									<th style="width: 100px;"></th>
-									<th style="width: 423; text-align:left">订单编号：248415184452154858</th>
-									<th colspan="2"></th>
-								 </tr>
-							    </thead>
-								<tbody>
-									<tr>
-										<td></td>
-										<td>全新DIOR迪奥烈艳蓝金液唇膏</td>
-										<td style="text-align: center;width: 220;">1</td>
-										<td style="text-align: center;">130.88</td>
-									</tr>
-									<tr>
-										<td></td>
-										<td>全新DIOR迪奥烈艳蓝金液唇膏</td>
-										<td style="text-align: center;">1</td>
-										<td style=" text-align: center;">130.88</td>
-									</tr>
-									<tr>
-										<td colspan="3" ></td>
-									    <td style=" text-align: center;">总价：130.88</td>
-									</tr>
-								</tbody>
-							</table>
-							<div class="table-btn two">
-						    	<button type="button" class="btn defalut cancel" onclick="foward()">查看详情</button>
-						    	<button type="button" class="btn defalut payfor" onclick="deliver('${orderListItem.oid }')">发货</button>
-							</div>
-						</form>
-					</div>
+</c:forEach>
 				</div>
 				<!-- 等待确认 -->
 				<div id="step3" class="tab-pane fade">
 					<div class="top">
 						<span>产品</span><span>数量</span><span>价格</span>
 					</div>
+<c:forEach items="${order3ListItemList }" var="orderListItem">
 					<div class="orderlist">
 							<table class="table table-striped">
 							    <thead>
 							      <tr>
 									<th style="width: 100px;"></th>
-									<th style="width: 423; text-align:left">订单编号：248415184452154858</th>
+									<th style="width: 423; text-align:left">订单编号：${orderListItem.oid }</th>
 									<th colspan="2"></th>
 								 </tr>
 							    </thead>
 								<tbody>
+				<c:forEach items="${orderListItem.viewOrderItemList }" var="viewOrderItem">
 									<tr>
 										<td></td>
-										<td>全新DIOR迪奥烈艳蓝金液唇膏</td>
-										<td style="text-align: center;width: 220;">1</td>
-										<td style="text-align: center;">130.88</td>
+										<td>${viewOrderItem.lname }${viewOrderItem.cncode }</td>
+										<td style="text-align: center;">${viewOrderItem.number }</td>
+										<td style=" text-align: center;">${viewOrderItem.totalprice }</td>
 									</tr>
-									<tr>
-										<td></td>
-										<td>全新DIOR迪奥烈艳蓝金液唇膏</td>
-										<td style="text-align: center;">1</td>
-										<td style=" text-align: center;">130.88</td>
-									</tr>
+				</c:forEach>
 									<tr>
 										<td colspan="3" ></td>
-									    <td style=" text-align: center;">总价：130.88</td>
+									    <td style=" text-align: center;">总价：${orderListItem.totalprice }</td>
 									</tr>
 								</tbody>
 							</table>
 							<div class="table-btn sure">
-								<button type="button" class="btn defalut cancel" onclick="foward()">查看详情</button>
+								<button type="button" class="btn defalut cancel" onclick="foward('${orderListItem.oid }')">查看详情</button>
 						    </div>
 					</div>
-					<div class="orderlist">
-							<table class="table table-striped">
-							    <thead>
-							      <tr>
-									<th style="width: 100px;"></th>
-								    <th style="width: 423; text-align:left">订单编号：248415184452154858</th>
-									<th colspan="2"></th>
-								 </tr>
-							    </thead>
-								<tbody>
-									<tr>
-										<td></td>
-										<td>全新DIOR迪奥烈艳蓝金液唇膏</td>
-										<td style="text-align: center;width: 220;">1</td>
-										<td style="text-align: center;">130.88</td>
-									</tr>
-									<tr>
-										<td></td>
-										<td>全新DIOR迪奥烈艳蓝金液唇膏</td>
-										<td style="text-align: center;">1</td>
-										<td style=" text-align: center;">130.88</td>
-									</tr>
-									<tr>
-										<td colspan="3" ></td>
-									    <td style=" text-align: center;">总价：130.88</td>
-									</tr>
-								</tbody>
-							</table>
-							<div class="table-btn sure">
-								<button type="button" class="btn defalut cancel" onclick="foward()">查看详情</button>
-							</div>
-					</div>
+</c:forEach>
 				</div>
 				<!-- 已完成 -->
 				<div id="step4" class="tab-pane fade">
 					<div class="top">
 						<span>产品</span><span>数量</span><span>价格</span>
 					</div>
+<c:forEach items="${order4ListItemList }" var="orderListItem">
 					<div class="orderlist">
 							<table class="table table-striped">
 							    <thead>
 							      <tr>
 									<th style="width: 100px;"></th>
-									<th style="width: 423; text-align:left">订单编号：248415184452154858</th>
+									<th style="width: 423; text-align:left">订单编号：${orderListItem.oid }</th>
 									<th colspan="2"></th>
 								 </tr>
 							    </thead>
 								<tbody>
+				<c:forEach items="${orderListItem.viewOrderItemList }" var="viewOrderItem">	
 									<tr>
 										<td></td>
-										<td>全新DIOR迪奥烈艳蓝金液唇膏</td>
-										<td style="text-align: center;width: 220;">1</td>
-										<td style="text-align: center;">130.88</td>
+										<td>${viewOrderItem.lname }${viewOrderItem.cncode }</td>
+										<td style="text-align: center;">${viewOrderItem.number }</td>
+										<td style=" text-align: center;">${viewOrderItem.totalprice }</td>
 									</tr>
-									<tr>
-										<td></td>
-										<td>全新DIOR迪奥烈艳蓝金液唇膏</td>
-										<td style="text-align: center;">1</td>
-										<td style=" text-align: center;">130.88</td>
-									</tr>
+				</c:forEach>
 									<tr>
 										<td colspan="3" ></td>
-									    <td style=" text-align: center;">总价：130.88</td>
+									    <td style=" text-align: center;">总价：${orderListItem.totalprice }</td>
 									</tr>
 								</tbody>
 							</table>
 							<div class="table-btn sure">
-								<button type="button" class="btn defalut cancel" onclick="foward()">查看详情</button>
+								<button type="button" class="btn defalut cancel" onclick="foward('${orderListItem.oid }')">查看详情</button>
 							</div>
 					</div>
-					<div class="orderlist">
-							<table class="table table-striped">
-							    <thead>
-							      <tr>
-									<th style="width: 100px;"></th>
-									<th style="width: 423; text-align:left">订单编号：248415184452154858</th>
-									<th colspan="2"></th>
-								 </tr>
-							    </thead>
-								<tbody>
-									<tr>
-										<td></td>
-										<td>全新DIOR迪奥烈艳蓝金液唇膏</td>
-										<td style="text-align: center;width: 220;">1</td>
-										<td style="text-align: center;">130.88</td>
-									</tr>
-									<tr>
-										<td></td>
-										<td>全新DIOR迪奥烈艳蓝金液唇膏</td>
-										<td style="text-align: center;">1</td>
-										<td style=" text-align: center;">130.88</td>
-									</tr>
-									<tr>
-										<td colspan="3" ></td>
-									    <td style=" text-align: center;">总价：130.88</td>
-									</tr>
-								</tbody>
-							</table>
-							<div class="table-btn sure">
-								<button type="button" class="btn defalut cancel" onclick="foward()">查看详情</button>
-							</div>
-					</div>
+</c:forEach>
 				</div>
 				<!-- 已取消 -->
 				<div id="step5" class="tab-pane fade">
 					<div class="top">
 						<span>产品</span><span>数量</span><span>价格</span>
 					</div>
+<c:forEach items="${order0ListItemList }" var="orderListItem">
 					<div class="orderlist">
 							<table class="table table-striped">
 							    <thead>
 							      <tr>
 									<th style="width: 100px;"></th>
-									<th style="width: 423; text-align:left">订单编号：248415184452154858</th>
+									<th style="width: 423; text-align:left">订单编号：：${orderListItem.oid }</th>
 									<th colspan="2"></th>
 								 </tr>
 							    </thead>
 								<tbody>
+					<c:forEach items="${orderListItem.viewOrderItemList }" var="viewOrderItem">
 									<tr>
 										<td></td>
-										<td>全新DIOR迪奥烈艳蓝金液唇膏</td>
-										<td style="text-align: center;width: 220;">1</td>
-										<td style="text-align: center;">130.88</td>
+										<td>${viewOrderItem.lname }${viewOrderItem.cncode }</td>
+										<td style="text-align: center;width: 220;">${viewOrderItem.number }</td>
+										<td style="text-align: center;">${viewOrderItem.totalprice }</td>
 									</tr>
-									<tr>
-										<td></td>
-										<td>全新DIOR迪奥烈艳蓝金液唇膏</td>
-										<td style="text-align: center;">1</td>
-										<td style=" text-align: center;">130.88</td>
-									</tr>
+					</c:forEach>
 									<tr>
 										<td colspan="3" ></td>
-									    <td style=" text-align: center;">总价：130.88</td>
+									    <td style=" text-align: center;">总价：${orderListItem.totalprice }</td>
 									</tr>
 								</tbody>
 							</table>
 							<div class="table-btn sure">
-								<button type="button" class="btn defalut cancel" onclick="foward()">查看详情</button>
+								<button type="button" class="btn defalut cancel" onclick="foward('${orderListItem.oid }')">查看详情</button>
 							</div>
 					</div>
-					<div class="orderlist">
-							<table class="table table-striped">
-							    <thead>
-							      <tr>
-									<th style="width: 100px;"></th>
-									<th style="width: 423; text-align:left">订单编号：248415184452154858</th>
-									<th colspan="2"></th>
-								 </tr>
-							    </thead>
-								<tbody>
-									<tr>
-										<td></td>
-										<td>全新DIOR迪奥烈艳蓝金液唇膏</td>
-										<td style="text-align: center;width: 220;">1</td>
-										<td style="text-align: center;">130.88</td>
-									</tr>
-									<tr>
-										<td></td>
-										<td>全新DIOR迪奥烈艳蓝金液唇膏</td>
-										<td style="text-align: center;">1</td>
-										<td style=" text-align: center;">130.88</td>
-									</tr>
-									<tr>
-										<td colspan="3" ></td>
-									    <td style=" text-align: center;">总价：130.88</td>
-									</tr>
-								</tbody>
-							</table>
-							<div class="table-btn sure">
-								<button type="button" class="btn defalut cancel" onclick="foward()">查看详情</button>
-							</div>
-					</div>
+</c:forEach>
 				</div>
 			</div>
 		</div>
@@ -422,7 +246,7 @@
     <script type="text/javascript">
        //取消
        function cancel(id){
-    	    $("input[id='"+id+"']").val("cancelOrder");
+    	    $("input[id='"+id+"']").val("cancelOrder1");
             $("form[id='"+id+"']").submit();
        }
        //发货
@@ -432,7 +256,8 @@
        }
        //跳转
  		function forward(){
-    	   window.location.herf="index.jsp";
+ 			$("input[id='"+id+"']").val("detailOrder");
+            $("form[id='"+id+"']").submit();
        }
     
     </script>

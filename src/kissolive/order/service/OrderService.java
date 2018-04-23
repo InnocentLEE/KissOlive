@@ -29,7 +29,7 @@ public class OrderService {
 			throw new RuntimeException(e);
 		}
 	}
-	public List<Order> findByStatuse(int status){
+	public List<Order> findByStatus(int status){
 		try {
 			return orderDao.findByStatus(status);
 		} catch (SQLException e) {
