@@ -13,7 +13,7 @@ public class LipstickService {
 		try {
 			return lipstickDao.countBySid(sid);
 		} catch (SQLException e) {
-			throw new RuntimeException();
+			throw new RuntimeException(e);
 		}
 	}
 	
@@ -21,42 +21,42 @@ public class LipstickService {
 		try {
 			return lipstickDao.findBySid(sid);
 		} catch (SQLException e) {
-			throw new RuntimeException();
+			throw new RuntimeException(e);
 		}
 	}
 	public List<Lipstick> findByHid(String hid){
 		try {
 			return lipstickDao.findByHid(hid);
 		} catch (SQLException e) {
-			throw new RuntimeException();
+			throw new RuntimeException(e);
 		}
 	}
 	public List<Lipstick> find(){
 		try {
 			return lipstickDao.find();
 		} catch (SQLException e) {
-			throw new RuntimeException();
+			throw new RuntimeException(e);
 		}
 	}
 	public void add(Lipstick lipstick){
 		try {
 			lipstickDao.add(lipstick);
 		} catch (SQLException e) {
-			throw new RuntimeException();
+			throw new RuntimeException(e);
 		}
 	}
 	public Lipstick findByLid(String lid){
 		try {
 			return lipstickDao.findByLid(lid);
 		} catch (SQLException e) {
-			throw new RuntimeException();
+			throw new RuntimeException(e);
 		}
 	}
 	public void delete(String lid){
 		try {
 			lipstickDao.delete(lid);
 		} catch (SQLException e) {
-			throw new RuntimeException();
+			throw new RuntimeException(e);
 		}
 	}
 }

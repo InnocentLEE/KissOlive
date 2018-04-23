@@ -10,6 +10,8 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import kissolive.address.domain.Address;
+import kissolive.address.service.AddressService;
 import kissolive.brand.domain.Brand;
 import kissolive.brand.service.BrandService;
 import kissolive.cart.domain.Cart;
@@ -28,6 +30,10 @@ import kissolive.lipstick.domain.LipstickAvgPrice;
 import kissolive.lipstick.service.LipstickService;
 import kissolive.lipstickpicture.domain.LipstickPicture;
 import kissolive.lipstickpicture.service.LipstickPictureService;
+import kissolive.order.domain.Order;
+import kissolive.order.service.OrderService;
+import kissolive.orderitem.domain.OrderItem;
+import kissolive.orderitem.service.OrderItemService;
 import kissolive.series.domain.Series;
 import kissolive.series.domain.SeriesCount;
 import kissolive.series.service.SeriesService;
@@ -45,6 +51,9 @@ public class MainServlet extends BaseServlet {
 	private BrandService brandService = new BrandService();
 	private ColornoService colornoService = new ColornoService();
 	private CartService cartService = new CartService();
+	private AddressService addressService = new AddressService();
+	private OrderService orderService = new OrderService();
+	private OrderItemService orderItemService = new OrderItemService();
 	
 	/**
 	 * 根据品牌查找信息发送到品牌查询商品的页面
@@ -253,6 +262,7 @@ public class MainServlet extends BaseServlet {
 		if(user==null){
 			resp.getWriter().print(false);
 		}else{
+			
 			int number = Integer.parseInt(gnumber);
 			String userid = user.getUserid();
 			Cart cart = cartService.findByUseridAndGid(userid, gid);
@@ -267,6 +277,54 @@ public class MainServlet extends BaseServlet {
 			resp.getWriter().print(true);
 		}
 		return null;
+	}
+	/**
+	 * 异步修改购物车数量
+	 * @param req
+	 * @param resp
+	 * @return
+	 * @throws ServletException
+	 * @throws IOException
+	 * @throws SQLException
+	 */
+	public String ajaxUpdateCart(HttpServletRequest req,
+			HttpServletResponse resp) throws ServletException, IOException,
+			SQLException {
+
+		String cid = req.getParameter("cid");
+		String gnumber = req.getParameter("number");
+		User user = (User)req.getSession().getAttribute("sessionUser");
+		if(user==null){
+			resp.getWriter().print(false);
+		}else{
+			
+			int number = Integer.parseInt(gnumber);
+			String userid = user.getUserid();
+			Cart cart = cartService.findByCid(cid);
+			cart.setNumber(number);
+			cartService.update(userid, cart.getCid(), number);
+			resp.getWriter().print(true);
+		}
+		return null;
+	}
+	/**
+	 * 
+	 * @param req
+	 * @param resp
+	 * @return
+	 * @throws ServletException
+	 * @throws IOException
+	 * @throws SQLException
+	 */
+	public String deleteCart(HttpServletRequest req,
+			HttpServletResponse resp) throws ServletException, IOException,
+			SQLException {
+
+		String cid = req.getParameter("cid");
+		User user = (User)req.getSession().getAttribute("sessionUser");
+		String userid = user.getUserid();
+		cartService.delete(userid, cid);
+		return userCart(req,resp);
 	}
 	/**
 	 * 查看购物车
@@ -304,7 +362,7 @@ public class MainServlet extends BaseServlet {
 		return "f:/page/user/user_myshoppingcart.jsp";
 	}
 	/**
-	 * 
+	 * 发送购物车项到确认订单页面
 	 * @param req
 	 * @param resp
 	 * @return
@@ -316,34 +374,77 @@ public class MainServlet extends BaseServlet {
 			HttpServletResponse resp) throws ServletException, IOException,
 			SQLException {
 		User user = (User)req.getSession().getAttribute("sessionUser");
-		String[] cids = req.getParameterValues("cart");
-		List<Cart> cartList = new ArrayList<Cart>();
+		
+		try{
+			String[] cids = req.getParameterValues("cart");
+			List<Cart> cartList = new ArrayList<Cart>();
+			
+			for(int i=0;i<cids.length;i++){
+				Cart cart = cartService.findByCid(cids[i]);
+				cartList.add(cart);
+			}
+			List<CartItem> cartItemList = new ArrayList<CartItem>();
+			int totalNumber = 0;
+			double ttprice = 0;
+			for(int i=0;i<cartList.size();i++){
+				String gid = cartList.get(i).getGid();
+				Goods goods = goodsService.findByGid(gid);
+				Lipstick lipstick = lipstickService.findByLid(goods.getLid());
+				LipstickPicture lipstickPicture = lipstickPictureService.findMainPictureByLid(lipstick.getLid());
+				Colorno colorno = colornoService.findByCnid(goods.getCnid());
+				String mainsrc = lipstickPicture.getLpsrc();
+				String lname = lipstick.getLname();
+				String cncode = colorno.getCncode();
+				double gprice = goods.getGprice();
+				int number = cartList.get(i).getNumber();
+				totalNumber += number;
+				double totalprice = number * gprice;
+				ttprice += totalprice;
+				CartItem cartItem = new CartItem(cartList.get(i), mainsrc, lname, cncode, gprice, totalprice, number);
+				cartItemList.add(cartItem);
+			}
+			req.setAttribute("cartItemList", cartItemList);
+			String userid = user.getUserid();
+			List<Address> addressList = addressService.findByUser(userid);
+			req.setAttribute("addressList", addressList);
+			req.setAttribute("totalNumber", totalNumber);
+			req.setAttribute("ttprice", ttprice);
+			return "f:/page/user/user_pay.jsp";
+		}catch(Exception e){
+			return userCart(req,resp);
+		}
+	}
+	/**
+	 * 生成订单
+	 * @param req
+	 * @param resp
+	 * @return
+	 * @throws ServletException
+	 * @throws IOException
+	 * @throws SQLException
+	 */
+	public String createOrder(HttpServletRequest req,
+			HttpServletResponse resp) throws ServletException, IOException,
+			SQLException {
+		User user = (User)req.getSession().getAttribute("sessionUser");
+		String userid = user.getUserid();
+		String[] cids = req.getParameterValues("cid");
+		String aid = req.getParameter("selectaddr");
+		Address address = addressService.findByAid(aid);
+		String oid = CommonUtils.uuid();
+		Order order = new Order(oid, userid, 1, address.getProvince(), address.getCity(), address.getDistrict(), address.getDetail(), address.getName(), address.getTel());
+		orderService.add(order);
 		for(int i=0;i<cids.length;i++){
-			Cart cart = cartService.findByCid(cids[i]);
-			cartList.add(cart);
-		}
-		List<CartItem> cartItemList = new ArrayList<CartItem>();
-		for(int i=0;i<cartList.size();i++){
-			String gid = cartList.get(i).getGid();
+			String cid = cids[i];
+			Cart cart = cartService.findByCid(cid);
+			String gid = cart.getGid();
+			String oiid = CommonUtils.uuid();
 			Goods goods = goodsService.findByGid(gid);
-			Lipstick lipstick = lipstickService.findByLid(goods.getLid());
-			LipstickPicture lipstickPicture = lipstickPictureService.findMainPictureByLid(lipstick.getLid());
-			Colorno colorno = colornoService.findByCnid(goods.getCnid());
-			String mainsrc = lipstickPicture.getLpsrc();
-			String lname = lipstick.getLname();
-			String cncode = colorno.getCncode();
-			double gprice = goods.getGprice();
-			int number = cartList.get(i).getNumber();
-			double totalprice = number * gprice;
-			CartItem cartItem = new CartItem(cartList.get(i), mainsrc, lname, cncode, gprice, totalprice, number);
-			cartItemList.add(cartItem);
+			OrderItem orderitem = new OrderItem(oiid, oid, gid, cart.getNumber(), goods.getGprice());
+			orderItemService.add(orderitem);
+			cartService.delete(userid, cid);
 		}
-		req.setAttribute("cartItemList", cartItemList);
-		req.setAttribute("size", cartItemList.size());
-		
-		
-		
-		return null;
-		//return "f:/page/user/user_myshoppingcart.jsp";
+		req.setAttribute("oid", oid);
+		return "f:/page/user/user_successed.jsp";
 	}
 }

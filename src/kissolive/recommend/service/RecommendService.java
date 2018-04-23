@@ -45,7 +45,7 @@ public class RecommendService {
 				
 			}
 		} catch (SQLException e) {
-			throw new RuntimeException();
+			throw new RuntimeException(e);
 		}
 		return null;
 	}
@@ -53,21 +53,21 @@ public class RecommendService {
 		try {
 			return recommendDao.findByBid(bid);
 		} catch (SQLException e) {
-			throw new RuntimeException();
+			throw new RuntimeException(e);
 		}
 	}
 	public List<Recommend> findByLid(String lid){
 		try {
 			return recommendDao.findByBid(lid);
 		} catch (SQLException e) {
-			throw new RuntimeException();
+			throw new RuntimeException(e);
 		}
 	}
 	public List<Recommend> findBySid(String sid){
 		try {
 			return recommendDao.findByBid(sid);
 		} catch (SQLException e) {
-			throw new RuntimeException();
+			throw new RuntimeException(e);
 		}
 	}
 }

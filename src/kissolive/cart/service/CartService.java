@@ -12,14 +12,14 @@ public class CartService {
 		try {
 			cartDao.add(cart);
 		} catch (SQLException e) {
-			throw new RuntimeException();
+			throw new RuntimeException(e);
 		}
 	}
 	public Cart findByUseridAndGid(String userid,String gid){
 		try {
 			return cartDao.findByUseridAndGid(userid, gid);
 		} catch (SQLException e) {
-			throw new RuntimeException();
+			throw new RuntimeException(e);
 		}
 	}
 	public void update(String userid,String cid,int number){
@@ -39,6 +39,13 @@ public class CartService {
 	public Cart findByCid(String cid){
 		try {
 			return cartDao.findByCid(cid);
+		} catch (SQLException e) {
+			throw new RuntimeException(e);
+		}
+	}
+	public void delete(String userid, String cid){
+		try {
+			cartDao.delete(userid, cid);
 		} catch (SQLException e) {
 			throw new RuntimeException(e);
 		}

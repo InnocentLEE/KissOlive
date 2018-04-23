@@ -33,4 +33,11 @@ public class AddressService {
 			throw new RuntimeException(e);
 		}
 	}
+	public Address findByAid(String aid){
+		try {
+			return addressDao.findByAid(aid);
+		} catch (SQLException e) {
+			throw new RuntimeException(e);
+		}
+	}
 }

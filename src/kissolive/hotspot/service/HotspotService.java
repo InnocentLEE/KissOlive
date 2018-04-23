@@ -13,28 +13,28 @@ public class HotspotService {
 		try {
 			return hotspotDao.findByHid(hid);
 		} catch (SQLException e) {
-			throw new RuntimeException();
+			throw new RuntimeException(e);
 		}
 	}
 	public List<Hotspot> find(){
 		try {
 			return hotspotDao.find();
 		} catch (SQLException e) {
-			throw new RuntimeException();
+			throw new RuntimeException(e);
 		}
 	}
 	public void add(Hotspot hotspot){
 		try {
 			hotspotDao.add(hotspot);
 		} catch (SQLException e) {
-			throw new RuntimeException();
+			throw new RuntimeException(e);
 		}
 	}
 	public void delete(String hid){
 		try {
 			hotspotDao.delete(hid);
 		} catch (SQLException e) {
-			throw new RuntimeException();
+			throw new RuntimeException(e);
 		}
 	}
 }

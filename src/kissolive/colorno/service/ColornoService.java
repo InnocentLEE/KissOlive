@@ -13,7 +13,7 @@ public class ColornoService {
 		try {
 			colornoDao.add(colorno);
 		} catch (SQLException e) {
-			throw new RuntimeException();
+			throw new RuntimeException(e);
 		}
 	}
 	
@@ -21,21 +21,21 @@ public class ColornoService {
 		try {
 			return colornoDao.find();
 		} catch (SQLException e) {
-			throw new RuntimeException();
+			throw new RuntimeException(e);
 		}
 	}
 	public Colorno findByCnid(String cnid){
 		try {
 			return colornoDao.findByCnid(cnid);
 		} catch (SQLException e) {
-			throw new RuntimeException();
+			throw new RuntimeException(e);
 		}
 	}
 	public void delete(String cnid){
 		try {
 			colornoDao.delete(cnid);
 		} catch (SQLException e) {
-			throw new RuntimeException();
+			throw new RuntimeException(e);
 		}
 	}
 }

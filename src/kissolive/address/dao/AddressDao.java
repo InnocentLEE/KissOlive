@@ -6,6 +6,7 @@ import java.util.List;
 import kissolive.address.domain.Address;
 
 import org.apache.commons.dbutils.QueryRunner;
+import org.apache.commons.dbutils.handlers.BeanHandler;
 import org.apache.commons.dbutils.handlers.BeanListHandler;
 
 import util.TxQueryRunner;
@@ -34,5 +35,16 @@ public class AddressDao {
 		List<Address> addressList = qr.query(sql, new BeanListHandler<Address>(Address.class), userid);
 		//System.out.println(addressList);
 		return addressList;
+	}
+	/**
+	 * 根据id查找地址
+	 * @param aid
+	 * @return
+	 * @throws SQLException
+	 */
+	public Address findByAid(String aid) throws SQLException{
+		String sql = "select * from tb_address where aid=?";
+		Address address = qr.query(sql, new BeanHandler<Address>(Address.class), aid);
+		return address;
 	}
 }
