@@ -407,7 +407,7 @@
        }
        //付款
        function payfor(id){
-    	   $("input[id='"+id+"']").val("payforlOrder");
+    	   $("input[id='"+id+"']").val("payforOrder");
            $("form[id='"+id+"']").submit();
        }
        //收货

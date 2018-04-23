@@ -615,11 +615,53 @@ public class MainServlet extends BaseServlet {
 		req.setAttribute("brandList", brandList);
 		return "f:/page/user/user_orderlist.jsp";
 	}
+	/**
+	 * 取消订单
+	 * @param req
+	 * @param resp
+	 * @return
+	 * @throws ServletException
+	 * @throws IOException
+	 * @throws SQLException
+	 */
 	public String cancelOrder(HttpServletRequest req,
 			HttpServletResponse resp) throws ServletException, IOException,
 			SQLException {
-
-		System.out.println("gfdsaddsfdsrt");
-		return null;
+		String oid = req.getParameter("oid");
+		orderService.update(oid, 0);
+		return userOrder(req,resp);
+	}
+	/**
+	 * 付款
+	 * @param req
+	 * @param resp
+	 * @return
+	 * @throws ServletException
+	 * @throws IOException
+	 * @throws SQLException
+	 */
+	public String payforOrder(HttpServletRequest req,
+			HttpServletResponse resp) throws ServletException, IOException,
+			SQLException {
+		String oid = req.getParameter("oid");
+		orderService.update(oid, 2);
+		req.setAttribute("oid", oid);
+		return "f:/page/user/user_successed.jsp";
+	}
+	/**
+	 * 确认收货
+	 * @param req
+	 * @param resp
+	 * @return
+	 * @throws ServletException
+	 * @throws IOException
+	 * @throws SQLException
+	 */
+	public String recievelOrder(HttpServletRequest req,
+			HttpServletResponse resp) throws ServletException, IOException,
+			SQLException {
+		String oid = req.getParameter("oid");
+		orderService.update(oid, 4);
+		return userOrder(req,resp);
 	}
 }
