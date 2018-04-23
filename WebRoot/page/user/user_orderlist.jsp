@@ -166,7 +166,7 @@
 								</tbody>
 							</table>
 							<div class="table-btn">
-								<button type="button" class="btn defalut cancel" onclick="foward()">查看详情</button>
+								<button type="button" class="btn defalut cancel" onclick="foward('${orderListItem.oid }')">查看详情</button>
 								<button type="button" class="btn defalut cancel" onclick="cancel('${orderListItem.oid }')">取消</button>
 								<button type="button" class="btn defalut payfor" onclick="payfor('${orderListItem.oid }')">付款</button>
 							</div>
@@ -205,7 +205,7 @@
 								</tbody>
 							</table>
 							<div class="table-btn sure">
-								<button type="button" class="btn defalut cancel" onclick="forward()">查看详情</button>
+								<button type="button" class="btn defalut cancel" onclick="forward('${orderListItem.oid }')">查看详情</button>
 							</div>
 					</div>
 </c:forEach>
@@ -245,7 +245,7 @@
 								</tbody>
 							</table>
 							<div class="table-btn two">
-								<button type="button" class="btn defalut cancel" onclick="forward()">查看详情</button>
+								<button type="button" class="btn defalut cancel" onclick="forward('${orderListItem.oid }')">查看详情</button>
 								<button type="button" class="btn defalut received" onclick="received('${orderListItem.oid }')">确认收货</button>
 							</div>
 						</form>
@@ -285,7 +285,7 @@
 								</tbody>
 							</table>
 							<div class="table-btn sure">
-								<button type="button" class="btn defalut cancel" onclick="forward()">查看详情</button>
+								<button type="button" class="btn defalut cancel" onclick="forward('${orderListItem.oid }')">查看详情</button>
 							</div>
 					</div>
 </c:forEach>
@@ -323,7 +323,7 @@
 								</tbody>
 							</table>
 							<div class="table-btn sure">
-								<button type="button" class="btn defalut cancel" onclick="forward()">查看详情</button>
+								<button type="button" class="btn defalut cancel" onclick="forward('${orderListItem.oid }')">查看详情</button>
 							</div>
 					</div>
 </c:forEach>
@@ -412,12 +412,13 @@
        }
        //收货
        function received(id){
-    	   $("input[id='"+id+"']").val("recievelOrder");
+    	   $("input[id='"+id+"']").val("recieveOrder");
            $("form[id='"+id+"']").submit();
        }
        //跳转
  		function forward(){
-    	   window.location.herf="index.jsp";
+ 			$("input[id='"+id+"']").val("detailOrder");
+            $("form[id='"+id+"']").submit();
        }
     
     </script>
