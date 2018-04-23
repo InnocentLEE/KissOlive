@@ -28,6 +28,7 @@
     <style type="text/css">
     	.leadertab.row {margin-top: 0;}
     	.titleborder { margin: 50 0 50 0;}
+    	 ul.addr {margin-left: 0;}
     </style>
 
 </head>
@@ -126,27 +127,7 @@
 				    <div class="titleborder">
 					<label class="labelhead">订单详情</label>
 					</div>
-<c:forEach items="${addressList }" var="address" varStatus="index">
-	<c:choose>
-	<c:when test="${index.count < 2 }">
-				<ul class="addr">
-					   <li><input type="radio" value="${address.aid }" name="selectaddr" id="add1" checked></li>
-					   <li>收件人：${address.name }</li>
-					   <li>联系方式：${address.tel }</li>
-					   <li>收货地址：${address.province }${address.city }${address.district }${address.detail }</li>
-					</ul>
-	</c:when>
-	<c:otherwise>
-					<ul class="addr">
-					   <li><input type="radio" value="${address.aid }" name="selectaddr" id="add2"></li>
-					   <li>收件人：${address.name }</li>
-					   <li>联系方式：${address.tel }</li>
-					   <li>收货地址：${address.province }${address.city }${address.district }${address.detail }</li>
-					</ul>
-	</c:otherwise>
-	</c:choose>
-</c:forEach>
-					<table class="table">
+                    <table class="table">
 						<thead>
 							<tr>
 								<th>&nbsp;</th>
@@ -211,14 +192,14 @@
 									</div>
 								</td>
 							</tr>
-							<tr>
-								<th colspan="3"></th>
-								<td colspan="2" style="text-align:center">
-								   <button style="color: #fff;" class="buyBtn"  id="surecid" onclick="judge();">确定支付</button>
-							    </td>
-							</tr>
 					</tbody>
 					</table>
+					
+					<ul class="addr">
+					   <li>收件人：${address.name }</li>
+					   <li>联系方式：${address.tel }</li>
+					   <li>收货地址：${address.province }${address.city }${address.district }${address.detail }</li>
+					</ul>
 				</div>
 			  <!-- 订单提交页面 -->
 			</form>

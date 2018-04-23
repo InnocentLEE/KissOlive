@@ -5,7 +5,7 @@
 <html>
 <head>
 
-<title>Kiss Olive 口红管理</title>
+<title>Kiss Olive 订单详情</title>
 <meta http-equiv="pragma" content="no-cache">
 <meta http-equiv="cache-control" content="no-cache">
 <meta http-equiv="expires" content="0">
@@ -26,7 +26,7 @@
 		<!-- start:添加口红 -->
 		<div class="row">
 			<div class="col-lg-10">
-				<h1 class="page-header">订单管理</h1>
+				<h1 class="page-header">订单详情</h1>
 			</div>
 		</div>
 	   <div class="leadertab row">
@@ -419,23 +419,7 @@
 	
     <script type="text/javascript" src="<c:url value='/js/jquery.js'/>"></script>
     <script type="text/javascript" src="<c:url value='/js/bootstrap.min.js'/>"></script>
-    <script type="text/javascript">
-       //取消
-       function cancel(id){
-    	    $("input[id='"+id+"']").val("cancelOrder");
-            $("form[id='"+id+"']").submit();
-       }
-       //发货
-       function deliver(id){
-    	   $("input[id='"+id+"']").val("deliverOrder");
-           $("form[id='"+id+"']").submit();
-       }
-       //跳转
- 		function forward(){
-    	   window.location.herf="index.jsp";
-       }
-    
-    </script>
+   
     
 </body>
 </html>
