@@ -411,7 +411,7 @@
            $("form[id='"+id+"']").submit();
        }
        //收货
-       function recieve(id){
+       function received(id){
     	   $("input[id='"+id+"']").val("recievelOrder");
            $("form[id='"+id+"']").submit();
        }
