@@ -1,0 +1,91 @@
+/*选项卡样式*/
+ul#myTab {
+    border-bottom: 1px solid #000;
+    margin: 0 65;
+}
+li#step1Li, #step2Li, #step3Li,#step4Li{
+    /* color: #fff; */
+    margin: 0 30 0 0;
+}
+li#step1Li, #step2Li, #step3Li,#step4Li>a {
+    background-color: #555;
+    color: #fff;
+    font-size: 16px;
+    font-weight: bold;
+    width: 120;
+    padding: 0;
+    text-align: center;
+}
+.nav>li>a:focus, .nav>li>a:hover {
+    text-decoration: none;
+    background-color: #777;
+    border:none;
+}
+/*头部*/
+.line {
+    margin: 50 70 30 70;
+}
+div.line>span.header {
+    padding-top: 0.2%;
+    height: 56px;
+    font-size: 28px;
+}
+.top {
+    margin: 30 65;
+    background: #080808f7;
+    height: 30;
+    color: #fff;
+    display: grid;
+    grid-template-columns: 435px 310 1fr;
+    font-size: 20px;
+    text-align: center;
+    font-family: fantasy;
+    font-weight: bold;
+}
+/*卡片式订单*/
+.orderlist {
+    margin: 0 65;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    margin-bottom: 50px;
+}
+button.btn.defalut {
+    width: 80px;
+    margin: 0 20;
+    background: #000;
+    color: #fff;
+}
+.table-btn {
+    margin: 0 0 0 870;
+}
+.table-btn.sure {
+   margin: 0 0 0 920;
+}
+
+table.table.table-striped {
+    margin-bottom: 10px;
+}
+.nav-tabs>li.active>a, .nav-tabs>li.active>a:focus, .nav-tabs>li.active>a:hover,.nav-tabs>li#step4Li.active>a:hover {
+    font-weight: bold;
+    color: #f2dede;
+    cursor: default;
+    background-color: #080808;
+    border: 1px solid #080808;
+    border-bottom-color: transparent;
+}
+.nav-tabs>li>a {
+    margin-right: 2px;
+    line-height: 1.42857143;
+    border: 1px solid transparent;
+    border-radius: 4px 4px 0 0;
+    background: #555;
+    color: #fff;
+}
+li#step4Li {
+    height: 42px;
+}
+li#step4Li>a {
+    height: 45px;
+    padding: 8;
+    /* margin: auto 0; */
+}
