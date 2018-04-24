@@ -16,6 +16,10 @@
 <link rel="stylesheet" href="<c:url value='/css/admin/main.css'/>">
 <link rel="stylesheet" href="<c:url value='/css/user/orderlist.css'/>">		
 
+<style>
+	.top {grid-template-columns: 435px 390 226;}
+
+</style>
 <script type="text/javascript">
 
 </script>
@@ -147,7 +151,7 @@
 									<tr>
 										<td></td>
 										<td>${viewOrderItem.lname }${viewOrderItem.cncode }</td>
-										<td style="text-align: center;">${viewOrderItem.number }</td>
+										<td style="text-align: center;width: 220;">${viewOrderItem.number }</td>
 										<td style=" text-align: center;">${viewOrderItem.totalprice }</td>
 									</tr>
 				</c:forEach>
@@ -183,7 +187,7 @@
 									<tr>
 										<td></td>
 										<td>${viewOrderItem.lname }${viewOrderItem.cncode }</td>
-										<td style="text-align: center;">${viewOrderItem.number }</td>
+										<td style="text-align: center;width: 220;">${viewOrderItem.number }</td>
 										<td style=" text-align: center;">${viewOrderItem.totalprice }</td>
 									</tr>
 				</c:forEach>

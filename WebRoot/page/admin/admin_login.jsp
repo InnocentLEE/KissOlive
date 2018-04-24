@@ -51,14 +51,14 @@
 					</div>
 
 					<form class="registerform form-horizontal "action="/KissOlive/servlet/UserServlet" method="post">
-						<input type="hidden" name="method" value="login" />
+						<input type="hidden" name="method" value="adminlogin" />
 						<div class="sum-group">
 							<div class="form-group">
 								<label for="tel" class="col-sm-5 control-label"
 									style="text-align:right">登陆账号</label>
 								<div class="col-sm-6">
 									<input type="text" class="form-control inputxt" id="usertel"
-										name="usertel" placeholder="请输入手机号" value="${usertel }"/>
+										name="usertel" placeholder="" value="${usertel }"/>
 								</div>
 							</div>
 							<div class="form-group">
@@ -67,7 +67,7 @@
 								<div class="col-sm-6">
 									<input type="password" value="" id="password" name="password"
 										class="inputClass form-control inputxt"
-										placeholder="6-18位以字母开头，含数字/字母/'_'" value="${password }"
+										placeholder="" value="${password }"
 										required="required" />
 								</div>
 								<div class="col-sm-12 tip1">

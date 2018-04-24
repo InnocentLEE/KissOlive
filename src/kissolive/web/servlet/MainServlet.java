@@ -440,7 +440,7 @@ public class MainServlet extends BaseServlet {
 		String aid = req.getParameter("selectaddr");
 		Address address = addressService.findByAid(aid);
 		String oid = CommonUtils.uuid();
-		Order order = new Order(oid, userid, 1, address.getProvince(), address.getCity(), address.getDistrict(), address.getDetail(), address.getName(), address.getTel());
+		Order order = new Order(oid, userid, 2, address.getProvince(), address.getCity(), address.getDistrict(), address.getDetail(), address.getName(), address.getTel());
 		orderService.add(order);
 		for(int i=0;i<cids.length;i++){
 			String cid = cids[i];

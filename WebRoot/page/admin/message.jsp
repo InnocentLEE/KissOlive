@@ -12,14 +12,42 @@
 	<meta http-equiv="expires" content="0">    
 	<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
 	<meta http-equiv="description" content="This is my page">
+	
+	<link rel="stylesheet" type="text/css"
+	href="<c:url value='/css/bootstrap.min.css'/>">
+   <link rel="stylesheet" type="text/css" href="<c:url value='/css/admin/main.css'/>">
 	<!--
 	<link rel="stylesheet" type="text/css" href="styles.css">
 	-->
-
+    <style type="text/css">
+     label{
+     color:#72331b;
+     }
+     body {
+           background-image:url(<c:url value='/img/msg.jpg'/>);
+           background-repeat: no-repeat;
+           background-size:100%;
+		   text-align: center;
+           }
+      
+      div {
+		    margin: 500 auto 50 auto;
+		    width: fit-content;
+		    font-size: 22;
+		  }
+	 a{
+	  font-size:20;
+	 }
+	</style>
+    
   </head>
   
   <body>
-    ${message }<br/>
-    <a href="<c:url value='${href }'/>">返回</a>
+    <div>
+    <label class="msg"> ${message }</label>
+    </div>
+    
+    <a href="<c:url value='${href }'/>" class="btn btn-primary" >返&nbsp;&nbsp;回</a>
+    
   </body>
 </html>

@@ -278,6 +278,20 @@ public class UserServlet extends BaseServlet {
 			return "f:/page/user/user_login.jsp";
 		}
 	}
+	public String adminlogin(HttpServletRequest req, HttpServletResponse resp)
+			throws ServletException, IOException, SQLException {
+		String usertel = req.getParameter("usertel");
+		String password = req.getParameter("password");
+		if (usertel.equals("admin")&&password.equals("admin123")) {
+			// 重定向到主页
+			return "r:/admin/index.jsp";
+		} else {
+			req.setAttribute("usertel", usertel);
+			req.setAttribute("password", password);
+			req.setAttribute("errors", "账户或密码错误");
+			return "f:/page/admin/admin_login.jsp";
+		}
+	}
 
 	public String findpassword(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException, SQLException,
